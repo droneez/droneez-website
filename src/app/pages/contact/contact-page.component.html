@@ -1,0 +1,63 @@
+<section class="section">
+	<div class="container">
+
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3824.3170620258743!2d2.287453418812603!3d48.815918040580684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e673d2a589c705%3A0x80f89840d3802be4!2sDRONEEZ!5e0!3m2!1sfr!2sfr!4v1538495920237" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+		<!-- form goes here -->
+		<form (ngSubmit)="processForm()">
+
+		  <!-- name -->
+		  <div class="field">
+		    <input 
+		      type="text" 
+		      name="name" 
+		      class="input" 
+		      placeholder="Your Name" 
+		      [(ngModel)]="name"
+		      required
+		      minlength="3"
+		      #nameInput="ngModel">
+
+		    <div class="help is-error" *ngIf="nameInput.invalid && nameInput.dirty">
+		      Name is required and needs to be at least 3 characters long.
+		    </div>
+		  </div>
+
+		  <!-- email -->
+		  <div class="field">          
+		    <input 
+		      type="email" 
+		      name="email" 
+		      class="input" 
+		      placeholder="Your Email" 
+		      [(ngModel)]="email"
+		      required
+		      email
+		      #emailInput="ngModel">
+
+		    <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+		      Needs to be a valid email.
+		    </div>
+		  </div>
+
+		  <!-- message -->
+		  <div class="field">
+		    <textarea 
+		      class="textarea" 
+		      name="message" 
+		      placeholder="What's on your mind?" 
+		      [(ngModel)]="message"
+		      required
+		      #messageInput="ngModel"></textarea>
+
+		      <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+		        Your message is required!
+		      </div>
+		  </div>
+
+		  <button type="submit" class="button is-danger is-large">Submit</button>
+
+		</form>
+
+	</div>
+</section>

@@ -1,0 +1,25 @@
+<section>
+	<div style="overflow:hidden;position:relative" >
+		<div style="position:absolute;z-index:1;">
+			<h2 style="font-family:'Zilla Slab';font-weight:normal;font-style:normal;color:#ffffff;margin-top:0px;margin-bottom:0px;">SALLE INDOOR DE 1800m2</h2>
+			<p>
+				Le pilotage de 7 à 77 ans. Trois volières, un espace bar, un atelier &amp; un coworking !
+			</p>
+		</div>
+		<div style="overflow:hidden;position:relative" [style.height]="screenHeight + 'px'" [style.width]="screenWidth + 'px'">
+			<video #videoBackground [style.top]="parallaxOffset + 'px'" [ngStyle]="{
+				position:'absolute',
+				width:screenWidth + 'px',
+				height:screenHeight + 'px',
+				objectFit:'cover'
+			}"
+			[preload]="preload" [loop]="true" [autoplay]="true" [muted]="true" >
+			  	<source src="assets/img/droneez-petit-tour-de-piste-pour-bien-demarrer-la-journee.mp4#t=5">
+			</video>
+		</div>
+	</div>
+
+	<div style="height:1000px;">
+	</div>
+</section>
+

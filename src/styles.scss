@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Bootstrap */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+/* Font-Awesome */
+@import "~font-awesome/css/font-awesome.min.css";
+
+/* fonts */
+@font-face {
+    font-family: montserrat;
+    src: url("assets/fonts/montserrat/Montserrat-Light.ttf");
+}

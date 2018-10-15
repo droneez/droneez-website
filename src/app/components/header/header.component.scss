@@ -1,0 +1,36 @@
+@import "~src/variables.scss";
+
+#navbarSupportedContent {
+	overflow: hidden !important;
+	max-height: 0px;
+	transition: ease-out .2s all;
+
+	&.toggle-anim {
+		max-height: 215px !important;
+	}
+}
+
+/* Quand il n est pas collapsed, c-a-d en taille lg et plus*/
+@media(min-width:992px) {
+	#navbarSupportedContent {
+		overflow: visible !important;
+	}
+}
+
+/* transition au scroll */
+nav {
+	transition: ease .4s height, ease .4s background-color;
+	height: 90px;
+
+	&:not(.top-reached) {
+		height: 64px;
+		background-color: map-get($colors, dark) !important;
+	}
+
+	.nav-item {
+		text-transform:uppercase;
+		font-family: montserrat, Helvetica, Arial, Verdana, sans-serif;
+	}
+}
+
+
