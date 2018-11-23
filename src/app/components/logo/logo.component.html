@@ -1,0 +1,19 @@
+<div id="logo-droneez-anim" [class.anim]="anim">
+	<div class="left-wing-container" [style.transition]="'ease-in-out '+speed+'ms all'">
+		<div class="left-img-container" >
+			<img class="left-wing-img" src="assets/img/logo/white-left-wing.png" [style.transition]="'ease-in-out '+speed+'ms opacity, ease '+speed+'ms transform'">
+		</div>
+	</div>
+	<div class="middle-img-container">
+		<img class="wheel" src="assets/img/logo/white-wheel.png" 
+			[style.transition]="'ease-out all '+speed+'ms'">
+	</div>
+	<div class="right-wing-container"  [style.transition]="'ease-in-out '+speed+'ms all'">
+		<div class="right-img-container">
+			<img class="right-wing-img" src="assets/img/logo/white-right-wing.png" [style.transition]="'ease-in-out '+speed+'ms opacity, ease '+speed+'ms transform'">
+		</div>
+	</div>
+	<div class="label-logo-droneez" [style.display]="title ? 'block' : 'none'">
+		DRONEEZ		
+	</div>
+</div>

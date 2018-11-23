@@ -1,0 +1,117 @@
+@keyframes rotateWheel {
+	from { transform: rotate3d(0,0,1,0deg); }
+	to { transform: rotate3d(0,0,1,360deg); }
+}
+@keyframes opacityIn {
+	from { opacity:0; }
+	to { opacity:1; }
+}
+@keyframes rotateLeftWings {
+	from { transform: rotate3d(1,1,1,-25deg); }
+	to { transform: rotate3d(1,1,1,0deg); }
+}
+@keyframes rotateRightWings {
+	from { transform: rotate3d(1,1,1,25deg); }
+	to { transform: rotate3d(1,1,1,0deg);}
+}
+@keyframes sketchLeftWings {
+	from { transform: scale3d(.7,1,1) translateX(15%); }
+	to { transform: initial; }
+}
+@keyframes sketchRightWings {
+	from { transform: scale3d(.7,1,1) translateX(-15%); }
+	to { transform: initial; }
+}
+
+#logo-droneez-anim {
+
+	display: inline-block;
+	position: relative;
+	max-width: 500px;
+	min-width: 90px;
+	width: 500px;
+
+	.label-logo-droneez {
+		font-family: raleway-extra-bold, sans-serif;
+		margin-top: 3%;
+		font-size: 73px;
+	}
+
+	.left-wing-container {
+	    text-align: left;
+	    transform-origin: right;
+	    transform: rotate3d(1,1,1,-25deg);
+	    display: inline-block;
+	    width: 48%;
+
+	    .left-img-container {
+			width: 80%;
+		    display: inline-block;
+		    text-align: right;
+
+		    img {
+				padding-top: 10%;
+				max-width: 100%;
+				opacity: 0;
+				transform: scale3d(.7,1,1) translateX(15%);
+			}
+		}
+	}
+
+	.right-wing-container {	
+		text-align: right;
+		transform-origin: left;
+		transform: rotate3d(1,1,1,25deg);
+		display: inline-block;
+	    width: 48%;
+
+		.right-img-container {
+			width: 80%;
+		    display: inline-block;
+		    text-align: left;
+
+		    img {
+				padding-top: 10%;
+				max-width: 100%;
+				opacity: 0;
+				transform: scale3d(.7,1,1) translateX(-15%);
+			}
+		}
+	}
+
+	.middle-img-container {
+		display: inline-block;
+	    position: absolute;
+	    width: 100%;
+	    left: 0;
+	    text-align: center;
+
+	    img {
+			width: 25%;
+			max-width: 100%;
+			transform: rotate3d(0,0,1,0deg);
+		}
+	}
+
+	&.anim {
+		.left-wing-container {
+			transform: rotate3d(1,1,1,0deg) !important;
+
+			img.left-wing-img {
+			    opacity: 1 !important;
+			    transform: initial !important;
+			}
+		}
+		.right-wing-container {
+		    transform: rotate3d(1,1,1,0deg) !important;
+
+		    img.right-wing-img {
+			    opacity: 1 !important;
+			    transform: initial !important;
+			}
+		}
+		.wheel {
+		    transform: rotate3d(0,0,1,360deg) !important;
+		}
+	}
+}

@@ -1,5 +1,385 @@
 @import "~src/variables.scss";
 
-section {
-	background-color: map-get($colors,primary);
+.video-section {
+	background: map-get($colors,dark);
+	.global {
+		overflow: hidden;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		position: relative;
+
+		.title-container {
+			position: absolute;
+			z-index: 1;
+			text-align: center;
+			align-self: center;
+
+			.title {
+				font-family: montserrat-regular;
+				font-weight: normal;
+				font-style: normal;
+				color: map-get($colors,light);
+				margin-top: 0px;
+				margin-bottom: 0px;
+				text-transform: uppercase;
+			}
+
+			.subtitle {
+				color: map-get($colors,light);
+			}
+
+			.booking-button {
+				app-logo {
+					display: block;
+					padding-top: 2rem;
+				}
+
+				a {
+					display: inline-block;
+    				font-family: montserrat-medium;
+    				text-transform: uppercase;
+    				padding: 2rem;					
+					color: map-get($colors, light) !important;
+					transition: ease transform .5s;
+					transform: scale3d(1,1,1);
+					&.focus {
+						transform: scale3d(1.1,1.1,1);
+					}
+				}
+				a:hover, a:focus {
+					/*color: map-get($colors, light-trans) !important;*/
+					text-decoration: none !important;
+				}
+			}
+		}
+
+		.city-container {
+			position: absolute; 
+			bottom: 4rem; 
+			z-index: 1;
+
+			.img-container {
+				display: flex;
+    			width: 4rem;
+    			height: 4rem;
+    			border: 3px solid map-get($colors, light);
+    			border-radius: 100px;
+    			justify-content: center;
+    			align-items: center;
+ 				
+ 				img {
+ 					max-width: 3rem;
+ 					height: auto; 
+ 				}
+
+    			.img-label {
+    				position: absolute;
+   					color: map-get($colors, light);
+    				font-family: montserrat-regular;
+    				text-transform: uppercase;
+    				bottom: -40px;
+    			}
+			}
+		}
+
+		.video-container {
+			overflow: hidden;
+			position: relative;
+			min-height: 550px;
+
+			video {
+				position: absolute;
+			} 
+		}
+	}
+}
+
+.races-section {
+	background: map-get($colors,light);
+	overflow: hidden;
+
+	.decoration {
+		position: relative;
+		.background-img {
+			position: absolute;
+			width:55rem;
+
+			&.corner-left {
+				left: -13rem;
+				top: -14rem;
+			}
+			&.corner-right {
+				right: -17rem;
+				top: -13rem;
+			}
+		}
+	}
+
+	@media (max-width:1040px) {
+		.background-img {
+			width: 33rem !important;
+    		&.corner-left {
+    			left: -7rem !important;
+    			top: -8rem !important;
+    		}
+    		&.corner-right {
+    			right: -10rem !important;
+    			top: -8rem !important;
+    		}
+		}
+	}
+
+	@media (max-width:700px) {
+		.background-img {
+			width: 18rem !important;
+    		&.corner-left {
+    			left: -5rem !important;
+    			top: -5rem !important;
+    		}
+    		&.corner-right {
+    			right: -6rem !important;
+    			top: -5.5rem !important;
+    		}
+		}
+	}
+
+	.global {
+		padding: 1rem 0 6rem 0;
+		.global-sub-container {
+			display: flex; 
+			flex-direction: column;
+			align-items: center;
+
+			.presentation-container {
+				text-align: center;
+				.title {
+					font-family: BebasNeueRegular; 
+					font-size: 2.8rem;
+					padding: 2.5rem 0;
+				}
+				.presentation {
+					font-family: montserrat-medium; 
+					padding-top: 1.5rem;
+    				padding-bottom: 1.5rem;
+				}
+			}
+			.icon-container {
+				display: flex;
+			    flex-direction: row;
+			    align-items: flex-end;
+			    justify-content: space-around;
+			    width: 100%;padding: 2rem 0;
+
+				figure figcaption {
+					padding: 3rem 0;
+					font-family: montserrat-medium;    
+					text-align: center;
+				}
+			}
+
+			.booking-button-container {
+				padding: 1rem 0;
+			}
+		}
+	}
+}
+
+.coworking-section {
+	background: map-get($colors,dark);
+
+	position: relative;
+	overflow: hidden;
+
+	.global {
+		.background-img {
+			max-width: 100%;
+		    min-width: 60rem;
+		    height: auto;
+		    position: absolute;
+		    bottom: 0;
+		    right: 0;
+		    opacity: .7;
+		}
+		@media (max-width:1300px) {
+			.background-img {
+				max-width:170%;
+			}
+		}
+		@media (max-width:800px) {
+			.background-img {
+				max-width:300%;
+				right:-2rem;
+			}
+		}
+		@media (max-width:450px) {
+			.background-img {
+				max-width:400%;
+				right:-6rem;
+			}
+		}
+	}
+}
+
+.certification-section {
+	background: map-get($colors, light);
+	
+	.global {
+		padding: 1rem 0 2rem 0;
+		overflow: hidden;
+
+		.img-container {
+			img {
+				width: 100%; 
+			}
+		}
+
+		.certif-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-evenly;
+			min-height: 40rem;
+
+			.title {
+				padding: 2rem 0 2rem 0;
+				text-align: center;
+				font-family: montserrat-medium;
+			}
+
+			.certif-presentation {
+				text-align: center;
+				font-family: montserrat-medium;
+				padding: 3rem 0 5rem 0;
+			}
+
+			.certif-button {
+				text-align: center;
+				padding: 1rem 0;
+			}
+		}
+	}
+}
+
+.business-section {
+	background: map-get($colors,dark);
+	color: map-get($colors, light);
+
+	.global {
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+
+		.title {
+			padding: 1rem 0;
+			font-size: 3rem;
+			text-align: center; 
+			font-family: BebasNeueRegular;
+		}
+
+		.activity {
+			min-height: 12rem;
+			margin-top: -1px;
+			margin-bottom: -1px;
+
+			.metrics-container {
+				min-height: inherit;
+				font-family: BebasNeueRegular; 
+				text-align: center;
+				background: map-get($colors,light);
+				color: map-get($colors,dark);
+
+				.metrics {
+					text-align: left;
+					vertical-align: middle;
+					font-size: 1.5rem;
+					.metric {
+						vertical-align: middle;
+						padding-right: 1.5rem;
+						font-size: 4rem;
+					}
+				} 
+			}
+
+			.activity-presentation {
+				font-size: .9rem;
+				font-family: raleway-regular;
+			}
+
+			.activity-icon {
+				text-align: center;
+				img {
+					 max-width: 8rem;
+				}
+			}
+		}
+	}
+}
+
+.clients-section {
+	background: map-get($colors,light);
+	display: flex;
+    align-items: center;
+
+	.global {
+		padding: 1rem 0 3rem 0;
+		[class*=-container] {
+			.title {
+				font-family: BebasNeueRegular;
+				text-align: center;
+				padding: 4rem 0 .5rem 0;
+				font-size: 2.2rem;
+			}
+
+			[class*=-icons] {
+				text-align: center;
+				ul {
+					padding: 0;
+					li {
+						display: inline-block;
+						padding: 1rem 1rem;
+
+						.shadow-icon {
+							box-shadow: black 0px 0px 0px 0px;
+					    	border-radius: 100px;
+					   		height: .1rem;
+					    	width: .1rem;
+					    	margin-left: 50%;
+					    	transform: rotate3d(1,0,0,77deg) translateX(-50%);
+					    	transition: ease-out .4s box-shadow;
+						}
+
+						img {
+							max-width: 6rem;
+							max-height: 4rem;
+							transition: filter .2s ease-out , transform .4s ease-out;
+							transform: translate3d(0,0,0) scale3d(1,1,1);
+	  						filter: grayscale(100%);
+						}
+
+						&:hover {
+							.shadow-icon {
+								box-shadow: black 0px 0px 48px 6px;
+						    }
+
+						    img {
+						    	filter: grayscale(0%);
+								transform: translate3d(0,-1.5rem,0) scale3d(1.15,1.15,1);
+						    }
+						}
+
+						&:focus {
+							.shadow {
+								box-shadow: black 0px 0px 48px 6px;
+						    }
+
+						    img {
+						    	filter: grayscale(0%);
+								transform: translate3d(0,-1rem,0);
+						    }
+						}
+					}
+				}
+			}
+		}
+	}
 }

@@ -4,9 +4,88 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 /* Font-Awesome */
 @import "~font-awesome/css/font-awesome.min.css";
+/* Globals variables */
+@import "~src/variables.scss";
 
 /* fonts */
 @font-face {
-    font-family: montserrat;
+    font-family: montserrat-regular;
+    src: url("assets/fonts/montserrat/Montserrat-Regular.ttf");
+}
+@font-face {
+    font-family: montserrat-light;
     src: url("assets/fonts/montserrat/Montserrat-Light.ttf");
+}
+@font-face {
+    font-family: montserrat-medium;
+    src: url("assets/fonts/montserrat/Montserrat-medium.ttf");
+}
+@font-face {
+    font-family: BebasNeueRegular;
+    src: url("assets/fonts/BebasNeue/BebasNeueRegular.otf");
+}
+@font-face {
+    font-family: BebasNeue;
+    src: url("assets/fonts/BebasNeue/BebasNeue.otf");
+}
+@font-face {
+    font-family: raleway-medium;
+    src: url("assets/fonts/Raleway/Raleway-Medium.ttf");
+}
+@font-face {
+    font-family: raleway-regular;
+    src: url("assets/fonts/Raleway/Raleway-Regular.ttf");
+}
+@font-face {
+    font-family: raleway-extra-bold;
+    src: url("assets/fonts/Raleway/Raleway-ExtraBold.ttf");
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-btn-outline-dark {
+	font-family: raleway-medium;
+    text-transform: uppercase;
+    border-radius: 0 !important;
+    border-color: map-get($colors, dark) !important;
+    border-style: solid !important;
+    outline: none !important;
+    line-height: 0 !important;
+    color: map-get($colors, dark);
+}
+
+.mat-btn-no-border-dark {
+	font-family: raleway-medium;
+    text-transform: uppercase;
+    border-radius: 0 !important;
+    outline: none !important;
+    line-height: 0 !important;
+    color: map-get($colors, dark);
+}
+
+.mat-btn-outline-light {
+	font-family: raleway-medium;
+    text-transform: uppercase;
+    border-radius: 0 !important;
+    border-color: map-get($colors, light) !important;
+    border-style: solid !important;
+    outline: none !important;
+    line-height: 0 !important;
+    color: map-get($colors, light);
+}
+
+.mat-btn-no-border-light {
+	font-family: raleway-medium;
+    text-transform: uppercase;
+    border-radius: 0 !important;
+    outline: none !important;
+    line-height: 0 !important;
+    color: map-get($colors, light);
+}
+
+.mat-btn-lg {
+	border-width: 2px !important;
+    padding: 25px 85px !important;
+    font-size: 1rem;
+    width: 16rem;
 }

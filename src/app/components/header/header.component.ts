@@ -1,6 +1,7 @@
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { WINDOW } from "./../../services/window.service";
+import { Globals } from "./../../globals";
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,8 @@ export class HeaderComponent implements OnInit {
 
 	constructor(
   		@Inject(DOCUMENT) private document: Document,
-    	@Inject(WINDOW) private window) {
+    	@Inject(WINDOW) private window,
+    	private globals: Globals) {
   	}
 
 	ngOnInit() {

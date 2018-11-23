@@ -1,8 +1,18 @@
+<!-- <appSmoothScroll speed="10" smooth="30"> -->
+		
 <!-- header -->
-<app-header></app-header>
-  
-<!-- routes will be rendered here -->
-<router-outlet></router-outlet>
+<app-header ></app-header>
+
+
+<div [@routeAnimations]="prepareRoute(outlet)">
+
+	<!-- routes will be rendered here -->		
+	<router-outlet (activate)="onActivate($event)" #outlet="outlet">
+		
+	</router-outlet>
+</div>
 
 <!-- footer -->
-<app-footer></app-footer>
+<div [@footerAnimations]="prepareRoute(outlet)">
+	<app-footer ></app-footer>
+</div>

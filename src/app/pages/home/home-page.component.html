@@ -1,25 +1,232 @@
-<section>
-	<div style="overflow:hidden;position:relative" >
-		<div style="position:absolute;z-index:1;">
-			<h2 style="font-family:'Zilla Slab';font-weight:normal;font-style:normal;color:#ffffff;margin-top:0px;margin-bottom:0px;">SALLE INDOOR DE 1800m2</h2>
-			<p>
+<section class="video-section">
+	<div class="global">
+		<div class="title-container">
+			<h2 class="title">
+				salle indoor de 1800 m²
+			</h2>
+			<p class="subtitle">
 				Le pilotage de 7 à 77 ans. Trois volières, un espace bar, un atelier &amp; un coworking !
 			</p>
+			<div class="booking-button">
+				<app-logo [speed]="500" [anim]="animLogo" [title]="false"></app-logo>
+				<a (mouseover)="animLogo=true" (mouseout)="animLogo=false" [class.focus]="animLogo" routerLink="/booking">Je réserve !</a>
+			</div>
+			
 		</div>
-		<div style="overflow:hidden;position:relative" [style.height]="screenHeight + 'px'" [style.width]="screenWidth + 'px'">
-			<video #videoBackground [style.top]="parallaxOffset + 'px'" [ngStyle]="{
-				position:'absolute',
-				width:screenWidth + 'px',
-				height:screenHeight + 'px',
-				objectFit:'cover'
-			}"
-			[preload]="preload" [loop]="true" [autoplay]="true" [muted]="true" >
-			  	<source src="assets/img/droneez-petit-tour-de-piste-pour-bien-demarrer-la-journee.mp4#t=5">
+		<div class="city-container container" style="display:block">
+			<div class="city row justify-content-around align-items-center">
+				<div class="img-container">
+					<img [src]="'assets/icon/malakoff-place.png'" />
+					<span class="img-label">Paris</span></div>
+				<div class="img-container">
+					<img [src]="'assets/icon/malakoff-place.png'" />
+					<span class="img-label">Paris</span>
+				</div>
+				<div class="img-container">
+					<img [src]="'assets/icon/malakoff-place.png'" />
+					<span class="img-label">Paris</span>
+				</div>
+			</div>
+		</div>
+		<div class="video-container" 
+			[style.height]="screenHeight + 'px'" 
+			[style.width]="screenWidth + 'px'"
+		>
+			<video [preload]="preload" [loop]="true" [autoplay]="true" [muted]="true"
+				[ngStyle]="{
+					top: parallaxOffset + 'px',
+					width:screenWidth + 'px',
+					height: isIEorEdge ? 'auto' : screenHeight + 'px',
+					'-ms-ime-align': 'auto',
+					objectFit:'cover'
+				}"
+			>
+				<source src="assets/img/video_homepage.mp4">
 			</video>
 		</div>
 	</div>
+</section>
 
-	<div style="height:1000px;">
+
+
+<section class="races-section">
+	<div class="decoration">
+		<img class="background-img corner-left" [src]="'assets/img/drone-course-bg1.png'">
+		<img class="background-img corner-right" [src]="'assets/img/drone-course-bg2.png'">
+	</div>
+	<div class="global container">
+		<div class="global-sub-container">
+			<div class="presentation-container">
+				<h2 class="title">Courses</h2>
+				<div class="row">
+					<p class="presentation col-sm-8 col-md-6 col-lg-4 mx-auto">
+						Pandente itaque viam fatorum sorte tristissima, qua praestitutum erat eum vita et imperio spoliari, itineribus interiectis permutatione iumentorum emensis venit Petobionem oppidum Noricorum, ubi
+					</p>
+				</div>
+			</div>
+			<div class="icon-container">
+				<div>
+					<figure>
+						<img [src]="'assets/icon/initiation-icon.png'" />
+						<figcaption>
+							Initiation
+						</figcaption>
+					</figure>
+				</div>
+				<div>
+					<figure>
+						<img [src]="'assets/icon/fpv-icon.png'" />
+						<figcaption>
+							FPV
+						</figcaption>
+					</figure>
+				</div>
+				<div>
+					<figure>
+						<img [src]="'assets/icon/pistes-icon.png'" />
+						<figcaption>
+							Accès Piste
+						</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="booking-button-container">
+				<button mat-button class="mat-btn-outline-dark mat-btn-lg" routerLink="/booking">Réserver</button>
+			</div>
+		</div>
 	</div>
 </section>
+
+
+
+<section class="coworking-section" style="height:55rem;">
+	<div class="global">
+		<img class="background-img" [src]="'assets/img/fablab-drones.jpg'">
+	</div>
+</section>
+
+
+
+<section class="certification-section">
+	<div class="global container">
+		<div class="row">
+			<div class="img-container col-md-7 d-none d-md-block align-self-center">
+				<img [src]="'assets/img/certif-drone.jpg'"/>
+			</div>
+			<div class="certif-container col-sm-12 col-md-5">
+				<h2 class="title">Certification Télépilote</h2>
+				<p class="certif-presentation px-lg-4">
+					Pandente itaque viam fatorum sorte tristissima, qua praestitutum erat eum vita et imperio spoliari, itineribus interiectis permutatione iumentorum emensis venit Petobionem oppidum Noricorum, ubi
+				</p>
+				<div class="certif-button">
+					<button mat-button class="mat-btn-outline-dark mat-btn-lg" routerLink="/home">
+						Passez pro
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<section class="business-section">
+	<div class="global container-fluid">
+		<h2 class="title">
+			Services pour entreprises
+		</h2>
+		<div class="activity row align-items-center">
+			<div class="metrics-container col-md-12 col-lg-4 row">
+				<p class="metrics m-auto col-sm-9 text-nowrap">
+					<span class="metric">X</span>  Teambuilding dans nos locaux
+				</p>
+			</div>
+			<div class="col-md-12 col-lg-8 row align-items-center">
+				<div class="col-sm-8">
+					<p class="activity-presentation m-auto col-sm-11">
+						Pandente itaque viam fatorum sorte tristissima, qua praestitutum erat eum vita et imperio spoliari, itineribus interiectis permutatione iumentorum emensis venit Petobionem oppidum Noricorum, ubi reseratae sunt insidiarum latebrae omnes, et
+					</p>
+				</div>
+				<div class="activity-icon col-sm-4">
+					<img class="img-fluid" [src]="'assets/icon/business-1.png'">
+				</div>
+			</div>
+		</div>
+		<div class="activity row align-items-center">
+			<div class="metrics-container col-md-12 col-lg-4 row">
+				<p class="metrics m-auto col-sm-9 text-nowrap">
+					<span class="metric">XX</span>  Coworkers
+				</p>
+			</div>
+			<div class="col-md-12 col-lg-8 row align-items-center">
+				<div class="col-sm-8">
+					<p class="activity-presentation m-auto col-sm-11">
+						Pandente itaque viam fatorum sorte tristissima, qua praestitutum erat eum vita et imperio spoliari, itineribus interiectis permutatione iumentorum emensis venit Petobionem oppidum Noricorum, ubi reseratae sunt insidiarum latebrae omnes, et
+					</p>
+				</div>
+				<div class="activity-icon col-sm-4">
+					<img class="img-fluid" [src]="'assets/icon/business-2.png'">
+				</div>
+			</div>
+		</div>
+		<div class="activity row align-items-center">
+			<div class="metrics-container col-md-12 col-lg-4 row">
+				<p class="metrics m-auto col-sm-9 text-nowrap">
+					<span class="metric">XXX</span>  Salons et event
+				</p>
+			</div>
+			<div class="col-md-12 col-lg-8 row align-items-center">
+				<div class="col-sm-8">
+					<p class="activity-presentation m-auto col-sm-11">
+						Pandente itaque viam fatorum sorte tristissima, qua praestitutum erat eum vita et imperio spoliari, itineribus interiectis permutatione iumentorum emensis venit Petobionem oppidum Noricorum, ubi reseratae sunt insidiarum latebrae omnes, et
+					</p>
+				</div>
+				<div class="activity-icon col-sm-4">
+					<img class="img-fluid" [src]="'assets/icon/business-3.png'">
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<section class="clients-section">
+	<div class="global container-fluid">
+		<div class="clients-container" *ngIf="clients.length">
+			<h2 class="title">Nos clients</h2>
+			<div class="clients-icons">
+				<ul>
+					<li *ngFor="let client of clients">
+						<img [src]="'assets/icon/clients/' + client + '.png'">
+						<div class="shadow-icon"></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="supports-container" *ngIf="supports.length">
+			<h2 class="title">Nos soutiens</h2>
+			<div class="supports-icons">
+				<ul>
+					<li class="px-5" *ngFor="let support of supports">
+						<img [src]="'assets/icon/supports/' + support + '.png'">
+						<div class="shadow-icon"></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="partners-container" *ngIf="partners.length">
+			<h2 class="title">Nos partenaires</h2>
+			<div class="partners-icons">
+				<ul>
+					<li class="px-5" *ngFor="let partner of partners">
+						<img [src]="'assets/icon/partners/' + partner + '.png'">
+						<div class="shadow-icon"></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
 

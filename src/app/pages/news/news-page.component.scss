@@ -1,5 +1,27 @@
 @import "~src/variables.scss";
 
 section {
-	background-color: map-get($colors,primary);
+	background-color: map-get($colors, light);
+	padding-top :5rem;
+
+	.title {
+		padding: 2rem 0;
+		color: map-get($colors, dark);
+		font-family: montserrat-medium;
+		text-transform: uppercase;
+		text-align: center;
+	}
+
+	.card-container {
+		display: inline-block;
+		transition: ease-out .3s all;
+		transform: translateY(150px);
+		opacity:0;
+		padding-bottom: 2rem;
+	}
+
+	.show-card {
+		transform: translateY(0) !important;
+		opacity:1 !important;
+	}
 }

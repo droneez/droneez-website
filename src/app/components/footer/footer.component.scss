@@ -1,0 +1,18 @@
+@import "~src/variables.scss";
+
+footer {
+
+	background-color: map-get($colors, dark) !important;
+
+	h2, h3 {
+		text-transform: uppercase;
+	}
+
+	.iframe-container {
+		height: 20rem;
+	}
+
+	.infos {
+		color: map-get($colors, light);
+	}
+}
