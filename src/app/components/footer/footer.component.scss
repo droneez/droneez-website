@@ -2,10 +2,25 @@
 
 footer {
 
-	background-color: map-get($colors, dark) !important;
+	background-color: map-get($colors, smooth-dark) !important;
 
-	h2, h3 {
+	h2, h3, p {
+		font-family: montserrat-medium;
+	}
+
+	h2 {
+		font-size: 2.5rem;
 		text-transform: uppercase;
+		padding: 1rem 0;
+	}
+
+	h3 {
+		font-size: 15px;
+		text-transform: uppercase;
+	}
+
+	p {
+		font-size: 14px;
 	}
 
 	.iframe-container {
@@ -14,5 +29,36 @@ footer {
 
 	.infos {
 		color: map-get($colors, light);
+
+		p.presentation {
+			padding: 1rem 0 2rem 0;
+			font-family: montserrat-light;
+		}
+
+		form {
+			.id-row {
+				padding: 0 11px;
+			}
+			.form-button-container {
+				display: flex;
+				justify-content: flex-end;
+				button {
+					background-color: map-get($colors, primary);
+					border-color: map-get($colors, dark);
+					text-transform: uppercase;
+					color: map-get($colors, dark);
+					font-family: montserrat-medium;
+					border-radius: 0;
+				}
+			}
+		}
+	}
+
+	.copyrights {
+		span {
+			cursor: pointer;
+			color: map-get($colors, light);
+			text-decoration: underline;
+		}
 	}
 }

@@ -2,7 +2,6 @@ import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { WINDOW } from "./../../services/window.service";
 import { Globals } from "./../../globals";
-import { LogoComponent } from "./../../components/logo/logo.component";
 
 const CLIENTS: string[] = ["Allianz","Axione","BForBank","BlaBlaCar","BNP","gemalto","Kaibee","LaPoste","Orange"];
 const PARTNERS: string[] = ["DroneParisRegion","StudioSport"];
