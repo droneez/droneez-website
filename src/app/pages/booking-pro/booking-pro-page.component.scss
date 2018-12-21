@@ -1,0 +1,94 @@
+@import "~src/variables.scss";
+
+section {
+	.card {
+
+		cursor: pointer;
+		position: relative;
+		overflow: hidden;
+
+		.background-card {
+			filter: grayscale(70%) blur(.1px);
+			position: absolute;
+			top: 0;
+		    left: 0;
+		    right: 0;
+		    bottom: 0;
+		    transition: ease 10s transform, ease-out 1s filter;
+		}
+
+		&.certif {
+			.background-card{
+				background: url('./../../../assets/img/booking-pro-certif.jpg') no-repeat center center;
+				background-size: cover;
+			}
+		}
+		&.teambuilding {
+			.background-card{
+				background: url('./../../../assets/img/booking-pro-teambuilding.jpg') no-repeat center center;
+				background-size: cover;
+			}
+		}
+		&.event {
+			.background-card{
+				background: url('./../../../assets/img/booking-pro-event.jpg') no-repeat center center;
+				background-size: cover;
+			}
+		}
+		&.wooploop {
+			.background-card{
+				background: url('./../../../assets/img/booking-pro-wooploop.jpg') no-repeat center center;
+				background-size: cover;
+			}
+		}
+
+		&:hover, &:focus {
+			.background-card {
+				transform: scale3d(1.2,1.2,1.2);
+				filter: grayscale(0%) blur(0px);
+			}
+		}
+
+		.transition-container {
+			
+			background: linear-gradient( to top, map-get($colors, 'dark-trans') 70%, rgba(0,0,0,0) 100% );
+
+			.wording-container {
+				transition: transform ease-out .3s;
+				h2 {
+					font-family: BebasNeueBold;
+					color: map-get($colors, light);
+					transition: color 0.25s;
+					text-transform: uppercase;
+				}
+				p {
+					font-family: raleway-regular;
+					color: map-get($colors, light);
+					opacity: 0;
+					transition: opacity .3s;
+				}
+			}
+
+			.booking-button-container {
+				opacity: 0;
+				transition: opacity .3s;
+			}
+
+			&:hover, &:focus {
+				.wording-container {
+					transform: translateY(-2rem);
+					h2 {
+						color: map-get($colors, primary);
+					}
+					p {
+						opacity: 1;
+					}
+				}
+				.booking-button-container  {
+					opacity:1;
+				}
+			}
+		}
+		
+	}
+}

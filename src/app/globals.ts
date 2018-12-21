@@ -17,6 +17,8 @@ export class Globals {
 	headerHeight: number = 64;
 	/* permet d'empecher la transparence du fond de la navbar quand on atteind le haut de la page */
 	noChangeNavBg: boolean = false;
+	/* permet d'enlever le footer */
+	noFooter: boolean = false;
 
 	constructor(
 		@Inject(DOCUMENT) private document: Document,

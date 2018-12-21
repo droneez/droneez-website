@@ -1,0 +1,76 @@
+@import "~src/variables.scss";
+
+.home-section {
+
+	background: url('./../../../assets/img/cowork-bg.jpg');
+	background-size: cover;
+    background-position-y: center;
+	overflow: hidden;
+
+	.global {
+		position: relative;
+		width: 100%;
+		height: 100%;
+
+		.container-fluid {
+			height: 100%;
+
+			.logo-container {
+				height: 100%;
+				img {
+					max-height: 20rem;
+	    			max-width: 22rem;
+	    			width: auto;
+	    			height: auto;
+	    			display: block;
+				}
+			}
+
+			.presentation-container {
+				position: absolute;
+				width: 100%;
+				height: 33%;
+				bottom: 0;
+				background: map-get($colors, 'dark-trans');
+				p {
+					font-family: montserrat-regular;
+					color: map-get($colors,light);
+					text-align: center;
+				}
+			}
+		}
+	}
+}
+
+.coworking-section, 
+.desk-section, 
+.workshop-section {
+	.global {
+		.img-container {
+			width: 50%;
+		    overflow: hidden;
+
+			img {
+				width: 170%;
+			}
+		}
+		.title-container {
+			font-family: montserrat-regular;
+			text-align: center;
+			.title {
+				text-transform: uppercase;
+				margin-bottom: 2rem;
+			}
+			p {
+				margin-bottom: 0px;
+			}
+			.price {
+				margin-top: 1.5rem;
+			}
+		}
+	}
+}
+
+.coworking-section img { margin-left: 4%; }
+.desk-section img { margin-right: 50%; }
+.workshop-section img { margin-left: 20%; }

@@ -1,3 +1,19 @@
-<section style="height:1000px">
-	booking page
+<section>
+	<div class="global container" 
+		[style.height]="screenHeight + 'px'" 
+		[style.width]="screenWidth + 'px'"
+	>
+		<div class="row h-100 align-items-center">
+			<div class="col-sm-6 booking-button-container">
+				<div class="pl-5 ml-5">
+					<button mat-button class="mat-btn-outline-light mat-btn-lg" routerLink="/booking/customer">Particuliers</button>
+				</div>
+			</div>
+			<div class="col-sm-6 booking-button-container">
+				<div class="pl-5 ml-5">
+					<button mat-button class="mat-btn-outline-light mat-btn-lg" routerLink="/booking/pro">Entreprise</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>

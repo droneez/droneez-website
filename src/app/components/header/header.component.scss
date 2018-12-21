@@ -1,21 +1,10 @@
 @import "~src/variables.scss";
 
-#navbarSupportedContent {
-	overflow: hidden !important;
-	max-height: 0px;
-	margin: 0 -16px;
-	padding: 1em 2em;
-	transition: ease-out .2s all;
-
-	&.toggle-anim {
-		max-height: 235px !important;
-	}
-}
-
 /* Quand il n est pas collapsed, c-a-d en taille lg et plus*/
 @media(min-width:992px) {
 	#navbarSupportedContent {
 		overflow: visible !important;
+		position: initial !important;
 	}
 }
 
@@ -28,6 +17,30 @@ nav {
 	&:not(.top-reached) {
 		height: 64px;
 		background-color: map-get($colors, dark-trans) !important;
+
+		#navbarSupportedContent {
+	    	top: 64px;
+		}
+	}
+
+	#navbarSupportedContent {
+		overflow: hidden !important;
+		max-height: 0px;
+		margin: 0px -16px;
+		padding: 1em 2em;
+		transition: ease .4s all;
+		position: absolute;
+    	width: 100%;
+    	top: 90px;	
+	}
+
+	&.toggle-anim {
+		background-color: map-get($colors, smooth-dark) !important;
+		
+		#navbarSupportedContent {
+			max-height: 255px !important;
+			background-color: map-get($colors, smooth-dark) !important;
+		}
 	}
 
 	.navbar-nav {

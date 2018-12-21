@@ -15,7 +15,7 @@ import { WINDOW_PROVIDERS } from './services/window.service';
 import { Globals }          from './globals';
 
 /* Material */
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule }  from '@angular/material';
 
 /* Components */
 import { AppComponent }             from './app.component';
@@ -29,12 +29,16 @@ import { ContactPageComponent }     from './pages/contact/contact-page.component
 import { NewsPageComponent }        from './pages/news/news-page.component';
 import { AboutPageComponent }       from './pages/about/about-page.component';
 import { BookingPageComponent }     from './pages/booking/booking-page.component';
+import { BookingProPageComponent }  from './pages/booking-pro/booking-pro-page.component';
+import { BookingCustomerPageComponent } from './pages/booking-customer/booking-customer-page.component';
 import { BusinessPageComponent }    from './pages/business/business-page.component';
 import { CoworkPageComponent }      from './pages/cowork/cowork-page.component';
+import { PricingPageComponent }     from './pages/pricing/pricing-page.component';
+
 
 /* Directives */
 import { AnimImgLoadDirective }     from './directives/anim-img-load.directive';
-import { LegalComponent } from './components/legal/legal.component';
+import { LegalComponent }           from './components/legal/legal.component';
 
 @NgModule({
     declarations: [
@@ -47,11 +51,14 @@ import { LegalComponent } from './components/legal/legal.component';
         NewsPageComponent,
         AboutPageComponent,
         BookingPageComponent,
+        BookingProPageComponent,
+        BookingCustomerPageComponent,
         BusinessPageComponent,
         AnimImgLoadDirective,
         CoworkPageComponent,
         ContactFormComponent,
-        LegalComponent
+        LegalComponent,
+        PricingPageComponent
     ],
     imports: [
         BrowserModule,

@@ -90,6 +90,7 @@
 			width: 25%;
 			max-width: 100%;
 			transform: rotate3d(0,0,1,0deg);
+			opacity: 0;
 		}
 	}
 
@@ -112,6 +113,11 @@
 		}
 		.wheel {
 		    transform: rotate3d(0,0,1,360deg) !important;
+		}
+		.middle-img-container {
+		    img {
+				opacity: 1;
+			}
 		}
 	}
 }

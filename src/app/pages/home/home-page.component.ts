@@ -3,9 +3,9 @@ import { DOCUMENT } from '@angular/platform-browser';
 import { WINDOW } from "./../../services/window.service";
 import { Globals } from "./../../globals";
 
-const CLIENTS: string[] = ["Allianz","Axione","BForBank","BlaBlaCar","BNP","gemalto","Kaibee","LaPoste","Orange"];
-const PARTNERS: string[] = ["DroneParisRegion","StudioSport"];
-const SUPPORTS: string[] = ["BPIFrance","FrenchTech"];
+const CLIENTS: string[] = ["Aduneo","Allianz","Alten","ArmatureTechnologies","Astek","Axione","BForBank","BlaBlaCar","Bouygues","BryanGarnier&Co","Cast","CheckPoint","Devoteam","Essilor","EulerHermes","Everside","Finaxys","Gemalto","IvaDrones","Kaibee","Kalidea","LaPoste","LisiAerospace","MarksSpencer","Momentys","Orange","Parrot","Rapid7","Renault","Rubel&Menasche","Safran","SchneiderElectric","SocieteGenerale","Sodexo","TheMachinery","Uavia","Volkswagen"];
+const PARTNERS: string[] = ["DronesParisRegion","StudioSport","FFAM","FPDC","DJI"];
+const SUPPORTS: string[] = ["BPIFrance","FrenchTech","ReseauEntreprendre","BNPParibas"];
 
 @Component({
     selector: 'app-home-page',
@@ -45,7 +45,6 @@ export class HomePageComponent implements OnInit {
     @HostListener("window:scroll", []) onWindowScroll() {
         this.offset = this.window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
         this.parallaxOffset = this.offset * 0.8;
-        //this.smoothScroll();
     }
 
     /* Pour le parallax de la video, son conteneur doit avoir la taille de la video après affichage */

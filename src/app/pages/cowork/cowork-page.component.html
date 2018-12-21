@@ -1,49 +1,86 @@
-<section class="home-section">
-	<div class="global">
-		<div class="title-container">
-			<img [src]="'assets/img/logo/wooploop.png'" />
-			<p>
-				Le Local DRONEEZ accueille un espace de travail où cohabitent des résidents sur une trentaine de postes qui sont mis à disposition ainsi que 6 ateliers équipés de matériels tel que imprimantes 3D, thermomoulage & découpe de fibre de carbone.
-				<br />
-				L’esprit Start-up du coworking est inspiré de locaux industriels avec une cuisine, un babyfoot, des salles de réunions et tout ce qui fait le charme des de la silicon valley (console, écran, babyfoot ) ainsi qu’un accès pour les volières de l’activité de DRONEEZ.
-			</p>
+<section class="home-section" >
+	<div class="global" 	
+		[style.height]="screenHeight + 'px'" 
+		[style.width]="screenWidth + 'px'"
+	>
+		<div class="container-fluid">
+			<div class="logo-container row align-items-center justify-content-center">
+				<img class="mb-5" [src]="'assets/img/logo/wooploop.png'"/>
+			</div>			
+			<div class="presentation-container row align-items-center justify-content-center">
+				<div class="col-sm-10 mx-auto">
+					<p>
+						Le Local DRONEEZ accueille un espace de travail où cohabitent des résidents sur une trentaine de postes qui sont mis à disposition ainsi que 6 ateliers équipés de matériels tel que imprimantes 3D, thermomoulage & découpe de fibre de carbone.
+					</p>
+					<p>
+						L’esprit Start-up du coworking est inspiré de locaux industriels avec une cuisine, un babyfoot, des salles de réunions et tout ce qui fait le charme des de la silicon valley (console, écran, babyfoot ) ainsi qu’un accès pour les volières de l’activité de DRONEEZ.
+					</p>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
 
 <section class="coworking-section">
-	<div class="global container">
-		<div class="title-container">
-			<h2 class="title">Coworking</h2>
-			<p>Accès à un poste fixe Internet Accès carte RFID Accès Atelier Imprimante</p>
-			<p class="price">250€ HT/MOIS/POSTE</p>
-		</div>
-		<div class="">
-			<app-contact-form></app-contact-form>
-		</div>
-	</div>
-</section>
-
-<section class="coworking-section">
-	<div class="global">
-		<div class="title-container">
-			
+	<div class="global container-fluid px-0">
+		<div class="row mx-0 align-items-center justify-content-center">
+			<div class="px-0 mx-0 col-sm-6 img-container row align-items-center justify-content-center">
+				<img [src]="'assets/img/cowork-1.jpg'"/>
+			</div>
+			<div class="col-sm-6 row align-items-center justify-content-center px-0 mx-0">
+				<div class="title-container">
+					<h2 class="title">Coworking</h2>
+					<p>Accès à un poste fixe Internet Accès carte</p>
+					<p>RFID Accès Atelier Imprimante</p>
+					<h5 class="price">250€ HT/MOIS/POSTE</h5>
+				</div>
+				<div class="">
+					<app-contact-form></app-contact-form>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
 
 <section class="desk-section">
-	<div class="global">
-		<div class="title-container">
-			
+	<div class="global container-fluid px-0">
+		<div class="row mx-0 align-items-center justify-content-center">
+			<div class="col-sm-6 row align-items-center justify-content-center px-0 mx-0">
+				<div class="title-container">
+					<h2 class="title">Bureaux privatif</h2>
+					<p>4 à 5 postes par salle 20m² au sol</p>
+					<p>Mansardé Internet Accès carte RFID</p>
+					<p>Accès Atelier Imprimante</p>
+					<h5 class="price">1000€ HT/MOIS/SALLE</h5>
+				</div>
+				<div class="">
+					<app-contact-form></app-contact-form>
+				</div>
+			</div>
+			<div class="col-sm-6 img-container row align-items-center justify-content-center px-0 mx-0">
+				<img [src]="'assets/img/cowork-2.jpg'"/>
+			</div>
 		</div>
 	</div>
 </section>
 
 <section class="workshop-section">
-	<div class="global">
-		<div class="title-container">
-			
+	<div class="global container-fluid px-0">
+		<div class="row mx-0 align-items-center justify-content-center">
+			<div class="col-sm-6 img-container row align-items-center justify-content-center px-0 mx-0">
+				<img [src]="'assets/img/cowork-3.jpg'"/>
+			</div>
+			<div class="col-sm-6 row align-items-center justify-content-center px-0 mx-0">
+				<div class="title-container">
+					<h2 class="title">Atelier</h2>
+					<p>Accès à un atelier</p>
+					<p>Accès aux machines internet, photocopie</p>
+					<h5 class="price">30€ HT/JOUR/POSTE</h5>  
+				</div>
+				<div class="">
+					<app-contact-form></app-contact-form>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>

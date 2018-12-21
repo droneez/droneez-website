@@ -1,5 +1,76 @@
 @import "~src/variables.scss";
 
+.certif-section {
+	background: url('./../../../assets/img/business-certif.jpg') no-repeat center bottom;
+	background-size: cover;
+}
+.teambuilding-section {
+	background: url('./../../../assets/img/business-teambuilding.jpg') no-repeat center bottom;
+	background-size: cover;
+}
+.event-section {
+	background: url('./../../../assets/img/business-event.jpg') no-repeat center bottom;
+	background-size: cover;
+}
+.cowork-section {
+	background: url('./../../../assets/img/business-cowork.jpg') no-repeat center bottom;
+	background-size: cover;
+}
+
 section {
-	background-color: map-get($colors,primary);
+	overflow: hidden;
+	cursor: pointer;
+
+	.global {
+		.container-fluid {
+			.presentation-container {
+				&.right {
+					background: linear-gradient( to left, map-get($colors, 'dark-trans') 70%, rgba(0,0,0,0) 100% );
+				}
+				&.left {
+					background: linear-gradient( to right, map-get($colors, 'dark-trans') 70%, rgba(0,0,0,0) 100% );
+				}
+				.transition-container {
+					.wording-container {
+						transition: transform ease-out .3s;
+						h1 {
+							font-family: BebasNeueBold;
+							font-size: 3rem;
+							text-transform: uppercase;
+							color: map-get($colors,light);
+							margin-bottom: .2rem;
+							transition: color 0.25s;
+						}
+						p {
+							font-family: raleway-regular;
+							color: map-get($colors,light);
+							line-height: 1.3rem;
+							width: 80%;
+							opacity: 0;
+							transition: opacity .3s;
+						}
+					}
+					.booking-button-container {
+						opacity: 0;
+						transition: opacity .3s;
+					}
+					&:hover, &:focus {
+						.wording-container {
+							transform: translateY(-2rem);
+							h1 {
+								color: map-get($colors,tertiary);
+							}
+							p {
+								opacity: 1;
+							}
+						}
+						.booking-button-container  {
+							opacity:1;
+						}
+					}
+				}
+				
+			}
+		}
+	}
 }

@@ -43,13 +43,13 @@ export class AppComponent {
     	this.screenHeight = this.window.innerHeight;
     }
 
-	onActivate(event) {
+	/*onActivate(event) {
 	   //setTimeout(()=>{
 	    	//this.window.scroll(0,0);
 	   //},1000);
 	    //or this.document.body.scrollTop = 0;
 	    //or this.document.querySelector('body').scrollTo(0,0)
-	}
+	}*/
 
 
 	// Pour faire marcher les animations sur le rooting
@@ -61,7 +61,7 @@ export class AppComponent {
         this.screenHeight = this.window.innerHeight;
     }
 
-    @HostListener('mousewheel', ['$event']) onMousewheel(e) {
+    /*@HostListener('mousewheel', ['$event']) onMousewheel(e) {
     	e.preventDefault();
     	this.time = Date.now();
 
@@ -86,6 +86,6 @@ export class AppComponent {
 	        this.scrollToService
 	        	.scrollTo(config);
         
-    }
+    }*/
 
 }
