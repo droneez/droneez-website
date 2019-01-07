@@ -7,8 +7,8 @@
 <div [@routeAnimations]="prepareRoute(outlet)">
 
 	<!-- routes will be rendered here -->		
-	<router-outlet (activate)="onActivate($event)" #outlet="outlet">
-		
+	<!--<router-outlet (activate)="onActivate($event)" #outlet="outlet">-->
+		<router-outlet #outlet="outlet">
 	</router-outlet>
 </div>
 

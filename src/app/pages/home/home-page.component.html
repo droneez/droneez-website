@@ -32,7 +32,7 @@
 			[style.height]="screenHeight + 'px'" 
 			[style.width]="screenWidth + 'px'"
 		>
-			<video [preload]="preload" [loop]="true" [autoplay]="true" [muted]="true"
+			<video [preload]="true" [loop]="true" [autoplay]="true" [muted]="true"
 				[ngStyle]="{
 					top: parallaxOffset + 'px',
 					width:screenWidth + 'px',
@@ -47,14 +47,14 @@
 	</div>
 </section>
 
-
-
 <section class="races-section">
 	<div class="decoration">
 		<img class="background-img corner-left" [src]="'assets/img/drone-course-bg1.png'">
 		<img class="background-img corner-right" [src]="'assets/img/drone-course-bg2.png'">
 	</div>
-	<div class="global container">
+	<div class="global container" 
+		[style.min-height]="screenHeight + 'px'" 
+		[style.width]="screenWidth + 'px'">
 		<div class="global-sub-container">
 			<div class="presentation-container">
 				<h2 class="title">Courses</h2>
@@ -100,7 +100,9 @@
 
 
 <section class="coworking-section" style="height:55rem;">
-	<div class="global">
+	<div class="global"  
+		[style.min-height]="screenHeight + 'px'" 
+		[style.width]="screenWidth + 'px'">
 		<img class="background-img" [src]="'assets/img/cours-particuliers.jpg'">
 	</div>
 </section>
@@ -108,7 +110,9 @@
 
 
 <section class="certification-section">
-	<div class="global container">
+	<div class="global container" 
+		[style.min-height]="screenHeight + 'px'" 
+		[style.width]="screenWidth + 'px'">
 		<div class="row">
 			<div class="img-container col-md-7 d-none d-md-block align-self-center">
 				<img [src]="'assets/img/certif-drone.jpg'"/>
@@ -131,7 +135,9 @@
 
 
 <section class="business-section">
-	<div class="global container-fluid">
+	<div class="global container-fluid" 
+		[style.min-height]="screenHeight + 'px'" 
+		[style.width]="screenWidth + 'px'">
 		<h2 class="title">
 			Services pour entreprises
 		</h2>
@@ -192,7 +198,9 @@
 
 
 <section class="clients-section">
-	<div class="global container-fluid">
+	<div class="global container-fluid" 
+		[style.min-height]="screenHeight + 'px'" 
+		[style.width]="screenWidth + 'px'">
 		<div class="clients-container" *ngIf="clients.length">
 			<h2 class="title">Nos clients</h2>
 			<div class="clients-icons">

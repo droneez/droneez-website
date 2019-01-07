@@ -47,49 +47,49 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.mat-btn-outline-dark {
-	font-family: raleway-medium;
-    text-transform: uppercase;
-    border-radius: 0 !important;
-    border-color: map-get($colors, dark) !important;
-    border-style: solid !important;
-    outline: none !important;
-    line-height: 0 !important;
-    color: map-get($colors, dark);
-}
-
-.mat-btn-no-border-dark {
-	font-family: raleway-medium;
-    text-transform: uppercase;
-    border-radius: 0 !important;
-    outline: none !important;
-    line-height: 0 !important;
-    color: map-get($colors, dark);
-}
-
+.mat-btn-outline-dark, 
 .mat-btn-outline-light {
-	font-family: raleway-medium;
+	font-family: BebasNeueBold;
     text-transform: uppercase;
-    border-radius: 0 !important;
-    border-color: map-get($colors, light) !important;
+    border-radius: 30px !important;
     border-style: solid !important;
     outline: none !important;
     line-height: 0 !important;
-    color: map-get($colors, light);
 }
 
+.mat-btn-no-border-dark, 
 .mat-btn-no-border-light {
-	font-family: raleway-medium;
+    font-family: raleway-medium;
     text-transform: uppercase;
     border-radius: 0 !important;
     outline: none !important;
     line-height: 0 !important;
-    color: map-get($colors, light);
 }
 
+.mat-btn-no-border-dark, 
+.mat-btn-outline-dark {
+    color: map-get($colors, dark);
+}
+.mat-btn-no-border-light, 
+.mat-btn-outline-light {
+    color: map-get($colors, light);
+}
+.mat-btn-outline-dark {
+    border-color: map-get($colors, dark) !important;
+}
+.mat-btn-outline-light {
+    border-color: map-get($colors, light) !important;
+}
+
+
+.mat-btn-sm {
+    border-width: 2px !important;
+    padding: 16px 0px !important;
+    font-size: 1rem;
+    width: 7rem;
+}
 .mat-btn-lg {
 	border-width: 2px !important;
-    padding: 25px 85px !important;
-    font-size: 1rem;
-    width: 16rem;
+    padding: 23px 58px !important;
+    font-size: 1.5rem;
 }

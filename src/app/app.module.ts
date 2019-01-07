@@ -34,7 +34,7 @@ import { BookingCustomerPageComponent } from './pages/booking-customer/booking-c
 import { BusinessPageComponent }    from './pages/business/business-page.component';
 import { CoworkPageComponent }      from './pages/cowork/cowork-page.component';
 import { PricingPageComponent }     from './pages/pricing/pricing-page.component';
-
+import { ClubPageComponent }        from './pages/club/club-page.component';
 
 /* Directives */
 import { AnimImgLoadDirective }     from './directives/anim-img-load.directive';
@@ -58,7 +58,8 @@ import { LegalComponent }           from './components/legal/legal.component';
         CoworkPageComponent,
         ContactFormComponent,
         LegalComponent,
-        PricingPageComponent
+        PricingPageComponent,
+        ClubPageComponent
     ],
     imports: [
         BrowserModule,

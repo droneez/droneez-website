@@ -1,5 +1,19 @@
 @import "~src/variables.scss";
 
 section {
-	background-color: map-get($colors,primary);
+	background-color: map-get($colors, light);
+	font-family: raleway-medium;
+	p {
+		font-size:.8rem;
+	}
+	.upper {
+		text-transform: uppercase;
+	}
+	img {
+		height: 6rem;
+		max-width: 100%;
+	}
+	.booking-button-container {
+		padding-bottom: 30%;
+	}
 }

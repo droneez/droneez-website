@@ -3,15 +3,30 @@
 		[style.height]="screenHeight + 'px'" 
 		[style.width]="screenWidth + 'px'"
 	>
-		<div class="row h-100 align-items-center">
-			<div class="col-sm-6 booking-button-container">
-				<div class="pl-5 ml-5">
-					<button mat-button class="mat-btn-outline-light mat-btn-lg" routerLink="/booking/customer">Particuliers</button>
+		<div class="row h-100 align-items-center justify-content-around pt-5">
+			<div class="col-3 text-center h-100">
+				<div class="row h-100 align-items-end justify-content-center">
+
+					<img class="mt-5" [src]="'assets/icon/booking-customer.png'"/>
+					<div>
+						<p class="wording">Vous voulez réserver une activité chez Droneez, cours de pilotage, réservation de piste, événement ou formation !</p>
+						<p class="pt-3">C’est <span class="upper">ici</span></p>
+					</div>
+					<div class="booking-button-container">
+						<button mat-button class="mat-btn-outline-dark mat-btn-lg" routerLink="/booking/customer">Particuliers</button>
+					</div>
 				</div>
 			</div>
-			<div class="col-sm-6 booking-button-container">
-				<div class="pl-5 ml-5">
-					<button mat-button class="mat-btn-outline-light mat-btn-lg" routerLink="/booking/pro">Entreprise</button>
+			<div class="col-3 text-center h-100">
+				<div class="row h-100 align-items-end justify-content-center">
+					<img class="mt-5" [src]="'assets/icon/booking-pro.png'"/>
+					<div>
+						<p class="wording">Vous êtes une entreprise enclin à découvrir le monde du drone ou réaliser une animation avec Droneez ou une formation en interne.</p>			
+						<p class="pt-3">C’est <span class="upper">là</span></p>
+					</div>
+					<div class="booking-button-container">
+						<button mat-button class="mat-btn-outline-dark mat-btn-lg" routerLink="/booking/pro">Entreprise</button>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
 	constructor(
   		@Inject(DOCUMENT) private document: Document,
     	@Inject(WINDOW) private window,
-    	private globals: Globals) {
+    	public globals: Globals) {
   	}
 
 	ngOnInit() {

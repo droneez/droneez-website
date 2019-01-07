@@ -1,5 +1,127 @@
 @import "~src/variables.scss";
 
 section {
-	background-color: map-get($colors,primary);
+	overflow: hidden;
+	.global {
+		h1, h4, .step-number { font-family: BebasNeueBold; }
+		p {	font-family: raleway-medium; }
+		h1 { font-size: 2.8rem; }
+	}
+}
+
+section.universe {
+	background: url('./../../../assets/img/about-univers.jpg') no-repeat center center;
+	background-size: cover;
+
+	.informations-container {
+		min-height: 33rem;
+		.wording-container {
+			height: 5rem;
+			transition: ease-out height .3s;
+			h4 {
+				font-size: 1.5rem;
+				transition: ease .3s font-size;
+			}
+			p {	
+				opacity: 0;
+				transition: ease-out .4s opacity, ease-out 1s transform;
+				transform: translateX(-.2rem);
+			}
+
+			&:hover, &:focus {
+				height: 8rem;
+				p {
+					opacity: 1;
+					transform: translateX(0rem);
+				}
+				h4 {
+					font-size: 2rem;
+				}
+			}
+		}
+	}
+}
+	
+section.steps {
+	background: url('./../../../assets/img/about-steps-bg.jpg') no-repeat center center;
+	background-size: cover;
+	color: map-get($colors,light);
+
+	.subtitle {
+		font-size: .8rem;
+	}
+
+	.step-number {
+		font-size: 6rem;
+		height: 9rem;
+	}
+
+	.separate-line {
+		border-top: solid 1px;
+		width: 6rem;
+	}
+
+	.step-number, .separate-line {
+		transition: .3s color;
+	}
+
+	.transition {
+	    transform: translate3d(0rem,14rem,0);
+    	transition: ease-out .3s transform;
+
+    	img, p {
+    		opacity: 0;
+    		transition: ease-in .3s opacity, ease-in 1s transform;
+    		transform: scale3d(.99,.99,1);
+    	}
+
+    	p {
+    		font-size: .8rem;
+    	}
+
+    	&:hover, &:focus {
+    		transform: translate3d(0,0,0);
+    		img, p {
+	    		opacity: 1;
+	    		transform: scale3d(1,1,1);
+	    	}
+	    	&.number-1 .step-number, &.number-1 .separate-line {
+	    		color: map-get($colors,primary);
+	    	}
+	    	&.number-2 .step-number, &.number-2 .separate-line {
+	    		color: map-get($colors,secondary);
+	    	}
+	    	&.number-3 .step-number, &.number-3 .separate-line {
+	    		color: map-get($colors,danger);
+	    	}
+    	}
+	}
+}
+
+section.team {
+	.wording-container {
+		.name p {
+			font-family: BebasNeueBold;
+			font-size: 2rem;
+			line-height: 2rem;
+		}
+		.infos {
+			font-family: raleway-medium;
+			font-style: italic;
+			.position {
+				color: map-get($colors,primary);
+			}
+			.mail {
+				position: relative;
+				&::after {
+					content: "";
+				    width: 6.5rem;
+				    left: 0;
+				    bottom: -5px;
+				    position: absolute;
+				    border-top: 1px solid map-get($colors,primary);
+				}
+			}
+		}
+	}
 }

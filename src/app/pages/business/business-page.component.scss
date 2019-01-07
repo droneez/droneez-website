@@ -1,20 +1,36 @@
 @import "~src/variables.scss";
 
-.certif-section {
+section.certif-section {
 	background: url('./../../../assets/img/business-certif.jpg') no-repeat center bottom;
 	background-size: cover;
+	.global .container-fluid .presentation-container .transition-container:hover .wording-container h1,
+	.global .container-fluid .presentation-container .transition-container:focus .wording-container h1 {
+		color: map-get($colors,primary);
+	}
 }
-.teambuilding-section {
+section.teambuilding-section {
 	background: url('./../../../assets/img/business-teambuilding.jpg') no-repeat center bottom;
 	background-size: cover;
+	.global .container-fluid .presentation-container .transition-container:hover .wording-container h1,
+	.global .container-fluid .presentation-container .transition-container:focus .wording-container h1 {
+		color: map-get($colors,secondary);
+	}
 }
-.event-section {
+section.event-section {
 	background: url('./../../../assets/img/business-event.jpg') no-repeat center bottom;
 	background-size: cover;
+	.global .container-fluid .presentation-container .transition-container:hover .wording-container h1,
+	.global .container-fluid .presentation-container .transition-container:focus .wording-container h1 {
+		color: map-get($colors,danger);
+	}
 }
-.cowork-section {
+section.cowork-section {
 	background: url('./../../../assets/img/business-cowork.jpg') no-repeat center bottom;
 	background-size: cover;
+	.global .container-fluid .presentation-container .transition-container:hover .wording-container h1,
+	.global .container-fluid .presentation-container .transition-container:focus .wording-container h1 {
+		color: map-get($colors,tertiary);
+	}
 }
 
 section {

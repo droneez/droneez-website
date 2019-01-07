@@ -1,3 +1,205 @@
-<section style="height:1000px">
-		about page
+<section class="universe">
+	<div class="global container pt-5" 	
+		[style.min-height]="screenHeight + 'px'" 
+		[style.width]="screenWidth + 'px'"
+	>
+		<div class="row justify-content-center py-5"> 
+            <h1>L'univers du drone</h1>
+        </div>
+		<div class="row">
+			<div class="col-lg-5 informations-container">
+				<div class="wording-container">
+					<h4>1 - Le constat</h4>
+					<p>On pense que le drone, c'est un jouet ou trop compliqué et souvent cher...</p>
+				</div>
+				<div class="wording-container">
+					<h4>2 - Chez DRONEEZ...</h4>
+					<p>On a décidé de vous aider à progresser au maximum</p>
+				</div>
+				<div class="wording-container">
+					<h4>3 - Le contrôle de la manette</h4>
+					<p class="mb-0">Le mode 2 du pilotage, 99% des pilotes l’utilisent.</p>
+					<p>4 directions, 2 joysticks ; à gauche l’axe vertical, à droite l’inclinaison !</p>
+				</div>
+				<div class="wording-container">
+					<h4>4 - Manipulation à vue</h4>
+					<p>Plusieurs exercices pour facilement contrôler sa position dans l’espace et comprendre les réactions de son drone.</p>
+				</div>
+				<div class="wording-container">
+					<h4>5 - Manipulation FPV ou retour vidéo</h4>
+					<p>Passage au pilotage en immersion avec différents niveaux en utilisant un écran ou des lunettes.</p>
+				</div>
+				<div class="wording-container">
+					<h4>6 - Maîtrise de votre drone</h4>
+					<p>Dans le but de piloter pour le loisir, la course ou la prise de vue amateur ou pro, l’équipe Droneez vous accompagne.</p>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
+
+<section class="steps">
+	<div class="global container pt-5" 	
+		[style.min-height]="screenHeight + 'px'" 
+		[style.width]="screenWidth + 'px'"
+	>
+		<div class="row justify-content-center pt-5 pb-3"> 
+            <h1>Les étapes de droneez</h1>
+        </div>
+        <div class="row justify-content-center">
+        	<p class="subtitle mb-0">La société DRONEEZ a été crée pas à pas en testant le marché pour proposer une offre adapté au marché.</p>
+        </div>
+        <div class="row justify-content-center">
+        	<div class="transition number-1 col-lg-4 px-5">
+        		<div class="row justify-content-center">
+	        		<span class="step-number w-100 text-center">1</span>
+	        		<div class="separate-line pb-4"></div>
+	        		<h4 class="w-100 text-center mb-0">LOCAL SUD DE PARIS</h4>
+	        		<div class="img-container">
+		    			<img class="img-fluid px-5 py-3" [src]="'assets/img/about-local-ivry.jpg'"/>
+		    		</div>
+	    			<p class="text-center">Devant le fait que personne ne propose une offre de découverte et de mise à disposition du drone, Droneez a commencé à tester le marché. En 2016, dans un local privé à Ivry Sur Seine, la société accueille 200 clients pendant quelques mois pour proposer des ateliers, des drones et des exercices adaptés.</p>
+	    		</div>
+        	</div>
+        	<div class="transition number-2 col-lg-4 px-5">
+        		<div class="row justify-content-center">
+	        		<span class="step-number w-100 text-center">2</span>
+	        		<div class="separate-line pb-4"></div>
+	        		<h4 class="w-100 text-center mb-0">Les tests grands publics</h4>
+	        		<div class="img-container">
+		    			<img class="img-fluid px-5 py-3" [src]="'assets/img/about-urban-soccer.jpg'"/>
+		    		</div>
+	    			<p class="text-center">Les bons retours sur les premières étapes de notre développement ont amené l’équipe à faire des évènements plus importants comme Vivatech, Drole de drones etc. et à mettre en place des ateliers tous les dimanches durant 6 mois dans des terrains d’Urban Soccer.</p>
+	    		</div>
+        	</div>
+        	<div class="transition number-3 col-lg-4 px-5">
+        		<div class="row justify-content-center">
+	        		<span class="step-number w-100 text-center">3</span>
+	        		<div class="separate-line pb-4"></div>
+	        		<h4 class="w-100 text-center mb-0">L'ouverture d'une salle</h4>
+	        		<div class="img-container">
+		    			<img class="img-fluid px-5 py-3" [src]="'assets/img/about-local-malakoff.jpg'"/>
+		    		</div>
+	    			<p class="text-center">Devant l’engouement des particuliers et des professionnels avec plus de 500 clients en 6 mois nous ouvrons une salle en propre proche de Paris pour que tout un chacun puisse venir découvrir ou se perfectionner en drone.</p>
+	    		</div>
+        	</div>
+        </div>
+    </div>
+</section>
+
+<section class="team">
+	<div class="global container py-5" 	
+		[style.min-height]="screenHeight + 'px'" 
+		[style.width]="screenWidth + 'px'"
+	>
+		<div class="row justify-content-center py-5"> 
+            <h1>L'équipe</h1>
+        </div>
+
+        <div class="row justify-content-center"> 
+            <div class="col-5 offset-1 pr-0">
+            	<img class="img-fluid" [src]="'assets/img/about-team-matthieu.png'" />
+            </div>
+            <div class="col-6">
+            	<div class="ml-4 row h-100 align-items-center">
+            	    <div class="col wording-container">
+	            	    <div class="name row w-100">
+	            			<p class="w-100 mb-0">Matthieu</p>
+	            			<p class="w-100">Perillaud</p>
+	            		</div>
+	            		<div class="infos row justify-content-between w-100">
+	            			<p class="position">Co-fondateur, directeur général</p>
+	            			<p class="mail">matthieu@droneez.fr</p>
+	            		</div>
+	            	</div>
+            	</div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center"> 
+            <div class="col-5 pl-0 order-last">
+            	<img class="img-fluid" [src]="'assets/img/about-team-matthieu.png'" />
+            </div>
+            <div class="col-1 order-last">
+            </div>
+            <div class="col-6 order-first">
+            	<div class="ml-4 row h-100 align-items-center">
+            	    <div class="col wording-container">
+	            	    <div class="name row w-100 text-right">
+	            			<p class="w-100 mb-0">Sabri</p>
+	            			<p class="w-100">El Fani</p>
+	            		</div>
+	            		<div class="infos row justify-content-between w-100">
+	            			<p class="mail">sabri@droneez.fr</p>
+	            			<p class="position">Co-fondateur, bob</p>
+	            		</div>
+	            	</div>
+            	</div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center"> 
+            <div class="col-5 offset-1 pr-0">
+            	<img class="img-fluid" [src]="'assets/img/about-team-matthieu.png'" />
+            </div>
+            <div class="col-6">
+            	<div class="ml-4 row h-100 align-items-center">
+            	    <div class="col wording-container">
+	            	    <div class="name row w-100">
+	            			<p class="w-100 mb-0">Laurent</p>
+	            			<p class="w-100">Rak</p>
+	            		</div>
+	            		<div class="infos row justify-content-between w-100">
+	            			<p class="position">Coco-fondateur et chinois technique</p>
+	            			<p class="mail">laurent@droneez.fr</p>
+	            		</div>
+	            	</div>
+            	</div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center"> 
+            <div class="col-5 pl-0 order-last">
+            	<img class="img-fluid" [src]="'assets/img/about-team-matthieu.png'" />
+            </div>
+            <div class="col-1 order-last">
+            </div>
+            <div class="col-6 order-first">
+            	<div class="ml-4 row h-100 align-items-center">
+            	    <div class="col wording-container">
+	            	    <div class="name row w-100 text-right">
+	            			<p class="w-100 mb-0">Adrien</p>
+	            			<p class="w-100">Hulot</p>
+	            		</div>
+	            		<div class="infos row justify-content-between w-100">
+	            			<p class="mail">adrien@droneez.fr</p>
+	            			<p class="position">Graphiste qui graph et qui fist</p>
+	            		</div>
+	            	</div>
+            	</div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center"> 
+            <div class="col-5 offset-1 pr-0">
+            	<img class="img-fluid" [src]="'assets/img/about-team-matthieu.png'" />
+            </div>
+            <div class="col-6">
+            	<div class="ml-4 row h-100 align-items-center">
+            	    <div class="col wording-container">
+	            	    <div class="name row w-100">
+	            	    	<p class="w-100 mb-0">Luck</p>
+	            			<p class="w-100">Ballaud</p>
+	            		</div>
+	            		<div class="infos row justify-content-between w-100">
+	            			<p class="position">Dieu vivant</p>
+	            			<p class="mail">luck@droneez.fr</p>
+	            		</div>
+	            	</div>
+            	</div>
+            </div>
+        </div>
+
+    </div>
+</section>
+

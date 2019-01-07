@@ -1,11 +1,23 @@
 <section>
 	<div class="global"
-		[style.height]="screenHeight + 'px'" 
+		[style.height]="screenHeight + 'px'"
 		[style.width]="screenWidth + 'px'"
+		[style.overflow-y]="isWooploopOpen ? 'visible' : 'hidden'"
+		style="position:relative;"
 	>
+
+		<button mat-button class="close-button" (click)="closeCards()">close</button>
+		
+		<app-cowork-page style="position:absolute;top:0" [style.opacity]="isWooploopOpen ? 1 : 0"></app-cowork-page>
+
 		<div class="container-fluid h-100">
 			<div class="row h-100">
-				<div class="col-sm-3 card certif">
+				<div class="col-sm-3 card certif" (click)="toggleCard('certif')"
+					[class.certif-opened]="isCertifOpen"
+					[class.teambuilding-opened]="isTeambuildingOpen"
+					[class.event-opened]="isEventOpen"
+					[class.wooploop-opened]="isWooploopOpen"
+					>
 					<div class="background-card"></div>
 					<div class="row h-100 align-items-end">
 						<div class="col-sm-12 h-50 transition-container">
@@ -18,13 +30,19 @@
 							</div>
 							<div class="booking-button-container row h-25 align-items-center">
 								<div class="col-sm-12">
-									<button mat-button class="mat-btn-outline-light mat-btn-lg" routerLink="/booking">Réserver</button>
+									<button mat-button class="mat-btn-outline-light mat-btn-lg">Réserver</button>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-3 card teambuilding">
+				<div class="col-sm-3 card teambuilding" 
+					(click)="toggleCard('teambuilding')" 
+					[class.certif-opened]="isCertifOpen"
+					[class.teambuilding-opened]="isTeambuildingOpen"
+					[class.event-opened]="isEventOpen"
+					[class.wooploop-opened]="isWooploopOpen"
+				>
 					<div class="background-card"></div>
 					<div class="row h-100 align-items-end">
 						<div class="col-sm-12 h-50 transition-container">
@@ -37,13 +55,18 @@
 							</div>
 							<div class="booking-button-container row h-25 align-items-center">
 								<div class="col-sm-12">
-									<button mat-button class="mat-btn-outline-light mat-btn-lg" routerLink="/booking">Réserver</button>
+									<button mat-button class="mat-btn-outline-light mat-btn-lg">Réserver</button>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-3 card event">
+				<div class="col-sm-3 card event" (click)="toggleCard('event')"
+					[class.certif-opened]="isCertifOpen"
+					[class.teambuilding-opened]="isTeambuildingOpen"
+					[class.event-opened]="isEventOpen"
+					[class.wooploop-opened]="isWooploopOpen"
+				>
 					<div class="background-card"></div>
 					<div class="row h-100 align-items-end">
 						<div class="col-sm-12 h-50 transition-container">
@@ -56,14 +79,20 @@
 							</div>
 							<div class="booking-button-container row h-25 align-items-center">
 								<div class="col-sm-12">
-									<button mat-button class="mat-btn-outline-light mat-btn-lg" routerLink="/booking">Réserver</button>
+									<button mat-button class="mat-btn-outline-light mat-btn-lg">Réserver</button>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-3 card wooploop">
+				<div class="col-sm-3 card wooploop" (click)="toggleCard('wooploop')"
+					[class.certif-opened]="isCertifOpen"
+					[class.teambuilding-opened]="isTeambuildingOpen"
+					[class.event-opened]="isEventOpen"
+					[class.wooploop-opened]="isWooploopOpen"
+					>
 					<div class="background-card"></div>
+
 					<div class="row h-100 align-items-end">
 						<div class="col-sm-12 h-50 transition-container">
 							<div class="row h-75 justify-content-center wording-container">
@@ -75,7 +104,7 @@
 							</div>
 							<div class="booking-button-container row h-25 align-items-center">
 								<div class="col-sm-12">
-									<button mat-button class="mat-btn-outline-light mat-btn-lg" routerLink="/booking">Réserver</button>
+									<button mat-button class="mat-btn-outline-light mat-btn-lg">Réserver</button>
 								</div>
 							</div>
 						</div>

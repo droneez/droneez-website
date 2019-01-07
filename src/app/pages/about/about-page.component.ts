@@ -1,15 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/platform-browser';
+import { WINDOW } from "./../../services/window.service";
+import { Globals } from "./../../globals";
 
 @Component({
   selector: 'app-about-page',
   templateUrl: './about-page.component.html',
   styleUrls: ['./about-page.component.scss']
 })
-export class AboutPageComponent implements OnInit {
+export class AboutPageComponent {
 
-  constructor() { }
+  	screenHeight:number = 0;
+  	screenWidth:number = 0;
 
-  ngOnInit() {
-  }
+	constructor(
+		@Inject(DOCUMENT) private document: Document,
+    	@Inject(WINDOW) public window,
+    	private globals: Globals) { 
+	}
+
+	ngOnInit() {
+		this.screenHeight = this.window.innerHeight;
+        this.screenWidth = this.window.innerWidth;
+        this.globals.noChangeNavBg = true;
+	}
+
+	ngOnDestroy() {
+        this.globals.noChangeNavBg = false;
+  	}
+
+  	@HostListener('window:resize', []) onResize() {
+        this.screenHeight = this.window.innerHeight;
+        this.screenWidth = this.window.innerWidth;
+    }
 
 }

@@ -1,3 +1,64 @@
 section {
-	padding-top: 5rem;
+	.global {
+		h1 {
+			font-family: BebasNeueBold;
+			font-size: 2.8rem;
+		}
+		h3 {
+			font-family: BebasNeueBold;
+			margin-bottom: 0;
+		}
+		.separate-line {
+			width: 100%;
+	        border-top: 1px solid rgba(0,0,0,.5);
+	        position: absolute;
+	        margin-left: -15px;
+		}
+		.presentation-container {
+			.wording-container {
+				font-family: raleway-medium;
+				min-height: 15rem;
+				.price {
+					font-family: BebasNeueBold;
+					font-size: 2.5rem;
+				}
+				p {
+					font-size: .8rem;
+				}
+				.schedule {
+					p:first-child {
+						margin-bottom:0;
+					}
+				}
+				.strong-word {
+					text-transform: uppercase;
+					font-weight: bold;
+				}
+			}
+			
+		}
+	}
+}
+
+section.section-subscription {
+	.wording-container h3:first-child {
+		margin-bottom: -.7rem;
+	}
+}
+
+.separate-img {
+	background: url('./../../../assets/img/pricing-separate-img.png') no-repeat;
+	background-size: cover;
+    background-position-y: center;
+	overflow: hidden;
+	position: relative;
+	height: 30rem;
+	.shadow {
+		position:absolute;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
+		background: linear-gradient( to bottom, #fff 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 32%, #fff 100% );
+	}
 }
