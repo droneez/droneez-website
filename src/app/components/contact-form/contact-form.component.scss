@@ -1,0 +1,28 @@
+@import "~src/variables.scss";
+
+form {
+	input, textarea, button {
+		border: 1px solid #707070;
+		border-radius: 5rem;
+		font-family: raleway-regular;
+		&::placeholder {
+			color: #C5C5C5;
+			font-family: raleway-regular;
+			font-size: .7rem;
+		}
+	}
+	input {
+		padding-bottom: .6rem;
+		height: 1.9rem;
+	}
+	textarea {
+		border-radius: 1.5rem;
+	}
+	button {
+		color: map-get($colors, dark);
+		background: map-get($colors, light);
+    	&:focus {
+    		outline: none;
+    	}
+	}
+}

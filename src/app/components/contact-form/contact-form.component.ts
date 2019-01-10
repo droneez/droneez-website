@@ -9,7 +9,16 @@ export class ContactFormComponent implements OnInit {
 
   constructor() { }
 
+  firstName: string;
+  lastName: string;
+  email: string;
+  message: string;
+
   ngOnInit() {
+  }
+
+  processForm() {
+  	
   }
 
 }

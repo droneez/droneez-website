@@ -7,12 +7,27 @@ section {
 		overflow: hidden;
 
 		.close-button {
+			opacity: 0;
+			transform: scale3d(0,0,1);
+			transition: ease opacity .2s, 
+			cubic-bezier(.22,-0.57,.53,.99) transform .2s;
 			height: 3rem;
-		    width: 2rem;
+		    width: 3rem;
+		    min-height: 0;
+		    min-width: 0;
+		    padding: 0;
+		    margin: 0;
+		    border-radius: 10em;
+		    border: 1px solid map-get($colors, dark);
 		    position: absolute;
-		    top: 11rem;
+		    top: 5rem;
+		    right: 5rem;
 		    z-index: 7;
 		    background: yellow;
+		    outline: none !important;
+		    i {
+		    	font-size: 40px;
+		    }
 		}
 
 		app-cowork-page {
@@ -43,6 +58,18 @@ section {
 					opacity: 0;
 				}
 			}
+
+			/*&.certif.event-opened, 
+			&.certif.wooploop-opened, 
+			&.certif.teambuilding-opened,
+			&.event.certif-opened, 
+			&.event.wooploop-opened,
+			&.event.teambuilding-opened, 
+			&.teambuilding.certif-opened,
+			&.teambuilding.event-opened, 
+			&.teambuilding.wooploop-opened {
+				pointer-events: none;
+			}*/
 
 			&.certif {
 				&.event-opened, &.wooploop-opened {
@@ -146,6 +173,7 @@ section {
 						color: map-get($colors, light);
 						opacity: 0;
 						transition: opacity .3s;
+						line-height: 1.2rem;
 					}
 				}
 
@@ -167,6 +195,24 @@ section {
 				}
 			}
 			
+		}
+
+		.form-container {
+			position: absolute;
+			opacity: 0;
+			z-index: 0;
+			transition: .5s opacity ease-in;
+
+			h2 {
+				font-family: BebasNeueBold;
+			}
+		}
+
+		.card.certif-opened + .certif-form,
+		.card.teambuilding-opened + .teambuilding-form,
+		.card.event-opened + .event-form {
+			opacity: 1;
+			z-index: 5;
 		}
 	}
 

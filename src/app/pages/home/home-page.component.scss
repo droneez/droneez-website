@@ -15,17 +15,24 @@
 			align-self: center;
 
 			.title {
-				font-family: montserrat-regular;
-				font-weight: normal;
-				font-style: normal;
+				font-family: BebasNeueBold;
 				color: map-get($colors,light);
+				font-size: 2.5rem;
 				margin-top: 0px;
 				margin-bottom: 0px;
 				text-transform: uppercase;
+				line-height: 3rem;
 			}
 
 			.subtitle {
 				color: map-get($colors,light);
+				font-size: .8rem;
+				line-height: 1rem;
+			}
+
+			.spacer {
+				visibility: hidden;
+				height: 3rem;
 			}
 
 			.booking-button {
@@ -47,7 +54,6 @@
 					}
 				}
 				a:hover, a:focus {
-					/*color: map-get($colors, light-trans) !important;*/
 					text-decoration: none !important;
 				}
 			}
@@ -85,7 +91,7 @@
 		.video-container {
 			overflow: hidden;
 			position: relative;
-			min-height: 550px;
+			min-height: 300px;
 
 			video {
 				position: absolute;
@@ -144,7 +150,6 @@
 	}
 
 	.global {
-		padding: 1rem 0 6rem 0;
 		.global-sub-container {
 			display: flex; 
 			flex-direction: column;
@@ -158,7 +163,7 @@
 					padding: 2.5rem 0;
 				}
 				.presentation {
-					font-family: montserrat-medium; 
+					font-family: raleway-medium; 
 					padding-top: 1.5rem;
     				padding-bottom: 1.5rem;
 				}
@@ -170,10 +175,13 @@
 			    justify-content: space-around;
 			    width: 100%;padding: 2rem 0;
 
-				figure figcaption {
-					padding: 3rem 0;
-					font-family: montserrat-medium;    
-					text-align: center;
+			    .figure-container {
+			    	min-width: 200px;
+					figure figcaption {
+						font-family: raleway-medium;    
+						text-align: center;
+						line-height: 1.2rem;
+					}
 				}
 			}
 
@@ -184,39 +192,32 @@
 	}
 }
 
-.coworking-section {
+.lesson-section {
 	background: map-get($colors,dark);
-
-	position: relative;
+	color: map-get($colors,light);
 	overflow: hidden;
 
 	.global {
-		.background-img {
-			max-width: 100%;
-		    min-width: 60rem;
-		    height: auto;
-		    position: absolute;
-		    bottom: 0;
-		    right: 0;
-		    opacity: .7;
-		}
-		@media (max-width:1300px) {
-			.background-img {
-				max-width:170%;
+		background: url('./../../../assets/img/cours-particuliers.jpg') no-repeat center center;
+		background-size: cover;
+
+		.presentation-container {
+			background: linear-gradient( to right, map-get($colors, 'dark-trans') 70%, rgba(0,0,0,0) 100% );
+			.wording-container {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-evenly;
+				h2 {
+					font-family: BebasNeueBold;
+					font-size: 2.8rem;
+				}
+				p {
+					font-family: raleway-medium;
+				}
 			}
 		}
-		@media (max-width:800px) {
-			.background-img {
-				max-width:300%;
-				right:-2rem;
-			}
-		}
-		@media (max-width:450px) {
-			.background-img {
-				max-width:400%;
-				right:-6rem;
-			}
-		}
+
+		
 	}
 }
 
@@ -243,13 +244,13 @@
 			.title {
 				padding: 2rem 0 2rem 0;
 				text-align: center;
-				font-family: montserrat-medium;
+				font-family: BebasNeueBold;
+				font-size: 2.8rem;
 			}
 
 			.certif-presentation {
 				text-align: center;
-				font-family: montserrat-medium;
-				padding: 3rem 0 5rem 0;
+				font-family: raleway-medium;
 			}
 
 			.certif-button {
@@ -309,6 +310,21 @@
 				img {
 					 max-width: 8rem;
 				}
+			}
+
+			.arrow-icon {
+				.icon {
+					width: 1.5rem;
+	    			height: 1.5rem;
+	    			border-top: 1px solid white;
+	    			border-right: 1px solid white;
+	    			display: inline-block;    
+	    			transform: rotate3d(0,0,1,45deg);
+	    			cursor: pointer;
+				}
+				&:focus {
+	    			outline: none;
+	    		}
 			}
 		}
 	}

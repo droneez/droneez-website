@@ -6,9 +6,10 @@
 		style="position:relative;"
 	>
 
-		<button mat-button class="close-button" (click)="closeCards()">close</button>
+		<button mat-button class="close-button" (click)="closeCards()"
+		[style.opacity]="isWooploopOpen || isCertifOpen || isTeambuildingOpen || isEventOpen ? 1 : 0" [style.transform]="isWooploopOpen || isCertifOpen || isTeambuildingOpen || isEventOpen ? 'scale3d(1,1,1)' : 'scale3d(0,0,0)'"><i class="material-icons">close</i></button>
 		
-		<app-cowork-page style="position:absolute;top:0" [style.opacity]="isWooploopOpen ? 1 : 0"></app-cowork-page>
+		<app-cowork-page style="position:absolute;top:0" [style.opacity]="isWooploopOpen ? 1 : 0" [style.z-index]="isWooploopOpen ? 5 : 1"></app-cowork-page>
 
 		<div class="container-fluid h-100">
 			<div class="row h-100">
@@ -24,15 +25,27 @@
 							<div class="row h-75 justify-content-center wording-container">
 								<div class="col-sm-12">
 									<h2>Certification de télépilote</h2>
-									<p>Formation de 35h</p>
+									<p class="mb-0">Formation de 35h</p>
 									<p>professionnalisante</p>
 								</div>
 							</div>
 							<div class="booking-button-container row h-25 align-items-center">
 								<div class="col-sm-12">
-									<button mat-button class="mat-btn-outline-light mat-btn-lg">Réserver</button>
+									<button mat-button class="mat-btn-outline-light mat-btn-sm">Réserver</button>
 								</div>
 							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-container certif-form col-sm-9 offset-3 w-100 h-100">
+					<div class="row h-25 align-items-end justify-content-center">
+						<div class="col-7 text-center">
+							<h2>Devenez un professionnel du pilotage avec la formation de télépilote !</h2>
+						</div>
+					</div>
+					<div class="row h-75 justify-content-center align-items-center">
+						<div class="col-5">
+							<app-contact-form></app-contact-form>
 						</div>
 					</div>
 				</div>
@@ -49,15 +62,27 @@
 							<div class="row h-75 justify-content-center wording-container">
 								<div class="col-sm-12">
 									<h2>teambuilding</h2>
-									<p>Formation de 35h</p>
+									<p class="mb-0">Formation de 35h</p>
 									<p>professionnalisante</p>
 								</div>
 							</div>
 							<div class="booking-button-container row h-25 align-items-center">
 								<div class="col-sm-12">
-									<button mat-button class="mat-btn-outline-light mat-btn-lg">Réserver</button>
+									<button mat-button class="mat-btn-outline-light mat-btn-sm">Réserver</button>
 								</div>
 							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-container teambuilding-form col-sm-9 offset-3 w-100 h-100">
+					<div class="row h-25 align-items-end justify-content-center">
+						<div class="col-7 text-center">
+							<h2>Créez des Team-Buildings uniques et inoubliables chez nous !</h2>
+						</div>
+					</div>
+					<div class="row h-75 justify-content-center align-items-center">
+						<div class="col-5">
+							<app-contact-form></app-contact-form>
 						</div>
 					</div>
 				</div>
@@ -73,15 +98,27 @@
 							<div class="row h-75 justify-content-center wording-container">
 								<div class="col-sm-12">
 									<h2>Event/salon</h2>
-									<p>Formation de 35h</p>
+									<p class="mb-0">Formation de 35h</p>
 									<p>professionnalisante</p>
 								</div>
 							</div>
 							<div class="booking-button-container row h-25 align-items-center">
 								<div class="col-sm-12">
-									<button mat-button class="mat-btn-outline-light mat-btn-lg">Réserver</button>
+									<button mat-button class="mat-btn-outline-light mat-btn-sm">Réserver</button>
 								</div>
 							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-container event-form col-sm-9 w-100 h-100">
+					<div class="row h-25 align-items-end justify-content-center">
+						<div class="col-7 text-center">
+							<h2>Créez des événements personnalisés chez vous ou chez nous tout est possible !</h2>
+						</div>
+					</div>
+					<div class="row h-75 justify-content-center align-items-center">
+						<div class="col-5">
+							<app-contact-form></app-contact-form>
 						</div>
 					</div>
 				</div>
@@ -98,13 +135,13 @@
 							<div class="row h-75 justify-content-center wording-container">
 								<div class="col-sm-12">
 									<h2>Wooploop</h2>
-									<p>Formation de 35h</p>
+									<p class="mb-0">Formation de 35h</p>
 									<p>professionnalisante</p>
 								</div>
 							</div>
 							<div class="booking-button-container row h-25 align-items-center">
 								<div class="col-sm-12">
-									<button mat-button class="mat-btn-outline-light mat-btn-lg">Réserver</button>
+									<button mat-button class="mat-btn-outline-light mat-btn-sm">Réserver</button>
 								</div>
 							</div>
 						</div>

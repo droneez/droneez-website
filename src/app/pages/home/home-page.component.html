@@ -1,15 +1,23 @@
 <section class="video-section">
 	<div class="global">
-		<div class="title-container">
-			<h2 class="title">
-				salle indoor de 1800 m²
-			</h2>
-			<p class="subtitle">
-				Le pilotage de 7 à 77 ans. Trois volières, un espace bar, un atelier &amp; un coworking !
-			</p>
-			<div class="booking-button">
-				<app-logo [speed]="500" [anim]="animLogo" [title]="false"></app-logo>
-				<a (mouseover)="animLogo=true" (mouseout)="animLogo=false" [class.focus]="animLogo" routerLink="/booking">Je réserve !</a>
+		<div class="title-container container-fluid h-100">
+			<div class="row h-100 justify-content-center align-items-center">
+				<div class="col-6">
+					<h2 class="title">
+						une salle de drone de 1800 m²
+					</h2>
+					<p class="subtitle">
+						Venez découvrir le dorne de 7 à 77 ans, amateur ou pros venez apprendre ou parfaire votre pilotage. Cours de pilotage à vue, en immersion & piste de course vous attendent.
+					</p>
+					<!--<div class="booking-button">
+						<app-logo [speed]="500" [anim]="animLogo" [title]="false"></app-logo>
+						<a (mouseover)="animLogo=true" (mouseout)="animLogo=false" [class.focus]="animLogo" routerLink="/booking">réserver</a>
+					</div>-->
+					<div class="spacer"></div>
+					<div class="booking-button">
+						<button class="mat-btn-outline-light mat-btn-lg" mat-button routerLink="/booking">réserver</button>
+					</div>
+				</div>
 			</div>
 			
 		</div>
@@ -57,57 +65,73 @@
 		[style.width]="screenWidth + 'px'">
 		<div class="global-sub-container">
 			<div class="presentation-container">
-				<h2 class="title">Courses</h2>
+				<h2 class="title">loisir & Courses</h2>
 				<div class="row">
 					<p class="presentation col-sm-8 col-md-6 col-lg-4 mx-auto">
-						Pandente itaque viam fatorum sorte tristissima, qua praestitutum erat eum vita et imperio spoliari, itineribus interiectis permutatione iumentorum emensis venit Petobionem oppidum Noricorum, ubi
+						Profitez d'un espace intérieur créé pour le drone pour prendre en main un drone sans assistance depuis le premier vol jusqu'au mode acrobatique encadré par nos pilotes ou seul si vous avez déjà la maîtrise.
 					</p>
 				</div>
 			</div>
 			<div class="icon-container">
-				<div>
-					<figure>
+				<div class="figure-container">
+					<figure class="text-center">
 						<img [src]="'assets/icon/initiation-icon.png'" />
 						<figcaption>
-							Initiation
+							<p class="mb-0 pt-4">Initiation</p>
+							<p class="mb-0">Pilotage à vue</p>
+							<p class="mb-0">Avec encadrant</p> 
 						</figcaption>
 					</figure>
 				</div>
-				<div>
-					<figure>
+				<div class="figure-container">
+					<figure class="text-center">
 						<img [src]="'assets/icon/fpv-icon.png'" />
 						<figcaption>
-							FPV
+							<p class="mb-0 pt-4">Immersion</p>
+							<p class="mb-0">Pilotage retour caméra</p>
+							<p class="mb-0">Avec encadrant</p>
 						</figcaption>
 					</figure>
 				</div>
-				<div>
-					<figure>
+				<div class="figure-container">
+					<figure class="text-center">
 						<img [src]="'assets/icon/pistes-icon.png'" />
 						<figcaption>
-							Accès Piste
+							<p class="mb-0 pt-4">Accès Piste</p>
+							<p class="mb-0">Pilotage avec votre</p>
+							<p class="mb-0">matériel sur notre espace</p>
 						</figcaption>
 					</figure>
 				</div>
 			</div>
-			<div class="booking-button-container">
+			<div class="booking-button-container mb-4">
 				<button mat-button class="mat-btn-outline-dark mat-btn-lg" routerLink="/booking">Réserver</button>
 			</div>
 		</div>
 	</div>
 </section>
 
-
-
-<section class="coworking-section" style="height:55rem;">
-	<div class="global"  
+<section class="lesson-section">
+	<div class="global"
 		[style.min-height]="screenHeight + 'px'" 
 		[style.width]="screenWidth + 'px'">
-		<img class="background-img" [src]="'assets/img/cours-particuliers.jpg'">
+		<div class="container-fluid h-100">
+			<div class="row h-100">
+				<div class="presentation-container col-6 h-100">
+					<div class="row h-100 justify-content-center" [style.min-height]="screenHeight + 'px'">
+						<div class="wording-container col-8 text-center">
+							<h2>Cours Particuliers</h2>
+							<p>Vous démarrez dans le drone de prise de vue et vous n'avez pas envie de voler sans conseils.Venez commencer ou parfaire votre pilotage de drones en une ou deux heures pour réaliser des photos ou vidéos exceptionnelles.</p>
+							<div class="booking-button-container">
+								<button mat-button class="mat-btn-outline-light mat-btn-lg" routerLink="/booking">Réserver</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </section>
-
-
 
 <section class="certification-section">
 	<div class="global container" 
@@ -120,11 +144,12 @@
 			<div class="certif-container col-sm-12 col-md-5">
 				<h2 class="title">Certification Télépilote</h2>
 				<p class="certif-presentation px-lg-4">
-					Pandente itaque viam fatorum sorte tristissima, qua praestitutum erat eum vita et imperio spoliari, itineribus interiectis permutatione iumentorum emensis venit Petobionem oppidum Noricorum, ubi
+					Vous souhaitez devenir professionnel en pilotage de drones. Venez passer votre brevet de Télepilote de drone certifié DGAC & vous préparer à l'examen théorique.
 				</p>
+				<p class="certif-presentation px-lg-4">35h de formation</p>
 				<div class="certif-button">
 					<button mat-button class="mat-btn-outline-dark mat-btn-lg" routerLink="/home">
-						Passez pro
+						Passer pro
 					</button>
 				</div>
 			</div>
@@ -144,51 +169,60 @@
 		<div class="activity row align-items-center">
 			<div class="metrics-container col-md-12 col-lg-4 row">
 				<p class="metrics m-auto col-sm-9 text-nowrap">
-					<span class="metric">X</span>  Teambuilding dans nos locaux
+					<span class="metric">98</span>  Teambuilding dans nos locaux
 				</p>
 			</div>
 			<div class="col-md-12 col-lg-8 row align-items-center">
 				<div class="col-sm-8">
 					<p class="activity-presentation m-auto col-sm-11">
-						Pandente itaque viam fatorum sorte tristissima, qua praestitutum erat eum vita et imperio spoliari, itineribus interiectis permutatione iumentorum emensis venit Petobionem oppidum Noricorum, ubi reseratae sunt insidiarum latebrae omnes, et
+						Nos locaux de 1800m2 sont entièrement privatisable pour découvrir le monde du drone avec vos équipes & créer des soirées extraordinaire dans un ancien entrepôt rénové en loft industriel. Bar licence 3, cocktail, VR, démonstration et pilotage nous pouvons répondre à tous vos désirs.
 					</p>
 				</div>
-				<div class="activity-icon col-sm-4">
+				<div class="activity-icon col-sm-3">
 					<img class="img-fluid" [src]="'assets/icon/business-1.png'">
 				</div>
+				<div class="arrow-icon col-sm-1" routerLink="/booking">
+					<i class="icon"></i>
+				</div>
 			</div>
 		</div>
 		<div class="activity row align-items-center">
 			<div class="metrics-container col-md-12 col-lg-4 row">
 				<p class="metrics m-auto col-sm-9 text-nowrap">
-					<span class="metric">XX</span>  Coworkers
+					<span class="metric">21</span>  Coworkers
 				</p>
 			</div>
 			<div class="col-md-12 col-lg-8 row align-items-center">
 				<div class="col-sm-8">
 					<p class="activity-presentation m-auto col-sm-11">
-						Pandente itaque viam fatorum sorte tristissima, qua praestitutum erat eum vita et imperio spoliari, itineribus interiectis permutatione iumentorum emensis venit Petobionem oppidum Noricorum, ubi reseratae sunt insidiarum latebrae omnes, et
+						Pour devenir un lieu clé du monde du drone, nous accueillons des start-ups sur un plateau de 200m2 au 1er étage avec accès ateliers & pistes gratuit pour les tests et le développement de leurs offres.
 					</p>
 				</div>
-				<div class="activity-icon col-sm-4">
+				<div class="activity-icon col-sm-3">
 					<img class="img-fluid" [src]="'assets/icon/business-2.png'">
 				</div>
+				<div class="arrow-icon col-sm-1" routerLink="/booking">
+					<i class="icon"></i>
+				</div>
 			</div>
 		</div>
 		<div class="activity row align-items-center">
 			<div class="metrics-container col-md-12 col-lg-4 row">
 				<p class="metrics m-auto col-sm-9 text-nowrap">
-					<span class="metric">XXX</span>  Salons et event
+					<span class="metric">25</span>  Salons et event
 				</p>
 			</div>
 			<div class="col-md-12 col-lg-8 row align-items-center">
 				<div class="col-sm-8">
 					<p class="activity-presentation m-auto col-sm-11">
-						Pandente itaque viam fatorum sorte tristissima, qua praestitutum erat eum vita et imperio spoliari, itineribus interiectis permutatione iumentorum emensis venit Petobionem oppidum Noricorum, ubi reseratae sunt insidiarum latebrae omnes, et
+						Nos équipes se déplacent et nous pouvons créer des événements de découverte chez vous dans une salle particulière, monter notre cage de sécurité et nous adapter en fonction du nombres de personnes. Vol à vue, démonstration immersion, Vol avec des drones stabilisés en fonction de vos désirs et des autorisations obtenues.
 					</p>
 				</div>
-				<div class="activity-icon col-sm-4">
+				<div class="activity-icon col-sm-3">
 					<img class="img-fluid" [src]="'assets/icon/business-3.png'">
+				</div>
+				<div class="arrow-icon col-sm-1" routerLink="/booking">
+					<i class="icon"></i>
 				</div>
 			</div>
 		</div>

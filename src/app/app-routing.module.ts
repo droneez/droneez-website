@@ -16,6 +16,7 @@ import { ClubPageComponent }      from './pages/club/club-page.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomePageComponent, data: {animation: 'HomePage'} },
+  //{ path: 'home', component: CoworkPageComponent, data: {animation: 'HomePage'} },
   { path: 'contact', component: ContactPageComponent, data: {animation: 'ContactPage'} },
   { path: 'news', component: NewsPageComponent, data: {animation: 'NewsPage'} },
   { path: 'business', component: BusinessPageComponent, data: {animation: 'BusinessPage'} },
