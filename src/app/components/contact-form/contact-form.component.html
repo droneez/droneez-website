@@ -1,20 +1,43 @@
-<form (ngSubmit)="processForm()">
+<form #form="ngForm" (ngSubmit)="processForm()">
+
+	<div class="row" *ngIf="business">
+		<div class="col-6 pr-2">
+		  	<div class="form-group">          
+		   	 	<input 
+		      		type="text" 
+		      		name="company"
+		      		class="form-control" 
+		      		placeholder="Entreprise" 
+		      		[(ngModel)]="company"
+		      		#companyInput="ngModel">
+			</div>
+		</div>
+		<div class="col-6 pl-2">
+			<div class="form-group">
+		    	<input 
+		     		type="text" 
+		     		name="contact" 
+		     		class="form-control" 
+		     		placeholder="Contact/poste" 
+		     		[(ngModel)]="contact"
+		     		#contactInput="ngModel">
+		  	</div>
+		</div>
+	</div>
 
 	<div class="row">
 		<div class="col-6 pr-2">
-		  	<!-- name -->
 		  	<div class="form-group">
 		    	<input 
 		     		type="text" 
 		     		name="lastname" 
 		     		class="form-control" 
-		     		placeholder="Nom" 
+		     		placeholder="Nom*" 
 		     		[(ngModel)]="lastName"
 		     		required
-		     		minlength="3"
 		     		#lastnameInput="ngModel">
 		    	<div class="help is-error" *ngIf="lastnameInput.invalid && lastnameInput.dirty">
-		    		Name is required and needs to be at least 3 characters long.
+		    		Un nom est requis.
 		   		</div>
 		  	</div>
 		</div>
@@ -26,31 +49,25 @@
 		     		class="form-control" 
 		     		placeholder="Prénom" 
 		     		[(ngModel)]="firstName"
-		     		required
-		     		minlength="3"
 		     		#firstnameInput="ngModel">
-		    	<div class="help is-error" *ngIf="firstnameInput.invalid && firstnameInput.dirty">
-		    		Name is required and needs to be at least 3 characters long.
-		   		</div>
 		  	</div>
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col-6 pr-2">
-		  	<!-- email -->
 		  	<div class="form-group">          
 		   	 	<input 
 		      		type="email" 
 		      		name="email" 
 		      		class="form-control" 
-		      		placeholder="Email" 
+		      		placeholder="Email*" 
 		      		[(ngModel)]="email"
 		      		required
 		      		email
 		      		#emailInput="ngModel">
 		    	<div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
-		      		Needs to be a valid email.
+		      		L'adresse mail doit être valide.
 		    	</div>
 			</div>
 		</div>
@@ -58,34 +75,82 @@
 			<div class="form-group">
 		    	<input 
 		     		type="tel" 
-		     		name="lastname" 
+		     		name="phone" 
 		     		class="form-control" 
 		     		placeholder="Téléphone" 
-		     		[(ngModel)]="lastName"
-		     		required
-		     		minlength="3"
-		     		#lastnameInput="ngModel">
-		    	<div class="help is-error" *ngIf="lastnameInput.invalid && lastnameInput.dirty">
-		    		Name is required and needs to be at least 3 characters long.
-		   		</div>
+		     		[(ngModel)]="phone"
+		     		#phoneInput="ngModel">
 		  	</div>
 		</div>
 	</div>
 
-	<div class="row">
+	<div class="row" *ngIf="!business && !customer">
 		<div class="col-12">
 			<div class="form-group">
 		    	<input 
 		     		type="text" 
-		     		name="lastname" 
+		     		name="company" 
 		     		class="form-control" 
 		     		placeholder="Société" 
-		     		[(ngModel)]="lastName"
+		     		[(ngModel)]="company"
+		     		#companyInput="ngModel">
+		  	</div>
+		</div>
+	</div>
+
+	<div class="row" *ngIf="certification || business">
+		<div class="col-6 pr-2" *ngIf="certification" [style.overflow-y]="'hidden'" [style.max-height]="'4.2rem'" [style.margin-top]="'-1.2rem'">
+			<div class="form-group">
+			<mat-form-field class="w-100">
+  				<mat-label>Mois de formation</mat-label>
+  				<mat-select [formControl]="monthControl" [(value)]="certifDuration" required>
+	    			<mat-option *ngFor="let month of months" [value]="month.value">
+	      				{{month.viewValue}}
+	    			</mat-option>
+				</mat-select>
+				<mat-error *ngIf="monthControl.hasError('required')">Veuillez remplir ce champ</mat-error>
+			</mat-form-field>
+			</div>
+		</div>
+		<div class="col-6 pr-2" *ngIf="business">
+		  	<div class="form-group">          
+		   	 	<input 
+		      		type="text" 
+		      		name="animationType" 
+		      		class="form-control" 
+		      		placeholder="Type d'animation" 
+		      		[(ngModel)]="animationType"
+		      		#animationInput="ngModel">
+			</div>
+		</div>
+		<div class="col-6 pl-2"  [style.overflow-y]="'hidden'" [style.max-height]="'4.2rem'" [style.margin-top]="'-1.2rem'">
+			<div class="form-group">
+				<mat-form-field class="w-100">
+	  				<mat-label>Nbr de participants</mat-label>
+	  				<mat-select [formControl]="participantControl" [(value)]="participantsNumber" required>
+		    			<mat-option *ngFor="let participant of participants" [value]="participant">
+		      				{{participant}}
+		    			</mat-option>
+					</mat-select>
+					<mat-error *ngIf="participantControl.hasError('required')">Veuillez remplir ce champs.</mat-error>
+				</mat-form-field>
+		  	</div>
+		</div>
+	</div>
+
+	<div class="row" *ngIf="business">
+		<div class="col-6">
+			<div class="form-group">
+		    	<input 
+		     		type="text" 
+		     		name="duration" 
+		     		class="form-control" 
+		     		placeholder="Durée*" 
+		     		[(ngModel)]="duration"
 		     		required
-		     		minlength="3"
-		     		#lastnameInput="ngModel">
-		    	<div class="help is-error" *ngIf="lastnameInput.invalid && lastnameInput.dirty">
-		    		Name is required and needs to be at least 3 characters long.
+		     		#durationInput="ngModel">
+		    	<div class="help is-error" *ngIf="durationInput.invalid && durationInput.dirty">
+		    		Veuillez remplir ce champs.
 		   		</div>
 		  	</div>
 		</div>
@@ -93,25 +158,27 @@
 
 	<div class="row">
 		<div class="col-12">
-		  	<!-- message -->
 		  	<div class="form-group">
 		    	<textarea 
 		      		class="form-control" 
 		      		name="message" 
 		      		placeholder="Message" 
 		      		[(ngModel)]="message"
-		      		rows="5"
-		      		required
+		      		[rows]="rows ? rows : 5"
 		      		#messageInput="ngModel"></textarea>
-		      	<div class="help is-error" *ngIf="messageInput.invalid && messageInput.dirty">
-		        	Your message is required!
-		      	</div>
 		  	</div>
 		</div>
 	</div>
 
+	<div class="row" *ngIf="certification">
+		<div class="col-12 px-4">
+		  	<p class="my-0">PRIX par participant : 2000€ HT</p>
+			<p class="mt-2" style="line-height: 1.2rem;">DRONEEZ est un organisme de formation enregistré sous le numéro 11922213692 auprès du préfet région Ile-de-France, la formation peut être financée par les OPCA ainsi que Pôle Emploi</p>
+		</div>
+	</div>
+
 	<div class="row">
-		<div class="col-12">
+		<div class="col-12 submit-button">
 		  	<button mat-button class="w-100" type="submit">Envoyer</button>
 		</div>
 	</div>

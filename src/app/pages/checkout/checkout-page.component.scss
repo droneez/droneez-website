@@ -1,0 +1,37 @@
+@import "~src/variables.scss";
+
+section {
+
+	.global {
+
+		overflow: hidden;
+
+		.form-1 {
+			mat-form-field {
+				width: 100%;
+			}
+			::ng-deep .mat-checkbox-label {
+				padding-left: 1rem !important;
+			}
+			.cgv {
+				text-decoration: underline;
+				&:hover, &:focus {
+					color: blue;
+				}
+			}
+		}
+
+		.form-2 {
+			.background-img-paiement {
+				&.mercanet {
+					background: url('./../../../assets/img/logo/mercanet_atos-2.png') no-repeat;
+				}
+				&.bitcoin {
+					background: url('./../../../assets/img/logo/bitcoin.png') no-repeat;
+				}
+			}
+		}
+
+	}
+
+}

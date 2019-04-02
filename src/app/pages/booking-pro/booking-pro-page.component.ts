@@ -1,4 +1,5 @@
 import { Component, HostListener, Inject } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { DOCUMENT } from '@angular/platform-browser';
 import { WINDOW } from "./../../services/window.service";
 import { Globals } from "./../../globals";
@@ -16,11 +17,14 @@ export class BookingProPageComponent {
     isTeambuildingOpen:boolean 	= false;
     isEventOpen:boolean 		= false;
     isWooploopOpen:boolean 		= false;
+    category: string;
 
 	constructor(
 		@Inject(DOCUMENT) private document: Document,
 		@Inject(WINDOW) public window,
-		private globals: Globals
+		private globals: Globals,
+        private route: ActivatedRoute,
+        private router: Router
 	) {
 		this.screenHeight = 0;
     	this.screenWidth = 0;
@@ -31,6 +35,8 @@ export class BookingProPageComponent {
         this.screenWidth = this.window.innerWidth;
 		this.globals.noChangeNavBg = true;
 		this.globals.noFooter = true;
+        this.category = this.route.snapshot.paramMap.get('category');
+        this.toggleCard(this.category);
 	}
 
 	ngOnDestroy() {
@@ -77,7 +83,8 @@ export class BookingProPageComponent {
     	this.isCertifOpen = false; 
 		this.isTeambuildingOpen = false;
 		this.isEventOpen = false; 
-		this.isWooploopOpen = false;	
+		this.isWooploopOpen = false;
+        if(this.category) this.router.navigateByUrl(this.globals.previousUrl);
     }
 
 }

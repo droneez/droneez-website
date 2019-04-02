@@ -1,8 +1,10 @@
 import { Component, HostListener, Inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Router, RoutesRecognized } from '@angular/router';
 import { DOCUMENT } from '@angular/platform-browser';
 import { WINDOW } from "./services/window.service";
 import { fadeInAnimation, footerAnimation } from "./animations/animations";
+import { filter, pairwise } from 'rxjs/operators';
+import { Globals } from "./globals";
 
 import { ScrollToAnimationEasing, ScrollToEvent, ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
 
@@ -28,11 +30,13 @@ export class AppComponent {
  
 	constructor(
         @Inject(DOCUMENT) private document: Document,
-        @Inject(WINDOW) public window,private scrollToService: ScrollToService
+        @Inject(WINDOW) public window,
+        private scrollToService: ScrollToService,
+        public router: Router,
+        private globals: Globals
     ) {
 		this.screenHeight = 0;
     	this.routeAnimate = false;
-
     	this.ngxScrollToOffset = 1000;
 	    this.ngxScrollToEvent = 'wheel';
 	    this.ngxScrollToDuration = 2500;
@@ -41,6 +45,14 @@ export class AppComponent {
 
     ngOnInit() {
     	this.screenHeight = this.window.innerHeight;
+    	// Get previous Url
+    	this.router.events
+            .pipe(
+            	filter((e: any) => e instanceof RoutesRecognized),
+                pairwise()
+            ).subscribe((e: any) => {
+                this.globals.previousUrl = e[0].urlAfterRedirects;
+            });
     }
 
 	/*onActivate(event) {

@@ -7,6 +7,10 @@
 	>
 
 		<button mat-button class="close-button" (click)="closeCards()"
+		[class.wooploop]="isWooploopOpen"
+		[class.certif]="isCertifOpen"
+		[class.teambuilding]="isTeambuildingOpen"
+		[class.event]="isEventOpen"
 		[style.opacity]="isWooploopOpen || isCertifOpen || isTeambuildingOpen || isEventOpen ? 1 : 0" [style.transform]="isWooploopOpen || isCertifOpen || isTeambuildingOpen || isEventOpen ? 'scale3d(1,1,1)' : 'scale3d(0,0,0)'"><i class="material-icons">close</i></button>
 		
 		<app-cowork-page style="position:absolute;top:0" [style.opacity]="isWooploopOpen ? 1 : 0" [style.z-index]="isWooploopOpen ? 5 : 1"></app-cowork-page>
@@ -24,9 +28,12 @@
 						<div class="col-sm-12 h-50 transition-container">
 							<div class="row h-75 justify-content-center wording-container">
 								<div class="col-sm-12">
-									<h2>Certification de télépilote</h2>
-									<p class="mb-0">Formation de 35h</p>
-									<p>professionnalisante</p>
+									<h4>Certification de télépilote</h4>
+									<p>
+										Devenir télépilote professionnel avec notre formation spécifique validée par la DGAC<br/><br/>
+										35 heures<br/>
+										5 jours
+									</p>
 								</div>
 							</div>
 							<div class="booking-button-container row h-25 align-items-center">
@@ -39,13 +46,13 @@
 				</div>
 				<div class="form-container certif-form col-sm-9 offset-3 w-100 h-100">
 					<div class="row h-25 align-items-end justify-content-center">
-						<div class="col-7 text-center">
-							<h2>Devenez un professionnel du pilotage avec la formation de télépilote !</h2>
+						<div class="col-9 text-center">
+							<h4>Devenez un professionnel du pilotage avec la formation de télépilote !</h4>
 						</div>
 					</div>
 					<div class="row h-75 justify-content-center align-items-center">
-						<div class="col-5">
-							<app-contact-form></app-contact-form>
+						<div class="col-6">
+							<app-contact-form [certification]=true [rows]=2 [type]="'reservation-formation'"></app-contact-form>
 						</div>
 					</div>
 				</div>
@@ -61,9 +68,14 @@
 						<div class="col-sm-12 h-50 transition-container">
 							<div class="row h-75 justify-content-center wording-container">
 								<div class="col-sm-12">
-									<h2>teambuilding</h2>
-									<p class="mb-0">Formation de 35h</p>
-									<p>professionnalisante</p>
+									<h4>team buildings</h4>
+									<p>
+										événements d'entreprise<br/>
+										privatisation possible<br/>
+										initiation - montage - démonstration pilotage<br/>
+										licence 3 - coktails & planches de charcuterie<br/>
+										selon vos désirs & votre budget
+									</p>
 								</div>
 							</div>
 							<div class="booking-button-container row h-25 align-items-center">
@@ -76,13 +88,13 @@
 				</div>
 				<div class="form-container teambuilding-form col-sm-9 offset-3 w-100 h-100">
 					<div class="row h-25 align-items-end justify-content-center">
-						<div class="col-7 text-center">
-							<h2>Créez des Team-Buildings uniques et inoubliables chez nous !</h2>
+						<div class="col-9 text-center">
+							<h4>Créez des Team-Buildings uniques et inoubliables chez nous !</h4>
 						</div>
 					</div>
 					<div class="row h-75 justify-content-center align-items-center">
-						<div class="col-5">
-							<app-contact-form></app-contact-form>
+						<div class="col-6">
+							<app-contact-form [business]=true [type]="'reservation-teambuilding'"></app-contact-form>
 						</div>
 					</div>
 				</div>
@@ -97,9 +109,13 @@
 						<div class="col-sm-12 h-50 transition-container">
 							<div class="row h-75 justify-content-center wording-container">
 								<div class="col-sm-12">
-									<h2>Event/salon</h2>
-									<p class="mb-0">Formation de 35h</p>
-									<p>professionnalisante</p>
+									<h4>Events & salons</h4>
+									<p>
+										Animation sur mesure<br/>
+										intérieure & extérieure<br/>
+										initiation - montage - démonstration pilotage<br/>
+										directement dans vos locaux
+									</p>
 								</div>
 							</div>
 							<div class="booking-button-container row h-25 align-items-center">
@@ -112,13 +128,13 @@
 				</div>
 				<div class="form-container event-form col-sm-9 w-100 h-100">
 					<div class="row h-25 align-items-end justify-content-center">
-						<div class="col-7 text-center">
-							<h2>Créez des événements personnalisés chez vous ou chez nous tout est possible !</h2>
+						<div class="col-9 text-center">
+							<h4>Créez des événements personnalisés chez vous ou chez nous tout est possible !</h4>
 						</div>
 					</div>
 					<div class="row h-75 justify-content-center align-items-center">
-						<div class="col-5">
-							<app-contact-form></app-contact-form>
+						<div class="col-6">
+							<app-contact-form [business]=true [type]="'reservation-evenement'"></app-contact-form>
 						</div>
 					</div>
 				</div>
@@ -134,9 +150,12 @@
 						<div class="col-sm-12 h-50 transition-container">
 							<div class="row h-75 justify-content-center wording-container">
 								<div class="col-sm-12">
-									<h2>Wooploop</h2>
-									<p class="mb-0">Formation de 35h</p>
-									<p>professionnalisante</p>
+									<h4>Coworking Wooploop</h4>
+									<p>
+										Open space de 200m²<br/>
+										accès ateliers & accès piste gratuits<br/>
+										fibre - wifi - cuisine - 24h/24 - 7j/7
+									</p>
 								</div>
 							</div>
 							<div class="booking-button-container row h-25 align-items-center">

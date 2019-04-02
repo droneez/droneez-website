@@ -1,3 +1,192 @@
-<p>
-  booking-customer-page works!
-</p>
+<section>
+	<div class="global main" [class.ready]="isEndChoice"
+		[style.height]="screenHeight + 'px'"
+		[style.width]="screenWidth + 'px'"
+		[style.min-height]="'800px'"
+	>
+		<div class="container h-100">
+			<div class="row h-100 pt-4 align-items-start">
+				<div class="col-sm-7 pt-5">
+					<div class="row h-25 recap-row">
+						<div class="col-sm-4 recap-1">
+							<div class="row h-100 align-items-center justify-content-center">
+								<div class="position-relative">
+									<img class="w-100" [src]="'assets/img/Paris_Reservation_Particuliers.png'" />
+									<h4 class="text-center w-100 pt-5">Paris</h4>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4 recap-2">
+							<div class="row h-100 align-items-center justify-content-center">
+								<div class="position-relative">
+									<img class="w-100" [src]="isRace ? 'assets/img/Course_Reservation_Particuliers.png' : isLesson ? 'assets/img/Cours_Particuliers_Reservation_Particuliers.png' : ''
+									" />
+									<h4 class="text-center w-100 pt-5">{{isRace ? 'Course' : isLesson ? 'Cours particuliers' : ''}}</h4>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4 recap-3">
+							<div class="row h-100 align-items-center justify-content-center">
+								<div class="position-relative">
+									<img class="w-100" [src]=" isImmersion ?
+									'assets/img/Immersion_Reservation_Particuliers.png' : isDecouverte ? 'assets/img/Decouverte_Reservation_Particuliers.png' : isAccesPiste ? 'assets/img/Acces_Piste_Reservation_Particuliers.png' : '' 
+									" />
+									<h4 class="text-center w-100 pt-5">{{isImmersion ? 'Immersion' : isDecouverte ? 'Découverte' : isAccesPiste ? 'Accès piste' : ''}}</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row h-75 calendar-row" [class.hide]="isLesson">
+						<igx-calendar #calendar
+					    	[locale]="'fr'"
+					    	[formatOptions]="formatOptions"
+					    	[formatViews]="formatViews"
+					    	(onSelection)="onCalendarClick($event)"
+						></igx-calendar>
+					</div>
+					<div *ngIf="isLesson" class="row h-75 calendar-row pt-5">
+						<div>
+							<app-contact-form [customer]="true" [type]="'reservation-cours-particulier'"></app-contact-form>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-5 time-col pt-5">
+
+					<div *ngIf="isLesson">
+						<h3>COURS PARTICULIERS</h3>
+						<br/>
+						<p><strong>Prix de la séance: 50€/h/personne.</strong></p>
+						<p>Devenez le pilote amateur que vous souhaitez être avec un drone de prise de vue.</p>
+						<p>Ces drones que vous trouvez dans les grands magasins qui sont assistés par un ordinateur de bord qui vous aide à piloter pour que vos prises de vue soient magnifiques.</p>
+						<p>Les encadrants Droneez vont vous former à prendre en main ce type de drone et prendre la confiance nécessaire avec l'acquisition de bons réflexes.</p>
+						<p>Pour les amateurs, nous préconisons environ deux heures de formation le temps d'acquérir les bons réflexes jusqu'à des mouvements complexes tout en vous enseignant la législation sur le vol de drones pour les amateurs, les zones de vols & les règles au niveau de votre matériel.</p>
+						<p>Les cours sont réalisés sur le matériel Droneez du Spark au Phantom 4 de DJI & le cours se finit sur une prise en main de votre matériel si vous l'avez.</p>
+						<br/>
+					</div>
+
+					<div *ngIf="!isLesson" [style.overflow-y]="'auto'" [style.overflow-x]="'hidden'">
+						<table *ngIf="schedule" mat-table [dataSource]="schedule">
+
+							<ng-container matColumnDef="range">
+								<th mat-header-cell *matHeaderCellDef class="text-center">Créneau</th>
+								<td mat-cell *matCellDef="let element" class="text-center"> {{ element.timeRange }} </td>
+							</ng-container>
+
+							<ng-container matColumnDef="participants">
+								<th mat-header-cell *matHeaderCellDef class="text-center">Participant(s)</th>
+								<td mat-cell *matCellDef="let element" class="text-center"> 
+									<mat-form-field [style.width]="'3rem'">
+									  <mat-select [(value)]="element.nbParticipants">
+									    <mat-option *ngFor="let number of element.participantsArray" [value]="number" [disabled]="element.isInShoppingBag">{{ number }}</mat-option>
+									  </mat-select>
+									</mat-form-field>
+								</td>
+							</ng-container>
+
+							<ng-container matColumnDef="price">
+								<th mat-header-cell *matHeaderCellDef class="text-center">Prix (unitaire)</th>
+								<td mat-cell *matCellDef="let element" class="text-center"> {{ element.price }} € </td>
+							</ng-container>
+
+							<ng-container matColumnDef="addShopping">
+								<th mat-header-cell *matHeaderCellDef class="text-center"></th>
+								<td mat-cell *matCellDef="let element; let i = index" class="text-center">
+									<button mat-icon-button color="primary" (click)="toggleShopBag(element)" [disabled]="element.nbParticipants == 0">
+								    	<mat-icon aria-label="icon-button with a shopping-cart icon">{{element.isInShoppingBag ? 'remove_shopping_cart' : 'add_shopping_cart'}}</mat-icon>
+								  	</button>
+								</td>
+							</ng-container>
+
+							<tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
+							<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+						</table>
+						<div class="mx-0 pt-4 mt-1 row align-items-center justify-content-around">
+							<button [style.min-width]="'145px'" [style.height]="'3rem'" mat-button class="mat-btn-outline-dark mat-btn-sm" (click)="openModal(shoppingBag)">Voir mon panier</button>
+							<button [style.min-width]="'145px'" [style.height]="'3rem'" mat-button class="mat-btn-outline-dark mat-btn-sm" (click)="checkBag()" >Procéder au paiement</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="global select position-absolute"
+		[style.height]="screenHeight + 'px'"
+		[style.width]="screenWidth + 'px'"
+		[class.end]="isEndChoice"
+	>	
+		<div class="container h-100">
+
+			<div class="row choice-1 h-100">
+				<div class="col-sm-6">
+					<div class="row h-100 align-items-center justify-content-center">
+						<button class="race-button" mat-button (click)="isRace = true; isNotLesson = true" 
+							[class.selected]="isRace"
+							[class.not-selected]="isNotRace"
+							>
+							<img class="w-100" [src]="'assets/img/Course_Reservation_Particuliers.png'" />
+							<h4 class="text-center w-100 pt-5">Course</h4>
+						</button>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="row h-100 align-items-center justify-content-center">
+						<button class="lesson-button" mat-button (click)="isLesson = true; isNotRace = true; isEndChoice = true"
+							[class.selected]="isLesson"
+							[class.not-selected]="isNotLesson">
+							<img class="w-100" [src]="'assets/img/Cours_Particuliers_Reservation_Particuliers.png'" />
+							<h4 class="text-center w-100 pt-5">Cours particuliers</h4>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="row choice-2 h-100 w-100" [class.ready]="isRace">
+				<div class="col-sm-4">
+					<div class="row h-100 align-items-center justify-content-center">
+						<button class="decouverte-button" mat-button (click)="isDecouverte = true; isNotImmersion = true; isNotAccesPiste = true; isEndChoice = true; type = 'decouverte'; getAvailablePlaces(date)"
+							[class.selected]="isDecouverte"
+							[class.not-selected]="isNotDecouverte">
+							<img class="w-100" [src]="'assets/img/Decouverte_Reservation_Particuliers.png'" />
+							<h4 class="text-center w-100 pt-5">Découverte</h4>
+						</button>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="row h-100 align-items-center justify-content-center">
+						<button class="immersion-button" mat-button (click)="isImmersion = true; isNotDecouverte = true; isNotAccesPiste = true; isEndChoice = true; type = 'immersion'; getAvailablePlaces(date)"
+							[class.selected]="isImmersion"
+							[class.not-selected]="isNotImmersion">
+							<img class="w-100" [src]="'assets/img/Immersion_Reservation_Particuliers.png'" />
+							<h4 class="text-center w-100 pt-5">Immersion</h4>
+						</button>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="row h-100 align-items-center justify-content-center">
+						<button class="acces-piste-button" mat-button (click)="isAccesPiste = true; isNotImmersion = true; isNotDecouverte = true; isEndChoice = true; type = 'acces-piste'; getAvailablePlaces(date)"
+							[class.selected]="isAccesPiste"
+							[class.not-selected]="isNotAccesPiste">
+							<img class="w-100" [src]="'assets/img/Acces_Piste_Reservation_Particuliers.png'" />
+							<h4 class="text-center w-100 pt-5">Accès piste</h4>
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+<ng-template #shoppingBag>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Mon panier</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <app-shopping-bag (closeModalRequest)="closeModal($event)"></app-shopping-bag>
+    </div>
+</ng-template>
+
+

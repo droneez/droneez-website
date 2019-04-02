@@ -18,6 +18,28 @@ section {
 		transform: translateY(150px);
 		opacity:0;
 		padding-bottom: 2rem;
+		.card {
+			cursor: pointer;
+			.card-img-container {
+				height: 18rem;
+    			overflow: hidden;
+				img {
+					height: 100%;
+    				width: auto !important;
+    				transform: translateX(-50%);
+				    margin-left: 50%;
+				    transform: translateX(-50%) scale3d(1,1,1);
+				    transition: ease-out 3s transform;
+				    &:hover {
+				    	transform: translateX(-50%) scale3d(1.2,1.2,1);
+				    }
+				}
+			}
+			.card-title {
+				height: 6rem;
+				overflow: hidden;
+			}
+		}
 	}
 
 	.show-card {

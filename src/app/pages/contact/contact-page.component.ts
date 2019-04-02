@@ -7,21 +7,12 @@ import { Globals } from "./../../globals";
     styleUrls: ['./contact-page.component.scss']
 })
 export class ContactPageComponent {
-
-	/*name: string;
-  	email: string;
-  	message: string;*/
   	
   	constructor(private globals: Globals) { }
 
   	ngOnInit() {
         this.globals.noChangeNavBg = true;
   	}
-
-  	/*processForm() {
-	    const allInfo = `My name is ${this.name}. My email is ${this.email}. My message is ${this.message}`;
-	    alert(allInfo); 
-	}*/
 
     ngOnDestroy() {
         this.globals.noChangeNavBg = false;

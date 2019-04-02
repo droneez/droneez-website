@@ -21,12 +21,23 @@ section {
 		    border: 1px solid map-get($colors, dark);
 		    position: absolute;
 		    top: 5rem;
-		    right: 5rem;
+		    right: 2rem;
 		    z-index: 7;
-		    background: yellow;
 		    outline: none !important;
 		    i {
 		    	font-size: 40px;
+		    }
+		    &.wooploop {
+		    	background: map-get($colors, tertiary);
+		    }
+		    &.certif {
+		    	background: map-get($colors, primary);
+		    }
+		    &.event {
+		    	background: map-get($colors, danger);
+		    }
+		    &.teambuilding {
+		    	background: map-get($colors, secondary);
 		    }
 		}
 
@@ -80,8 +91,8 @@ section {
 					background: url('./../../../assets/img/booking-pro-certif.jpg') no-repeat center center;
 					background-size: cover;
 				}
-				.transition-container:hover .wording-container h2,
-				.transition-container:focus .wording-container h2 {
+				.transition-container:hover .wording-container h4,
+				.transition-container:focus .wording-container h4 {
 					color: map-get($colors, primary);
 				}
 			}
@@ -101,8 +112,8 @@ section {
 					background: url('./../../../assets/img/booking-pro-teambuilding.jpg') no-repeat center center;
 					background-size: cover;
 				}
-				.transition-container:hover .wording-container h2,
-				.transition-container:focus .wording-container h2 {
+				.transition-container:hover .wording-container h4,
+				.transition-container:focus .wording-container h4 {
 					color: map-get($colors, secondary);
 				}
 			}
@@ -123,8 +134,8 @@ section {
 					background: url('./../../../assets/img/booking-pro-event.jpg') no-repeat center center;
 					background-size: cover;
 				}
-				.transition-container:hover .wording-container h2,
-				.transition-container:focus .wording-container h2 {
+				.transition-container:hover .wording-container h4,
+				.transition-container:focus .wording-container h4 {
 					color: map-get($colors, danger);
 				}
 			}
@@ -141,8 +152,8 @@ section {
 					background: url('./../../../assets/img/booking-pro-wooploop.jpg') no-repeat center center;
 					background-size: cover;
 				}
-				.transition-container:hover .wording-container h2,
-				.transition-container:focus .wording-container h2 {
+				.transition-container:hover .wording-container h4,
+				.transition-container:focus .wording-container h4 {
 					color: map-get($colors, tertiary);
 				}
 			}
@@ -162,7 +173,7 @@ section {
 
 				.wording-container {
 					transition: transform ease-out .3s;
-					h2 {
+					h4 {
 						font-family: BebasNeueBold;
 						color: map-get($colors, light);
 						transition: color 0.25s;
@@ -203,7 +214,7 @@ section {
 			z-index: 0;
 			transition: .5s opacity ease-in;
 
-			h2 {
+			h4 {
 				font-family: BebasNeueBold;
 			}
 		}

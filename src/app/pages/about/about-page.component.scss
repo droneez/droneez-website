@@ -26,6 +26,7 @@ section.universe {
 				opacity: 0;
 				transition: ease-out .4s opacity, ease-out 1s transform;
 				transform: translateX(-.2rem);
+				width:150%;
 			}
 
 			&:hover, &:focus {

@@ -7,14 +7,19 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="presentation-container text-center">
                     <div class="wording-container">
-                        <h3>Découverte</h3>
+                        <div class="title-container row justify-content-center align-items-center">
+                            <h3>Découverte</h3>
+                        </div>
                         <div class="separate-line"></div>
                         <p class="price pt-4 mb-1">25€/H</p>
-                        <p class="px-4">Pilotage à vue avec encadrant pendant 1h</p>
+                        <div class="wording">
+                            <p class="px-4">Pilotage à vue<br/>
+                            débutant - 1h</p>
+                        </div>
                     </div>
                     <div class="booking-button-container row">
                         <div class="col-sm-12">
-                            <button mat-button class="mat-btn-outline-dark mat-btn-sm">Réserver</button>
+                            <button mat-button class="mat-btn-outline-dark mat-btn-sm" routerLink="/booking/customer/decouverte">Réserver</button>
                         </div>
                     </div>
                 </div>
@@ -22,14 +27,20 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="presentation-container text-center">
                     <div class="wording-container">
-                        <h3>Cours fpv</h3>
+                        <div class="title-container row justify-content-center align-items-center">
+                            <h3>immersion</h3>
+                        </div>
                         <div class="separate-line"></div>
                         <p class="price pt-4 mb-1">35€/H</p>
-                        <p class="px-4">Pilotage retour caméra avec encadrant pendant 1h</p>
+                        <div class="wording">
+                            <p class="px-4">Pilotage retour caméra<br/>
+                            confirmé - 1h<br/>
+                            <i>après maîtrise du vol à vue</i></p>
+                        </div>
                     </div>
                     <div class="booking-button-container row">
                         <div class="col-sm-12">
-                            <button mat-button class="mat-btn-outline-dark mat-btn-sm">Réserver</button>
+                            <button mat-button class="mat-btn-outline-dark mat-btn-sm" routerLink="/booking/customer/immersion">Réserver</button>
                         </div>
                     </div>
                 </div>
@@ -37,19 +48,22 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="presentation-container text-center">
                     <div class="wording-container">
-                        <h3>Accès piste</h3>
+                        <div class="title-container row justify-content-center align-items-center">
+                            <h3>Accès piste</h3>
+                        </div>
                         <div class="separate-line"></div>
                         <p class="price pt-4 mb-1">10€</p>
-                        <p class="px-4">Pilotage avec votre matériel sur notre espace</p>
-                    
-                        <div class="schedule">
-                            <p>10H-14H</p>
-                            <p>14H-20H</p>
+                        <div class="wording">
+                            <p class="px-4">
+                                demi-journée<br/>
+                                10h-14h ou 14h-20h<br/>
+                                <i>avec votre matériel</i>
+                            </p>
                         </div>
                     </div>
                     <div class="booking-button-container row">
                         <div class="col-sm-12">
-                            <button mat-button class="mat-btn-outline-dark mat-btn-sm">Réserver</button>
+                            <button mat-button class="mat-btn-outline-dark mat-btn-sm" routerLink="/booking/customer/accesPiste">Réserver</button>
                         </div>
                     </div>
                 </div>
@@ -57,14 +71,22 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="presentation-container text-center">
                     <div class="wording-container">
-                        <h3>Cours particuliers</h3>
+                        <div class="title-container row justify-content-center align-items-center">
+                            <h3>Cours particuliers</h3>
+                        </div>
                         <div class="separate-line"></div>
-                        <p class="price pt-4 mb-1">50€</p>
-                        <p class="px-4">Apprentissage et/ou perfectionnement drone de prise de vue avec encadrant</p>
+                        <p class="price pt-4 mb-1">50€/H</p>
+                        <div class="wording">
+                            <p class="px-4">
+                                drone de captation<br/>
+                                cours personnalisés<br/>
+                                <i>avec nos drones & le vôtre selon votre choix</i>
+                            </p>
+                        </div>
                     </div>
                     <div class="booking-button-container row">
                         <div class="col-sm-12">
-                            <button mat-button class="mat-btn-outline-dark mat-btn-sm">Réserver</button>
+                            <button mat-button class="mat-btn-outline-dark mat-btn-sm" routerLink="/booking/customer/lesson">Réserver</button>
                         </div>
                     </div>
                 </div>
@@ -84,8 +106,8 @@
             <div class="col">
                 <div class="presentation-container text-center">
                     <div class="wording-container">
-                        <h3>Abonnement</h3>
-                        <h3>enfant (-14 ans)</h3>
+                        <h3>Tarifs mensuels</h3>
+                        <h3>enfant (<14 ans)</h3>
                         <div class="separate-line"></div>
 
                         <div class="row">
@@ -98,6 +120,10 @@
                                 <div class="schedule">
                                     <p>10H-14H</p>
                                 </div>
+                                <p>
+                                    forfait loisir: 30€<br/>
+                                    forfait compétition avec abonnement FAI: 40€
+                                </p>
                             </div>
                             <div class="col-sm-6 py-5">
                                 <p class="price pt-4 mb-1">40€</p>
@@ -119,10 +145,16 @@
             <div class="col-2">
                 <div class="presentation-container text-center">
                     <div class="wording-container">
-                        <h3 [style.opacity]="0">Licence</h3>
+                        <h3 [style.opacity]="0">club droneez</h3>
                         <h3 [style.opacity]="0">FFAM</h3>
                         <div class="separate-line"></div>
-                        <h3>Licence FFAM</h3>
+                        <h3>Licence officielle</h3>
+                        <p>
+                            accès piste<br/>
+                            horaires spécifiques club<br/>
+                            invitation workshop<br/>
+                            invitation VIP
+                        </p>
                     </div>
                 </div>
             </div>
@@ -130,7 +162,7 @@
             <div class="col">
                 <div class="presentation-container text-center">
                     <div class="wording-container">
-                        <h3>Abonnement</h3>
+                        <h3>Tarifs mensuels</h3>
                         <h3>adulte</h3>
                         <div class="separate-line"></div>
                         <div class="row">

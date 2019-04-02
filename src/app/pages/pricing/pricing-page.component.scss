@@ -18,9 +18,15 @@ section {
 			.wording-container {
 				font-family: raleway-medium;
 				min-height: 15rem;
+				.title-container {
+					min-height: 8em;
+				}
 				.price {
 					font-family: BebasNeueBold;
 					font-size: 2.5rem;
+				}
+				.wording {
+					min-height: 8rem;
 				}
 				p {
 					font-size: .8rem;

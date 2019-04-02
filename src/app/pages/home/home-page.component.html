@@ -1,27 +1,31 @@
 <section class="video-section">
 	<div class="global">
-		<div class="title-container container-fluid h-100">
+		<div class="title-container container-fluid h-100 position-absolute text-center">
 			<div class="row h-100 justify-content-center align-items-center">
-				<div class="col-6">
+				<div class="col-12">
 					<h2 class="title">
-						une salle de drone de 1800 m²
+						une salle de drone de 1'800 m²
 					</h2>
 					<p class="subtitle">
-						Venez découvrir le dorne de 7 à 77 ans, amateur ou pros venez apprendre ou parfaire votre pilotage. Cours de pilotage à vue, en immersion & piste de course vous attendent.
+						De 7 à 77 ans<br/>
+						Amateurs ou professionnels<br/>
+						Cours de pilotage<br/>
+						Course ou prise de vue<br/>
+						Accès piste<br/>
+						★<br/>
+						On vous attend !
 					</p>
 					<!--<div class="booking-button">
 						<app-logo [speed]="500" [anim]="animLogo" [title]="false"></app-logo>
 						<a (mouseover)="animLogo=true" (mouseout)="animLogo=false" [class.focus]="animLogo" routerLink="/booking">réserver</a>
 					</div>-->
-					<div class="spacer"></div>
-					<div class="booking-button">
+					<div class="booking-button pt-3">
 						<button class="mat-btn-outline-light mat-btn-lg" mat-button routerLink="/booking">réserver</button>
 					</div>
 				</div>
 			</div>
-			
 		</div>
-		<div class="city-container container" style="display:none">
+		<!--<div class="city-container container" >
 			<div class="city row justify-content-around align-items-center">
 				<div class="img-container">
 					<img [src]="'assets/icon/malakoff-place.png'" />
@@ -35,8 +39,8 @@
 					<span class="img-label">Paris</span>
 				</div>
 			</div>
-		</div>
-		<div class="video-container" 
+		</div>-->
+		<div class="video-container position-relative" 
 			[style.height]="screenHeight + 'px'" 
 			[style.width]="screenWidth + 'px'"
 		>
@@ -61,52 +65,78 @@
 		<img class="background-img corner-right" [src]="'assets/img/drone-course-bg2.png'">
 	</div>
 	<div class="global container" 
-		[style.min-height]="screenHeight + 'px'" 
-		[style.width]="screenWidth + 'px'">
-		<div class="global-sub-container">
-			<div class="presentation-container">
-				<h2 class="title">loisir & Courses</h2>
-				<div class="row">
-					<p class="presentation col-sm-8 col-md-6 col-lg-4 mx-auto">
-						Profitez d'un espace intérieur créé pour le drone pour prendre en main un drone sans assistance depuis le premier vol jusqu'au mode acrobatique encadré par nos pilotes ou seul si vous avez déjà la maîtrise.
-					</p>
-				</div>
+		[style.height]="screenHeight + 'px'" 
+		[style.width]="screenWidth + 'px'"
+		[style.min-height]="'590px'">
+
+		<div class="global-sub-container h-100 row justify-content-center align-items-center">
+			
+			<div class="row w-100 justify-content-center align-items-center">
+				<h2 class="title col text-center mt-4 pt-5">Pilotage & Courses</h2>
 			</div>
-			<div class="icon-container">
-				<div class="figure-container">
+			<div class="row w-100 justify-content-center align-items-center">
+				<p class="mt-3 presentation col text-center">
+					Première prise en main<br/>stabilisé à acrobatique<br/>
+					amateur à pilote<br/>
+					à partir de 7 ans<br/>
+					3 volières
+				</p>
+			</div>
+
+			<div class="icon-container w-100 row justify-content-center align-items-center">
+
+				<div class="figure-container col-4">
 					<figure class="text-center">
-						<img [src]="'assets/icon/initiation-icon.png'" />
+						<div class="icon-wrapper">
+							<img [src]="'assets/icon/initiation-icon.png'" />
+						</div>
 						<figcaption>
-							<p class="mb-0 pt-4">Initiation</p>
-							<p class="mb-0">Pilotage à vue</p>
-							<p class="mb-0">Avec encadrant</p> 
+							<h5 class="mb-2 mt-3">Initiation</h5>
+							<p class="mt-0">
+								1<sup>ère</sup> prise en main<br/>
+								vol à vue<br/>
+								avec encadrant
+							</p>
 						</figcaption>
 					</figure>
 				</div>
-				<div class="figure-container">
+				<div class="figure-container col-4">
 					<figure class="text-center">
-						<img [src]="'assets/icon/fpv-icon.png'" />
+						<div class="icon-wrapper">
+							<img [src]="'assets/icon/fpv-icon.png'" />
+						</div>
 						<figcaption>
-							<p class="mb-0 pt-4">Immersion</p>
-							<p class="mb-0">Pilotage retour caméra</p>
-							<p class="mb-0">Avec encadrant</p>
+							<h5 class="mb-2 mt-3">Immersion</h5>
+							<p class="mt-0">
+								post initiation<br/>
+								vol avec masque<br/>
+								avec encadrant
+							</p>
 						</figcaption>
 					</figure>
 				</div>
-				<div class="figure-container">
+				<div class="figure-container col-4">
 					<figure class="text-center">
-						<img [src]="'assets/icon/pistes-icon.png'" />
+						<div class="icon-wrapper">
+							<img [src]="'assets/icon/pistes-icon.png'" />
+						</div>
 						<figcaption>
-							<p class="mb-0 pt-4">Accès Piste</p>
-							<p class="mb-0">Pilotage avec votre</p>
-							<p class="mb-0">matériel sur notre espace</p>
+							<h5 class="mb-2 mt-3">Accès Piste</h5>
+							<p class="mt-0">
+								Pilotage avec<br/>
+								votre matériel<br/>
+								sur notre piste
+							</p>
 						</figcaption>
 					</figure>
 				</div>
+
 			</div>
-			<div class="booking-button-container mb-4">
-				<button mat-button class="mat-btn-outline-dark mat-btn-lg" routerLink="/booking">Réserver</button>
+
+			<div class="row w-100 justify-content-center align-items-center booking-button-container mb-5 mt-4">
+				<button mat-button class="mat-btn-outline-dark mat-btn-lg" routerLink="/booking/customer/race">Réserver</button>
 			</div>
+
 		</div>
 	</div>
 </section>
@@ -121,9 +151,15 @@
 					<div class="row h-100 justify-content-center" [style.min-height]="screenHeight + 'px'">
 						<div class="wording-container col-8 text-center">
 							<h2>Cours Particuliers</h2>
-							<p>Vous démarrez dans le drone de prise de vue et vous n'avez pas envie de voler sans conseils.Venez commencer ou parfaire votre pilotage de drones en une ou deux heures pour réaliser des photos ou vidéos exceptionnelles.</p>
-							<div class="booking-button-container">
-								<button mat-button class="mat-btn-outline-light mat-btn-lg" routerLink="/booking">Réserver</button>
+							<p class="my-3">
+								Premiers pas en captation video par drone<br/>
+								encadrement personnalisé<br/>
+								avec un formateur<br/><br/>
+								1 à 2 heures<br/>
+								objectif : photos & videos
+							</p>
+							<div class="booking-button-container py-3">
+								<button mat-button class="mat-btn-outline-light mat-btn-lg" routerLink="/booking/customer/lesson">Réserver</button>
 							</div>
 						</div>
 					</div>
@@ -144,12 +180,15 @@
 			<div class="certif-container col-sm-12 col-md-5">
 				<h2 class="title">Certification Télépilote</h2>
 				<p class="certif-presentation px-lg-4">
-					Vous souhaitez devenir professionnel en pilotage de drones. Venez passer votre brevet de Télepilote de drone certifié DGAC & vous préparer à l'examen théorique.
+					Devenir télépilote professionnel<br/>
+					avec notre formation spécifique<br/>
+					validée par la DGAC<br/><br/>
+					35 heures / 5 jours<br/>
+					théorique & pratique
 				</p>
-				<p class="certif-presentation px-lg-4">35h de formation</p>
 				<div class="certif-button">
-					<button mat-button class="mat-btn-outline-dark mat-btn-lg" routerLink="/home">
-						Passer pro
+					<button mat-button class="mat-btn-outline-dark mat-btn-lg" routerLink="/booking/pro/certif">
+						Réserver
 					</button>
 				</div>
 			</div>
@@ -169,19 +208,21 @@
 		<div class="activity row align-items-center">
 			<div class="metrics-container col-md-12 col-lg-4 row">
 				<p class="metrics m-auto col-sm-9 text-nowrap">
-					<span class="metric">98</span>  Teambuilding dans nos locaux
+					<span class="metric">98</span>  Team buildings
 				</p>
 			</div>
 			<div class="col-md-12 col-lg-8 row align-items-center">
 				<div class="col-sm-8">
 					<p class="activity-presentation m-auto col-sm-11">
-						Nos locaux de 1800m2 sont entièrement privatisable pour découvrir le monde du drone avec vos équipes & créer des soirées extraordinaire dans un ancien entrepôt rénové en loft industriel. Bar licence 3, cocktail, VR, démonstration et pilotage nous pouvons répondre à tous vos désirs.
+						Nos locaux sont privatisables pour des événements d'entreprise<br/>
+						avec/sans initiation, montage ou démonstration de pilotage de drones<br/>
+						loft industriel - bar licence 3 - traiteur - conférence & présentation
 					</p>
 				</div>
 				<div class="activity-icon col-sm-3">
 					<img class="img-fluid" [src]="'assets/icon/business-1.png'">
 				</div>
-				<div class="arrow-icon col-sm-1" routerLink="/booking">
+				<div class="arrow-icon col-sm-1" routerLink="/booking/pro/teambuilding">
 					<i class="icon"></i>
 				</div>
 			</div>
@@ -195,13 +236,14 @@
 			<div class="col-md-12 col-lg-8 row align-items-center">
 				<div class="col-sm-8">
 					<p class="activity-presentation m-auto col-sm-11">
-						Pour devenir un lieu clé du monde du drone, nous accueillons des start-ups sur un plateau de 200m2 au 1er étage avec accès ateliers & pistes gratuit pour les tests et le développement de leurs offres.
+						Nous accueillons des start-ups du monde du drone ou de la robotique<br/>
+						Open space de 200m² - accès ateliers & accès piste gratuits
 					</p>
 				</div>
 				<div class="activity-icon col-sm-3">
 					<img class="img-fluid" [src]="'assets/icon/business-2.png'">
 				</div>
-				<div class="arrow-icon col-sm-1" routerLink="/booking">
+				<div class="arrow-icon col-sm-1" routerLink="/booking/pro/wooploop">
 					<i class="icon"></i>
 				</div>
 			</div>
@@ -209,19 +251,22 @@
 		<div class="activity row align-items-center">
 			<div class="metrics-container col-md-12 col-lg-4 row">
 				<p class="metrics m-auto col-sm-9 text-nowrap">
-					<span class="metric">25</span>  Salons et event
+					<span class="metric">30</span>  Salons & event
 				</p>
 			</div>
 			<div class="col-md-12 col-lg-8 row align-items-center">
 				<div class="col-sm-8">
 					<p class="activity-presentation m-auto col-sm-11">
-						Nos équipes se déplacent et nous pouvons créer des événements de découverte chez vous dans une salle particulière, monter notre cage de sécurité et nous adapter en fonction du nombres de personnes. Vol à vue, démonstration immersion, Vol avec des drones stabilisés en fonction de vos désirs et des autorisations obtenues.
+						Notre équipe se déplace pour faire venir le drone dans vos locaux<br/>
+						intérieur & extérieur - cage spécifique - animation continue
+						<br/>
+						drone prise de vue - drone assisté - drone de cours
 					</p>
 				</div>
 				<div class="activity-icon col-sm-3">
 					<img class="img-fluid" [src]="'assets/icon/business-3.png'">
 				</div>
-				<div class="arrow-icon col-sm-1" routerLink="/booking">
+				<div class="arrow-icon col-sm-1" routerLink="/booking/pro/event">
 					<i class="icon"></i>
 				</div>
 			</div>

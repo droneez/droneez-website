@@ -4,38 +4,22 @@
 	background: map-get($colors,dark);
 	.global {
 		overflow: hidden;
-		position: relative;
-		display: flex;
-		justify-content: center;
 
 		.title-container {
-			position: absolute;
 			z-index: 1;
-			text-align: center;
-			align-self: center;
 
 			.title {
 				font-family: BebasNeueBold;
 				color: map-get($colors,light);
 				font-size: 2.5rem;
-				margin-top: 0px;
-				margin-bottom: 0px;
-				text-transform: uppercase;
 				line-height: 3rem;
 			}
 
 			.subtitle {
 				color: map-get($colors,light);
-				font-size: .8rem;
-				line-height: 1rem;
 			}
 
-			.spacer {
-				visibility: hidden;
-				height: 3rem;
-			}
-
-			.booking-button {
+			/*.booking-button {
 				app-logo {
 					display: block;
 					padding-top: 2rem;
@@ -56,10 +40,10 @@
 				a:hover, a:focus {
 					text-decoration: none !important;
 				}
-			}
+			}*/
 		}
 
-		.city-container {
+		/*.city-container {
 			position: absolute; 
 			bottom: 4rem; 
 			z-index: 1;
@@ -86,11 +70,10 @@
     				bottom: -40px;
     			}
 			}
-		}
+		}*/
 
 		.video-container {
 			overflow: hidden;
-			position: relative;
 			min-height: 300px;
 
 			video {
@@ -151,43 +134,30 @@
 
 	.global {
 		.global-sub-container {
-			display: flex; 
-			flex-direction: column;
-			align-items: center;
-
-			.presentation-container {
-				text-align: center;
-				.title {
-					font-family: BebasNeueRegular; 
-					font-size: 2.8rem;
-					padding: 2.5rem 0;
-				}
-				.presentation {
-					font-family: raleway-medium; 
-					padding-top: 1.5rem;
-    				padding-bottom: 1.5rem;
-				}
+			.title {
+				font-family: BebasNeueBold;
 			}
 			.icon-container {
-				display: flex;
-			    flex-direction: row;
-			    align-items: flex-end;
-			    justify-content: space-around;
-			    width: 100%;padding: 2rem 0;
-
 			    .figure-container {
-			    	min-width: 200px;
-					figure figcaption {
-						font-family: raleway-medium;    
-						text-align: center;
-						line-height: 1.2rem;
-					}
+					figure {
+						.icon-wrapper {
+							height:6rem;
+							position: relative;
+							min-width: 10rem;
+							img {
+								position: absolute;
+								left:50%;
+								top:50%;
+								transform: translate3d(-50%,-50%,0);
+							}
+						}
+						h5 {
+							font-family: BebasNeueBold;
+						}
+					} 
 				}
 			}
 
-			.booking-button-container {
-				padding: 1rem 0;
-			}
 		}
 	}
 }
@@ -264,6 +234,7 @@
 .business-section {
 	background: map-get($colors,dark);
 	color: map-get($colors, light);
+	overflow: hidden;
 
 	.global {
 		padding-top: 2rem;
@@ -397,4 +368,10 @@
 			}
 		}
 	}
+}
+
+p:not(.metrics) {
+	font-family: BebasNeueRegular !important;
+    font-size: 1rem !important;
+    line-height: 1rem !important;
 }

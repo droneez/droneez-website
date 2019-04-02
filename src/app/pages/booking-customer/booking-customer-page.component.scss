@@ -1,0 +1,149 @@
+@import "~src/variables.scss";
+
+section {
+	.global {
+
+		perspective: 3000px;
+		perspective-origin: center;
+
+		overflow: hidden;
+
+		img {
+			max-width: 15rem;
+		}
+		h4 {
+			color: map-get($colors, light);
+			position: absolute;
+			top: 0;
+			font-family: BebasNeueBold;
+		}
+	
+		&.main {
+			filter: blur(4px);
+			opacity: .5;
+			transition: ease-in-out filter 1s, ease-in-out opacity 1s;
+
+			.recap-row {
+				.recap-1 {
+					transform: translateX(1000%);
+					transition: ease-out .2s transform;
+				}
+				.recap-2 {
+					transform: translateX(2000%);
+					transition: ease-out .3s transform;
+				}
+				.recap-3 {
+					transform: translateX(3000%);
+					transition: ease-out .4s transform;
+				}
+			}
+
+			.calendar-row {
+				transform: translateY(2000%);
+    			transition: ease-out .6s transform;
+    			&.hide {
+    				height : 0 !important;
+    				width : 0 !important;
+    				overflow : hidden !important;
+    			}
+			}
+
+			.time-col {
+				transform: translateX(2000%);
+    			transition: ease-out .7s transform;
+			}
+
+			&.ready {
+				filter: blur(0px);
+				opacity: 1;
+				.recap-row {
+					.recap-1, .recap-2, .recap-3 {
+						transform: translateX(0%);
+					}
+				}
+				.calendar-row {
+					transform: translateY(0%);
+				}
+				.time-col {
+					transform: translateX(0%);
+				}
+			}
+			
+		}
+
+		&.select {
+			top: 0;
+			transition: top cubic-bezier(1,0,1,0) 1s;
+			&.end {
+				top: -100%;
+			}
+			.container {
+				position: relative;
+				button {
+					padding: 0;
+					transform: scale3d(1,1,1) rotate3d(0,0,0,0deg);
+					opacity: 1;
+					
+					&.selected {
+						transition: ease-in .2s transform, ease-out .2s opacity;
+						transform: scale3d(.7,.7,.7);
+						opacity: 0;
+					}
+					&.not-selected {
+						transform: rotate3d(0,1,0,180deg);
+					    transition: ease transform 1.5s, opacity .43s cubic-bezier(1,0,1,0);
+					    opacity: 0;
+					}
+				}
+				.choice-2 {
+					position: absolute;
+				    top: 0;
+				    opacity: 0;
+				    z-index: -1;
+
+				    button {
+				    	&.decouverte-button {
+				    		transform: translateX(-1000%);
+				    	}
+				    	&.immersion-button {
+				    		transform: translateY(-1000%);
+				    	}
+				    	&.acces-piste-button {
+				    		transform: translateY(1000%);
+				    	}
+				    }
+				}
+				.choice-2.ready {
+					z-index: 0;
+					opacity: 1;
+					button {
+						transition: ease-out 1s transform;
+						&.decouverte-button {
+							transform: translateX(0%) scale3d(1,1,1) rotate3d(0,0,0,0deg);
+						}
+						&.immersion-button,
+				    	&.acces-piste-button {
+				    		transform: translateY(0%) scale3d(1,1,1) rotate3d(0,0,0,0deg);
+				    	}
+				    	&.selected {
+							transition: ease-in .2s transform, ease-out .2s opacity;
+							transform: scale3d(.7,.7,.7);
+						}
+						&.not-selected {
+							transform: rotate3d(0,1,0,180deg);
+						    transition: ease transform 1.5s, opacity .43s cubic-bezier(1,0,1,0);
+						}
+					}
+
+				}
+			}
+		}
+
+		table {
+			width: 100%;
+			margin: auto;
+		}
+
+	}
+}
+

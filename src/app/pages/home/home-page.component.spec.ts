@@ -4,7 +4,7 @@ import { HomePageComponent } from './home-page.component';
 
 describe('HomePageComponent', () => {
   let component: HomePageComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+  let fixture: ComponentFixture<HomePageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

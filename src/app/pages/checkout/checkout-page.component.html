@@ -1,0 +1,212 @@
+<section>
+	<div class="global container pt-5 mt-5" 
+		[style.min-height]="screenHeight + 'px'" 
+		[style.width]="screenWidth + 'px'"
+	>
+		<mat-horizontal-stepper linear #stepper>
+			<mat-step [stepControl]="firstFormGroup" errorMessage="Champs requis.">
+
+
+				<div class="row">
+					<div class="col-12 pb-3">
+					  	<h4 class="text-center">Informations personnelles</h4>
+					</div>
+				</div>
+
+				<form class="form-1" [formGroup]="firstFormGroup" (submit)="onSubmit()">
+					<ng-template matStepLabel>Détails de facturation</ng-template>
+					<div class="row justify-content-center align-items-center">
+						<div class="col-6">
+							<div class="row justify-content-center">
+								<div class="w-75">
+									<div>
+										<mat-form-field appearance="outline">
+											<mat-label>Prénom</mat-label>
+											<input matInput placeholder="Prénom" formControlName="firstNameControl" required>
+											<mat-error *ngIf="firstFormGroup.controls.firstNameControl.hasError('required')">Veuillez remplir ce champ</mat-error>
+										</mat-form-field>
+									</div>
+									<div>
+										<mat-form-field appearance="outline">
+											<mat-label>Email</mat-label>
+											<input matInput placeholder="Email" formControlName="emailControl" required>
+											<mat-error *ngIf="firstFormGroup.controls.emailControl.invalid">{{getErrorMailMessage()}}</mat-error>
+										</mat-form-field>
+									</div>
+									<div>
+										<mat-form-field appearance="outline">
+											<mat-label>Adresse</mat-label>
+											<input matInput placeholder="Adresse 1" formControlName="adress1Control" required>
+											<mat-error *ngIf="firstFormGroup.controls.adress1Control.hasError('required')">Veuillez remplir ce champ</mat-error>
+										</mat-form-field>
+									</div>
+									<div>
+										<mat-form-field appearance="outline">
+											<mat-label>Entreprise</mat-label>
+											<input matInput placeholder="Entreprise" formControlName="companyControl">
+										</mat-form-field>
+									</div>
+									<div>
+										<mat-form-field appearance="outline">
+											<mat-label>Code Postal</mat-label>
+											<input matInput placeholder="Code Postal" formControlName="postalControl" required>
+											<mat-error *ngIf="firstFormGroup.controls.postalControl.hasError('required')">Veuillez remplir ce champ</mat-error>
+										</mat-form-field>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="row justify-content-center">
+								<div class="w-75">
+									<div>
+										<mat-form-field appearance="outline">
+											<mat-label>Nom</mat-label>
+											<input matInput placeholder="Nom" formControlName="lastNameControl" required>
+											<mat-error *ngIf="firstFormGroup.controls.lastNameControl.hasError('required')">Veuillez remplir ce champ</mat-error>
+										</mat-form-field>
+									</div>
+									<div>
+										<mat-form-field appearance="outline">
+											<mat-label>Téléphone</mat-label>
+											<input matInput placeholder="Téléphone" formControlName="phoneControl" required>
+											<mat-error *ngIf="firstFormGroup.controls.phoneControl.hasError('required')">Veuillez remplir ce champ</mat-error>
+										</mat-form-field>
+									</div>
+									<div>
+										<mat-form-field appearance="outline">
+											<mat-label>Complément d'Adresse</mat-label>
+											<input matInput placeholder="Adresse 2" formControlName="adress2Control">
+										</mat-form-field>
+									</div>
+									<div>
+										<mat-form-field appearance="outline">
+											<mat-label>Ville</mat-label>
+											<input matInput placeholder="Ville" formControlName="cityControl" required>
+											<mat-error *ngIf="firstFormGroup.controls.cityControl.hasError('required')">Veuillez remplir ce champ</mat-error>
+										</mat-form-field>
+									</div>
+									<div>
+										<mat-form-field appearance="outline">
+											<mat-label>Pays</mat-label>
+											<mat-select placeholder="Pays" [(value)]="countrySelected" formControlName="countryControl" required>
+												<mat-option *ngFor="let country of countries" value="{{country}}">{{country}}</mat-option>
+											</mat-select>
+											<mat-error *ngIf="firstFormGroup.controls.countryControl.hasError('required')">Veuillez remplir ce champ</mat-error>
+										</mat-form-field>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row justify-content-center align-items-start">
+						<div class="col-6">
+							<div class="row justify-content-center">
+								<div class="w-75">
+									<mat-checkbox required formControlName="checkboxControl" >J'ai lu et j'approuve <br/>les <span class="cgv" (click)="openCGV(legal)">conditions générales de ventes</span>.</mat-checkbox>
+									<mat-error *ngIf="firstFormGroup.controls.checkboxControl.hasError('required') && nextClicked">Veuillez cocher cette case</mat-error>
+								</div>
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="row justify-content-center">
+								<div class="w-75 text-right">
+									<button mat-button class="mat-btn-outline-dark mat-btn-lg" matStepperNext>Suivant</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</mat-step>
+
+			<!--<mat-step [stepControl]="secondFormGroup" errorMessage="Champs requis.">
+				<form class="form-2" [formGroup]="secondFormGroup">
+					<ng-template matStepLabel>Moyen de paiement</ng-template>
+					<label id="example-radio-group-label">Merci de choisir votre méthode de paiement.</label>
+						<mat-radio-group
+							aria-labelledby="example-radio-group-label"
+							>
+							<mat-radio-button [value]="mercanet">
+								<div class="background-img-paiement mercanet">
+								</div>
+							</mat-radio-button>
+							<mat-radio-button [value]="bitcoin">
+								<div class="background-img-paiement bitcoin">
+								</div>
+							</mat-radio-button>
+						</mat-radio-group>
+					<div>
+						<button mat-button class="mat-btn-outline-dark mat-btn-lg" matStepperPrevious>Précédent</button>
+						<button mat-button class="mat-btn-outline-dark mat-btn-lg" matStepperNext>Suivant</button>
+					</div>
+				</form>
+			</mat-step>-->
+
+			<mat-step>
+				<ng-template matStepLabel>Confirmer la commande</ng-template>
+
+
+
+				<table class="w-100" mat-table [dataSource]="shoppingBag">
+
+					<ng-container matColumnDef="type">
+						<th mat-header-cell *matHeaderCellDef class="text-center">Type</th>
+						<td mat-cell *matCellDef="let element" class="text-center"> {{element.type}} </td>
+					</ng-container>
+
+					<ng-container matColumnDef="date">
+						<th mat-header-cell *matHeaderCellDef class="text-center">Date</th>
+						<td mat-cell *matCellDef="let element" class="text-center"> {{element.date.toLocaleDateString('fr-FR')}} </td>
+					</ng-container>
+
+					<ng-container matColumnDef="range">
+						<th mat-header-cell *matHeaderCellDef class="text-center">Créneau</th>
+						<td mat-cell *matCellDef="let element" class="text-center"> {{element.timeRange}} </td>
+					</ng-container>
+
+					<ng-container matColumnDef="participants">
+						<th mat-header-cell *matHeaderCellDef class="text-center">Participant(s)</th>
+						<td mat-cell *matCellDef="let element" class="text-center"> {{element.nbParticipants}} </td>
+					</ng-container>
+
+					<ng-container matColumnDef="price">
+						<th mat-header-cell *matHeaderCellDef class="text-center">Prix (unitaire)</th>
+						<td mat-cell *matCellDef="let element" class="text-center"> {{element.price}} € </td>
+					</ng-container>
+
+					<ng-container matColumnDef="totalPrice">
+						<th mat-header-cell *matHeaderCellDef class="text-center">total</th>
+						<td mat-cell *matCellDef="let element" class="text-center"> {{element.price*element.nbParticipants}} € </td>
+					</ng-container>
+
+					<tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
+					<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+				</table>
+				<div class="mx-5 mt-5 pt-4 row align-items-center justify-content-end">
+					<div class="total">Prix total : <strong>{{total||0}}€</strong></div>
+				</div>
+
+				<div>
+					<div class="mx-5 pt-4 row align-items-center justify-content-between">
+						<button mat-button class="mat-btn-outline-dark mat-btn-lg" matStepperPrevious>Précédent</button>
+						<div [innerHTML]="paymentButton | safeHtml"></div>
+					</div>
+				</div>
+
+			</mat-step>
+
+		</mat-horizontal-stepper>
+	</div>
+</section>
+
+<ng-template #legal>
+	<div class="modal-header">
+		<h4 class="modal-title pull-left">Mentions légales</h4>
+		<button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<app-legal></app-legal>
+	</div>
+</ng-template>

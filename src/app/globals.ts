@@ -1,6 +1,8 @@
 import { Injectable, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { WINDOW } from "./services/window.service";
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Injectable()
 export class Globals {
@@ -19,10 +21,14 @@ export class Globals {
 	noChangeNavBg: boolean = false;
 	/* permet d'enlever le footer */
 	noFooter: boolean = false;
+	/* url page precedente*/
+	previousUrl: string;
 
 	constructor(
 		@Inject(DOCUMENT) private document: Document,
-        @Inject(WINDOW) public window) {
+        @Inject(WINDOW) public window,
+        private router: Router
+    ) {
 		/* CHECK NAVIGATORS */
 		try {
 			// Opera 8.0+
@@ -43,5 +49,4 @@ export class Globals {
 			console.log(e);
 		}
 	}
-	
 }

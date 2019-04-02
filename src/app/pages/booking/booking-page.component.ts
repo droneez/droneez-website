@@ -23,10 +23,12 @@ export class BookingPageComponent {
 		this.screenHeight = this.window.innerHeight;
         this.screenWidth = this.window.innerWidth;
         this.globals.noChangeNavBg = true;
+        this.globals.noFooter = true;
 	}
 
 	ngOnDestroy() {
         this.globals.noChangeNavBg = false;
+        this.globals.noFooter = false;
     }
 
 	@HostListener('window:resize', []) onResize() {

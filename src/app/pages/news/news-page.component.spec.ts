@@ -8,7 +8,7 @@ describe('NewsPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewsComponent ]
+      declarations: [ NewsPageComponent ]
     })
     .compileComponents();
   }));

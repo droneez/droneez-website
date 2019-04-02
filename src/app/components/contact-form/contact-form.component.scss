@@ -1,14 +1,20 @@
 @import "~src/variables.scss";
 
 form {
+	p {
+		color: #C5C5C5;
+		font-family: raleway-regular;
+		font-size: .7rem;
+	}
 	input, textarea, button {
 		border: 1px solid #707070;
 		border-radius: 5rem;
 		font-family: raleway-regular;
 		&::placeholder {
-			color: #C5C5C5;
+			color: map-get($colors, smooth-dark);
 			font-family: raleway-regular;
 			font-size: .7rem;
+			text-transform: uppercase;
 		}
 	}
 	input {
@@ -25,4 +31,36 @@ form {
     		outline: none;
     	}
 	}
+	.mat-select {
+		border: 1px solid #707070;
+	    border-radius: 5rem;
+	    font-family: raleway-regular;
+	    height: 1.9rem;
+	    line-height: 1.7rem;
+	    padding: 0 .5rem;
+	}
+	::ng-deep .mat-form-field-label-wrapper {
+		.mat-form-field-label {
+			padding-left:.5rem;
+			padding-top:.5rem;
+		}
+	}
+	::ng-deep .mat-form-field-underline {
+		display: none;
+	}
+	::ng-deep .mat-form-field-subscript-wrapper {
+		padding-left: .5rem;
+    	margin-top: -.2rem;
+	}
+	
+	.mat-form-field {
+		height: 4.3rem;
+    	margin-top: -.1rem;
+    	overflow: hidden;	
+    }
+
+    .submit-button button {
+    	font-weight: 700;
+    	text-transform: uppercase;;
+    }
 }
