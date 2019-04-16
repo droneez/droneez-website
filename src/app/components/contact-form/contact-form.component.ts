@@ -100,7 +100,7 @@ export class ContactFormComponent {
     
     myFilter = (d: Moment): boolean => {
         let today = new Date(Date.now());
-        return d.toDate().getDate() >= today.getDate();
+        return Math.floor(d.toDate().getTime()/1000/3600/24) >= Math.floor(today.getTime()/1000/3600/24)-1;
     }
 
     constructor(
@@ -189,7 +189,9 @@ export class ContactFormComponent {
 	            cocktail: this.cocktailSelected,
 	            duree: this.dureeSelected,
 	            privatise: this.privatiseSelected,
-	            date: this.formGroup.controls.dateControl.value,
+	            date:  this.formGroup.controls.dateControl.value ? ("0" + this.formGroup.controls.dateControl.value.toDate().getDate()).slice(-2)+'/'+
+                    ("0" + (this.formGroup.controls.dateControl.value.toDate().getMonth()+1)).slice(-2)+'/'+
+                    this.formGroup.controls.dateControl.value.toDate().getFullYear() : "",
 	            multiAnim: this.multiAnimSelected,
 	            lieux: this.lieux,
 	            volieres: this.volieres,
