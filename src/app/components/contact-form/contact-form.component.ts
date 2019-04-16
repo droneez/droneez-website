@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { catchError, retry } from 'rxjs/operators';
-import { Observable, throwError  } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { FormControl, Validators } from '@angular/forms';
 import { ApiService, Config } from './../../services/api.service';
 import { Moment } from 'moment';
+import { MatSnackBar } from '@angular/material';
 
 /*export interface datas {
     type: string;
@@ -105,6 +106,7 @@ export class ContactFormComponent {
     constructor(
         private http: HttpClient, 
         private apiService: ApiService,
+        private snackBar: MatSnackBar,
         private formBuilder: FormBuilder
     ) {
         apiService.getConfig().subscribe((data: Config) => {
@@ -149,6 +151,12 @@ export class ContactFormComponent {
         return this.formGroup.controls.phoneControl.hasError('required') ? 'Veuillez renseigner ce champ' : 
         this.formGroup.controls.phoneControl.hasError('pattern') ? "le numéro doit être valide" :
         '';
+    }
+
+    openSnackBar(message) {
+        this.snackBar.open(message,"",{
+            duration: 2000,
+        });
     }
 
     onChange(title,name,value){
@@ -200,7 +208,10 @@ export class ContactFormComponent {
             .pipe(
                 catchError(this.handleError)
             );
-        observable.subscribe( res =>{
+        observable.subscribe(() =>{
+            this.openSnackBar("Votre message a bien été envoyé");
+        }, error => {
+            this.openSnackBar(error);
         });
     }
 
@@ -211,9 +222,9 @@ export class ContactFormComponent {
         } else {
             // The backend returned an unsuccessful response code.
             // The response body may contain clues as to what went wrong,
-            console.error(`Backend returned code ${error.status}, ` + `body was: ${error.error}`);
+            console.error(`Backend returned code ${error.status}, message was: "${error.message}"`);
         }
         // return an observable with a user-facing error message
-        return throwError("Une erreur est survenue; veuillez réessayer plus tard.");
+        return throwError("Une erreur est survenue, veuillez réessayer plus tard.");
     }
 }
