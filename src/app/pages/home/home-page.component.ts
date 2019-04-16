@@ -159,7 +159,7 @@ export class HomePageComponent {
             if(res !== null && +res === 0) {
                 this.openSnackBar("Le paiement a été refusé");
             } else if(+res === 1){
-                this.openSnackBar("La paiement a été accepté, vous allez recevoir un email avec le récapitulatif de votre commande.");
+                this.openSnackBar("Le paiement a été accepté, vous allez recevoir un email avec le récapitulatif de votre commande.");
             };
         });
     }
