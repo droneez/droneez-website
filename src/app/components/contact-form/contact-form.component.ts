@@ -160,36 +160,37 @@ export class ContactFormComponent {
     }
 
     onSubmit() {
-
-        this.datas = {
-            type: this.type,
-            lastName: this.formGroup.controls.lastNameControl.value,
-            firstName: this.formGroup.controls.firstNameControl.value,
-            company: this.formGroup.controls.companyControl.value,
-            email: this.formGroup.controls.emailControl.value,
-            statut: this.statutSelected,
-            domain: this.formGroup.controls.domainControl.value,
-            opca: this.formGroup.controls.opcaControl.value,
-            phone: this.formGroup.controls.phoneControl.value,
-            formationMonth: this.monthSelected,
-            participantsNumber: this.participantSelected,
-            message: this.formGroup.controls.messageControl.value,
-            poste: this.formGroup.controls.posteControl.value,
-            options: this.formGroup.controls.optionsControl.value,
-            budget: this.formGroup.controls.budgetControl.value,
-            boisson: this.boissonSelected,
-            cocktail: this.cocktailSelected,
-            duree: this.dureeSelected,
-            privatise: this.privatiseSelected,
-            date: this.formGroup.controls.dateControl.value,
-            multiAnim: this.multiAnimSelected,
-            lieux: this.lieux,
-            volieres: this.volieres,
-            types: this.types,
-            animations: this.animations,
-            horaires: this.horaires
-        };
-        this.sendDatas(this.datas);
+    	if(this.formGroup.valid) {
+	        this.datas = {
+	            type: this.type,
+	            lastName: this.formGroup.controls.lastNameControl.value,
+	            firstName: this.formGroup.controls.firstNameControl.value,
+	            company: this.formGroup.controls.companyControl.value,
+	            email: this.formGroup.controls.emailControl.value,
+	            statut: this.statutSelected,
+	            domain: this.formGroup.controls.domainControl.value,
+	            opca: this.formGroup.controls.opcaControl.value,
+	            phone: this.formGroup.controls.phoneControl.value,
+	            formationMonth: this.monthSelected,
+	            participantsNumber: this.participantSelected,
+	            message: this.formGroup.controls.messageControl.value,
+	            poste: this.formGroup.controls.posteControl.value,
+	            options: this.formGroup.controls.optionsControl.value,
+	            budget: this.formGroup.controls.budgetControl.value,
+	            boisson: this.boissonSelected,
+	            cocktail: this.cocktailSelected,
+	            duree: this.dureeSelected,
+	            privatise: this.privatiseSelected,
+	            date: this.formGroup.controls.dateControl.value,
+	            multiAnim: this.multiAnimSelected,
+	            lieux: this.lieux,
+	            volieres: this.volieres,
+	            types: this.types,
+	            animations: this.animations,
+	            horaires: this.horaires
+	        };
+	        this.sendDatas(this.datas);
+	    }
     }
 
     sendDatas(datas: any) {
