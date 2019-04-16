@@ -1,14 +1,14 @@
 <section class="section-service">
     <div class="global container pt-5">
-        <div class="row justify-content-center py-5"> 
-            <h1>Tarifs</h1>
+        <div class="row justify-content-center"> 
+            <h1 class="m-0">Tarifs</h1>
         </div>
         <div class="row">
             <div class="col-sm-6 col-lg-3">
                 <div class="presentation-container text-center">
                     <div class="wording-container">
                         <div class="title-container row justify-content-center align-items-center">
-                            <h3>Découverte</h3>
+                            <h4>Découverte</h4>
                         </div>
                         <div class="separate-line"></div>
                         <p class="price pt-4 mb-1">25€/H</p>
@@ -28,7 +28,7 @@
                 <div class="presentation-container text-center">
                     <div class="wording-container">
                         <div class="title-container row justify-content-center align-items-center">
-                            <h3>immersion</h3>
+                            <h4>immersion</h4>
                         </div>
                         <div class="separate-line"></div>
                         <p class="price pt-4 mb-1">35€/H</p>
@@ -49,7 +49,7 @@
                 <div class="presentation-container text-center">
                     <div class="wording-container">
                         <div class="title-container row justify-content-center align-items-center">
-                            <h3>Accès piste</h3>
+                            <h4>Accès piste</h4>
                         </div>
                         <div class="separate-line"></div>
                         <p class="price pt-4 mb-1">10€</p>
@@ -72,7 +72,7 @@
                 <div class="presentation-container text-center">
                     <div class="wording-container">
                         <div class="title-container row justify-content-center align-items-center">
-                            <h3>Cours particuliers</h3>
+                            <h4>Cours particuliers</h4>
                         </div>
                         <div class="separate-line"></div>
                         <p class="price pt-4 mb-1">50€/H</p>
@@ -102,53 +102,19 @@
 <section class="section-subscription">
     <div class="global container">
 
-        <div class="row">
+        <div class="row justify-content-center align-items-center">
             <div class="col">
-                <div class="presentation-container text-center">
-                    <div class="wording-container">
-                        <h3>Tarifs mensuels</h3>
-                        <h3>enfant (<14 ans)</h3>
-                        <div class="separate-line"></div>
-
-                        <div class="row">
-                            <div class="col-sm-6 py-5">
-                                <p class="price pt-4 mb-1">30€</p>
-                                <h4 class="strong-word">Loisir</h4>
-                                <p class="mb-0 px-3">Accès piste illimité</p>
-                                <p class="mb-0 px-3">Accès au workshop gratuitement</p>
-                                <p class="px-3">Invitation aux événements DRONEEZ</p>
-                                <div class="schedule">
-                                    <p>10H-14H</p>
-                                </div>
-                                <p>
-                                    forfait loisir: 30€<br/>
-                                    forfait compétition avec abonnement FAI: 40€
-                                </p>
-                            </div>
-                            <div class="col-sm-6 py-5">
-                                <p class="price pt-4 mb-1">40€</p>
-                                <h4 class="strong-word">Compétition</h4>
-                                <p class="mb-0 px-3">Accès piste illimité</p>
-                                <p class="mb-0 px-3">Accès au workshop gratuitement</p>
-                                <p class="mb-0 px-3">Invitation aux événements DRONEEZ</p>
-                                <p class="px-3">Abonnement FAI compris</p>
-                                <div class="schedule">
-                                    <p>10H-14H</p>
-                                    <p>14H-20H</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h1 class="text-center mb-0">Club Droneez</h1>
             </div>
-
-            <div class="col-2">
-                <div class="presentation-container text-center">
-                    <div class="wording-container">
-                        <h3 [style.opacity]="0">club droneez</h3>
-                        <h3 [style.opacity]="0">FFAM</h3>
-                        <div class="separate-line"></div>
-                        <h3>Licence officielle</h3>
+        </div>
+        <div class="row justify-content-center align-items-center">
+            <div class="col">
+                <div class="row justify-content-center align-items-center presentation-container">
+                    <div class="logo-wrapper pr-5">
+                        <img [src]="'assets/img/logo/ffam.png'" [style.width]="'auto'" [style.height]="'16rem'"/>
+                    </div>
+                    <div class="text-center pl-5 wording-container">
+                        <h4 class="pt-4">Licence officielle</h4>
                         <p>
                             accès piste<br/>
                             horaires spécifiques club<br/>
@@ -158,40 +124,29 @@
                     </div>
                 </div>
             </div>
-
+        </div>
+        <div class="row justify-content-center align-items-center">
             <div class="col">
-                <div class="presentation-container text-center">
-                    <div class="wording-container">
-                        <h3>Tarifs mensuels</h3>
-                        <h3>adulte</h3>
-                        <div class="separate-line"></div>
-                        <div class="row">
-                            <div class="col-sm-6 py-5">
-                                <p class="price pt-4 mb-1">60€</p>
-                                <h4 class="strong-word">Compétition</h4>
-                                <p class="mb-0 px-3">Accès piste illimité</p>
-                                <p class="mb-0 px-3">Accès au workshop gratuitement</p>
-                                <p class="mb-0 px-3">Invitation aux événements DRONEEZ</p>
-                                <p class="px-3">Abonnement FAI compris</p>
-                                <div class="schedule">
-                                    <p>10H-14H</p>
-                                    <p>14H-20H</p>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 py-5">
-                                <p class="price pt-4 mb-1">50€</p>
-                                <h4 class="strong-word">Loisir</h4>
-                                <p class="mb-0 px-3">Accès piste illimité</p>
-                                <p class="mb-0 px-3">Accès au workshop gratuitement</p>
-                                <p class="px-3">Invitation aux événements DRONEEZ</p>
-                                <div class="schedule">
-                                    <p>10H-14H</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>            
+                <h4 class="text-center mb-0">Tarifs mensuels</h4>
+            </div>
+        </div>
+        <div class="row justify-content-center align-items-center text-center presentation-container">
+            <div class="col-6 wording-container">
+                <h4>enfant (<14 ans)</h4>
+                <div class="separate-line"></div>
+                <p>
+                    forfait loisir: <span class="price-mini">30€</span><br/>
+                    forfait compétition avec abonnement FAI: <span class="price-mini">40€</span>
+                </p>
+            </div>
+            <div class="col-6 wording-container">
+                <h4>adulte</h4>
+                <div class="separate-line"></div>
+                <p>
+                    forfait loisir: <span class="price-mini">50€</span><br/>
+                    forfait compétition avec abonnement FAI: <span class="price-mini">60€</span>
+                </p>
+            </div>
         </div>
     </div>
 </section>

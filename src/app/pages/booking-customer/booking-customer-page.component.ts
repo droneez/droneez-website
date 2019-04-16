@@ -28,6 +28,8 @@ export class BookingCustomerPageComponent {
     isRace: boolean;
     isNotRace: boolean;
     isLesson: boolean;
+    isEvent: boolean;
+    isNotEvent: boolean;
     isNotLesson: boolean;
     isDecouverte: boolean;
     isNotDecouverte: boolean;
@@ -91,6 +93,8 @@ export class BookingCustomerPageComponent {
                 this.isNotRace = false;
                 this.isLesson = false;
                 this.isNotLesson = true; 
+                this.isEvent = false;
+                this.isNotEvent = true;
                 break;
             case "lesson":
                 this.isRace = false;
@@ -98,12 +102,25 @@ export class BookingCustomerPageComponent {
                 this.isLesson = true;
                 this.isNotLesson = false; 
                 this.isEndChoice = true;
+                this.isEvent = false;
+                this.isNotEvent = true;
+                break;
+            case "event":
+                this.isRace = false;
+                this.isNotRace = true;
+                this.isLesson = false;
+                this.isNotLesson = true; 
+                this.isEndChoice = true;
+                this.isEvent = true;
+                this.isNotEvent = false;
                 break;
             case "decouverte":
                 this.isRace = true;
                 this.isNotRace = false;
                 this.isLesson = false;
-                this.isNotLesson = true; 
+                this.isNotLesson = true;
+                this.isEvent = false;
+                this.isNotEvent = true; 
                 this.isDecouverte = true;
                 this.isNotDecouverte = false;
                 this.isImmersion = false;
@@ -118,7 +135,9 @@ export class BookingCustomerPageComponent {
                 this.isRace = true;
                 this.isNotRace = false;
                 this.isLesson = false;
-                this.isNotLesson = true; 
+                this.isNotLesson = true;
+                this.isEvent = false;
+                this.isNotEvent = true; 
                 this.isDecouverte = false;
                 this.isNotDecouverte = true;
                 this.isImmersion = true;
@@ -133,6 +152,8 @@ export class BookingCustomerPageComponent {
                 this.isRace = true;
                 this.isNotRace = false;
                 this.isLesson = false;
+                this.isEvent = false;
+                this.isNotEvent = true;
                 this.isNotLesson = true; 
                 this.isDecouverte = false;
                 this.isNotDecouverte = true;
@@ -163,10 +184,10 @@ export class BookingCustomerPageComponent {
     toggleShopBag(scheduleItem) {
         if(!scheduleItem.isInShoppingBag) {
             this.bookingService.addToShoppingBag(scheduleItem);
-            this.openSnackBar(true);
+            this.openSnackBar("l'élément a été ajouté au panier");
         } else {
             this.bookingService.removeFromShoppingBag(scheduleItem);
-            this.openSnackBar(false);
+            this.openSnackBar("l'élément a été supprimé du panier");
         }
     }
 
@@ -184,8 +205,8 @@ export class BookingCustomerPageComponent {
         if (event) this.modalRef.hide();
     }
 
-    openSnackBar(add: boolean) {
-        this.snackBar.open(`l'élément a été ${add ? 'ajouté au' : 'supprimé du'} panier`,"",{
+    openSnackBar(message) {
+        this.snackBar.open(message,"",{
             duration: 2000,
         });
     }
@@ -198,5 +219,31 @@ export class BookingCustomerPageComponent {
     ngOnDestroy() {
         this.globals.noChangeNavBg = false;
         this.globals.noFooter = false;
+    }
+
+    resetChoice1() {
+        this.isRace = false;
+        this.isNotRace = false;
+        this.isLesson = false;
+        this.isEvent = false;
+        this.isNotEvent = false;
+        this.isNotLesson = false; 
+        this.isDecouverte = false;
+        this.isNotDecouverte = false;
+        this.isImmersion = false;
+        this.isNotImmersion = false;
+        this.isAccesPiste = false;
+        this.isNotAccesPiste = false;
+        this.isEndChoice = false;
+    }
+
+    resetChoice2() {
+        this.isDecouverte = false;
+        this.isNotDecouverte = false;
+        this.isImmersion = false;
+        this.isNotImmersion = false;
+        this.isAccesPiste = false;
+        this.isNotAccesPiste = false;
+        this.isEndChoice = false;
     }
 }

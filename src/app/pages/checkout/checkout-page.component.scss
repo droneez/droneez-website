@@ -22,14 +22,23 @@ section {
 		}
 
 		.form-2 {
-			.background-img-paiement {
+			/*.background-img-paiement {
 				&.mercanet {
 					background: url('./../../../assets/img/logo/mercanet_atos-2.png') no-repeat;
 				}
 				&.bitcoin {
 					background: url('./../../../assets/img/logo/bitcoin.png') no-repeat;
 				}
-			}
+			}*/
+			text-align: right;
+    		margin-top: 2rem;
+
+    		mat-form-field {
+    			width: 14rem;
+    			button {
+    				top: -9px;
+    			}
+    		}
 		}
 
 	}

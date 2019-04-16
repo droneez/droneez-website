@@ -2,10 +2,12 @@ import { Component, Input } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, retry } from 'rxjs/operators';
 import { Observable, throwError  } from 'rxjs';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { FormControl, Validators } from '@angular/forms';
 import { ApiService, Config } from './../../services/api.service';
+import { Moment } from 'moment';
 
-export interface datas {
+/*export interface datas {
     type: string;
     firstName: string;
     company: string;
@@ -18,12 +20,7 @@ export interface datas {
     animationType: string;
     participantsNumber: number;
     duration: string;
-}
-
-export interface month {
-    value: string,
-    viewValue: string
-}
+}*/
 
 const httpOptions = {
     headers: new HttpHeaders({
@@ -38,14 +35,18 @@ const httpOptions = {
     styleUrls: ['./contact-form.component.scss']
 })
 export class ContactFormComponent {
-
-    @Input() type: string;
-    @Input() certification: boolean;
-    @Input() business: boolean;
-    @Input() customer: boolean;
+    // reservation-formation ; reservation-teambuilding ; reservation-evenement ; reservation-cours-particulier ; reservation-evenement-particulier
+    @Input() type: string; 
+    // nombre de lignes du textarea;
     @Input() rows: number;
+    formGroup: FormGroup;
+    httpOptions: any;
+    contactUrl: string;
+    config: Config;
+    datas: any;
+    checked:boolean;
 
-    firstName: string;
+    /*firstName: string;
     company: string;
     lastName: string;
     email: string;
@@ -55,37 +56,56 @@ export class ContactFormComponent {
     certifDuration: string;
     animationType: string;
     participantsNumber: number;
-    duration: string;
+    duration: string;*/
 
-    httpOptions: any;
-    contactUrl: string;
+    // select
+    dureeSelected: string;
+    cocktailSelected: string;
+    boissonSelected: string;
+    privatiseSelected: string;
+    participantSelected: string;
+    statutSelected: string;
+    monthSelected: string;
+    multiAnimSelected: string;
+    // Checkbox
+    lieux: string[] = [];
+    volieres: string[] = [];
+    types: string[] = [];
+    animations: string[] = [];
+    horaires: string[] = [];
 
-    config: Config;
-    datas: datas;
-
-    monthControl = new FormControl('', [Validators.required]);
-    participantControl = new FormControl('', [Validators.required]);
-
-    months: month[] = [
-        {value: 'janvier', viewValue: 'Janvier'},
-        {value: 'fevrier', viewValue: 'Février'},
-        {value: 'mars', viewValue: 'Mars'},
-        {value: 'avril', viewValue: 'Avril'},
-        {value: 'mai', viewValue: 'Mai'},
-        {value: 'juin', viewValue: 'Juin'},
-        {value: 'juillet', viewValue: 'Juillet'},
-        {value: 'aout', viewValue: 'Août'},
-        {value: 'septembre', viewValue: 'Septembre'},
-        {value: 'octobre', viewValue: 'Octobre'},
-        {value: 'novembre', viewValue: 'Novembre'},
-        {value: 'decembre', viewValue: 'Décembre'}
-    ];
-
-    participants: number[] = [1,2,3,4,5];
+    // select values
+    months: string[] = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+    participantsTelepilote: string[] = ['1','2','3','4','5','6','7','8','9','10'];
+    participants: string[] = ['inf à 20','21 à 50','51 à 100','plus de 100'];
+    participantsEventCustomer: string[] = ['1 à 8','9 à 20','21 à 50','51 à 100', 'plus de 100'];
+    statutsTelepilote: string[] = ['Etudiant','Intermittent','Indépendant','Société','Salarié',"Demandeur d'Emploi"," "];
+    statutsTeambuilding: string[] = ['Etudiant','Intermittent','Auto-entrepreneur','EURL','SAS/SARL','Salariés','Société'," "];
+    boissons: string[] = ['2 boissons par personne','Open soft & 1 boisson alcoolisée par personne','Open Bar','Vos boissons','Aucun'];
+    cocktails: string[] = ['Planches','Cocktail Light','Cocktail Copieux','Votre traiteur','Aucun'];
+    durees: string[] = ['1 à 3H','Demi-journée','Journée','Plusieurs journées'];
+    dureesEventCustomer: string[] = ['1 à 3H','Demi-journée','Journée','Soirée'];
+    privatise: string[] = ['Oui','Non'];
+    multiAnim: string[] = ['Oui','Non'];
+    // chekbox values
+    checkboxLieux: string[] = ["Droneez","Lieu de votre choix"];
+    checkboxVolieres: string[] = ["Intérieur","Extérieur", "Les 2"];
+    checkboxTypesTB: string[] = ["Séminaire","Team Building","Animation","Salon"];
+    checkboxTypesEP: string[] = ["Anniversaire","Célébration","Animation"];
+    checkboxTypesEE: string[] = ["Séminaire","Animation","Salon"];
+    checkboxAnimationsTB: string[] = ["Initiation drone course","DIY montage de drones","Démonstration Immersion (vol avec lunettes)", "Pilotage drone de prise de vue"];
+    checkboxAnimations: string[] = ["Initiation drone course","Démonstration Immersion (vol avec lunettes)", "Pilotage drone de prise de vue"];
+    checkboxHoraires: string[] = ["Matin","Après-midi","Soirée","Autres"];
+    
+    myFilter = (d: Moment): boolean => {
+        let today = new Date(Date.now());
+        return d.toDate().getDate() >= today.getDate();
+    }
 
     constructor(
         private http: HttpClient, 
-        private apiService: ApiService
+        private apiService: ApiService,
+        private formBuilder: FormBuilder
     ) {
         apiService.getConfig().subscribe((data: Config) => {
             this.config = { ...data };
@@ -94,36 +114,92 @@ export class ContactFormComponent {
     }
 
     ngOnInit() {
+        this.formGroup = this.formBuilder.group({
+            lastNameControl: ['', Validators.required],
+            firstNameControl: ['', Validators.required],
+            companyControl: [''],
+            emailControl: ['', [Validators.required, Validators.email]],
+            statutControl: [''],
+            domainControl: [''],
+            opcaControl: [''],
+            phoneControl: ['', [Validators.required, Validators.pattern(/[0-9\+\- ]*/)]],
+            monthControl: [''],
+            participantControl: [''],   
+            messageControl: [''],
+            posteControl: [''],
+            optionsControl: [''],
+            budgetControl: [''],
+            boissonControl: [''],
+            cocktailControl: [''],
+            durationControl: [''],
+            privatiseControl: [''],
+            dateControl: [''],
+            multiAnimControl: ['']
+        });
+        this.checked = false;
     }
 
-    processForm() {
+    getErrorMailMessage() {
+        return this.formGroup.controls.emailControl.hasError('required') ? 'Veuillez renseigner ce champ' :
+        this.formGroup.controls.emailControl.hasError('email') ? "l'email doit être valide" :
+        '';
+    }
+
+    getErrorPhoneMessage() {
+        return this.formGroup.controls.phoneControl.hasError('required') ? 'Veuillez renseigner ce champ' : 
+        this.formGroup.controls.phoneControl.hasError('pattern') ? "le numéro doit être valide" :
+        '';
+    }
+
+    onChange(title,name,value){
+        if(value) {
+            this[title].push(name);
+        } else if (this[title].indexOf(name) !== -1) {
+            this[title].splice(this[title].indexOf(name),1);
+        }
+    }
+
+    onSubmit() {
+
         this.datas = {
             type: this.type,
-            firstName: this.firstName,
-            company: this.company,
-            lastName: this.lastName,
-            email: this.email,
-            message: this.message,
-            contact: this.contact,
-            phone: this.phone,
-            certifDuration: this.certifDuration,
-            animationType: this.animationType,
-            participantsNumber: this.participantsNumber,
-            duration: this.duration
+            lastName: this.formGroup.controls.lastNameControl.value,
+            firstName: this.formGroup.controls.firstNameControl.value,
+            company: this.formGroup.controls.companyControl.value,
+            email: this.formGroup.controls.emailControl.value,
+            statut: this.statutSelected,
+            domain: this.formGroup.controls.domainControl.value,
+            opca: this.formGroup.controls.opcaControl.value,
+            phone: this.formGroup.controls.phoneControl.value,
+            formationMonth: this.monthSelected,
+            participantsNumber: this.participantSelected,
+            message: this.formGroup.controls.messageControl.value,
+            poste: this.formGroup.controls.posteControl.value,
+            options: this.formGroup.controls.optionsControl.value,
+            budget: this.formGroup.controls.budgetControl.value,
+            boisson: this.boissonSelected,
+            cocktail: this.cocktailSelected,
+            duree: this.dureeSelected,
+            privatise: this.privatiseSelected,
+            date: this.formGroup.controls.dateControl.value,
+            multiAnim: this.multiAnimSelected,
+            lieux: this.lieux,
+            volieres: this.volieres,
+            types: this.types,
+            animations: this.animations,
+            horaires: this.horaires
         };
-        console.dir(this.datas);
         this.sendDatas(this.datas);
     }
 
-    sendDatas(datas: datas) {
+    sendDatas(datas: any) {
         let url = this.contactUrl;
-        let observable: Observable<datas[]>
-        observable = this.http.post<datas[]>(url, datas, httpOptions)
+        let observable: Observable<any[]>
+        observable = this.http.post<any[]>(url, datas, httpOptions)
             .pipe(
                 catchError(this.handleError)
             );
         observable.subscribe( res =>{
-            console.dir(res);
         });
     }
 

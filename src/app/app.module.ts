@@ -9,6 +9,7 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { IgxCalendarModule } from 'igniteui-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CdkStepperModule } from '@angular/cdk/stepper';
+import { NgScrollbarModule } from 'ngx-scrollbar';
 
 /* Services */
 import { WINDOW_PROVIDERS } from './services/window.service';
@@ -26,8 +27,12 @@ import {
     MatSelectModule,
     MatCheckboxModule,
     MatStepperModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
 } from '@angular/material';
+import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 
 /* Components */
 import { AppComponent } from './app.component';
@@ -60,6 +65,7 @@ import { LayoutArticleComponent } from './articles/layout-article.component';
 /* Directives */
 import { AnimImgLoadDirective } from './directives/anim-img-load.directive';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
+import { Template3Component } from './articles/templates/template3/template3.component';
 
 @NgModule({
     declarations: [
@@ -85,7 +91,8 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
         CalendarComponent,
         LayoutArticleComponent,
         CheckoutPageComponent,
-        SafeHtmlPipe
+        SafeHtmlPipe,
+        Template3Component
     ],
     imports: [
         BrowserModule,
@@ -101,16 +108,22 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
         MatCheckboxModule,
         MatStepperModule,
         MatRadioModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
         CollapseModule.forRoot(),
         ScrollToModule.forRoot(),
         ModalModule.forRoot(),
         BrowserAnimationsModule,
         IgxCalendarModule,
-        CdkStepperModule
+        CdkStepperModule,
+        NgScrollbarModule
     ],
     providers: [
         WINDOW_PROVIDERS, 
-        Globals
+        Globals,
+        {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
+        {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+        {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS}
     ],
     bootstrap: [AppComponent]
 })

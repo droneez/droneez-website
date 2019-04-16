@@ -18,7 +18,7 @@ section {
 		    padding: 0;
 		    margin: 0;
 		    border-radius: 10em;
-		    border: 1px solid map-get($colors, dark);
+		    /*border: 1px solid map-get($colors, dark);*/
 		    position: absolute;
 		    top: 5rem;
 		    right: 2rem;
@@ -28,16 +28,17 @@ section {
 		    	font-size: 40px;
 		    }
 		    &.wooploop {
-		    	background: map-get($colors, tertiary);
+		    	color: map-get($colors, tertiary);
+		    	position: fixed;
 		    }
 		    &.certif {
-		    	background: map-get($colors, primary);
+		    	color: map-get($colors, primary);
 		    }
 		    &.event {
-		    	background: map-get($colors, danger);
+		    	color: map-get($colors, danger);
 		    }
 		    &.teambuilding {
-		    	background: map-get($colors, secondary);
+		    	color: map-get($colors, secondary);
 		    }
 		}
 
@@ -180,17 +181,21 @@ section {
 						text-transform: uppercase;
 					}
 					p {
-						font-family: raleway-regular;
+						font-family: BebasNeueRegular;;
 						color: map-get($colors, light);
 						opacity: 0;
 						transition: opacity .3s;
-						line-height: 1.2rem;
+						font-size:1rem;
+						line-height: 1rem;
 					}
 				}
 
 				.booking-button-container {
 					opacity: 0;
 					transition: opacity .3s;
+					button {
+						transition: none;
+					}
 				}
 
 				&:hover, &:focus {
@@ -213,9 +218,13 @@ section {
 			opacity: 0;
 			z-index: 0;
 			transition: .5s opacity ease-in;
-
+			.row:first-of-type {
+				height: 12rem;
+			}
 			h4 {
 				font-family: BebasNeueBold;
+				padding-bottom: 1rem;
+				margin-top:0;
 			}
 		}
 
@@ -227,4 +236,13 @@ section {
 		}
 	}
 
+	@media screen and (max-width: 768px) {
+	    .global {
+	    	min-height:85rem;
+	    }
+
+	    .form-container .title {
+	    	margin-top: 23rem;
+	    }
+	}
 }

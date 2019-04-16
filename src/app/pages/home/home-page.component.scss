@@ -1,5 +1,15 @@
 @import "~src/variables.scss";
 
+@keyframes bounceHorizontal {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(10px);
+  }
+}
+
 .video-section {
 	background: map-get($colors,dark);
 	.global {
@@ -104,6 +114,10 @@
 		}
 	}
 
+	@media screen and (max-width: 768px) {
+	    min-height: 70rem;
+	}
+
 	@media (max-width:1040px) {
 		.background-img {
 			width: 33rem !important;
@@ -140,6 +154,69 @@
 			.icon-container {
 			    .figure-container {
 					figure {
+						.icon-css-1, .icon-css-2, .icon-css-3 {
+							position: absolute;
+						    left: 50%;
+						    transform: translateX(-50%) scale3d(1.001,1.001,1);
+						    width: 6rem;
+						    height: 100%;
+						    transition: ease-out 1s transform;
+						    cursor: pointer;
+						    outline: none;
+						    div {
+						    	transition: ease .5s box-shadow;
+						    	position: absolute;
+						    	border-top: 2px solid black;
+						    }
+						    &:hover {
+						    	transform: translateX(-50%) scale3d(1.03,1.03,1);
+						    }
+						}
+						.icon-css-1 {
+						 	div:nth-child(1) {top: 20%;left: -5%;width: 0;transform: rotate3d(0,0,1,0deg);}
+						    div:nth-child(2) {top: 20%;right: -7%;width: 0;transform: rotate3d(0,0,1,0deg);}
+						    div:nth-child(3) {top: 68%;right: -21%;width: 0;transform: rotate3d(0,0,1,0deg);}
+						    div:nth-child(4) {bottom: 1%;left: 19%;width: 0;transform: rotate3d(0,0,1,0deg);}
+						    div:nth-child(5) {top: 68%;left: -21%;width: 0;transform: rotate3d(0,0,1,0deg);}
+						    div:nth-child(6) {top: 26%;left: 4%;width: 0;transform: rotate3d(0,0,1,0deg);}
+						    div:nth-child(7) {top: 25%;right: 2%;width: 0;transform: rotate3d(0,0,1,0deg);}
+						    div:nth-child(8) {top: 66%;right: -10%;width: 0;transform: rotate3d(0,0,1,0deg);}
+						    div:nth-child(9) {bottom: 7%;left: 25%;width: 0;transform: rotate3d(0,0,1,0deg);}
+						    div:nth-child(10) {top: 66%;left: -8%;width: 0;transform: rotate3d(0,0,1,0deg);}
+						    &:hover {
+						    	div {
+						    		box-shadow: 0 0 8px 2px map-get($colors, primary);
+						    	}
+						    }
+						}
+						.icon-css-2 {
+						    div:nth-child(1) {top: 11%;right: 14%;width: 0;transform: rotate3d(0,0,1,0deg);}
+						    div:nth-child(2) {top: 48%;right: -23%;width: 0;transform: rotate3d(0,0,1,0deg);}
+						    div:nth-child(3) {bottom: 13%;left: 12%;width: 0;transform: rotate3d(0,0,1,0deg);}
+						    div:nth-child(4) {top: 48%;left: -24%;width: 0;transform: rotate3d(0,0,1,0deg);}
+						    div:nth-child(5) {top: 19%;right: 21%;width: 0;transform: rotate3d(0,0,1,0deg);}
+						    div:nth-child(6) {top: 49%;right: -8%;width: 0;transform: rotate3d(0,0,1,0deg);}
+						    div:nth-child(7) {bottom: 19%;left: 19%;width: 0;transform: rotate3d(0,0,1,0deg);}
+						    div:nth-child(8) {top: 49%;left: -10%;width: 0;transform: rotate3d(0,0,1,0deg);}
+						    &:hover {
+						    	div {
+						    		box-shadow: 0 0 8px 2px map-get($colors, secondary);
+						    	}
+						    }
+						}
+						.icon-css-3 {
+						    div:nth-child(1) {top: 49%;right: -34%;width: 0;transform: rotate3d(0,0,1,0deg);}
+						    div:nth-child(2) {bottom: 12%;left: 2%;width: 0;transform: rotate3d(0,0,1,0deg);}
+						    div:nth-child(3) {top: 49%;left: -10%;width: 0;transform: rotate3d(0,0,1,0deg);}
+						    div:nth-child(4) {top: 53%;right: -18%;width: 0;transform: rotate3d(0,0,1,0deg);}
+						    div:nth-child(5) {bottom: 18%;left: 21%;width: 0;transform: rotate3d(0,0,1,0deg);}
+						    div:nth-child(6) {top: 53%;left: 13%;width: 0;transform: rotate3d(0,0,1,0deg);}
+						    &:hover {
+						    	div {
+						    		box-shadow: 0 0 8px 2px map-get($colors, danger);
+						    	}
+						    }
+						}
 						.icon-wrapper {
 							height:6rem;
 							position: relative;
@@ -154,6 +231,45 @@
 						h5 {
 							font-family: BebasNeueBold;
 						}
+
+						.animWindow {
+							display: block;
+							width: 9rem;
+						    position: absolute;
+						    left: 50%;
+						    height: 5.5rem;
+						    top: 0;
+						    transform: translateX(-50%);
+						    z-index: 1;
+							.flap-1, .flap-2, .flap-3, .flap-4 {
+								height: 50%;
+								position: absolute;
+							    background: map-get($colors,light);
+							    opacity: 1;
+							}
+							.flap-1 {
+								top: 0;
+								width: 0;
+							    border-bottom: 1px black solid;
+							}
+							.flap-2 {
+							    bottom: 0;
+							    width: 0;
+							    border-top: 1px black solid;
+							}
+							.flap-3 {
+								top: 0;
+								width: 100%;
+								right:0;
+							}
+							.flap-4 {
+							    bottom: 0;
+							    width: 100%;
+							    right:0;
+							}
+
+						}
+
 					} 
 				}
 			}
@@ -161,6 +277,71 @@
 		}
 	}
 }
+@keyframes animIconColorA {0% {box-shadow: 0 0 8px 2px map-get($colors, primary);}75% {box-shadow: 0 0 8px 2px map-get($colors, primary);}100% {box-shadow: 0 0 0px 0px map-get($colors, primary);}}
+@keyframes animIconColorB {0% {box-shadow: 0 0 8px 2px map-get($colors, secondary);}75% {box-shadow: 0 0 8px 2px map-get($colors, secondary);}100% {box-shadow: 0 0 0px 0px map-get($colors, secondary);}}
+@keyframes animIconColorC {0% {box-shadow: 0 0 8px 2px map-get($colors, danger);}75% {box-shadow: 0 0 8px 2px map-get($colors, danger);}100% {box-shadow: 0 0 0px 0px map-get($colors, danger);}}
+@keyframes animWindowLeftFlap {50% {height: 50%;width: 100%;}90% {opacity:1;height:0;width: 100%;}100% {opacity:0;height:0;width: 100%;}}
+@keyframes animWindowRightFlap {50% {width: 0;}100% {width: 0;}}
+@keyframes animIconLeftExt {50% {width: 61%;}100% {width: 62%;}}
+@keyframes animIconLeftInt {50% {width: 52%;}100% {width: 52%;}}
+@keyframes animIconLeftA {50% {transform: rotate3d(0,0,1,0deg)}100% {transform: rotate3d(0,0,1,-36deg);}}
+@keyframes animIconLeftB {50% {transform: rotate3d(0,0,1,0deg)}100% {transform: rotate3d(0,0,1,36deg);}}
+@keyframes animIconLeftC {50% {transform: rotate3d(0,0,1,0deg)}100% {transform: rotate3d(0,0,1,-72deg);}}
+@keyframes animIconLeftD {50% {transform: rotate3d(0,0,1,0deg)}100% {transform: rotate3d(0,0,1,72deg);}}
+@keyframes animIconMiddleExt {50% {width: 75%;}100% {width: 74%;}}
+@keyframes animIconMiddleInt {50% {width: 61%;}100% {width: 60%;}}
+@keyframes animIconMiddleA {50% {transform: rotate3d(0,0,1,0deg)}100% {transform: rotate3d(0,0,1,90deg);}}
+@keyframes animIconRightExtA {50% {width: 74%;}100% {width: 74%;}}
+@keyframes animIconRightExtB {50% {width: 95%;}100% {width: 95%;}}
+@keyframes animIconRightExtC {50% {width: 119%;}100% {width: 119%;}}
+@keyframes animIconRightIntA {50% {width: 54%;}100% {width: 54%;}}
+@keyframes animIconRightIntB {50% {width: 70%;}100% {width: 70%;}}
+@keyframes animIconRightIntC {50% {width: 88%;}100% {width: 88%;}}
+@keyframes animIconRightA {50% {transform: rotate3d(0,0,1,0deg)}100% {transform: rotate3d(0,0,1,90deg);}}
+@keyframes animIconRightB {50% {transform: rotate3d(0,0,1,0deg)}100% {transform: rotate3d(0,0,1,-38deg);}}
+
+.races-section.anim {
+	.animWindow {
+		.flap-1, .flap-2 {
+			animation : animWindowLeftFlap forwards 2s;
+		}
+		.flap-3, .flap-4 {
+			animation : animWindowRightFlap forwards 2s;
+		}
+	}
+	.icon-css-1 {
+	    div:nth-child(1) {animation: animIconLeftExt forwards 2s, animIconLeftA forwards 2s, animIconColorA 2s}
+	    div:nth-child(2) {animation: animIconLeftExt forwards 2s, animIconLeftB forwards 2s, animIconColorA 2s}
+	    div:nth-child(3) {animation: animIconLeftExt forwards 2s, animIconLeftC forwards 2s, animIconColorA 2s}
+	    div:nth-child(4) {animation: animIconLeftExt forwards 2s, animIconColorA 2s}
+	    div:nth-child(5) {animation: animIconLeftExt forwards 2s, animIconLeftD forwards 2s, animIconColorA 2s}
+	    div:nth-child(6) {animation: animIconLeftInt forwards 2s, animIconLeftA forwards 2s, animIconColorA 2s}
+	    div:nth-child(7) {animation: animIconLeftInt forwards 2s, animIconLeftB forwards 2s, animIconColorA 2s}
+	    div:nth-child(8) {animation: animIconLeftInt forwards 2s, animIconLeftC forwards 2s, animIconColorA 2s}
+	    div:nth-child(9) {animation: animIconLeftInt forwards 2s, animIconColorA 2s}
+	    div:nth-child(10) {animation: animIconLeftInt forwards 2s, animIconLeftD forwards 2s, animIconColorA 2s}
+	}
+	.icon-css-2 {
+	    div:nth-child(1) {animation: animIconMiddleExt forwards 2s, animIconColorB 2s}
+	    div:nth-child(2) {animation: animIconMiddleExt forwards 2s, animIconMiddleA forwards 2s, animIconColorB 2s}
+	    div:nth-child(3) {animation: animIconMiddleExt forwards 2s, animIconColorB 2s}
+	    div:nth-child(4) {animation: animIconMiddleExt forwards 2s, animIconMiddleA forwards 2s, animIconColorB 2s}
+	    div:nth-child(5) {animation: animIconMiddleInt forwards 2s, animIconColorB 2s}
+	    div:nth-child(6) {animation: animIconMiddleInt forwards 2s, animIconMiddleA forwards 2s, animIconColorB 2s}
+	    div:nth-child(7) {animation: animIconMiddleInt forwards 2s, animIconColorB 2s}
+	    div:nth-child(8) {animation: animIconMiddleInt forwards 2s, animIconMiddleA forwards 2s, animIconColorB 2s}
+	}
+	.icon-css-3 {
+	    div:nth-child(1) {animation: animIconRightExtA forwards 2s, animIconRightA forwards 2s, animIconColorC 2s}
+	    div:nth-child(2) {animation: animIconRightExtB forwards 2s, animIconColorC 2s}
+	    div:nth-child(3) {animation: animIconRightExtC forwards 2s, animIconRightB forwards 2s, animIconColorC 2s}
+	    div:nth-child(4) {animation: animIconRightIntA forwards 2s, animIconRightA forwards 2s, animIconColorC 2s}
+	    div:nth-child(5) {animation: animIconRightIntB forwards 2s, animIconColorC 2s}
+	    div:nth-child(6) {animation: animIconRightIntC forwards 2s, animIconRightB forwards 2s, animIconColorC 2s}
+	}
+}
+
+
 
 .lesson-section {
 	background: map-get($colors,dark);
@@ -193,39 +374,28 @@
 
 .certification-section {
 	background: map-get($colors, light);
+	overflow: hidden;
 	
 	.global {
-		padding: 1rem 0 2rem 0;
-		overflow: hidden;
-
-		.img-container {
-			img {
-				width: 100%; 
+		.presentation-container {
+			.wording-container {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-evenly;
+				h2 {
+					font-family: BebasNeueBold;
+					font-size: 2.8rem;
+				}
+				p {
+					font-family: raleway-medium;
+				}
 			}
 		}
 
-		.certif-container {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: space-evenly;
-			min-height: 40rem;
-
-			.title {
-				padding: 2rem 0 2rem 0;
-				text-align: center;
-				font-family: BebasNeueBold;
-				font-size: 2.8rem;
-			}
-
-			.certif-presentation {
-				text-align: center;
-				font-family: raleway-medium;
-			}
-
-			.certif-button {
-				text-align: center;
-				padding: 1rem 0;
+		.img-container {
+			img {
+				width: 125%; 
+				max-width: 125%;
 			}
 		}
 	}
@@ -235,6 +405,30 @@
 	background: map-get($colors,dark);
 	color: map-get($colors, light);
 	overflow: hidden;
+
+	@media screen and (max-width: 768px) {
+	    .activity-presentation {
+	    	padding: 1rem;
+	    }
+	    .activity-icon img {
+	    	margin-bottom: 2rem;
+	    }
+	    .metrics-container {
+	    	padding-left: 1rem;
+    		margin-left: 0px;
+	    }
+	    .arrow-icon {
+	    	margin-left: 80%;
+    		margin-top: -11rem;
+	    }
+	}
+
+	.arrow-icon {
+		animation-duration: .8s;
+		animation-name: bounceHorizontal;
+		animation-iteration-count:infinite;
+		animation-direction: alternate;
+	}
 
 	.global {
 		padding-top: 2rem;
@@ -299,7 +493,13 @@
 			}
 		}
 	}
+
+	&.anim {
+		.metric {
+		}
+	}
 }
+
 
 .clients-section {
 	background: map-get($colors,light);
@@ -375,3 +575,34 @@ p:not(.metrics) {
     font-size: 1rem !important;
     line-height: 1rem !important;
 }
+
+h2 {
+	transition: ease-in-out opacity .7s, ease-in-out transform .5s;
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+p:not(.not-anim) {
+	transition: ease-in-out opacity 2s, ease-in-out transform .7s;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.anim { 
+	h2, p:not(.not-anim) {
+		opacity: 1;
+    	transform: translateX(0);
+    }
+}
+
+ul li {
+	transition: ease .3s opacity, ease .3s transform;
+	opacity: 0;
+	transform: scale3d(0,0,1);
+}
+
+::ng-deep .mat-snack-bar-container.large {
+	width: 100%;
+	max-width:100%;
+}
+

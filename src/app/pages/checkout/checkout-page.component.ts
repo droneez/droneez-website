@@ -32,6 +32,9 @@ export class CheckoutPageComponent {
 	nextClicked: boolean;
 	displayedColumns: string[];
 	total: number;
+	codeApplied: string[];
+	promoMessage: string;
+    totalDiscount: number;
 
 	firstFormGroup: FormGroup;
   	secondFormGroup: FormGroup;
@@ -61,18 +64,21 @@ export class CheckoutPageComponent {
 	    	companyControl: [''],
 	    	postalControl: ['', Validators.required],
 	    	lastNameControl: ['', Validators.required],
-	    	phoneControl: ['', Validators.required],
+	    	phoneControl: ['', [Validators.required, Validators.pattern(/[0-9\+\- ]*/)]],
 	    	cityControl: ['', Validators.required],
-	    	countryControl: ['', Validators.required],	
+	    	countryControl: ['France', Validators.required],	
 	    	checkboxControl: ['', Validators.required]
 	    });
 	    this.secondFormGroup = this.formBuilder.group({
-	    	secondCtrl: ['']
+	    	codeCtrl: ['']
 	    });
 
 	    this.nextClicked = false;
 	    this.shoppingBag = this.bookingService.getShoppingBag();
 	    this.total = this.bookingService.getTotalPrice();
+	    this.codeApplied = [];
+	    this.promoMessage = "";
+	    this.totalDiscount = 0;
 	}
 
 	getErrorMailMessage() {
@@ -92,19 +98,89 @@ export class CheckoutPageComponent {
 
     onSubmit() {
     	this.nextClicked = true;
-    	console.dir(this.firstFormGroup.value);
-    	this.bookingService.goPayment(this.parseIntoPaymentDatas()).subscribe( res =>{
-    		this.paymentButton  = `
-	  			<form name="redirectForm" method="POST" action=${res.action}>
-					<input type="hidden" name="Data" value=${res.Data}>
-					<input type="hidden" name="InterfaceVersion" value=${res.InterfaceVersion}>
-					<input type="hidden" name="Seal" value=${res.Seal}>
-					<button class="btn btn-primary" type="submit">Confirmer</button>
-				</form>
-			`; 
-        });
-        
+    	if (this.firstFormGroup.valid) {
+	    	this.bookingService.goPayment(this.parseIntoPaymentDatas()).subscribe( res =>{
+	    		this.paymentButton  = `
+		  			<form name="redirectForm" method="POST" action=${res.action}>
+						<input type="hidden" name="Data" value=${res.Data}>
+						<input type="hidden" name="InterfaceVersion" value=${res.InterfaceVersion}>
+						<input type="hidden" name="Seal" value=${res.Seal}>
+						<button class="btn btn-primary" type="submit">Confirmer</button>
+					</form>
+				`; 
+	        });
+	    }
     }
+
+    /* Code promo */
+    onSubmitForm2(code: string) {
+    	this.promoMessage = "";
+    	if(code) {
+	    	if(this.codeApplied.indexOf(code) == -1) {
+	    		this.bookingService.getReduc(code).subscribe( res => {
+	    			if(res){
+		    			if(res.isValidate === 1){    
+		    				if( res.couponType === "4") {
+		    					if(res.couponDiscountType === 1) {
+		    						this.total -= +res.couponAmount;
+		    						this.totalDiscount += +res.couponAmount;
+		    					} else 
+		    					if (res.couponDiscountType === 2) {
+		    						this.total -= this.total*+res.couponAmount/100;
+		    						this.totalDiscount += this.total*+res.couponAmount/100;
+		    					}
+		    					this.codeApplied.push(code);
+		    					this.onSubmit();
+		    					this.promoMessage = 'réduction appliquée';
+							} else {			
+			    				this.shoppingBag.forEach((item)=>{
+			    					if( 
+			    						(this.codeApplied.indexOf(code) == -1) &&	// applique le code que sur un seul participant
+			    						(item.type === "decouverte" && res.couponType === "1" ||
+				    					item.type === "immersion" && res.couponType === "2" ||
+				    					item.type === "acces-piste" && res.couponType === "3")
+				    				) {
+
+				    					if(res.couponDiscountType === 1) {
+				    						this.total -= +res.couponAmount;
+				    						item.discount += +res.couponAmount;
+				    						this.totalDiscount += +res.couponAmount;
+				    					} else 
+				    					if (res.couponDiscountType === 2) {
+				    						this.total -= item.price*+res.couponAmount/100;
+				    						item.discount += item.price*+res.couponAmount/100;
+				    						this.totalDiscount += item.price*+res.couponAmount/100;
+				    					}
+				    					this.codeApplied.push(code);
+				    					this.onSubmit();
+				    					this.promoMessage = 'réduction appliquée';
+				    				} 
+				    			});
+				    		}
+		    			} else {
+		    				if (res.Message) {
+		    					this.promoMessage = res.Message;
+		    				} else {
+		    					this.promoMessage = 'code promo invalide';
+		    				}
+		    			}
+		    		} else {
+				    	this.promoMessage = 'code promo invalide';
+		    		}
+	    		});
+	    	} else {
+	    		this.promoMessage = 'réduction déjà appliquée';
+	    	}
+    	}
+    }
+
+    /*
+    MY6MD -> 20% sur decouverte
+
+	ITDJ8 -> 20euros sur decouverte
+
+	SZ4WH -> expirer
+	*/
 
     parseIntoPaymentDatas():paymentDatas {
     	let paymentData: paymentDatas = {
@@ -118,8 +194,8 @@ export class CheckoutPageComponent {
 		    company: this.firstFormGroup.value.emailControl,
 		    customer_mobile: this.firstFormGroup.value.companyControl,
 		    customer_email: this.firstFormGroup.value.emailControl,
-		    cart_total: this.bookingService.getTotalPrice()*100,
-		    total_discount: "0",
+		    cart_total: this.total*100,
+		    total_discount: "",
 		    payment_method: "66",
 		    items: []
     	};
@@ -132,10 +208,11 @@ export class CheckoutPageComponent {
 			    seats: item.nbParticipants,
 			    calendar_id: item.calendar,
 			    price: item.price,
-			    discount: 0
+			    discount: item.discount
     		});
     	});
 
+    	paymentData.total_discount = "" + this.totalDiscount;
     	return paymentData;
     }
 

@@ -18,6 +18,7 @@ export class BookingProPageComponent {
     isEventOpen:boolean 		= false;
     isWooploopOpen:boolean 		= false;
     category: string;
+    scrollTop: number;
 
 	constructor(
 		@Inject(DOCUMENT) private document: Document,
@@ -80,10 +81,10 @@ export class BookingProPageComponent {
     }
 
     closeCards() {
+        this.isWooploopOpen = false;
     	this.isCertifOpen = false; 
 		this.isTeambuildingOpen = false;
 		this.isEventOpen = false; 
-		this.isWooploopOpen = false;
         if(this.category) this.router.navigateByUrl(this.globals.previousUrl);
     }
 

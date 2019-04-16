@@ -21,12 +21,15 @@ section.universe {
 			h4 {
 				font-size: 1.5rem;
 				transition: ease .3s font-size;
+				margin: 0;
 			}
 			p {	
 				opacity: 0;
-				transition: ease-out .4s opacity, ease-out 1s transform;
-				transform: translateX(-.2rem);
+				transition: ease-out .4s opacity, ease-out .4s transform;
+				transform: translateX(-1rem);
 				width:150%;
+				line-height: 1.4rem;
+				margin: .5rem 0 0 0 ;
 			}
 
 			&:hover, &:focus {
@@ -54,7 +57,7 @@ section.steps {
 
 	.step-number {
 		font-size: 6rem;
-		height: 9rem;
+		height: 5rem;
 	}
 
 	.separate-line {
@@ -63,7 +66,8 @@ section.steps {
 	}
 
 	.step-number, .separate-line {
-		transition: .3s color;
+		transition: .3s color, .3s transform;
+		transform: sclae3d(1,1,1);
 	}
 
 	.transition {
@@ -72,12 +76,13 @@ section.steps {
 
     	img, p {
     		opacity: 0;
-    		transition: ease-in .3s opacity, ease-in 1s transform;
-    		transform: scale3d(.99,.99,1);
+    		transition: ease-in .3s opacity, ease-in 3s transform;
+    		transform: scale3d(.95,.95,1);
     	}
 
     	p {
     		font-size: .8rem;
+    		line-height: 1.1rem;
     	}
 
     	&:hover, &:focus {
@@ -85,6 +90,9 @@ section.steps {
     		img, p {
 	    		opacity: 1;
 	    		transform: scale3d(1,1,1);
+	    	}
+	    	.step-number {
+	    		transform: scale3d(.5,.5,1);
 	    	}
 	    	&.number-1 .step-number, &.number-1 .separate-line {
 	    		color: map-get($colors,primary);
@@ -123,6 +131,11 @@ section.team {
 				    border-top: 1px solid map-get($colors,primary);
 				}
 			}
+		}
+	}
+	.img-wrapper {
+		img { 
+			border-radius: 25rem;
 		}
 	}
 }

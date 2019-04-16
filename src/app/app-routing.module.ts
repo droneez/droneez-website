@@ -29,7 +29,7 @@ const routes: Routes = [
     { path: 'booking/customer/:category', component: BookingCustomerPageComponent, data: { animation: 'BookingCustomerPage' } },
     { path: 'pricing', component: PricingPageComponent, data: { animation: 'PricingPage' } },
     { path: 'club', component: ClubPageComponent, data: { animation: 'ClubPage' } },
-    { path: 'article/:title', component: LayoutArticleComponent, data: { animation: 'LayoutArticle' } },
+    { path: 'article/:id/:url', component: LayoutArticleComponent, data: { animation: 'LayoutArticle' } },
     { path: 'checkout', component: CheckoutPageComponent, data: { animation: 'CheckoutPage' } }
 ];
 

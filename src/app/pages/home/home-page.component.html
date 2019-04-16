@@ -1,4 +1,4 @@
-<section class="video-section">
+<section #videoSection class="video-section"  [class.anim]="videoSection.offsetTop -10 < offset">
 	<div class="global">
 		<div class="title-container container-fluid h-100 position-absolute text-center">
 			<div class="row h-100 justify-content-center align-items-center">
@@ -12,7 +12,7 @@
 						Cours de pilotage<br/>
 						Course ou prise de vue<br/>
 						Accès piste<br/>
-						★<br/>
+						<br/>
 						On vous attend !
 					</p>
 					<!--<div class="booking-button">
@@ -59,7 +59,7 @@
 	</div>
 </section>
 
-<section class="races-section">
+<section #racesSection class="races-section" [class.anim]="racesSection.offsetTop - 400 < offset">
 	<div class="decoration">
 		<img class="background-img corner-left" [src]="'assets/img/drone-course-bg1.png'">
 		<img class="background-img corner-right" [src]="'assets/img/drone-course-bg2.png'">
@@ -85,14 +85,32 @@
 
 			<div class="icon-container w-100 row justify-content-center align-items-center">
 
-				<div class="figure-container col-4">
+				<div class="figure-container col-md-4 col-sm-12">
 					<figure class="text-center">
 						<div class="icon-wrapper">
-							<img [src]="'assets/icon/initiation-icon.png'" />
+							<!--<img [src]="'assets/icon/initiation-icon.png'" />-->
+							<div class="icon-css-1" routerLink="/booking/customer/decouverte">
+								<div class="ext"></div>
+								<div class="ext"></div>
+								<div class="ext"></div>
+								<div class="ext"></div>
+								<div class="ext"></div>
+								<div class="int"></div>
+								<div class="int"></div>
+								<div class="int"></div>
+								<div class="int"></div>
+								<div class="int"></div>
+							</div>
 						</div>
-						<figcaption>
-							<h5 class="mb-2 mt-3">Initiation</h5>
-							<p class="mt-0">
+						<figcaption class="position-relative">
+							<div class="animWindow">
+								<div class="flap-1"></div>
+								<div class="flap-2"></div>
+								<div class="flap-3"></div>
+								<div class="flap-4"></div>
+							</div>
+							<h5 class="mb-2 mt-3">Découverte</h5>
+							<p class="mt-0 not-anim">
 								1<sup>ère</sup> prise en main<br/>
 								vol à vue<br/>
 								avec encadrant
@@ -100,14 +118,30 @@
 						</figcaption>
 					</figure>
 				</div>
-				<div class="figure-container col-4">
+				<div class="figure-container col-md-4 col-sm-12">
 					<figure class="text-center">
 						<div class="icon-wrapper">
-							<img [src]="'assets/icon/fpv-icon.png'" />
+							<!--<img [src]="'assets/icon/fpv-icon.png'" />-->
+							<div class="icon-css-2" routerLink="/booking/customer/immersion">
+								<div class="ext"></div>
+								<div class="ext"></div>
+								<div class="ext"></div>
+								<div class="ext"></div>
+								<div class="int"></div>
+								<div class="int"></div>
+								<div class="int"></div>
+								<div class="int"></div>
+							</div>
 						</div>
-						<figcaption>
+						<figcaption class="position-relative">
+							<div class="animWindow">
+								<div class="flap-1"></div>
+								<div class="flap-2"></div>
+								<div class="flap-3"></div>
+								<div class="flap-4"></div>
+							</div>
 							<h5 class="mb-2 mt-3">Immersion</h5>
-							<p class="mt-0">
+							<p class="mt-0 not-anim">
 								post initiation<br/>
 								vol avec masque<br/>
 								avec encadrant
@@ -115,14 +149,28 @@
 						</figcaption>
 					</figure>
 				</div>
-				<div class="figure-container col-4">
+				<div class="figure-container col-md-4 col-sm-12">
 					<figure class="text-center">
 						<div class="icon-wrapper">
-							<img [src]="'assets/icon/pistes-icon.png'" />
+							<!--<img [src]="'assets/icon/pistes-icon.png'" />-->
+							<div class="icon-css-3" routerLink="/booking/customer/accesPiste">
+								<div class="ext"></div>
+								<div class="ext"></div>
+								<div class="ext"></div>
+								<div class="int"></div>
+								<div class="int"></div>
+								<div class="int"></div>
+							</div>
 						</div>
-						<figcaption>
+						<figcaption class="position-relative">
+							<div class="animWindow">
+								<div class="flap-1"></div>
+								<div class="flap-2"></div>
+								<div class="flap-3"></div>
+								<div class="flap-4"></div>
+							</div>
 							<h5 class="mb-2 mt-3">Accès Piste</h5>
-							<p class="mt-0">
+							<p class="mt-0 not-anim">
 								Pilotage avec<br/>
 								votre matériel<br/>
 								sur notre piste
@@ -141,17 +189,17 @@
 	</div>
 </section>
 
-<section class="lesson-section">
+<section #lessonSection class="lesson-section" [class.anim]="lessonSection.offsetTop - 400 < offset">
 	<div class="global"
 		[style.min-height]="screenHeight + 'px'" 
 		[style.width]="screenWidth + 'px'">
 		<div class="container-fluid h-100">
 			<div class="row h-100">
-				<div class="presentation-container col-6 h-100">
-					<div class="row h-100 justify-content-center" [style.min-height]="screenHeight + 'px'">
+				<div class="presentation-container col-md-6 col-sm-12 h-100">
+					<div class="row h-100 justify-content-center align-items-center" [style.min-height]="screenHeight + 'px'">
 						<div class="wording-container col-8 text-center">
 							<h2>Cours Particuliers</h2>
-							<p class="my-3">
+							<p class="my-3 py-5">
 								Premiers pas en captation video par drone<br/>
 								encadrement personnalisé<br/>
 								avec un formateur<br/><br/>
@@ -169,36 +217,40 @@
 	</div>
 </section>
 
-<section class="certification-section">
-	<div class="global container" 
+<section #certificationSection class="certification-section" [class.anim]="certificationSection.offsetTop - 400 < offset">
+	<div class="global" 
 		[style.min-height]="screenHeight + 'px'" 
 		[style.width]="screenWidth + 'px'">
-		<div class="row">
-			<div class="img-container col-md-7 d-none d-md-block align-self-center">
-				<img [src]="'assets/img/certif-drone.jpg'"/>
-			</div>
-			<div class="certif-container col-sm-12 col-md-5">
-				<h2 class="title">Certification Télépilote</h2>
-				<p class="certif-presentation px-lg-4">
-					Devenir télépilote professionnel<br/>
-					avec notre formation spécifique<br/>
-					validée par la DGAC<br/><br/>
-					35 heures / 5 jours<br/>
-					théorique & pratique
-				</p>
-				<div class="certif-button">
-					<button mat-button class="mat-btn-outline-dark mat-btn-lg" routerLink="/booking/pro/certif">
-						Réserver
-					</button>
+		<div class="container-fluid h-100">
+			<div class="row h-100 justify-content-center align-items-center">
+				<div class="img-container col-md-6 col-sm-12 row justify-content-center align-items-center">
+					<img [src]="'assets/img/certif-drone.jpg'"/>
+				</div>
+				<div class="presentation-container col-md-6 col-sm-12 h-100">
+					<div class="row h-100 justify-content-center align-items-center" [style.min-height]="screenHeight + 'px'">
+						<div class="wording-container col-8 text-center">
+							<h2>Certification Télépilote</h2>
+							<p class="my-3 py-5">
+								Devenir télépilote professionnel<br/>
+								avec notre formation spécifique<br/>
+								validée par la DGAC<br/><br/>
+								35 heures / 5 jours<br/>
+								théorique & pratique
+							</p>
+							<div class="certif-button-container py-3">
+								<button mat-button class="mat-btn-outline-dark mat-btn-lg" routerLink="/booking/pro/certif">
+									Réserver
+								</button>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
 
-
-
-<section class="business-section">
+<section #businessSection class="business-section" [class.anim]="businessSection.offsetTop -400 < offset">
 	<div class="global container-fluid" 
 		[style.min-height]="screenHeight + 'px'" 
 		[style.width]="screenWidth + 'px'">
@@ -206,69 +258,69 @@
 			Services pour entreprises
 		</h2>
 		<div class="activity row align-items-center">
-			<div class="metrics-container col-md-12 col-lg-4 row">
-				<p class="metrics m-auto col-sm-9 text-nowrap">
-					<span class="metric">98</span>  Team buildings
+			<div class="metrics-container col-md-4 col-sm-12 row">
+				<p class="metrics m-auto text-nowrap not-anim">
+					<span class="metric">{{teambuildingMetric}}</span>  Team buildings
 				</p>
 			</div>
-			<div class="col-md-12 col-lg-8 row align-items-center">
-				<div class="col-sm-8">
-					<p class="activity-presentation m-auto col-sm-11">
+			<div class="col-md-5 col-sm-12">
+				<div class="row justify-content-center align-items-center ml-4">
+					<p class="activity-presentation m-auto">
 						Nos locaux sont privatisables pour des événements d'entreprise<br/>
 						avec/sans initiation, montage ou démonstration de pilotage de drones<br/>
 						loft industriel - bar licence 3 - traiteur - conférence & présentation
 					</p>
 				</div>
-				<div class="activity-icon col-sm-3">
-					<img class="img-fluid" [src]="'assets/icon/business-1.png'">
-				</div>
-				<div class="arrow-icon col-sm-1" routerLink="/booking/pro/teambuilding">
-					<i class="icon"></i>
-				</div>
+			</div>
+			<div class="activity-icon col-md-2 col-sm-12">
+				<img class="img-fluid" [src]="'assets/icon/business-1.png'">
+			</div>
+			<div class="arrow-icon col-1" routerLink="/booking/pro/teambuilding">
+				<i class="icon"></i>
 			</div>
 		</div>
 		<div class="activity row align-items-center">
-			<div class="metrics-container col-md-12 col-lg-4 row">
-				<p class="metrics m-auto col-sm-9 text-nowrap">
-					<span class="metric">21</span>  Coworkers
+			<div class="metrics-container col-md-4 col-sm-12 row">
+				<p class="metrics m-auto text-nowrap not-anim">
+					<span class="metric">{{coworkerMetric}}</span>  Coworkers
 				</p>
 			</div>
-			<div class="col-md-12 col-lg-8 row align-items-center">
-				<div class="col-sm-8">
-					<p class="activity-presentation m-auto col-sm-11">
+			<div class="col-md-5 col-sm-12">
+				<div class="row justify-content-center align-items-center ml-4">
+					<p class="activity-presentation m-auto">
 						Nous accueillons des start-ups du monde du drone ou de la robotique<br/>
 						Open space de 200m² - accès ateliers & accès piste gratuits
 					</p>
 				</div>
-				<div class="activity-icon col-sm-3">
-					<img class="img-fluid" [src]="'assets/icon/business-2.png'">
-				</div>
-				<div class="arrow-icon col-sm-1" routerLink="/booking/pro/wooploop">
-					<i class="icon"></i>
-				</div>
+			</div>
+			<div class="activity-icon col-md-2 col-sm-12">
+				<img class="img-fluid" [src]="'assets/icon/business-2.png'">
+			</div>
+			<div class="arrow-icon col-1" routerLink="/booking/pro/wooploop">
+				<i class="icon"></i>
 			</div>
 		</div>
 		<div class="activity row align-items-center">
-			<div class="metrics-container col-md-12 col-lg-4 row">
-				<p class="metrics m-auto col-sm-9 text-nowrap">
-					<span class="metric">30</span>  Salons & event
+			<div class="metrics-container col-md-4 col-sm-12 row">
+				<p class="metrics m-auto text-nowrap not-anim">
+					<span class="metric">{{eventMetric}}</span>  Salons & event
 				</p>
 			</div>
-			<div class="col-md-12 col-lg-8 row align-items-center">
-				<div class="col-sm-8">
-					<p class="activity-presentation m-auto col-sm-11">
+			<div class="col-md-5 col-sm-12">
+				<div class="row justify-content-center align-items-center ml-4">
+					<p class="activity-presentation m-auto">
 						Notre équipe se déplace pour faire venir le drone dans vos locaux<br/>
 						intérieur & extérieur - cage spécifique - animation continue
 						<br/>
-						drone prise de vue - drone assisté - drone de cours
+						drone prise de vue - drone assisté - drone de course
 					</p>
 				</div>
-				<div class="activity-icon col-sm-3">
-					<img class="img-fluid" [src]="'assets/icon/business-3.png'">
-				</div>
-				<div class="arrow-icon col-sm-1" routerLink="/booking/pro/event">
-					<i class="icon"></i>
-				</div>
+			</div>
+			<div class="activity-icon col-md-2 col-sm-12">
+				<img class="img-fluid" [src]="'assets/icon/business-3.png'">
+			</div>
+			<div class="arrow-icon col-1" routerLink="/booking/pro/event">
+				<i class="icon"></i>
 			</div>
 		</div>
 	</div>
@@ -276,15 +328,15 @@
 
 
 
-<section class="clients-section">
+<section #clientsSection class="clients-section" [class.anim]="clientsSection.offsetTop -400 < offset">
 	<div class="global container-fluid" 
 		[style.min-height]="screenHeight + 'px'" 
 		[style.width]="screenWidth + 'px'">
 		<div class="clients-container" *ngIf="clients.length">
 			<h2 class="title">Nos clients</h2>
 			<div class="clients-icons">
-				<ul>
-					<li *ngFor="let client of clients">
+				<ul #clientsList>
+					<li *ngFor="let client of clients" >
 						<img [src]="'assets/icon/clients/' + client + '.png'">
 						<div class="shadow-icon"></div>
 					</li>
@@ -294,7 +346,7 @@
 		<div class="supports-container" *ngIf="supports.length">
 			<h2 class="title">Nos soutiens</h2>
 			<div class="supports-icons">
-				<ul>
+				<ul #supportsList>
 					<li class="px-5" *ngFor="let support of supports">
 						<img [src]="'assets/icon/supports/' + support + '.png'">
 						<div class="shadow-icon"></div>
@@ -305,7 +357,7 @@
 		<div class="partners-container" *ngIf="partners.length">
 			<h2 class="title">Nos partenaires</h2>
 			<div class="partners-icons">
-				<ul>
+				<ul #partnersList>
 					<li class="px-5" *ngFor="let partner of partners">
 						<img [src]="'assets/icon/partners/' + partner + '.png'">
 						<div class="shadow-icon"></div>

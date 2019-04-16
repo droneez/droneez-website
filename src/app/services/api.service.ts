@@ -17,10 +17,13 @@ export interface Config {
             scheduleUrl: string,
             contactUrl: string,
             paymentUrl: string,
+            couponUrl: string
             //articlesUrls: string[]
         }
     ]
 }
+
+/*{"isValidate":1,"couponDiscountType":2,"couponAmount":"20","couponType":"0"}*/
 
 @Injectable({
   	providedIn: 'root'

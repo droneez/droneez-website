@@ -48,4 +48,18 @@ footer {
 			text-decoration: underline;
 		}
 	}
+
+	::ng-deep input {
+		background: map-get($colors, light);
+		color: map-get($colors, smooth-dark);
+	}
+
+	::ng-deep textarea {
+		background: map-get($colors, light);
+		color: map-get($colors, smooth-dark);
+	}
+
+	::ng-deep .mat-form-field-should-float label.mat-form-field-label {
+		color: map-get($colors, light);
+	}
 }

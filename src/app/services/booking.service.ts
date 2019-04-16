@@ -41,6 +41,7 @@ export interface bookingItemInterface {
     type: string;
     calendar: number;
     id: number;
+    discount: number;
 }
 
 // Donnees importees du serveur
@@ -61,6 +62,13 @@ export interface redirectPaymentInterface {
     is_done: number;
 }
 
+export interface codePromoInterface {
+    isValidate:number;
+    couponDiscountType:number;  // 1 si c’est un montant, 2 si c’est un pourcentage
+    couponAmount:string;        // La réduction, donc, 20€, ou 20% par exemple
+    couponType:string;          // 1->découverte, 2->Immersion, 3->Course, 4->Tout le panier
+}
+
 // Donnees a utiliser pour la page booking-customer-page
 export class BookingData implements scheduleInterface, bookingItemInterface {
 
@@ -75,6 +83,7 @@ export class BookingData implements scheduleInterface, bookingItemInterface {
     id: number;
     calendar: number;
     slot_date: string;
+    discount: number;
 
     constructor(schedule:scheduleInterface, date: Date, type: string ) {
         this.price = schedule.price;
@@ -91,6 +100,7 @@ export class BookingData implements scheduleInterface, bookingItemInterface {
         this.id = schedule.id;
         this.calendar = schedule.calendar;
         this.slot_date = schedule.slot_date;
+        this.discount = 0;
     }
 }
 
@@ -135,6 +145,7 @@ export class BookingService {
 
 	private scheduleUrl: string;
     private paymentUrl: string;
+    private couponUrl: string;
 	private shoppingBag: bookingItemInterface[];
 	private schedule: scheduleInterface[];
     private displayedDatas: BookingData[];
@@ -150,10 +161,9 @@ export class BookingService {
         this.paymentUrl = "";
         apiService.getConfig().subscribe((data: Config) => {
             this.config = { ...data };
-            console.dir(this.config);
-            console.dir(data);
             this.scheduleUrl = this.config.urls[0].scheduleUrl;
             this.paymentUrl = this.config.urls[0].paymentUrl;
+            this.couponUrl = this.config.urls[0].couponUrl;
         })
         /*this.shoppingBag = JSON.parse(localStorage.getItem("shoppingBag"));
   		if(!this.shoppingBag)*/ this.shoppingBag = [];
@@ -174,7 +184,8 @@ export class BookingService {
             date: item.date,
             type: item.type,
             calendar: item.calendar,
-            id: item.id
+            id: item.id,
+            discount: item.discount
         }
   		this.shoppingBag.push(bookingItem);
         item.isInShoppingBag = true;
@@ -215,26 +226,32 @@ export class BookingService {
   		return this.shoppingBag;
   	}
 
-  	sendShoppingBag() {
+  	/*sendShoppingBag() {
         if(this.shoppingBag.length) {
             let url = this.paymentUrl;
             let observable: Observable<bookingItemInterface[]>;
             observable = this.http.post<bookingItemInterface[]>(url, this.shoppingBag, httpOptions)
                 .pipe(
+                    tap((datas) => {
+                          console.log('Fetched payment datas');
+                    }),
                     catchError(this.handleError<bookingItemInterface[]>("sendShoppingBag"))
                 );
             observable.subscribe( res =>{
                 console.dir(res);
             });
         }
-  	}
+  	}*/
 
     goPayment(paymentDatas: paymentDatas): Observable<redirectPaymentInterface> {
         if(this.shoppingBag.length) {
             let url = this.paymentUrl;
             return this.http.post<redirectPaymentInterface>(url, paymentDatas, httpOptions)
                 .pipe(
-                    catchError(this.handleError<redirectPaymentInterface>("sendShoppingBag")),
+                    tap((datas) => {
+                        console.log('Fetched payment datas');
+                    }),
+                    catchError(this.handleError<redirectPaymentInterface>("goPayment")),
                 );
         }
     }
@@ -247,12 +264,22 @@ export class BookingService {
         return this.totalPrice;
     }
 
+    getReduc(code: string): Observable<codePromoInterface | any> {
+        let url = `${this.couponUrl}${code}`;
+        return this.http.get<codePromoInterface>(url)
+            .pipe(
+                tap((data)=>{
+                    console.log('fetched code promo datas');
+                }),
+                catchError(this.handleError<codePromoInterface>('getReduc'))
+            );
+    }
+
   	getAvailablePlaces(date: Date, type: string): Observable<BookingData[]> {
   		let url = `${this.scheduleUrl}/${type}/${("0" + date.getDate()).slice(-2)}${("0" + (date.getMonth() + 1)).slice(-2)}${date.getFullYear()}`;
   		return this.http.get<scheduleInterface[]>(url)
   			.pipe(
                 map((schedule) => {
-                    console.dir(schedule);
                     this.displayedDatas = schedule.map(item =>  new BookingData(item, date, type));
                     this.displayedDatas.forEach(displayedItem => {
                         this.shoppingBag.forEach(shoppingItem => {

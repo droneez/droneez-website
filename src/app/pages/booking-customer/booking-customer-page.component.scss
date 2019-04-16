@@ -11,7 +11,18 @@ section {
 		img {
 			max-width: 15rem;
 		}
-		h4 {
+
+		@media screen and (max-width: 768px) {
+		  	img {
+		  		max-width: 10rem;
+		  	} 
+		  	
+		}
+		@media screen and (max-width: 575px) {
+			min-height : 70rem;
+		}
+
+		.recap-row h4, .choice-1 h4, .choice-2 h4 {
 			color: map-get($colors, light);
 			position: absolute;
 			top: 0;
@@ -24,28 +35,129 @@ section {
 			transition: ease-in-out filter 1s, ease-in-out opacity 1s;
 
 			.recap-row {
+				height: 11rem;
+
+				@media screen and (max-width: 768px) {
+					padding-top: 5rem;
+    				height: 16rem;
+				}
+
+				h4 {
+					transform: skewX(-29deg);
+   					margin-top: -1rem;
+				}
+				.img-wrapper {
+					transform: skewX(29deg);
+				    overflow: hidden;
+				    height: 6rem !important;
+				    cursor: pointer;
+				}
 				.recap-1 {
 					transform: translateX(1000%);
 					transition: ease-out .2s transform;
+					img {
+						transform: skewX(-29deg);
+					    margin-top: -21rem;
+					    margin-left: 0rem;
+					    max-width: 28rem;
+					    width: 28rem !important;
+					    @media screen and (max-width: 768px) {
+						    margin-left: -3rem;
+						    max-width: 36rem;
+						    width: 36rem !important;
+						}
+					}
 				}
 				.recap-2 {
 					transform: translateX(2000%);
 					transition: ease-out .3s transform;
+					img {
+						transform: skewX(-29deg);
+					    margin-top: -30rem;
+					    margin-left: 2rem;
+					    max-width: 31rem;
+					    width: 31rem !important;
+					    @media screen and (max-width: 768px) {
+						    margin-left: 2rem;
+						    max-width: 36rem;
+						    width: 36rem !important;
+						}
+					}
 				}
 				.recap-3 {
 					transform: translateX(3000%);
 					transition: ease-out .4s transform;
+					img {
+						transform: skewX(-29deg);
+					    margin-top: -11rem;
+					    margin-left: -7rem;
+					    max-width: 31rem;
+					    width: 31rem !important;
+					}
+					@media screen and (max-width: 768px) {
+					    .img-wrapper {
+					        width: 40rem;
+					    }
+					    img {
+					    	transform:translateX(23%);
+					    }
+					}
 				}
+			}
+
+			@media screen and (max-width: 768px) {
+				overflow: scroll;
 			}
 
 			.calendar-row {
 				transform: translateY(2000%);
     			transition: ease-out .6s transform;
+    			margin-left: 1.3rem;
+    			/*height: 87%;*/
     			&.hide {
     				height : 0 !important;
     				width : 0 !important;
     				overflow : hidden !important;
     			}
+    			.calendar-title, .schedule-title {
+    				background: #494b40;
+    				width: 100%;
+				    margin-top: 1rem;
+				    border-top-left-radius: 0.4rem;
+				    border-top-right-radius: 0.4rem;
+				    h4 {
+					    color: white;
+					    font-family: BebasNeueRegular;
+					    text-align: center;
+					    width: 100%;
+					    margin: 0;
+	    			}
+	    		}
+	    		.schedule-container {
+	    			height: 22rem;
+    				overflow-y: scroll;
+    			}
+    			@media screen and (max-width: 768px) {
+					margin: 0;
+					padding-top:6rem;
+				}
+    			
+			}
+
+			.buttons-wrapper button {
+				opacity: 0;
+				transform: scale3d(0,0,1);
+				transition: ease opacity .8s, cubic-bezier(.22,-0.57,.53,.99) transform .8s, box-shadow .7s;
+			}
+
+			.calendar-row.lesson {
+				p {
+					line-height: 1.2rem;
+				}
+				.contact-form-wrapper {
+					height: 60% !important;
+					padding: 1rem 0 3rem 0;
+				}
 			}
 
 			.time-col {
@@ -66,6 +178,10 @@ section {
 				}
 				.time-col {
 					transform: translateX(0%);
+				}
+				.buttons-wrapper button {
+					opacity: 1;
+					transform: scale3d(1,1,1);
 				}
 			}
 			

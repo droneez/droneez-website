@@ -1,0 +1,45 @@
+::ng-deep .global{
+	article {
+		font-family: raleway-regular;
+		text-align: justify;
+
+		.post-thumbnail {
+			text-align: center !important;
+		}
+
+		h2, h3, h4, {
+			font-family: BebasNeueRegular;
+			padding: 0 20%;
+			text-align: left;
+			font-style: normal;
+			font-size: 1.5rem;
+		}
+		h2:first-of-type {
+			position: absolute;
+		    top: 6rem;
+		    text-align: center;
+		    width: 100%;
+		    font-size: 3.5rem;
+
+			span {
+				color: white !important;
+			}
+		}
+		p:first-of-type {
+			&::first-letter {
+				font-size:3rem;
+			}
+			padding-top:3rem;
+		}
+		p, li {
+			padding: 0 20%;
+	    	font-size: .9rem;
+		}
+		.fancy-date {
+			display: none;
+		}
+		.emoji {
+			width:1rem !important;
+		}
+	}
+}

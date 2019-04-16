@@ -18,27 +18,75 @@ section {
 		transform: translateY(150px);
 		opacity:0;
 		padding-bottom: 2rem;
+		font-family: BebasNeueRegular;
+		color: map-get($colors, light);
+		max-width: 20rem;
 		.card {
 			cursor: pointer;
+			width: 18rem;
+			margin: auto;
+
 			.card-img-container {
-				height: 18rem;
+				height: 25rem;
     			overflow: hidden;
+    			.backdrop {
+    				width: 100%;
+				    height: 100%;
+				    top: 0;
+				    position: absolute;
+				    background: black;
+				    opacity: .5;
+				    transition: ease 3s opacity;
+    			}
 				img {
 					height: 100%;
     				width: auto !important;
+    				max-width: 1000%;
     				transform: translateX(-50%);
 				    margin-left: 50%;
 				    transform: translateX(-50%) scale3d(1,1,1);
 				    transition: ease-out 3s transform;
-				    &:hover {
-				    	transform: translateX(-50%) scale3d(1.2,1.2,1);
-				    }
+				    
 				}
 			}
 			.card-title {
-				height: 6rem;
+				height: 8rem;
 				overflow: hidden;
+				font-size:2.5rem;
+				line-height:2rem;
+				margin-top: 7rem;
+				transition: ease .5s margin-top;
 			}
+			.card-body {
+				position:absolute;
+				button {
+					bottom: 1.5rem;
+    				position: absolute;
+    				opacity: 0;
+    				transition: opacity .5s ease;
+				}
+				transition: background ease 3s;
+			}
+
+			&:hover {
+				.card-img-container {
+					img {
+		    			transform: translateX(-50%) scale3d(1.2,1.2,1);
+		    		}
+		    		.backdrop {
+		    			opacity: 0;
+		    		}
+		    	}
+		    	/*.card-title {
+		    		margin-top:0;
+		    	}*/
+		    	.card-body {
+		    		background: rgba(255,255,255,0) !important;
+		    		button {
+		    			opacity:1;
+		    		}
+		    	}
+		    }
 		}
 	}
 

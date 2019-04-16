@@ -62,9 +62,9 @@ button { outline:none !important; }
 
 .mat-btn-no-border-dark, 
 .mat-btn-no-border-light {
-    font-family: raleway-medium;
+    font-family: BebasNeueBold;
     text-transform: uppercase;
-    border-radius: 0 !important;
+    border-radius: 30px !important;
     outline: none !important;
     line-height: 0 !important;
 }
@@ -72,10 +72,21 @@ button { outline:none !important; }
 .mat-btn-no-border-dark, 
 .mat-btn-outline-dark {
     color: map-get($colors, dark);
+    transition: .5s;
+    &:hover, &:focus {
+        box-shadow: inset 15rem 0 3rem 0 map-get($colors, dark);
+        color: map-get($colors, light);
+    }
 }
 .mat-btn-no-border-light, 
 .mat-btn-outline-light {
     color: map-get($colors, light);
+    transition: .5s;
+    &:hover, &:focus {
+        box-shadow: inset 15rem 0 3rem 0 map-get($colors, light);
+        color: map-get($colors, dark);
+    }
+
 }
 .mat-btn-outline-dark {
     border-color: map-get($colors, dark) !important;
@@ -83,7 +94,6 @@ button { outline:none !important; }
 .mat-btn-outline-light {
     border-color: map-get($colors, light) !important;
 }
-
 
 .mat-btn-sm {
     border-width: 2px !important;
@@ -113,6 +123,7 @@ button { outline:none !important; }
 @include igx-core();
 @include igx-theme($default-palette);
 .igx-calendar__header {
+    display: none;
     padding: .2rem 1rem !important;
 }
 .igx-calendar__header-date {
@@ -123,7 +134,7 @@ button { outline:none !important; }
     transform: translateX(-50%);
 }
 $my-calendar-theme: igx-calendar-theme(
-    $header-background: #1F6EFF,
+    $header-background: #494b40,
     $header-text-color: map-get($colors, light),
     $weekend-text-color: rgba(0, 0, 0, 0.87),
     $date-selected-text-color: map-get($colors, light)

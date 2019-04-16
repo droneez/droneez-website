@@ -54,16 +54,19 @@ section {
 							font-size: 3rem;
 							text-transform: uppercase;
 							color: map-get($colors,light);
-							margin-bottom: .2rem;
+							margin: 0rem;
 							transition: color 0.25s;
+							line-height: 5rem;
 						}
 						p {
-							font-family: raleway-regular;
+							font-family: BebasNeueRegular;
 							color: map-get($colors,light);
 							line-height: 1.3rem;
+							font-size: 1.2rem;
 							width: 80%;
 							opacity: 0;
 							transition: opacity .3s;
+							margin: 0;
 						}
 					}
 					.booking-button-container {

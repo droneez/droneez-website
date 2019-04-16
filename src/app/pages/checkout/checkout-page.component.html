@@ -16,7 +16,7 @@
 				<form class="form-1" [formGroup]="firstFormGroup" (submit)="onSubmit()">
 					<ng-template matStepLabel>Détails de facturation</ng-template>
 					<div class="row justify-content-center align-items-center">
-						<div class="col-6">
+						<div class="col-md-6 col-sm-12">
 							<div class="row justify-content-center">
 								<div class="w-75">
 									<div>
@@ -56,7 +56,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-6">
+						<div class="col-md-6 col-sm-12">
 							<div class="row justify-content-center">
 								<div class="w-75">
 									<div>
@@ -69,8 +69,9 @@
 									<div>
 										<mat-form-field appearance="outline">
 											<mat-label>Téléphone</mat-label>
-											<input matInput placeholder="Téléphone" formControlName="phoneControl" required>
+											<input pattern="[0-9\+\- ]*" matInput placeholder="Téléphone" formControlName="phoneControl" required>
 											<mat-error *ngIf="firstFormGroup.controls.phoneControl.hasError('required')">Veuillez remplir ce champ</mat-error>
+											<mat-error *ngIf="firstFormGroup.controls.phoneControl.hasError('pattern')">Le numéro doit être valide</mat-error>
 										</mat-form-field>
 									</div>
 									<div>
@@ -100,7 +101,7 @@
 						</div>
 					</div>
 					<div class="row justify-content-center align-items-start">
-						<div class="col-6">
+						<div class="col-md-6 col-sm-12">
 							<div class="row justify-content-center">
 								<div class="w-75">
 									<mat-checkbox required formControlName="checkboxControl" >J'ai lu et j'approuve <br/>les <span class="cgv" (click)="openCGV(legal)">conditions générales de ventes</span>.</mat-checkbox>
@@ -108,7 +109,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-6">
+						<div class="col-md-6 col-sm-12">
 							<div class="row justify-content-center">
 								<div class="w-75 text-right">
 									<button mat-button class="mat-btn-outline-dark mat-btn-lg" matStepperNext>Suivant</button>
@@ -145,8 +146,6 @@
 			<mat-step>
 				<ng-template matStepLabel>Confirmer la commande</ng-template>
 
-
-
 				<table class="w-100" mat-table [dataSource]="shoppingBag">
 
 					<ng-container matColumnDef="type">
@@ -182,6 +181,14 @@
 					<tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
 					<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 				</table>
+				<form class="form-2 position-relative" [formGroup]="secondFormGroup" (submit)="onSubmitForm2(secondFormGroup.value.codeCtrl)">
+					<mat-form-field appearance="fill">
+					    <mat-label>Code Promo</mat-label>
+					    <input matInput formControlName="codeCtrl" [style.text-transform]="'uppercase'">
+					    <button matSuffix mat-button type="submit">Appliquer</button>
+					</mat-form-field>
+					<mat-error class="position-absolute" [style.right]="'0'" [style.color]="promoMessage === 'réduction appliquée' ? '#23dc0e' : '#f44336'" [style.visibility]="promoMessage !== '' ?'visible':'hidden'">{{promoMessage}}</mat-error>
+				</form>
 				<div class="mx-5 mt-5 pt-4 row align-items-center justify-content-end">
 					<div class="total">Prix total : <strong>{{total||0}}€</strong></div>
 				</div>
@@ -192,7 +199,6 @@
 						<div [innerHTML]="paymentButton | safeHtml"></div>
 					</div>
 				</div>
-
 			</mat-step>
 
 		</mat-horizontal-stepper>

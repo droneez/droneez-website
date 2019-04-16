@@ -4,7 +4,7 @@ section {
 			font-family: BebasNeueBold;
 			font-size: 2.8rem;
 		}
-		h3 {
+		h4 {
 			font-family: BebasNeueBold;
 			margin-bottom: 0;
 		}
@@ -25,16 +25,20 @@ section {
 					font-family: BebasNeueBold;
 					font-size: 2.5rem;
 				}
+				.price-mini {
+					font-family: BebasNeueBold;
+					font-size: 1.5rem;
+				}
 				.wording {
-					min-height: 8rem;
+					min-height: 5rem;
 				}
 				p {
-					font-size: .8rem;
-				}
-				.schedule {
-					p:first-child {
-						margin-bottom:0;
-					}
+					line-height: 1.3rem;
+				    font-family: BebasNeueRegular;
+				    font-size: 1rem;
+				    i {
+				    	font-size: .8rem;
+				    }
 				}
 				.strong-word {
 					text-transform: uppercase;
@@ -46,13 +50,19 @@ section {
 	}
 }
 
+section.section-service {
+	z-index: 1;
+    position: relative;
+}
+
 section.section-subscription {
-	.wording-container h3:first-child {
-		margin-bottom: -.7rem;
-	}
+	z-index: 1;
+    position: relative;
 }
 
 .separate-img {
+	margin-top:-4rem;
+	margin-bottom:-10rem;
 	background: url('./../../../assets/img/pricing-separate-img.png') no-repeat;
 	background-size: cover;
     background-position-y: center;
