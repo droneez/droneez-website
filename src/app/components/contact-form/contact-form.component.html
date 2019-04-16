@@ -26,7 +26,7 @@
 					<mat-form-field>
 						<mat-label>Téléphone</mat-label>
 						<input pattern="[0-9\+\- ]*" matInput formControlName="phoneControl" placeholder="Téléphone" required>
-						<mat-error *ngIf="formGroup.controls.emailControl.invalid">{{getErrorPhoneMessage()}}</mat-error>
+						<mat-error *ngIf="formGroup.controls.phoneControl.invalid">{{getErrorPhoneMessage()}}</mat-error>
 					</mat-form-field>
 				</div>
 			</div>
