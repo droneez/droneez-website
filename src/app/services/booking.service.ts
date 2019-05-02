@@ -17,8 +17,8 @@ export interface paymentDatas {
     customer_mobile: string;
     customer_email: string;
     cart_total: number;
-    total_discount: string;
-    payment_method: string;
+    total_discount: number;
+    payment_method: number;
     items: paymentItem[];
 }
 
@@ -257,7 +257,7 @@ export class BookingService {
     }
 
     getTotalPrice(): number {
-        this.totalPrice = 0;
+        this.totalPrice = 0; 
         this.shoppingBag.forEach(item=>{
             this.totalPrice += (+item.nbParticipants)*(+item.price);
         });

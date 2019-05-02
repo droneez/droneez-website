@@ -8,6 +8,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { MatStepper } from '@angular/material/stepper';
+import { MatSnackBar } from '@angular/material';
 import { BookingService, bookingItemInterface, paymentDatas, paymentItem } from "./../../services/booking.service";
 
 const countries = [" ---  --- ","Afghanistan","Albania","Algeria","American Samoa","Andorra","Angola","Anguilla","Antarctica","Antigua And Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas The","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Bouvet Island","Brazil","British Indian Ocean Territory","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central African Republic","Chad","Chile","China","Christmas Island","Cocos (Keeling) Islands","Colombia","Comoros","Republic Of The Congo","Democratic Republic Of The Congo","Cook Islands","Costa Rica","Cote D'Ivoire (Ivory Coast)","Croatia (Hrvatska)","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","East Timor","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","External Territories of Australia","Falkland Islands","Faroe Islands","Fiji Islands","Finland","France","French Guiana","French Polynesia","French Southern Territories","Gabon","Gambia The","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guadeloupe","Guam","Guatemala","Guernsey and Alderney","Guinea","Guinea-Bissau","Guyana","Haiti","Heard and McDonald Islands","Honduras","Hong Kong S.A.R.","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Korea North","Korea South","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau S.A.R.","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Man (Isle of)","Marshall Islands","Martinique","Mauritania","Mauritius","Mayotte","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepal","Netherlands Antilles","Netherlands The","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","Niue","Norfolk Island","Northern Mariana Islands","Norway","Oman","Pakistan","Palau","Palestinian Territory Occupied","Panama","Papua new Guinea","Paraguay","Peru","Philippines","Pitcairn Island","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Helena","Saint Kitts And Nevis","Saint Lucia","Saint Pierre and Miquelon","Saint Vincent And The Grenadines","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Smaller Territories of the UK","Solomon Islands","Somalia","South Africa","South Georgia","South Sudan","Spain","Sri Lanka","Sudan","Suriname","Svalbard And Jan Mayen Islands","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Togo","Tokelau","Tonga","Trinidad And Tobago","Tunisia","Turkey","Turkmenistan","Turks And Caicos Islands","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","United States Minor Outlying Islands","Uruguay","Uzbekistan","Vanuatu","Vatican City State (Holy See)","Venezuela","Vietnam","Virgin Islands (British)","Virgin Islands (US)","Wallis And Futuna Islands","Western Sahara","Yemen","Yugoslavia","Zambia","Zimbabwe"];
@@ -33,6 +34,7 @@ export class CheckoutPageComponent {
 	displayedColumns: string[];
 	total: number;
 	codeApplied: string[];
+	OnlyOneCodeApplied: boolean;
 	promoMessage: string;
     totalDiscount: number;
 
@@ -47,7 +49,8 @@ export class CheckoutPageComponent {
         private modalService: BsModalService,
         private globals: Globals,
         private formBuilder: FormBuilder,
-        private bookingService: BookingService) {
+        private bookingService: BookingService,
+        private snackBar: MatSnackBar,) {
 		this.displayedColumns = ['type', 'date', 'range', 'participants', 'price', 'totalPrice'];
 	}
 
@@ -77,6 +80,7 @@ export class CheckoutPageComponent {
 	    this.shoppingBag = this.bookingService.getShoppingBag();
 	    this.total = this.bookingService.getTotalPrice();
 	    this.codeApplied = [];
+	    this.OnlyOneCodeApplied = false;
 	    this.promoMessage = "";
 	    this.totalDiscount = 0;
 	}
@@ -100,14 +104,19 @@ export class CheckoutPageComponent {
     	this.nextClicked = true;
     	if (this.firstFormGroup.valid) {
 	    	this.bookingService.goPayment(this.parseIntoPaymentDatas()).subscribe( res =>{
-	    		this.paymentButton  = `
-		  			<form name="redirectForm" method="POST" action=${res.action}>
-						<input type="hidden" name="Data" value=${res.Data}>
-						<input type="hidden" name="InterfaceVersion" value=${res.InterfaceVersion}>
-						<input type="hidden" name="Seal" value=${res.Seal}>
-						<button class="btn btn-primary" type="submit">Confirmer</button>
-					</form>
-				`; 
+	    		if(res){
+		    		this.paymentButton  = `
+			  			<form name="redirectForm" method="POST" action=${res.action}>
+							<input type="hidden" name="Data" value=${res.Data}>
+							<input type="hidden" name="InterfaceVersion" value=${res.InterfaceVersion}>
+							<input type="hidden" name="Seal" value=${res.Seal}>
+							<button class="btn btn-primary" type="submit">Confirmer</button>
+						</form>
+					`; 
+				}
+	        }, error =>{
+	        	console.log(error.message);
+	        	this.openSnackBar("Une erreur est survenue, réessayer plus tard.");
 	        });
 	    }
     }
@@ -116,7 +125,7 @@ export class CheckoutPageComponent {
     onSubmitForm2(code: string) {
     	this.promoMessage = "";
     	if(code) {
-	    	if(this.codeApplied.indexOf(code) == -1) {
+	    	if(this.codeApplied.indexOf(code) == -1 && !this.OnlyOneCodeApplied) {
 	    		this.bookingService.getReduc(code).subscribe( res => {
 	    			if(res){
 		    			if(res.isValidate === 1){    
@@ -157,6 +166,7 @@ export class CheckoutPageComponent {
 				    				} 
 				    			});
 				    		}
+				    		this.OnlyOneCodeApplied = true;
 		    			} else {
 		    				if (res.Message) {
 		    					this.promoMessage = res.Message;
@@ -184,40 +194,46 @@ export class CheckoutPageComponent {
 
     parseIntoPaymentDatas():paymentDatas {
     	let paymentData: paymentDatas = {
-    		first_name: this.firstFormGroup.value.firstNameControl,
-		    last_name: this.firstFormGroup.value.lastNameControl,
-		    customer_address_1: this.firstFormGroup.value.adress1Control,
-		    customer_address_2: this.firstFormGroup.value.adress2Control,
-		    city: this.firstFormGroup.value.cityControl,
-		    country: this.firstFormGroup.value.countryControl,
-		    zip: this.firstFormGroup.value.postalControl,
-		    company: this.firstFormGroup.value.emailControl,
-		    customer_mobile: this.firstFormGroup.value.companyControl,
-		    customer_email: this.firstFormGroup.value.emailControl,
-		    cart_total: this.total*100,
-		    total_discount: "",
-		    payment_method: "66",
-		    items: []
+    		"first_name": this.firstFormGroup.value.firstNameControl,
+		    "last_name": this.firstFormGroup.value.lastNameControl,
+		    "customer_address_1": this.firstFormGroup.value.adress1Control,
+		    "customer_address_2": this.firstFormGroup.value.adress2Control,
+		    "city": this.firstFormGroup.value.cityControl,
+		    "country": this.firstFormGroup.value.countryControl,
+		    "zip": this.firstFormGroup.value.postalControl,
+		    "company": this.firstFormGroup.value.companyControl,
+		    "customer_mobile": this.firstFormGroup.value.phoneControl,
+		    "customer_email": this.firstFormGroup.value.emailControl,
+		    "cart_total": this.total*100,
+		    "total_discount": 0,
+		    "payment_method": 66,
+		    "items": []
     	};
 
     	this.shoppingBag.forEach((item)=>{
     		paymentData.items.push({
-    			product_id: item.calendar,
-			    qty: item.nbParticipants,
-			    slot_id: item.id,
-			    seats: item.nbParticipants,
-			    calendar_id: item.calendar,
-			    price: item.price,
-			    discount: item.discount
+    			"product_id": +item.calendar,
+			    "qty": +item.nbParticipants,
+			    "slot_id": +item.id,
+			    "seats": +item.nbParticipants,
+			    "calendar_id": +item.calendar,
+			    "price": +item.price,
+			    "discount": +item.discount
     		});
     	});
 
-    	paymentData.total_discount = "" + this.totalDiscount;
+    	paymentData.total_discount = this.totalDiscount;
     	return paymentData;
     }
 
     openCGV(legal: TemplateRef<any>) {
 		this.modalRef = this.modalService.show(legal);
 	}
+
+	openSnackBar(message) {
+        this.snackBar.open(message,"",{
+            duration: 2000,
+        });
+    }
 
 }
