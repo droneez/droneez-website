@@ -33,10 +33,11 @@ export class CheckoutPageComponent {
 	nextClicked: boolean;
 	displayedColumns: string[];
 	total: number;
-	codeApplied: string[];
+	codeApplied: any[];
 	OnlyOneCodeApplied: boolean;
 	promoMessage: string;
     totalDiscount: number;
+    discountCode: string;
 
 	firstFormGroup: FormGroup;
   	secondFormGroup: FormGroup;
@@ -105,14 +106,31 @@ export class CheckoutPageComponent {
     	if (this.firstFormGroup.valid) {
 	    	this.bookingService.goPayment(this.parseIntoPaymentDatas()).subscribe( res =>{
 	    		if(res){
-		    		this.paymentButton  = `
-			  			<form name="redirectForm" method="POST" action=${res.action}>
-							<input type="hidden" name="Data" value=${res.Data}>
-							<input type="hidden" name="InterfaceVersion" value=${res.InterfaceVersion}>
-							<input type="hidden" name="Seal" value=${res.Seal}>
-							<button class="btn btn-primary" type="submit">Confirmer</button>
-						</form>
-					`; 
+	    			// Tout s'est bien passé
+	    			if(res.is_done === 1) {
+			    		this.paymentButton  = `
+				  			<form name="redirectForm" method="POST" action=${res.action}>
+								<input type="hidden" name="Data" value=${res.Data}>
+								<input type="hidden" name="InterfaceVersion" value=${res.InterfaceVersion}>
+								<input type="hidden" name="Seal" value=${res.Seal}>
+								<button class="btn btn-primary" type="submit">Confirmer</button>
+							</form>
+						`; 
+					} else 
+					// Le panier est tombé à 0 euros à cause des codes promos
+					if (res.is_done === 2) {
+						this.paymentButton  = `
+				  			<form name="redirectForm" method="POST" action=${res.urlr}>
+								<button class="btn btn-primary" type="submit">Confirmer</button>
+							</form>
+						`; 
+					} else
+					// Une erreur est survenu a cause du code promo
+					if(res.is_done === 3) {
+						this.paymentButton  = `
+				  			<div>Une erreur est survenue suite à un code promotionnel invalide</div>
+						`; 
+					}
 				}
 	        }, error =>{
 	        	console.log(error.message);
@@ -125,26 +143,30 @@ export class CheckoutPageComponent {
     onSubmitForm2(code: string) {
     	this.promoMessage = "";
     	if(code) {
-	    	if(this.codeApplied.indexOf(code) == -1 && !this.OnlyOneCodeApplied) {
+	    	if(this.codeApplied.map((e)=>{return e.code}).indexOf(code) == -1 && !this.OnlyOneCodeApplied) {
 	    		this.bookingService.getReduc(code).subscribe( res => {
 	    			if(res){
 		    			if(res.isValidate === 1){    
 		    				if( res.couponType === "4") {
 		    					if(res.couponDiscountType === 1) {
 		    						this.total -= +res.couponAmount;
+		    						if(this.total < 0) this.total = 0;
 		    						this.totalDiscount += +res.couponAmount;
+		    						this.codeApplied.push({code:code,discount:+res.couponAmount});
 		    					} else 
 		    					if (res.couponDiscountType === 2) {
 		    						this.total -= this.total*+res.couponAmount/100;
+		    						if(this.total < 0) this.total = 0;
 		    						this.totalDiscount += this.total*+res.couponAmount/100;
+		    						this.codeApplied.push({code:code,discount:this.total*+res.couponAmount/100});
 		    					}
-		    					this.codeApplied.push(code);
+		    					this.discountCode = code;
 		    					this.onSubmit();
 		    					this.promoMessage = 'réduction appliquée';
 							} else {			
 			    				this.shoppingBag.forEach((item)=>{
 			    					if( 
-			    						(this.codeApplied.indexOf(code) == -1) &&	// applique le code que sur un seul participant
+			    						(this.codeApplied.map((e)=>{return e.code}).indexOf(code) == -1) &&	// applique le code que sur un seul participant
 			    						(item.type === "decouverte" && res.couponType === "1" ||
 				    					item.type === "immersion" && res.couponType === "2" ||
 				    					item.type === "acces-piste" && res.couponType === "3")
@@ -152,15 +174,19 @@ export class CheckoutPageComponent {
 
 				    					if(res.couponDiscountType === 1) {
 				    						this.total -= +res.couponAmount;
+				    						if(this.total < 0) this.total = 0;
 				    						item.discount += +res.couponAmount;
 				    						this.totalDiscount += +res.couponAmount;
+				    						this.codeApplied.push({code:code,discount:+res.couponAmount,shoppingItem:item});
 				    					} else 
 				    					if (res.couponDiscountType === 2) {
 				    						this.total -= item.price*+res.couponAmount/100;
+				    						if(this.total < 0) this.total = 0;
 				    						item.discount += item.price*+res.couponAmount/100;
 				    						this.totalDiscount += item.price*+res.couponAmount/100;
+				    						this.codeApplied.push({code:code,discount:item.price*+res.couponAmount/100,shoppingItem:item});
 				    					}
-				    					this.codeApplied.push(code);
+				    					this.discountCode = code;
 				    					this.onSubmit();
 				    					this.promoMessage = 'réduction appliquée';
 				    				} 
@@ -184,12 +210,38 @@ export class CheckoutPageComponent {
     	}
     }
 
+    onCancelCodePromo(code) {
+    	//code = 'APCPURZASS';
+    	let promoIndex = this.codeApplied.map((e)=>{return e.code}).indexOf(code);
+    	if(promoIndex != -1){
+    		let promoObj = this.codeApplied[promoIndex];
+    		this.total += promoObj.discount;
+    		this.totalDiscount -= promoObj.discount;
+    		if(promoObj.shoppingItem){
+    			this.shoppingBag.forEach((item)=>{
+    				if(+item.id === +promoObj.shoppingItem.id) {
+    					item.discount -= promoObj.discount;
+    				}
+    			});
+    		}
+	    	this.codeApplied.splice(promoIndex,1);
+			this.discountCode = "";
+			if(this.OnlyOneCodeApplied === true) this.OnlyOneCodeApplied = false;
+			this.onSubmit();
+	    	this.promoMessage = 'la réduction ' + code + ' a été supprimée';
+	    }
+    }
+
     /*
     MY6MD -> 20% sur decouverte
 
 	ITDJ8 -> 20euros sur decouverte
 
 	SZ4WH -> expirer
+
+	0P4A-NM1R-7YFP-F7VB -> 25 euros de reduc
+
+	APCPURZASS
 	*/
 
     parseIntoPaymentDatas():paymentDatas {
@@ -207,7 +259,8 @@ export class CheckoutPageComponent {
 		    "cart_total": this.total*100,
 		    "total_discount": 0,
 		    "payment_method": 66,
-		    "items": []
+		    "items": [],
+		    "discount_code": this.discountCode || ""     
     	};
 
     	this.shoppingBag.forEach((item)=>{

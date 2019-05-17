@@ -189,6 +189,9 @@
 					</mat-form-field>
 					<mat-error class="position-absolute" [style.right]="'0'" [style.color]="promoMessage === 'réduction appliquée' ? '#23dc0e' : '#f44336'" [style.visibility]="promoMessage !== '' ?'visible':'hidden'">{{promoMessage}}</mat-error>
 				</form>
+				<div class="mt-5 text-right" [style.min-height]="'2.3rem'">
+					<button *ngIf="codeApplied[0]" matSuffix mat-button (click)="onCancelCodePromo(codeApplied[0].code)">{{"Supprimer code: "+codeApplied[0].code}}</button>
+				</div>
 				<div class="mx-5 mt-5 pt-4 row align-items-center justify-content-end">
 					<div class="total">Prix total : <strong>{{total||0}}€</strong></div>
 				</div>

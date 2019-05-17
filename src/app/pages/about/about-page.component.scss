@@ -135,7 +135,9 @@ section.team {
 	}
 	.img-wrapper {
 		img { 
-			border-radius: 25rem;
+			width: 60%;
+		    border-radius: 30rem;
+		    box-shadow: 8px 12px 17px -5px grey;
 		}
 	}
 }

@@ -20,6 +20,7 @@ export interface paymentDatas {
     total_discount: number;
     payment_method: number;
     items: paymentItem[];
+    discount_code: string;
 }
 
 export interface paymentItem {
@@ -243,15 +244,15 @@ export class BookingService {
         }
   	}*/
 
-    goPayment(paymentDatas: paymentDatas): Observable<redirectPaymentInterface> {
+    goPayment(paymentDatas: paymentDatas): Observable<any> {
         if(this.shoppingBag.length) {
             let url = this.paymentUrl;
-            return this.http.post<redirectPaymentInterface>(url, paymentDatas, httpOptions)
+            return this.http.post<any>(url, paymentDatas, httpOptions)
                 .pipe(
                     tap((datas) => {
                         console.log('Fetched payment datas');
                     }),
-                    catchError(this.handleError<redirectPaymentInterface>("goPayment")),
+                    catchError(this.handleError<any>("goPayment")),
                 );
         }
     }
