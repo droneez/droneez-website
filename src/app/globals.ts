@@ -49,4 +49,5 @@ export class Globals {
 			console.log(e);
 		}
 	}
+
 }

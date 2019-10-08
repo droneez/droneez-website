@@ -17,7 +17,7 @@ export class SeoService {
 		this.renderer = rendererFactory.createRenderer(null, null);
     }
 
-    setMetaDatas(title:string,meta:any[],schemaOrgContent:string[]) {
+    setMetaDatas(title:string,meta:any[], schemaOrgContent:string[]) {
     	for(let i = 0; i< schemaOrgContent.length ; i++){
     		let script = this.renderer.createElement('script');
 	        script.type = `application/ld+json`;

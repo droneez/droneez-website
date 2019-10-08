@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, retry } from 'rxjs/operators';
-import { Observable, throwError  } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { scheduleInterface  } from './booking.service';
 import { environment } from '../../environments/environment';
 
@@ -20,7 +20,8 @@ export interface Config {
             contactUrl: string,
             paymentUrl: string,
             couponUrl: string
-            //articlesUrls: string[]
+            /*articleUrl: string,
+            articlesInfosUrl: string*/
         }
     ]
 }
@@ -33,6 +34,7 @@ export interface Config {
 export class ApiService {
 
     //scheduleUrl = 'assets/config.json';
+    private config: Config;
 
     constructor(private http: HttpClient) { 
 
@@ -72,12 +74,26 @@ export class ApiService {
             );
     }*/
 
-    getConfig() {
+    getConfig(): Promise<void | Config> {
         return this.http.get<Config>(environment.configAPIUrl)
-            .pipe(
+            /*.pipe(
                 retry(3), // retry a failed request up to 3 times
+                tap((data)=>{
+                    this.config = { ...data };
+                }),
                 catchError(this.handleError) // then handle the error
-            );
+            )*/
+            .toPromise().then(data => {
+                this.config = { ...data };
+                return this.config;
+            },
+            error => {
+                this.handleError(error);
+            });
+    }
+
+    getUrl(key: string) {
+        return this.config.urls[0][key];
     }
 
     private handleError(error: HttpErrorResponse) {
@@ -89,7 +105,7 @@ export class ApiService {
             // The response body may contain clues as to what went wrong,
             console.error(
                 `Backend returned code ${error.status}, ` +
-                `body was: ${error.error.error.message}`
+                `error was: ${error.message}`
             );
         }
         // return an observable with a user-facing error message

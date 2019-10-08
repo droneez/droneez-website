@@ -16,21 +16,21 @@ import { LayoutArticleComponent } from './articles/layout-article.component';
 import { CheckoutPageComponent } from './pages/checkout/checkout-page.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: HomePageComponent, data: { animation: 'HomePage' } },
+    //{ path: '**', redirectTo: '' },
+    { path: '', component: HomePageComponent, data: { animation: 'HomePage' } },
     { path: 'contact', component: ContactPageComponent, data: { animation: 'ContactPage' } },
-    { path: 'news', component: NewsPageComponent, data: { animation: 'NewsPage' } },
-    { path: 'business', component: BusinessPageComponent, data: { animation: 'BusinessPage' } },
-    { path: 'about', component: AboutPageComponent, data: { animation: 'AboutPage' } },
-    { path: 'booking', component: BookingPageComponent, data: { animation: 'BookingPage' } },
-    { path: 'booking/pro', component: BookingProPageComponent, data: { animation: 'BookingProPage' } },
-    { path: 'booking/pro/:category', component: BookingProPageComponent, data: { animation: 'BookingProPage' } },
-    { path: 'booking/customer', component: BookingCustomerPageComponent, data: { animation: 'BookingCustomerPage' } },
-    { path: 'booking/customer/:category', component: BookingCustomerPageComponent, data: { animation: 'BookingCustomerPage' } },
-    { path: 'pricing', component: PricingPageComponent, data: { animation: 'PricingPage' } },
+    { path: 'actualites', component: NewsPageComponent, data: { animation: 'NewsPage' } },
+    { path: 'actualites/article/:id/:url', component: LayoutArticleComponent, data: { animation: 'LayoutArticle' } },
+    { path: 'entreprise', component: BusinessPageComponent, data: { animation: 'BusinessPage' } },
+    { path: 'a-propos', component: AboutPageComponent, data: { animation: 'AboutPage' } },
+    { path: 'reservation', component: BookingPageComponent, data: { animation: 'BookingPage' } },
+    { path: 'reservation/entreprise', component: BookingProPageComponent, data: { animation: 'BookingProPage' } },
+    { path: 'reservation/entreprise/:category', component: BookingProPageComponent, data: { animation: 'BookingProPage' } },
+    { path: 'reservation/particuliers', component: BookingCustomerPageComponent, data: { animation: 'BookingCustomerPage' } },
+    { path: 'reservation/particuliers/:category', component: BookingCustomerPageComponent, data: { animation: 'BookingCustomerPage' } },
+    { path: 'tarifs', component: PricingPageComponent, data: { animation: 'PricingPage' } },
     { path: 'club', component: ClubPageComponent, data: { animation: 'ClubPage' } },
-    { path: 'article/:id/:url', component: LayoutArticleComponent, data: { animation: 'LayoutArticle' } },
-    { path: 'checkout', component: CheckoutPageComponent, data: { animation: 'CheckoutPage' } }
+    { path: 'paiement', component: CheckoutPageComponent, data: { animation: 'CheckoutPage' } }
 ];
 
 @NgModule({

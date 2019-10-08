@@ -41,6 +41,6 @@
 	<div class="total">Prix total : <strong>{{total}}€</strong></div>
 </div>
 <div class="mx-0 pt-4 mt-1 row align-items-center justify-content-center">
-	<button *ngIf="shoppingBag.length" [style.min-width]="'145px'" [style.height]="'3rem'" mat-button class="mat-btn-outline-dark mat-btn-sm" (click)="closeModal()" routerLink="/checkout">Procéder au paiement</button>
+	<button *ngIf="shoppingBag.length" [style.min-width]="'145px'" [style.height]="'3rem'" mat-button class="mat-btn-outline-dark mat-btn-sm" (click)="closeModal()" routerLink="/paiement">Procéder au paiement</button>
 	<button *ngIf="!shoppingBag.length" [style.min-width]="'145px'" [style.height]="'3rem'" mat-button class="mat-btn-outline-dark mat-btn-sm" >Procéder au paiement</button>
 </div>

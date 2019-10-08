@@ -4,7 +4,7 @@ import { catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { FormControl, Validators } from '@angular/forms';
-import { ApiService, Config } from './../../services/api.service';
+import { ApiService /*, Config*/ } from './../../services/api.service';
 import { Moment } from 'moment';
 import { MatSnackBar } from '@angular/material';
 
@@ -43,7 +43,7 @@ export class ContactFormComponent {
     formGroup: FormGroup;
     httpOptions: any;
     contactUrl: string;
-    config: Config;
+    //config: Config;
     datas: any;
     checked:boolean;
 
@@ -109,10 +109,7 @@ export class ContactFormComponent {
         private snackBar: MatSnackBar,
         private formBuilder: FormBuilder
     ) {
-        apiService.getConfig().subscribe((data: Config) => {
-            this.config = { ...data };
-            this.contactUrl = this.config.urls[0].contactUrl;
-        })
+        
     }
 
     ngOnInit() {
@@ -138,6 +135,11 @@ export class ContactFormComponent {
             dateControl: [''],
             multiAnimControl: ['']
         });
+        /*this.apiService.getConfig().subscribe((data: Config) => {
+            this.config = { ...data };
+            this.contactUrl = this.config.urls[0].contactUrl;
+        })*/
+        this.contactUrl = this.apiService.getUrl('contactUrl');
         this.checked = false;
     }
 

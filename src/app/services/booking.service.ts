@@ -153,25 +153,28 @@ export class BookingService {
     private displayedDatas: BookingData[];
     private config: Config;
     private totalPrice: number;
-    private bob: string;
 
   	constructor(
         private http: HttpClient,
         private apiService: ApiService
     ) { 
+
         this.scheduleUrl = "";
         this.paymentUrl = "";
-        apiService.getConfig().subscribe((data: Config) => {
+        this.couponUrl = "";
+        /*apiService.getConfig().subscribe((data: Config) => {
             this.config = { ...data };
             this.scheduleUrl = this.config.urls[0].scheduleUrl;
             this.paymentUrl = this.config.urls[0].paymentUrl;
             this.couponUrl = this.config.urls[0].couponUrl;
-        })
+        });*/
+        this.scheduleUrl = apiService.getUrl('scheduleUrl');
+        this.paymentUrl = apiService.getUrl('paymentUrl');
+        this.couponUrl = apiService.getUrl('couponUrl');
+
         /*this.shoppingBag = JSON.parse(localStorage.getItem("shoppingBag"));
   		if(!this.shoppingBag)*/ this.shoppingBag = [];
-        this.totalPrice = 0;
-
-        
+        this.totalPrice = 0;        
   	}
 
     getdDisplayedDatas(): BookingData[] {

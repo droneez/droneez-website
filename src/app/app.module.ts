@@ -1,6 +1,6 @@
 /* Modules */
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
@@ -13,6 +13,7 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
 
 /* Services */
 import { WINDOW_PROVIDERS } from './services/window.service';
+import { ApiService } from './services/api.service';
 
 /* Variables globales */
 import { Globals } from './globals';
@@ -66,6 +67,10 @@ import { LayoutArticleComponent } from './articles/layout-article.component';
 import { AnimImgLoadDirective } from './directives/anim-img-load.directive';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { Template3Component } from './articles/templates/template3/template3.component';
+
+export function loadConfigurations(apiService: ApiService) {
+    return () => apiService.getConfig();
+}
 
 @NgModule({
     declarations: [
@@ -121,9 +126,11 @@ import { Template3Component } from './articles/templates/template3/template3.com
     providers: [
         WINDOW_PROVIDERS, 
         Globals,
+        ApiService,
         {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
         {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
-        {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS}
+        {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
+        {provide: APP_INITIALIZER, useFactory: loadConfigurations, deps: [ApiService], multi: true}
     ],
     bootstrap: [AppComponent]
 })

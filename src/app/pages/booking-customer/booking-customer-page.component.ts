@@ -88,7 +88,7 @@ export class BookingCustomerPageComponent {
 
     applyCategory(category: string) {
         switch(category) {
-            case "race":
+            case "course":
                 this.isRace = true;
                 this.isNotRace = false;
                 this.isLesson = false;
@@ -96,7 +96,7 @@ export class BookingCustomerPageComponent {
                 this.isEvent = false;
                 this.isNotEvent = true;
                 break;
-            case "lesson":
+            case "cours-particuliers":
                 this.isRace = false;
                 this.isNotRace = true;
                 this.isLesson = true;
@@ -105,7 +105,7 @@ export class BookingCustomerPageComponent {
                 this.isEvent = false;
                 this.isNotEvent = true;
                 break;
-            case "event":
+            case "evenement":
                 this.isRace = false;
                 this.isNotRace = true;
                 this.isLesson = false;
@@ -148,7 +148,7 @@ export class BookingCustomerPageComponent {
                 this.type = 'immersion';
                 this.getAvailablePlaces(this.date);
                 break;
-            case "accesPiste":
+            case "acces-piste":
                 this.isRace = true;
                 this.isNotRace = false;
                 this.isLesson = false;
@@ -193,7 +193,7 @@ export class BookingCustomerPageComponent {
 
     checkBag() {
         if(this.bookingService.getShoppingBag().length) {
-            this.router.navigate(['/checkout']);  
+            this.router.navigate(['/paiement']);  
         } 
     }
 

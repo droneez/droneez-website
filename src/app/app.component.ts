@@ -5,6 +5,7 @@ import { WINDOW } from "./services/window.service";
 import { fadeInAnimation, footerAnimation } from "./animations/animations";
 import { filter, pairwise } from 'rxjs/operators';
 import { Globals } from "./globals";
+import { ApiService, Config } from './services/api.service';
 
 import { ScrollToAnimationEasing, ScrollToEvent, ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
 
@@ -33,7 +34,8 @@ export class AppComponent {
         @Inject(WINDOW) public window,
         private scrollToService: ScrollToService,
         public router: Router,
-        private globals: Globals
+        private globals: Globals,
+        private apiService: ApiService
     ) {
 		this.screenHeight = 0;
     	this.routeAnimate = false;

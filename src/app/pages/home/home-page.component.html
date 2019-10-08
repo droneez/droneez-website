@@ -17,10 +17,10 @@
 					</p>
 					<!--<div class="booking-button">
 						<app-logo [speed]="500" [anim]="animLogo" [title]="false"></app-logo>
-						<a (mouseover)="animLogo=true" (mouseout)="animLogo=false" [class.focus]="animLogo" routerLink="/booking">réserver</a>
+						<a (mouseover)="animLogo=true" (mouseout)="animLogo=false" [class.focus]="animLogo" routerLink="/reservation">réserver</a>
 					</div>-->
 					<div class="booking-button pt-3">
-						<button class="mat-btn-outline-light mat-btn-lg" mat-button routerLink="/booking">réserver</button>
+						<button class="mat-btn-outline-light mat-btn-lg" mat-button routerLink="/reservation">réserver</button>
 					</div>
 				</div>
 			</div>
@@ -89,7 +89,7 @@
 					<figure class="text-center">
 						<div class="icon-wrapper">
 							<!--<img [src]="'assets/icon/initiation-icon.png'" />-->
-							<div class="icon-css-1" routerLink="/booking/customer/decouverte">
+							<div class="icon-css-1" routerLink="/reservation/particuliers/decouverte">
 								<div class="ext"></div>
 								<div class="ext"></div>
 								<div class="ext"></div>
@@ -122,7 +122,7 @@
 					<figure class="text-center">
 						<div class="icon-wrapper">
 							<!--<img [src]="'assets/icon/fpv-icon.png'" />-->
-							<div class="icon-css-2" routerLink="/booking/customer/immersion">
+							<div class="icon-css-2" routerLink="/reservation/particuliers/immersion">
 								<div class="ext"></div>
 								<div class="ext"></div>
 								<div class="ext"></div>
@@ -153,7 +153,7 @@
 					<figure class="text-center">
 						<div class="icon-wrapper">
 							<!--<img [src]="'assets/icon/pistes-icon.png'" />-->
-							<div class="icon-css-3" routerLink="/booking/customer/accesPiste">
+							<div class="icon-css-3" routerLink="/reservation/particuliers/acces-piste">
 								<div class="ext"></div>
 								<div class="ext"></div>
 								<div class="ext"></div>
@@ -182,7 +182,7 @@
 			</div>
 
 			<div class="row w-100 justify-content-center align-items-center booking-button-container mb-5 mt-4">
-				<button mat-button class="mat-btn-outline-dark mat-btn-lg" routerLink="/booking/customer/race">Réserver</button>
+				<button mat-button class="mat-btn-outline-dark mat-btn-lg" routerLink="/reservation/particuliers/course">Réserver</button>
 			</div>
 
 		</div>
@@ -207,7 +207,7 @@
 								objectif : photos & videos
 							</p>
 							<div class="booking-button-container py-3">
-								<button mat-button class="mat-btn-outline-light mat-btn-lg" routerLink="/booking/customer/lesson">Réserver</button>
+								<button mat-button class="mat-btn-outline-light mat-btn-lg" routerLink="/reservation/particuliers/cours-particuliers">Réserver</button>
 							</div>
 						</div>
 					</div>
@@ -238,7 +238,7 @@
 								théorique & pratique
 							</p>
 							<div class="certif-button-container py-3">
-								<button mat-button class="mat-btn-outline-dark mat-btn-lg" routerLink="/booking/pro/certif">
+								<button mat-button class="mat-btn-outline-dark mat-btn-lg" routerLink="/reservation/entreprise/certification">
 									Réserver
 								</button>
 							</div>
@@ -275,7 +275,7 @@
 			<div class="activity-icon col-md-2 col-sm-12">
 				<img class="img-fluid" [src]="'assets/icon/business-1.png'">
 			</div>
-			<div class="arrow-icon col-1" routerLink="/booking/pro/teambuilding">
+			<div class="arrow-icon col-1" routerLink="/reservation/entreprise/teambuilding">
 				<i class="icon"></i>
 			</div>
 		</div>
@@ -296,7 +296,7 @@
 			<div class="activity-icon col-md-2 col-sm-12">
 				<img class="img-fluid" [src]="'assets/icon/business-2.png'">
 			</div>
-			<div class="arrow-icon col-1" routerLink="/booking/pro/wooploop">
+			<div class="arrow-icon col-1" routerLink="/reservation/entreprise/coworking">
 				<i class="icon"></i>
 			</div>
 		</div>
@@ -319,7 +319,7 @@
 			<div class="activity-icon col-md-2 col-sm-12">
 				<img class="img-fluid" [src]="'assets/icon/business-3.png'">
 			</div>
-			<div class="arrow-icon col-1" routerLink="/booking/pro/event">
+			<div class="arrow-icon col-1" routerLink="/reservation/entreprise/evenement">
 				<i class="icon"></i>
 			</div>
 		</div>

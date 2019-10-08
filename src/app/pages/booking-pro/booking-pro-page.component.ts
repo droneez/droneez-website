@@ -52,7 +52,7 @@ export class BookingProPageComponent {
 
     toggleCard(cardname:string) {
     	switch(cardname){
-    		case 'certif': 
+    		case 'certification': 
     			this.isCertifOpen = true; 
     			this.isTeambuildingOpen = false;
     			this.isEventOpen = false; 
@@ -64,13 +64,13 @@ export class BookingProPageComponent {
     			this.isEventOpen = false; 
     			this.isWooploopOpen = false;
     			break;
-    		case 'event': 
+    		case 'evenement': 
     			this.isCertifOpen = false; 
     			this.isTeambuildingOpen = false;
     			this.isEventOpen = true; 
     			this.isWooploopOpen = false; 
     			break;
-    		case 'wooploop': 
+    		case 'coworking': 
     			this.isCertifOpen = false; 
     			this.isTeambuildingOpen = false;
     			this.isEventOpen = false; 
