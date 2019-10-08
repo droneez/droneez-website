@@ -6,24 +6,12 @@
 		.post-thumbnail {
 			text-align: center !important;
 		}
-
-		h2, h3, h4, {
+		h1, h2, h3, h4, {
 			font-family: BebasNeueRegular;
 			padding: 0 20%;
 			text-align: left;
 			font-style: normal;
 			font-size: 1.5rem;
-		}
-		h2:first-of-type {
-			position: absolute;
-		    top: 6rem;
-		    text-align: center;
-		    width: 100%;
-		    font-size: 3.5rem;
-
-			span {
-				color: white !important;
-			}
 		}
 		p:first-of-type {
 			&::first-letter {
@@ -40,6 +28,31 @@
 		}
 		.emoji {
 			width:1rem !important;
+		}
+		.end {
+		    text-align:center;
+		}
+		.title-custom {
+			font-family: BebasNeueRegular;
+			padding: 0 20%;
+			text-align: left;
+			font-style: normal;
+			font-size: 1.5rem;
+		    font-size: 3.5rem;
+		    line-height: 4rem;
+		    width:100%;
+		    position:absolute;
+		    top:-18rem;
+		    &.title-custom-2 {
+		    	padding:0;
+		    	color: white;
+		    	top:42rem;
+		    }
+		}
+		&.article-custom {
+			li {
+				padding: 0 25% !important;
+			}
 		}
 	}
 }

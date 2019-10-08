@@ -130,6 +130,8 @@ export class NewsPageComponent implements AfterViewInit {
 
     getMockArticles(): articleInterface[] {
         return [
+            {id: 20, date: new Date('2019-06-12'), title: "Un drone Racer pour les prises de vue Professionnelle ! Une révolution au vu des vidéos qui circulent sur internet", abstract: "", cover: "article_21.jpg", url: "un-drone-racer-pour-les-prises-de-vue-professionnelle"},
+            {id: 19, date: new Date('2019-06-05'), title: "TEMOIGNAGE DE LUCA BOZZI - Un italien fou de drone", abstract: "", cover: "article_20.jpg", url: "un-italien-fou-de-drone"},
             {id: 18, date: new Date('2019-02-12'), title: "Décollage en toute Clairance", abstract: "", cover: "article_19.jpg", url: "decollage-en-toute-clairance"},
             {id: 17, date: new Date('2019-02-06'), title: "Une école de pilotage aux portes de Paris chez DRONEEZ", abstract: "", cover: "article_18.png", url: "une-ecole-de-pilotage-aux-portes-de-paris-chez-droneez"},
             {id: 16, date: new Date('2018-07-30'), title: "France 3 présente DRONEEZ le 23 juillet à 19h", abstract: "", cover: "article_17.png", url: "france-3-presente-droneez-le-23-juillet-a-19h"},

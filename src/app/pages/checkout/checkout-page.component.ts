@@ -38,6 +38,7 @@ export class CheckoutPageComponent {
 	promoMessage: string;
     totalDiscount: number;
     discountCode: string;
+    isard: string;
 
 	firstFormGroup: FormGroup;
   	secondFormGroup: FormGroup;
@@ -84,6 +85,7 @@ export class CheckoutPageComponent {
 	    this.OnlyOneCodeApplied = false;
 	    this.promoMessage = "";
 	    this.totalDiscount = 0;
+	    this.isard = "";
 	}
 
 	getErrorMailMessage() {
@@ -106,6 +108,8 @@ export class CheckoutPageComponent {
     	if (this.firstFormGroup.valid) {
 	    	this.bookingService.goPayment(this.parseIntoPaymentDatas()).subscribe( res =>{
 	    		if(res){
+	    			// pour savoir si on a utilisé un coupon deja ou pas
+	    			if(res.isard) this.isard = res.isard;
 	    			// Tout s'est bien passé
 	    			if(res.is_done === 1) {
 			    		this.paymentButton  = `
@@ -260,7 +264,8 @@ export class CheckoutPageComponent {
 		    "total_discount": 0,
 		    "payment_method": 66,
 		    "items": [],
-		    "discount_code": this.discountCode || ""     
+		    "discount_code": this.discountCode || "",
+		    "ard": this.isard     
     	};
 
     	this.shoppingBag.forEach((item)=>{

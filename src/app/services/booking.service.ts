@@ -21,6 +21,7 @@ export interface paymentDatas {
     payment_method: number;
     items: paymentItem[];
     discount_code: string;
+    ard: string;
 }
 
 export interface paymentItem {

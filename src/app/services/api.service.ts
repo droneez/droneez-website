@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { catchError, retry } from 'rxjs/operators';
 import { Observable, throwError  } from 'rxjs';
 import { scheduleInterface  } from './booking.service';
+import { environment } from '../../environments/environment';
 
 const httpOptions = {
     headers: new HttpHeaders({
@@ -32,7 +33,6 @@ export interface Config {
 export class ApiService {
 
     //scheduleUrl = 'assets/config.json';
-    configUrl = 'http://api.droneez.com/config/read.php';
 
     constructor(private http: HttpClient) { 
 
@@ -73,7 +73,7 @@ export class ApiService {
     }*/
 
     getConfig() {
-        return this.http.get<Config>(this.configUrl)
+        return this.http.get<Config>(environment.configAPIUrl)
             .pipe(
                 retry(3), // retry a failed request up to 3 times
                 catchError(this.handleError) // then handle the error

@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  configAPIUrl: 'https://api.droneez.com/config/read.php'
 };
