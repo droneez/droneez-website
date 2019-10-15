@@ -1,5 +1,6 @@
 /* Modules */
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'; 
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -102,6 +103,7 @@ export function loadConfigurations(apiService: ApiService) {
     imports: [
         BrowserModule,
         AppRoutingModule,
+        HttpClientModule,
         FormsModule,
         ReactiveFormsModule,
         MatIconModule,
