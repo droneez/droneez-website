@@ -24,7 +24,7 @@ export interface ArticleInfos {
 
 const httpOptions = {
     headers: new HttpHeaders({
-        'Content-Type':  'application/json',
+        'Content-Type': 'application/json',
         'Accept': 'application/json'
     })
 };
@@ -82,7 +82,9 @@ export class ArticlesService {
     };
 }
 
-const ARTICLES_INFOS: ArticleInfos[] = [
+const ARTICLES_INFOS: ArticleInfos[] = [  
+    {id: 20, date: new Date('2019-06-12'), title: "Un drone Racer pour les prises de vue Professionnelle ! Une révolution au vu des vidéos qui circulent sur internet", abstract: "", cover: "article_21.jpg", url: "un-drone-racer-pour-les-prises-de-vue-professionnelle"},
+    {id: 19, date: new Date('2019-06-05'), title: "TEMOIGNAGE DE LUCA BOZZI - Un italien fou de drone", abstract: "", cover: "article_20.jpg", url: "un-italien-fou-de-drone"},      
     {id: 18, date: new Date('2019-02-12'), title: "Décollage en toute Clairance", abstract: "", cover: "article_19.jpg", url: "decollage-en-toute-clairance"},
     {id: 17, date: new Date('2019-02-06'), title: "Une école de pilotage aux portes de Paris chez DRONEEZ", abstract: "", cover: "article_18.png", url: "une-ecole-de-pilotage-aux-portes-de-paris-chez-droneez"},
     {id: 16, date: new Date('2018-07-30'), title: "France 3 présente DRONEEZ le 23 juillet à 19h", abstract: "", cover: "article_17.png", url: "france-3-presente-droneez-le-23-juillet-a-19h"},
@@ -106,6 +108,140 @@ const ARTICLES_INFOS: ArticleInfos[] = [
 
 const ARTICLES: Article[] = [
 	{
+        id: 20,
+        title: 'Un drone Racer pour les prises de vue Professionnelle ! Une révolution au vu des vidéos qui circulent sur internet',
+        content:
+            `<article class="article-custom vertical-fancy-style post-3095 post type-post status-publish format-standard has-post-thumbnail category-culture category-home category-79 category-36 description-off">
+            <div class="post-thumbnail position-relative"><div class="fancy-date"><a title="15 h 03 min" href="https://www.droneez.com/2019/02/12/" rel="nofollow"><span class="entry-month">Fév</span><span class="entry-date updated">12</span><span class="entry-year">2019</span></a></div><img class="lazy-load preload-me is-loaded" src="assets/img/articles/Un drone Racer pour les prises de vue Professionnelle ! Une révolution au vu des vidéos qui circulent sur internet/1_PHOTOCOUVCORSAIR.jpg" width="1280" height="640" title="drone-1080844_1280" alt="" srcset="assets/img/articles/Un drone Racer pour les prises de vue Professionnelle ! Une révolution au vu des vidéos qui circulent sur internet/1_PHOTOCOUVCORSAIR.jpg"></div>
+            <div class="text-center title-custom title-custom-2">Un drone Racer pour les prises de vue Professionnelle !<br> Une révolution au vu des vidéos qui circulent sur internet</div>
+            <div class="entry-content"><p>Nous avons parlé précédemment des règles de l’air et des lois conformes à la DGAC, Direction Générale de l’Aviation Civile. Pour la sécurité des personnes, des tiers &amp; la réglementation des zones de vol et des paliers pour chaque type d’aéronef, tous les pilotes doivent respecter ces lois pour que la sécurité de chacun soit assurée.</p>
+            <p>Les professionnels peuvent décoller sous acceptation de leur plan de vol à la DGAC ou DSAC ainsi que la préfecture de Police Locale &amp; les aérodromes/aéroports à proximité, ces derniers doivent soumettre un plan de vol selon 4 scénarii possibles dont nous avons d’ores &amp; déjà parlé, voici un résumé des définitions de celles-ci que l’on retrouve dans le manuel Mermoz pour passer la partie théorique de la licence de Télépilote :</p>
+            <h2><img class="alignnone size-full wp-image-3085" src="assets/img/articles/Un drone Racer pour les prises de vue Professionnelle ! Une révolution au vu des vidéos qui circulent sur internet/Mermoz - S1.png" alt="" width="600" height="300"></h2>
+            <p><strong>S1 : Drones de moins de 25kg :</strong></p><p>
+            </p><ul>
+            <li>Hauteur Maximum : 150m</li>
+            <li>Distance horizontale maximum : 200m</li> 
+            <li>Zone non peuplée</li> 
+            <li>Vol à vue</li> 
+            </ul>
+            <h2><img class="alignnone size-full wp-image-3085" src="assets/img/articles/Un drone Racer pour les prises de vue Professionnelle ! Une révolution au vu des vidéos qui circulent sur internet/Mermoz - S2.png" alt="" width="600" height="300"></h2>
+            <p><strong>S2 :</strong></p>
+            <ul>
+            <li>Hauteur Maximum : 150m (&lt;= à 2kg) / 50m (entre 2kg &amp; 150kg)</li>
+            <li>Distance horizontale maximum : 1000m</li> 
+            <li>Zone non peuplée</li> 
+            <li>Vol FPV</li> 
+            </ul>
+            <h2><img class="alignnone size-full wp-image-3085" src="assets/img/articles/Un drone Racer pour les prises de vue Professionnelle ! Une révolution au vu des vidéos qui circulent sur internet/Mermoz - S3.png" alt="" width="600" height="300"></h2>
+            <p><strong>S3 :</strong></p>
+            <ul>
+            <li>Hauteur Maximum : 150m (&lt;= à 8kg)</li>
+            <li>Distance horizontale maximum : 100m</li> 
+            <li>Zone peuplée</li> 
+            <li>Vol à vue</li> 
+            </ul> 
+            <h2><img class="alignnone size-full wp-image-3085" src="assets/img/articles/Un drone Racer pour les prises de vue Professionnelle ! Une révolution au vu des vidéos qui circulent sur internet/Mermoz - S4.png" alt="" width="600" height="300"></h2>
+            <p><strong>S4 :</strong></p>
+            <ul>
+            <li>Hauteur Maximum : 150m (&lt;= à 8kg)</li>
+            <li>Distance horizontale maximum : Infini</li> 
+            <li>Zone non peuplée</li> 
+            <li>Vol FPV</li> 
+            </ul>
+            <p>Les vols en dehors de ces types de scenarii seront soumis à l’autorisation spécifique de la DGAC, échelon centrale. Lors de votre suivi de vol dans votre Manuel d’Activités Particulières, vous devez utiliser des drones qui ont été validé par l’OACI, l’Organisation de l’Aviation Civile Internationale, et qui suivent les protocoles &amp; tests de fiabilité et de sécurité.
+            L’attestation de conception est nécessaire pour les scénarii S3 (&gt;2kg), S2 et S4 ; pour les scenarii S1 &amp; S3 (&lt;2kg) cette dernière n’est pas requise cependant cela ne veut pas dire que les n’importe quel drone peut être utilisé. En effet, selon <a href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000037019354&amp;dateTexte=&amp;categorieLien=id">l’arrêté de conception</a> publié en 2015, et donc doit répondre aux indications suivantes :</p>
+            <ul>
+            <li>Indication de l’altitude ou hauteur (via un baromètre altimétrique)</li>
+            <li>Conformité des fréquences radio (réception &amp; emission) &amp; les puissances d’émission conformes à la législation en vigueur</li> 
+            <li>Système de limitation de la hauteur ou de l’altitude</li> 
+            <li>Système de coupure des moteurs en cas de danger</li>
+            <li>Le drone doit comporter une fonction Failsafe qui déclenche un atterrissage d’urgence si ce dernier perds le signal de la liaison radio</li>
+            </ul>
+            <p>En plus de cela la mise en conformité nécessite un suivi de l’entretien de l’aéronef sans personnes à bords et un manuel d’utilisation qui sont nécessaires pour un drone de ce type d’après l’arrêté de conception cité précédemment.</p>
+            <p>Forcément on se dit que pour valider son racer, ça commence à être compliqué… la législation évolue et de nombreux pilotes professionnels dont vous avez pu voir les incroyables vidéos comme TomZ pour Redbull ou encore Fincky peuvent mettre au point des drones spécifiques à chaque demande.</p>
+            <p>Cependant nous ne sommes pas tous aussi doués que ces pilotes pour la conception de drones…
+            Nous collègues de Studiosport ont décidé de pouvoir mettre ce type de drone racer pour la prise de vue professionnelle conforme aux scenarii S1 et S3 à la portée de tous… Nous vous présentons donc le CORSAIR !</p> 
+            <h2><img class="alignnone size-full wp-image-3085" src="assets/img/articles/Un drone Racer pour les prises de vue Professionnelle ! Une révolution au vu des vidéos qui circulent sur internet/2_PHOTOCORSAIR.jpg" alt="" width="1920" height="960"></h2>
+            <ul>
+            <li>Châssis : PiratFrame Corsair squiched - conception unique en collaboration avec studioSPORT</li>
+            <li>Motorisation : Set de 4 moteurs T-Motor F40 Pro-III 1600 kV</li> 
+            <li>ESC : T-Motor F55A Pro II 4-en-1</li> 
+            <li>Contrôleur de vol : YupiF7 avec GPS et baromètre</li>
+            <li>Support incliné à 28° pour GoPro Hero 7 (autres supports vendus séparément)</li>
+            <li>Caméra FPV : Foxeer Predator V4</li> 
+            <li>Émetteur vidéo : TBS Unify Pro HV 5.8GHz</li> 
+            <li>Antenne vidéo : TBS Triumph</li> 
+            <li>Récepteur radio : TBS Crossfire ou FrSky R-XSR</li> 
+            <li>Hélices : 4 AzurPower 6145 tripales</li> 
+            <li>Valise : B&amp;W avec mousse prédécoupée avec emplacements batteries et hélices</li>  
+            </ul>
+            <p>Sur cette base il faudra aussi fixer une caméra HD type GoPro Hero7 pour réaliser ces prises de vue car le matériel est fourni comme base pour le pilotage et il faut rajouter le matériel de prise de vue, les batteries (5 à 6S – Le drone pèse un peu quand même), une manette compatible &amp; des lunettes de réceptions (Fatshark, Eachine, Orqa) avec un récepteur vidéo type Rapidfire ou Crossfire ainsi que tous les outils pour être conformes à la législation (Rubalise, piste de décollage, gilets etc.)</p>
+            <p>Le Prix, une chose importante en effet, <a href="https://www.studiosport.fr/racer-corsair-s1-s3-studiosport-a17684.html">1699€ TTC</a> chez Studiosport et avec tout le matériel nécessaire on peut compter 2500€ TTC à 3000€ TTC avec des batteries supplémentaires pour la réalisation de vos tournages.</p> 
+            <h2><img class="alignnone size-full wp-image-3085" src="assets/img/articles/Un drone Racer pour les prises de vue Professionnelle ! Une révolution au vu des vidéos qui circulent sur internet/3_PHOTOCORSAIR.jpg" alt="" width="1920" height="960"></h2>
+            <p>Pour le commun des mortels cela peut paraître cher mais la validation est un travail fastidieux et le résultat est assez incroyable en termes de matériel. Maintenant c’est à vous de vous entraîner pour piloter ce type de racer est donner des résultats de vidéos à grande vitesse et au plus proche de votre cible.</p>
+            <p>Toutefois on n’oublie pas que la prise de vue professionnelle d’un aéronef sans personnes à bord est réglementée et que le Corsair ne vous octroie pas la permission de passer outre cette législation.</p>
+            <p>&nbsp;</p>
+            <p><span>Afin de toujours connaître l’actu <a href="https://www.droneez.com/">DRONEEZ</a>&nbsp;nous vous invitons à&nbsp;liker&nbsp;</span></p>
+            <p><span>notre&nbsp;<a href="https://www.facebook.com/droneez">page&nbsp;Facebook</a>&nbsp;et à vous inscrire à notre&nbsp;<a>newsletter</a>&nbsp;!</span></p>
+            <p><span>Mille mercis pour votre fidélité !</span></p>
+            <p>&nbsp;</p>
+            <div class="end"><span><strong>Que le drone soit avec vous!</strong></span></div>
+            <div class="end"><span><strong>L’équipe DRONEEZ</strong></span></div>
+            <p>&nbsp;</p>
+            </div>
+            </article>`,
+        meta: [
+        ],
+        schemaOrgContent: ['{"@context":"https:\/\/schema.org","@type":"Organization","url":"https:\/\/www.droneez.com\/","sameAs":["https:\/\/www.facebook.com\/droneez\/","https:\/\/www.instagram.com\/droneez_paris\/","https:\/\/twitter.com\/DRONEEZ_fr"],"@id":"https:\/\/www.droneez.com\/#organization","name":"Droneez","logo":"https:\/\/www.droneez.com\/wp-content\/uploads\/2017\/12\/droneez-le-drone-accessible-a-tous.jpg"}'],
+        url: 'un-drone-racer-pour-les-prises-de-vue-professionnelle'
+    },{
+        id: 19,
+        title: 'TEMOIGNAGE DE LUCA BOZZI - Un italien fou de drone',
+        content:
+            `<article class="vertical-fancy-style post-3095 post type-post status-publish format-standard has-post-thumbnail category-culture category-home category-79 category-36 description-off">
+            <div class="post-thumbnail position-relative"><div class="fancy-date"><a title="15 h 03 min" href="https://www.droneez.com/2019/06/12/" rel="nofollow"><span class="entry-month">Juin</span><span class="entry-date updated">12</span><span class="entry-year">2019</span></a></div><img class="lazy-load preload-me is-loaded" src="assets/img/articles/TEMOIGNAGE DE LUCA BOZZI - Un italien fou de drone/20190604 - Luca_2 (2).jpg" width="600" height="300" title="drone-1080844_1280" alt="" srcset="assets/img/articles/TEMOIGNAGE DE LUCA BOZZI - Un italien fou de drone/20190604 - Luca_2 (2).jpg"></div><div class="entry-content position-relative">
+            <div class="text-center title-custom">TEMOIGNAGE DE LUCA BOZZI <br> Un italien fou de drone</div>
+            <h2><strong> Luca Bozzi est un comédien et vidéaste italien, arrivé à Paris en 2006 à l’âge de 25 ans, il tombe amoureux de la beauté de notre capitale et décide de s’y installer. Passionné de photographies et de vidéos il voit rapidement dans le drone une manière de repousser les limites des prises de vues. Voici son témoignage :</strong></h2>
+            <p><strong>Ton accent te trahit immédiatement Luca, d’où viens-tu ? Et comment est-ce que tu t’es retrouvé à Paris ?</strong></p>
+            <p>Je suis originaire de Livourne en Italie mais je vis en France depuis 13 ans. A la fois Réalisateur, photographe et comédien, je travaille surtout pour l’amour de l’image et du scénario.</p>
+            <p>Je suis venu à Paris pour suivre les cours de l’Académie internationale des arts du spectacle où j’ai pu aborder plusieurs domaines des métiers de l’art. J’ai aussi suivis différents cours en ligne comme celui de l’école Les Gobelins ou avec Parker WALLBACK un vidéaste américain, pour en apprendre plus sur les prises de vues de différents domaines : immobilier, événement, backstage, entreprises.</p>
+            <p><strong>Tu as une triple passion, la photo, la vidéo et la comédie, tu peux nous en dire plus ? </strong>   </p>
+            <p>J’accompagne les professionnels dans la réalisation de films et photos promotionnelles d’entreprises, conférences, trailers, interview, théâtre ou spectacles ; imposant le rythme et l’esthétisme nécessaire à la valorisation des individus et des moments partagés, comme j’aime à le répéter : Le sourire est la cause et non l’effet du bonheur.
+            Mon crédo c’est de diffuser ma bonne humeur et mon expérience de la scène avec mes clients pour les mettre à l’aise devant l’objectif. </p>
+            <h2><img class="alignnone size-full wp-image-3085" src="assets/img/articles/TEMOIGNAGE DE LUCA BOZZI - Un italien fou de drone/20190604 - Luca_1.png" alt="" width="400" height="200"></h2>
+            <p><strong>Comment t’es venue l’idée de faire du drone ? </strong>    </p>
+            <p>Je me suis passionné pour le drone il y a 2 ans.
+            Après avoir vu quelles perspectives on pouvait donner aux photos et aux vidéos, le drone m’a tout de suite intéressé car il apportait de nouvelles formes d’images et de nouveaux horizons. </p>
+            <h2><img class="alignnone size-full wp-image-3085" src="assets/img/articles/TEMOIGNAGE DE LUCA BOZZI - Un italien fou de drone/20190604 - Luca_3.jpg" alt="" width="1920" height="960"></h2>
+            <p><strong>Tu sais s’il y a beaucoup de télépilotes en Italie ? </strong>   </p>
+            <p>Je sais qu’il y a pas mal des telepilotes en Italie, notamment pour le loisir.
+            Même si les règles sont moins strictes qu’en France, il faut quand même avoir un brevet pour piloter en ville et selon le poids du drone. </p>
+            <p><strong>Tu faisais déjà du drone avant de passer la formation, qu’est-ce que la formation t’a apportée de plus (à part pouvoir officialiser ton activité) ? </strong>    </p>
+            <p>Avant de suivre la formation j’avais déjà fait une cinquantaine d’heures en loisir, mais la formation (financée par Pole Emploi) m’as permis de maitriser encore mieux les mouvements du drone, d’être moins stressé lors de mes vols et surtout d’avoir une vision globale de l’environnement et pas seulement du drone, maintenant je sais comment réaliser une mission en toute sécurité.
+            Aujourd’hui le rendu final de mes photos et vidéos est bien plus joli :-).</p>
+            <p><strong>Le français n’est pas ta langue maternelle, même si tu le parles exceptionnellement bien ; cela a du rajouter une difficulté supplémentaire pour l’examen théorique, non ? </strong>    </p>
+            <p>L’examen théorique (le QCM de 60 questions) était la chose qui me faisait le plus peur !
+            Je me suis préparé pendant 3 mois sur des QCM blancs au moins 1h par jour, avec parfois des sujets dont je ne connaissais même pas l’existence auparavant et en plus dans une autre langue.
+            Au final avec persévérance : j’ai réussi mon examen du premier coup avec la note très honorable de 50 sur 60. </p>
+            <p><strong>Un dernier mot pour la fin ? </strong>   </p>
+            <p>Je remercie Droneez pour leur accueil, leur gentillesse, leur pédagogie et leur bonne humeur à chaque jour du stage. </p>
+            <p><strong>Merci Luca pour ton retour et voici le lien vers le site internet de Luca si vous souhaitez faire appel à lui : <a href="https://www.luchinofilmmaker.com/photos">https://www.luchinofilmmaker.com/photos</a></strong>   </p>
+            <h2><img class="alignnone size-full wp-image-3085" src="assets/img/articles/TEMOIGNAGE DE LUCA BOZZI - Un italien fou de drone/20190604 - Luca_4.jpg" alt="" width="1920" height="960"></h2>
+            <p>&nbsp;</p>
+            <p><span>Afin de toujours connaître l’actu <a href="https://www.droneez.com/">DRONEEZ</a>&nbsp;nous vous invitons à&nbsp;liker&nbsp;</span></p>
+            <p><span>notre&nbsp;<a href="https://www.facebook.com/droneez">page&nbsp;Facebook</a>&nbsp;et à vous inscrire à notre&nbsp;<a>newsletter</a>&nbsp;!</span></p>
+            <p><span>Mille mercis pour votre fidélité !</span></p>
+            <p>&nbsp;</p>
+            <div class="end"><span><strong>Que le drone soit avec vous!</strong></span></div>
+            <div class="end"><span><strong>L’équipe DRONEEZ</strong></span></div>
+            <p>&nbsp;</p>
+            </div>
+            </article>`,
+        meta: [
+        ],
+        schemaOrgContent: ['{"@context":"https:\/\/schema.org","@type":"Organization","url":"https:\/\/www.droneez.com\/","sameAs":["https:\/\/www.facebook.com\/droneez\/","https:\/\/www.instagram.com\/droneez_paris\/","https:\/\/twitter.com\/DRONEEZ_fr"],"@id":"https:\/\/www.droneez.com\/#organization","name":"Droneez","logo":"https:\/\/www.droneez.com\/wp-content\/uploads\/2017\/12\/droneez-le-drone-accessible-a-tous.jpg"}'],
+        url: 'un-italien-fou-de-drone'
+    },{
         id: 18,
         title: 'Décollage en toute Clairance - Droneez',
         content:
