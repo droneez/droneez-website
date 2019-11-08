@@ -1,5 +1,5 @@
 import { Component, ViewChild, Output, EventEmitter } from '@angular/core';
-import { MatTable } from '@angular/material';
+import { MatTable } from '@angular/material/table';
 import { BookingService, bookingItemInterface } from "./../../services/booking.service";
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
@@ -16,7 +16,7 @@ export class ShoppingBagComponent {
 
     @Output() closeModalRequest = new EventEmitter<boolean>();
 
-	@ViewChild(MatTable) 
+	@ViewChild(MatTable, { static: false }) 
 	table: MatTable<any>;
 
   	constructor(private BookingService: BookingService) {

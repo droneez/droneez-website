@@ -1,5 +1,5 @@
 import { Component, HostListener, Renderer2, ElementRef, Inject, QueryList, ViewChildren, AfterViewInit } from '@angular/core';
-import { DOCUMENT } from '@angular/platform-browser';
+import { DOCUMENT } from "@angular/common";
 import { WINDOW } from "./../../services/window.service";
 import { ApiService } from './../../services/api.service';
 import { Globals } from "./../../globals";

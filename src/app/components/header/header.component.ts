@@ -1,7 +1,7 @@
 import { Component, HostListener, Inject, TemplateRef } from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-import { DOCUMENT } from '@angular/platform-browser';
+import { DOCUMENT } from "@angular/common";
 import { WINDOW } from "./../../services/window.service";
 import { Globals } from "./../../globals";
 import { BookingService, bookingItemInterface, scheduleInterface } from "./../../services/booking.service";

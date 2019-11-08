@@ -1,5 +1,5 @@
 import { Component, HostListener, Inject } from '@angular/core';
-import { DOCUMENT } from '@angular/platform-browser';
+import { DOCUMENT } from "@angular/common";
 import { WINDOW } from "./../../services/window.service";
 import { Globals } from "./../../globals";
 import { SeoService } from "./../../services/seo.service";

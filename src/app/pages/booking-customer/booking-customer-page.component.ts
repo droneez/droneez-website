@@ -2,10 +2,11 @@ import { Component, HostListener, Inject, ViewChild, TemplateRef } from '@angula
 import { IgxCalendarComponent, DateRangeType } from 'igniteui-angular';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-import { DOCUMENT } from '@angular/platform-browser';
+import { DOCUMENT } from "@angular/common";
 import { WINDOW } from "./../../services/window.service";
 import { Globals } from "./../../globals";
-import { MatTable, MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatTable } from '@angular/material/table';
 import { BookingService, BookingData } from "./../../services/booking.service";
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -41,9 +42,9 @@ export class BookingCustomerPageComponent {
 
     modalRef: BsModalRef;
 
-    @ViewChild('calendar', { read: IgxCalendarComponent }) 
+    @ViewChild('calendar', { read: IgxCalendarComponent, static: true }) 
     public calendar: IgxCalendarComponent;
-    @ViewChild(MatTable) 
+    @ViewChild(MatTable, { static: false }) 
     table: MatTable<any>;
 
     today: Date;

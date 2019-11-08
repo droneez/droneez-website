@@ -20,19 +20,17 @@ import { ApiService } from './services/api.service';
 import { Globals } from './globals';
 
 /* Material */
-import { 
-    MatSnackBarModule,
-    MatButtonModule,
-    MatInputModule,
-    MatIconModule, 
-    MatTableModule, 
-    MatSelectModule,
-    MatCheckboxModule,
-    MatStepperModule,
-    MatRadioModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatTableModule } from '@angular/material/table';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 

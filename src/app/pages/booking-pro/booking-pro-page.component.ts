@@ -1,6 +1,6 @@
 import { Component, HostListener, Inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { DOCUMENT } from '@angular/platform-browser';
+import { DOCUMENT } from "@angular/common";
 import { WINDOW } from "./../../services/window.service";
 import { Globals } from "./../../globals";
 

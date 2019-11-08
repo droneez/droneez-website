@@ -1,11 +1,11 @@
 import { Component, HostListener, Inject, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { DOCUMENT } from '@angular/platform-browser';
+import { DOCUMENT } from "@angular/common";
 import { WINDOW } from "./../../services/window.service";
 import { Globals } from "./../../globals";
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { SeoService } from "./../../services/seo.service";
 
 const CLIENTS: string[] = ["Aduneo","Allianz","Alten","ArmatureTechnologies","Astek","Axione","BForBank","BlaBlaCar","Bouygues","BryanGarnier&Co","Cast","CheckPoint","Devoteam","Essilor","EulerHermes","Everside","Finaxys","Gemalto","IvaDrones","Kaibee","Kalidea","LaPoste","LisiAerospace","MarksSpencer","Momentys","Orange","Parrot","Rapid7","Renault","Rubel&Menasche","Safran","SchneiderElectric","SocieteGenerale","Sodexo","TheMachinery","Uavia","Volkswagen"];
@@ -53,10 +53,10 @@ export class HomePageComponent {
     eventMetric: number;
     interval: any;
 
-    @ViewChild("businessSection") businessSectionElement: ElementRef;
-    @ViewChild("clientsList") clientsListElement: ElementRef;
-    @ViewChild("supportsList") supportsListElement: ElementRef;
-    @ViewChild("partnersList") partnersListElement: ElementRef;
+    @ViewChild("businessSection", { static: true }) businessSectionElement: ElementRef;
+    @ViewChild("clientsList", { static: false }) clientsListElement: ElementRef;
+    @ViewChild("supportsList", { static: false }) supportsListElement: ElementRef;
+    @ViewChild("partnersList", { static: false }) partnersListElement: ElementRef;
 
     constructor(
         @Inject(DOCUMENT) private document: Document,

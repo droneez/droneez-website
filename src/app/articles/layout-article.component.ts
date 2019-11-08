@@ -1,5 +1,5 @@
 import { Component, HostListener, Inject, Renderer2 } from '@angular/core';
-import { Meta, Title, DOCUMENT } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';import { DOCUMENT } from "@angular/common";
 import { WINDOW } from "./../services/window.service";
 import { Globals } from "./../globals";
 import { ActivatedRoute } from '@angular/router';
