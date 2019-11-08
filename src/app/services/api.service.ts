@@ -16,10 +16,10 @@ const httpOptions = {
 export interface Config {
     urls: [
         {
-            scheduleUrl: string,
-            contactUrl: string,
-            paymentUrl: string,
-            couponUrl: string
+            readonly scheduleUrl: string,
+            readonly contactUrl: string,
+            readonly paymentUrl: string,
+            readonly couponUrl: string
             /*articleUrl: string,
             articlesInfosUrl: string*/
         }
