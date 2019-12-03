@@ -11,8 +11,8 @@ import { Globals } from "./../../globals";
 })
 export class BookingProPageComponent {
 
-	screenHeight:number = 0;
-    screenWidth:number = 0;
+	screenHeight:number         = 0;
+    screenWidth:number          = 0;
     isCertifOpen:boolean 		= false;
     isTeambuildingOpen:boolean 	= false;
     isEventOpen:boolean 		= false;

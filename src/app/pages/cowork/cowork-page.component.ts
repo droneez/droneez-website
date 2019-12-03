@@ -1,11 +1,10 @@
 import { Component, HostListener, Inject } from '@angular/core';
 import { DOCUMENT } from "@angular/common";
 import { WINDOW } from "./../../services/window.service";
-import { SeoService } from "./../../services/seo.service";
+import { SeoService, SeoInterface } from "./../../services/seo.service";
 
 const seo:any = {
     title:"Wooploop - Droneez mets à disposition un fablab/coworking pour les pros du drone",
-    schemaOrgContent: ['{"@context":"https:\/\/schema.org","@type":"Organization","url":"https:\/\/www.droneez.com\/","sameAs":["https:\/\/www.facebook.com\/droneez\/","https:\/\/www.instagram.com\/droneez_paris\/","https:\/\/twitter.com\/DRONEEZ_fr"],"@id":"https:\/\/www.droneez.com\/#organization","name":"Droneez","logo":"https:\/\/www.droneez.com\/wp-content\/uploads\/2017\/12\/droneez-le-drone-accessible-a-tous.jpg"}'],
     meta: [
         {name: 'description', content: "Droneez pour pouvoir rendre accessible le monde du drone mets son 1er étage à disposition de start-up drones, télépilotes et expert du drone avec un fablab"},
 		{property: 'og:locale', content: "fr_FR"},
@@ -30,6 +29,7 @@ const seo:any = {
 })
 export class CoworkPageComponent {
 
+	seo: SeoInterface;
     screenHeight:number = 0;
     screenWidth:number = 0;
 
@@ -40,7 +40,7 @@ export class CoworkPageComponent {
 	}
 
 	ngOnInit() {
-		this.seoService.setMetaDatas(seo.title,seo.meta,seo.schemaOrgContent);
+		//this.seoService.setMetaDatas(seo.title,seo.meta,seo.schemaOrgContent);
         this.screenHeight = this.window.innerHeight;
         this.screenWidth = this.window.innerWidth;
 	}

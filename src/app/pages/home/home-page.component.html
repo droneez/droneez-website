@@ -1,5 +1,6 @@
 <section #videoSection class="video-section"  [class.anim]="videoSection.offsetTop -10 < offset">
 	<div class="global">
+		<!--<input style="position:absolute;z-index:10000000" type="file" (change)="process($event)" multiple/>-->
 		<div class="title-container container-fluid h-100 position-absolute text-center">
 			<div class="row h-100 justify-content-center align-items-center">
 				<div class="col-12">
@@ -44,7 +45,7 @@
 			[style.height]="screenHeight + 'px'" 
 			[style.width]="screenWidth + 'px'"
 		>
-			<video [preload]="true" [loop]="true" [autoplay]="true" [muted]="true"
+			<video title="immersion FPV drone qui parcourt la piste de course Droneez" [preload]="true" [loop]="true" [autoplay]="true" [muted]="true"
 				[ngStyle]="{
 					top: parallaxOffset + 'px',
 					width:screenWidth + 'px',
@@ -53,7 +54,8 @@
 					objectFit:'cover'
 				}"
 			>
-				<source src="assets/img/video_homepage.mp4">
+				<source src="assets/img/video_homepage.mp4" type="video/mp4">
+				Immersion prise de vue FPV. Vidéo d’un drone en immersion qui parcourt la salle Droneez comme si vous étiez sur le drone.
 			</video>
 		</div>
 	</div>
@@ -61,8 +63,8 @@
 
 <section #racesSection class="races-section" [class.anim]="racesSection.offsetTop - 400 < offset">
 	<div class="decoration">
-		<img class="background-img corner-left" [src]="'assets/img/drone-course-bg1.png'">
-		<img class="background-img corner-right" [src]="'assets/img/drone-course-bg2.png'">
+		<img alt="Drone miniature SPC MAKER 90mm" class="background-img corner-left" [src]="'assets/img/drone-course-bg1.png'">
+		<img alt="Drone Baby Hawk R 120mm" class="background-img corner-right" [src]="'assets/img/drone-course-bg2.png'">
 	</div>
 	<div class="global container" 
 		[style.height]="screenHeight + 'px'" 
@@ -182,7 +184,7 @@
 			</div>
 
 			<div class="row w-100 justify-content-center align-items-center booking-button-container mb-5 mt-4">
-				<button mat-button class="mat-btn-outline-dark mat-btn-lg" routerLink="/reservation/particuliers/course">Réserver</button>
+				<button mat-button class="mat-btn-outline-dark mat-btn-lg" routerLink="/reservation/particuliers">Réserver</button>
 			</div>
 
 		</div>
@@ -190,7 +192,7 @@
 </section>
 
 <section #lessonSection class="lesson-section" [class.anim]="lessonSection.offsetTop - 400 < offset">
-	<div class="global"
+	<div title="drone DJI 4k phantom 4 en plongée" class="global"
 		[style.min-height]="screenHeight + 'px'" 
 		[style.width]="screenWidth + 'px'">
 		<div class="container-fluid h-100">
@@ -224,7 +226,7 @@
 		<div class="container-fluid h-100">
 			<div class="row h-100 justify-content-center align-items-center">
 				<div class="img-container col-md-6 col-sm-12 row justify-content-center align-items-center">
-					<img [src]="'assets/img/certif-drone.jpg'"/>
+					<img alt="drone DJI 4k Inspire de face" [src]="'assets/img/certif-drone.jpg'"/>
 				</div>
 				<div class="presentation-container col-md-6 col-sm-12 h-100">
 					<div class="row h-100 justify-content-center align-items-center" [style.min-height]="screenHeight + 'px'">
@@ -273,7 +275,7 @@
 				</div>
 			</div>
 			<div class="activity-icon col-md-2 col-sm-12">
-				<img class="img-fluid" [src]="'assets/icon/business-1.png'">
+				<img alt="icone Privatisable" class="img-fluid" [src]="'assets/icon/business-1.png'">
 			</div>
 			<div class="arrow-icon col-1" routerLink="/reservation/entreprise/teambuilding">
 				<i class="icon"></i>
@@ -294,7 +296,7 @@
 				</div>
 			</div>
 			<div class="activity-icon col-md-2 col-sm-12">
-				<img class="img-fluid" [src]="'assets/icon/business-2.png'">
+				<img alt="icone bureaux" class="img-fluid" [src]="'assets/icon/business-2.png'">
 			</div>
 			<div class="arrow-icon col-1" routerLink="/reservation/entreprise/coworking">
 				<i class="icon"></i>
@@ -317,7 +319,7 @@
 				</div>
 			</div>
 			<div class="activity-icon col-md-2 col-sm-12">
-				<img class="img-fluid" [src]="'assets/icon/business-3.png'">
+				<img alt="icone calendrier pour animation drone" class="img-fluid" [src]="'assets/icon/business-3.png'">
 			</div>
 			<div class="arrow-icon col-1" routerLink="/reservation/entreprise/evenement">
 				<i class="icon"></i>
@@ -337,7 +339,7 @@
 			<div class="clients-icons">
 				<ul #clientsList>
 					<li *ngFor="let client of clients" >
-						<img [src]="'assets/icon/clients/' + client + '.png'">
+						<img alt="{{client}} logo" [src]="'assets/icon/clients/' + client + '.png'">
 						<div class="shadow-icon"></div>
 					</li>
 				</ul>
@@ -348,7 +350,7 @@
 			<div class="supports-icons">
 				<ul #supportsList>
 					<li class="px-5" *ngFor="let support of supports">
-						<img [src]="'assets/icon/supports/' + support + '.png'">
+						<img alt="{{support}} logo" [src]="'assets/icon/supports/' + support + '.png'">
 						<div class="shadow-icon"></div>
 					</li>
 				</ul>
@@ -359,7 +361,7 @@
 			<div class="partners-icons">
 				<ul #partnersList>
 					<li class="px-5" *ngFor="let partner of partners">
-						<img [src]="'assets/icon/partners/' + partner + '.png'">
+						<img alt="{{partner}} logo" [src]="'assets/icon/partners/' + partner + '.png'">
 						<div class="shadow-icon"></div>
 					</li>
 				</ul>

@@ -101,15 +101,15 @@
 		position: relative;
 		.background-img {
 			position: absolute;
-			width:55rem;
+			width:39rem;
 
 			&.corner-left {
-				left: -13rem;
-				top: -14rem;
+				left: -14rem;
+				top: -2rem;
 			}
 			&.corner-right {
-				right: -17rem;
-				top: -13rem;
+				right: -13rem;
+				top: -3rem;
 			}
 		}
 	}

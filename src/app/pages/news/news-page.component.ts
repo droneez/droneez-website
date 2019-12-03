@@ -3,12 +3,11 @@ import { DOCUMENT } from "@angular/common";
 import { WINDOW } from "./../../services/window.service";
 import { ApiService } from './../../services/api.service';
 import { Globals } from "./../../globals";
-import { SeoService } from "./../../services/seo.service";
+import { SeoService, SeoInterface } from "./../../services/seo.service";
 import { ArticlesService, ArticleInfos } from "./../../services/articles.service";
 
 const seo:any = {
     title:"Actualités - Les actualités du drone selon les pilotes de notre centre Droneez",
-    schemaOrgContent: ['{"@context":"https:\/\/schema.org","@type":"Organization","url":"https:\/\/www.droneez.com\/","sameAs":["https:\/\/www.facebook.com\/droneez\/","https:\/\/www.instagram.com\/droneez_paris\/","https:\/\/twitter.com\/DRONEEZ_fr"],"@id":"https:\/\/www.droneez.com\/#organization","name":"Droneez","logo":"https:\/\/www.droneez.com\/wp-content\/uploads\/2017\/12\/droneez-le-drone-accessible-a-tous.jpg"}'],
     meta: [
         {name: 'description', content: "Dans toutes les actualités drones, l'équipe Droneez mets en avant certains sujets en fonction de l'actualité pour l'avenir du drone !"},
         {property: 'og:locale', content: "fr_FR"},
@@ -32,7 +31,8 @@ const seo:any = {
     styleUrls: ['./news-page.component.scss']
 })
 export class NewsPageComponent implements AfterViewInit {
-
+    
+    seo: SeoInterface;
     articles:ArticleInfos[];
     showCardId:number;
     screenHeight:number = 0;
@@ -69,7 +69,7 @@ export class NewsPageComponent implements AfterViewInit {
     }
 
     ngOnInit() {
-        this.seoService.setMetaDatas(seo.title,seo.meta,seo.schemaOrgContent);
+        //this.seoService.setMetaDatas(seo.title,seo.meta,seo.schemaOrgContent);
         this.randomizeColor();
         this.globals.noChangeNavBg = true;
         this.showCardId = 0;

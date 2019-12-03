@@ -1,35 +1,17 @@
 import { Component, HostListener, Inject, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { DOCUMENT } from "@angular/common";
 import { WINDOW } from "./../../services/window.service";
+import { ImgCompressorService } from './../../services/img-compressor.service';
 import { Globals } from "./../../globals";
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { Observable, EMPTY } from 'rxjs';
+import { map, tap, expand } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { SeoService } from "./../../services/seo.service";
+import { SeoService, SeoInterface } from "./../../services/seo.service";
 
 const CLIENTS: string[] = ["Aduneo","Allianz","Alten","ArmatureTechnologies","Astek","Axione","BForBank","BlaBlaCar","Bouygues","BryanGarnier&Co","Cast","CheckPoint","Devoteam","Essilor","EulerHermes","Everside","Finaxys","Gemalto","IvaDrones","Kaibee","Kalidea","LaPoste","LisiAerospace","MarksSpencer","Momentys","Orange","Parrot","Rapid7","Renault","Rubel&Menasche","Safran","SchneiderElectric","SocieteGenerale","Sodexo","TheMachinery","Uavia","Volkswagen"];
 const PARTNERS: string[] = ["DronesParisRegion","StudioSport","FFAM","FPDC","DJI"];
 const SUPPORTS: string[] = ["BPIFrance","FrenchTech","ReseauEntreprendre","BNPParibas"];
-
-const seo:any = {
-    title:"Home - Découvrez le monde du drone en intérieur pour les pros et les amateurs",
-    schemaOrgContent: ['{"@context":"https:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/www.droneez.com\/","name":"Droneez","potentialAction":{"@type":"SearchAction","target":"https:\/\/www.droneez.com\/?s={search_term_string}","query-input":"required name=search_term_string"}}','{"@context":"https:\/\/schema.org","@type":"Organization","url":"https:\/\/www.droneez.com\/","sameAs":["https:\/\/www.facebook.com\/droneez\/","https:\/\/www.instagram.com\/droneez_paris\/","https:\/\/twitter.com\/DRONEEZ_fr"],"@id":"https:\/\/www.droneez.com\/#organization","name":"Droneez","logo":"https:\/\/www.droneez.com\/wp-content\/uploads\/2017\/12\/droneez-le-drone-accessible-a-tous.jpg"}'],
-    meta: [
-        {name: 'description', content: 'Découvrez le drone de manière ludique pour le pilotage de course, le télépilotage amateur ou professionnelle ou encore pour des activités de team building.'},
-        {property: 'og:locale', content: 'fr_FR'},
-        {property: 'og:type', content: 'website'},
-        {property: 'og:title', content: 'Home - Découvrez le monde du drone en intérieur pour les pros et les amateurs'},
-        {property: 'og:description', content: 'Découvrez le drone de manière ludique pour le pilotage de course, le télépilotage amateur ou professionnelle ou encore pour des activités de team building.'},
-        {property: 'og:url', content: 'https://www.droneez.com/'},
-        {property: 'og:site_name', content: 'Droneez'},
-        {name: 'twitter:card', content: 'summary_large_image'},
-        {name: 'twitter:description', content: 'Découvrez le drone de manière ludique pour le pilotage de course, le télépilotage amateur ou professionnelle ou encore pour des activités de team building.'},
-        {name: 'twitter:title', content: 'Home - Découvrez le monde du drone en intérieur pour les pros et les amateurs'},
-        {name: 'twitter:site', content: '@DRONEEZ_fr'},
-        {name: 'twitter:creator', content: '@DRONEEZ_fr'},
-    ]
-}
 
 @Component({
     selector: 'app-home-page',
@@ -38,6 +20,7 @@ const seo:any = {
 })
 export class HomePageComponent {
 
+    seo: SeoInterface;
     offset:number = 0;
     parallaxOffset:number = 0;
     screenHeight:number = 0;
@@ -64,13 +47,36 @@ export class HomePageComponent {
         private globals: Globals,
         private route: ActivatedRoute,
         private snackBar: MatSnackBar,
-        private seoService: SeoService
+        private seoService: SeoService,
+        private compressor: ImgCompressorService
     ) {
         this.isIEorEdge = globals.isIE || globals.isEdge;
         this.clients = CLIENTS;
         this.supports = SUPPORTS;
         this.partners = PARTNERS;
         this.animLogo = false;
+        this.seo = {
+            type: 'website',
+            imageUrl: "https://www.droneez.com/assets/img/cours-particuliers.jpg",
+            imageAlt: "drone DJI 4k phantom 4 en plongée",
+            imageType: "image/jpeg",
+            title: "Découvrez le monde du drone en intérieur pour les pros et les amateurs",
+            schemaOrgContent: [
+                `{
+                    "@context":"https:\/\/schema.org",
+                    "@type":"WebSite",
+                    "@id":"https:\/\/www.droneez.com\/",
+                    "url":"https:\/\/www.droneez.com\/",
+                    "name":"Droneez"
+                }`
+            ],
+            description: "Un lieu d'apprentissage atypique et branché autour du monde du drone pour les particuliers - courses Freestyle, ou pour les professionnels - Certification Télépilote, Team Building, Coworking.",
+            keywords: ["Technologie","FPV","Drone","Télépilotage","UAV","Piloter un drone","Future","Turfu","FFAM","FPDC","Science","Melting pot","Opensource","Team Building","Coworking"],
+            videoUrl: "https://www.droneez.com/assets/img/video_homepage.mp4",
+            videoType: "video/mp4",
+            videoWidth: "1920",
+            videoHeight: "1080"
+        };
     }
 
     ngOnInit() {
@@ -80,7 +86,7 @@ export class HomePageComponent {
         this.teambuildingMetric = 0;
         this.coworkerMetric = 0;
         this.eventMetric = 0;
-        this.seoService.setMetaDatas(seo.title,seo.meta,seo.schemaOrgContent);
+        this.seoService.setMetaDatas(this.seo);
         setTimeout(()=>{
             this.getPaymentData();
         },100);
@@ -105,7 +111,7 @@ export class HomePageComponent {
     }
 
     ngOnDestroy() {
-        this.seoService.removeMetaDatas(seo.meta);
+        this.seoService.removeMetaDatas(this.seo);
     }
 
     /* animation des chiffres sur la section business*/

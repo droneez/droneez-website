@@ -26,18 +26,22 @@ export class BookingCustomerPageComponent {
     screenWidth: number;
     formatOptions: any;
     formatViews: any;
-    isRace: boolean;
-    isNotRace: boolean;
+
     isLesson: boolean;
+    isNotLesson: boolean;
+
     isEvent: boolean;
     isNotEvent: boolean;
-    isNotLesson: boolean;
+
     isDecouverte: boolean;
     isNotDecouverte: boolean;
+
     isImmersion: boolean;
     isNotImmersion: boolean;
+
     isAccesPiste: boolean;
     isNotAccesPiste: boolean;
+
     isEndChoice: boolean;
 
     modalRef: BsModalRef;
@@ -89,17 +93,7 @@ export class BookingCustomerPageComponent {
 
     applyCategory(category: string) {
         switch(category) {
-            case "course":
-                this.isRace = true;
-                this.isNotRace = false;
-                this.isLesson = false;
-                this.isNotLesson = true; 
-                this.isEvent = false;
-                this.isNotEvent = true;
-                break;
             case "cours-particuliers":
-                this.isRace = false;
-                this.isNotRace = true;
                 this.isLesson = true;
                 this.isNotLesson = false; 
                 this.isEndChoice = true;
@@ -107,8 +101,6 @@ export class BookingCustomerPageComponent {
                 this.isNotEvent = true;
                 break;
             case "evenement":
-                this.isRace = false;
-                this.isNotRace = true;
                 this.isLesson = false;
                 this.isNotLesson = true; 
                 this.isEndChoice = true;
@@ -116,8 +108,6 @@ export class BookingCustomerPageComponent {
                 this.isNotEvent = false;
                 break;
             case "decouverte":
-                this.isRace = true;
-                this.isNotRace = false;
                 this.isLesson = false;
                 this.isNotLesson = true;
                 this.isEvent = false;
@@ -133,8 +123,6 @@ export class BookingCustomerPageComponent {
                 this.getAvailablePlaces(this.date);
                 break;
             case "immersion":
-                this.isRace = true;
-                this.isNotRace = false;
                 this.isLesson = false;
                 this.isNotLesson = true;
                 this.isEvent = false;
@@ -150,8 +138,6 @@ export class BookingCustomerPageComponent {
                 this.getAvailablePlaces(this.date);
                 break;
             case "acces-piste":
-                this.isRace = true;
-                this.isNotRace = false;
                 this.isLesson = false;
                 this.isEvent = false;
                 this.isNotEvent = true;
@@ -223,8 +209,6 @@ export class BookingCustomerPageComponent {
     }
 
     resetChoice1() {
-        this.isRace = false;
-        this.isNotRace = false;
         this.isLesson = false;
         this.isEvent = false;
         this.isNotEvent = false;

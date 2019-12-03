@@ -36,6 +36,7 @@ const httpOptions = {
     styleUrls: ['./contact-form.component.scss']
 })
 export class ContactFormComponent {
+    
     // reservation-formation ; reservation-teambuilding ; reservation-evenement ; reservation-cours-particulier ; reservation-evenement-particulier
     @Input() type: string; 
     // nombre de lignes du textarea;

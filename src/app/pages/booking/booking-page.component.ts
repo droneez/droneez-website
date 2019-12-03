@@ -17,7 +17,9 @@ export class BookingPageComponent {
 		@Inject(DOCUMENT) private document: Document,
         @Inject(WINDOW) public window,
         private globals: Globals
-    ) { }
+    ) { 
+
+    }
 
 	ngOnInit() {
 		this.screenHeight = this.window.innerHeight;

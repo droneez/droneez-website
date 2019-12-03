@@ -22,11 +22,14 @@ section {
 			min-height : 70rem;
 		}
 
-		.recap-row h4, .choice-1 h4, .choice-2 h4 {
+		.recap-row h4, .choice-1 h4 {
 			color: map-get($colors, light);
-			position: absolute;
-			top: 0;
 			font-family: BebasNeueBold;
+		}
+
+		.recap-row h4{
+			position:absolute;
+			top: 0;
 		}
 	
 		&.main {
@@ -209,6 +212,16 @@ section {
 						transform: rotate3d(0,1,0,180deg);
 					    transition: ease transform 1.5s, opacity .43s cubic-bezier(1,0,1,0);
 					    opacity: 0;
+					}
+					.wording-container {
+						top: 50%;
+    					transform: translate3d(0,-50%,0);
+						color: white;
+						height: 80%;
+						p {
+							font-size: x-small;
+							line-height: 18px;
+						}
 					}
 				}
 				.choice-2 {

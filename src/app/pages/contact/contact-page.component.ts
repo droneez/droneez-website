@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { Globals } from "./../../globals";
-import { SeoService } from "./../../services/seo.service";
+import { SeoService, SeoInterface } from "./../../services/seo.service";
 
 const seo:any = {
     title:"Contact - Une demande particulière, l'équipe Droneez est prête à vous répondre",
-    schemaOrgContent: ['{"@context":"https:\/\/schema.org","@type":"Organization","url":"https:\/\/www.droneez.com\/","sameAs":["https:\/\/www.facebook.com\/droneez\/","https:\/\/www.instagram.com\/droneez_paris\/","https:\/\/twitter.com\/DRONEEZ_fr"],"@id":"https:\/\/www.droneez.com\/#organization","name":"Droneez","logo":"https:\/\/www.droneez.com\/wp-content\/uploads\/2017\/12\/droneez-le-drone-accessible-a-tous.jpg"}'],
     meta: [
         {name: 'description', content: "L'équipe Droneez est prête à vous répondre sur toutes vos questions et si nous ne pouvons y répondre nous vous redirigerons vers les bons contacts !"},
         {property: 'og:type', content: "article"},
@@ -28,10 +27,12 @@ const seo:any = {
 })
 export class ContactPageComponent {
   	
+    seo: SeoInterface;
+    
   	constructor(private globals: Globals, private seoService: SeoService) { }
 
   	ngOnInit() {
-        this.seoService.setMetaDatas(seo.title,seo.meta,seo.schemaOrgContent);
+        //this.seoService.setMetaDatas(seo.title,seo.meta,seo.schemaOrgContent);
         this.globals.noChangeNavBg = true;
   	}
 
