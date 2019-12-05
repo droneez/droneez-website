@@ -6,25 +6,6 @@ import { Globals } from "./../../globals";
 import { SeoService, SeoInterface } from "./../../services/seo.service";
 import { ArticlesService, ArticleInfos } from "./../../services/articles.service";
 
-const seo:any = {
-    title:"Actualités - Les actualités du drone selon les pilotes de notre centre Droneez",
-    meta: [
-        {name: 'description', content: "Dans toutes les actualités drones, l'équipe Droneez mets en avant certains sujets en fonction de l'actualité pour l'avenir du drone !"},
-        {property: 'og:locale', content: "fr_FR"},
-        {property: 'og:type', content: "article"},
-        {property: 'og:title', content: "Blog - Les actualités du drone selon les pilotes de notre centre Droneez"},
-        {property: 'og:description', content: "Dans toutes les actualités drones, l'équipe Droneez mets en avant certains sujets en fonction de l'actualité pour l'avenir du drone !"},
-        {property: 'og:url', content: "https://www.droneez.com/blog/"},
-        {property: 'og:site_name', content: "Droneez"},
-        {property: 'article:publisher', content: "https://www.facebook.com/droneez/"},
-        {name: 'twitter:card', content: "summary_large_image"},
-        {name: 'twitter:description', content: "Dans toutes les actualités drones, l'équipe Droneez mets en avant certains sujets en fonction de l'actualité pour l'avenir du drone !"},
-        {name: 'twitter:title', content: "Blog - Les actualités du drone selon les pilotes de notre centre Droneez"},
-        {name: 'twitter:site', content: "@DRONEEZ_fr"},
-        {name: 'twitter:creator', content: "@DRONEEZ_fr"},
-    ]
-}
-
 @Component({
     selector: 'app-news-page',
     templateUrl: './news-page.component.html',
@@ -61,6 +42,16 @@ export class NewsPageComponent implements AfterViewInit {
                 });
             })*/
 
+            this.seo = {
+                type: 'article',
+                imageUrl: "https://www.droneez.com/assets/img/articles/covers/article_8.jpg",
+                imageAlt: "Les pilotes Droneez",
+                imageType: "image/jpeg",
+                title: "Les actualités du drone selon les pilotes de notre centre Droneez",
+                description: "Dans toutes les actualités drones, l'équipe Droneez mets en avant certains sujets en fonction de l'actualité pour l'avenir du drone !",
+                keywords: ["Technologie","FPV","Drone","Télépilotage","UAV","Piloter un drone","Science","Actualités Drone","Droneez","UAV","Télépilote","Particuliers","FPV","Piloter","conduire"]
+            };
+
         }
 
     ngAfterViewInit() {
@@ -69,7 +60,7 @@ export class NewsPageComponent implements AfterViewInit {
     }
 
     ngOnInit() {
-        //this.seoService.setMetaDatas(seo.title,seo.meta,seo.schemaOrgContent);
+        this.seoService.setMetaDatas(this.seo);
         this.randomizeColor();
         this.globals.noChangeNavBg = true;
         this.showCardId = 0;
@@ -92,7 +83,7 @@ export class NewsPageComponent implements AfterViewInit {
 
     ngOnDestroy() {
         this.globals.noChangeNavBg = false;
-        this.seoService.removeMetaDatas(seo.meta);
+        this.seoService.removeMetaDatas(this.seo);
     }
 
     @HostListener("window:scroll", []) onWindowScroll() {
@@ -122,3 +113,5 @@ export class NewsPageComponent implements AfterViewInit {
         });
     }
 }
+
+

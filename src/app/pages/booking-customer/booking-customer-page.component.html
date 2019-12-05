@@ -16,7 +16,7 @@
 				<div class="col-md-4 col-sm-12 recap-2">
 					<div class="row h-100 align-items-end justify-content-center">
 						<div class="img-wrapper position-relative" (click)="resetChoice1()">
-							<img [alt]="isDecouverte ? '' : isImmersion ? '' : isAccesPiste ? '' : isLesson ? '' : isEvent ?  '' : ''" class="w-100" 
+							<img [alt]="isDecouverte ? 'Drone E010' : isImmersion ? 'eachine EV100 drone immersion' : isAccesPiste ? 'Piste drone Malakoff' : isLesson ? 'DJI Phantom 4 drone' : isEvent ?  'Drone événement' : ''" class="w-100" 
 							[src]="
 								isImmersion ? 'assets/img/Immersion_Reservation_Particuliers.png' : 
 								isDecouverte ? 'assets/img/Decouverte_Reservation_Particuliers.png' : 
@@ -134,15 +134,15 @@
 		[style.width]="screenWidth + 'px'"
 		[class.end]="isEndChoice"
 	>	
-		<div class="container h-100">
+		<div class="container-fluid h-100">
 			<div class="row choice-1 h-100">
-				<div class="col-sm-2 offset-sm-1">
+				<div class="col-md-2 offset-md-1">
 					<div class="row mx-1 h-100 align-items-center justify-content-center">
 						<button class="decouverte-button" mat-button (click)="isDecouverte = true; isNotImmersion = true; isNotAccesPiste = true; isNotLesson = true; isNotEvent = true; isEndChoice = true; type = 'decouverte'; getAvailablePlaces(date)"
 							[class.selected]="isDecouverte"
 							[class.not-selected]="isNotDecouverte"
 							row align-items-center justify-content-center>
-							<img alt="" class="w-100" [src]="'assets/img/Decouverte_Reservation_Particuliers.png'" />
+							<img alt="Drone E010" class="w-100" [src]="'assets/img/Decouverte_Reservation_Particuliers.png'" />
 							<div class="wording-container position-absolute w-100">
 								<h4 class="text-center w-100 m-0">Découverte</h4>
 								<p class="price mb-1">25€/H</p>
@@ -154,12 +154,12 @@
 						</button>
 					</div>
 				</div>
-				<div class="col-sm-2">
+				<div class="col-md-2">
 					<div class="row mx-1 h-100 align-items-center justify-content-center">
 						<button class="immersion-button" mat-button (click)="isImmersion = true; isNotDecouverte = true; isNotAccesPiste = true; isNotLesson = true; isNotEvent = true; isEndChoice = true; type = 'immersion'; getAvailablePlaces(date)"
 							[class.selected]="isImmersion"
 							[class.not-selected]="isNotImmersion">
-							<img alt="" class="w-100" [src]="'assets/img/Immersion_Reservation_Particuliers.png'" />
+							<img alt="eachine EV100 drone immersion" class="w-100" [src]="'assets/img/Immersion_Reservation_Particuliers.png'" />
 							<div class="wording-container position-absolute w-100">
 								<h4 class="text-center w-100 m-0">Immersion</h4>
 								<p class="price mb-1">35€/H</p>
@@ -172,12 +172,12 @@
 						</button>
 					</div>
 				</div>
-				<div class="col-sm-2">
+				<div class="col-md-2">
 					<div class="row mx-1 h-100 align-items-center justify-content-center">
 						<button class="acces-piste-button" mat-button (click)="isAccesPiste = true; isNotImmersion = true; isNotDecouverte = true; isNotLesson = true; isNotEvent = true; isEndChoice = true; type = 'acces-piste'; getAvailablePlaces(date)"
 							[class.selected]="isAccesPiste"
 							[class.not-selected]="isNotAccesPiste">
-							<img alt="" class="w-100" [src]="'assets/img/Acces_Piste_Reservation_Particuliers.png'" />
+							<img alt="Piste drone Malakoff" class="w-100" [src]="'assets/img/Acces_Piste_Reservation_Particuliers.png'" />
 							<div class="wording-container position-absolute w-100">
 								<h4 class="text-center w-100 m-0">Accès piste</h4>
 								<p class="price mb-1">10€</p>
@@ -192,12 +192,12 @@
 						</button>
 					</div>
 				</div>
-				<div class="col-sm-2">
+				<div class="col-md-2">
 					<div class="row mx-1 h-100 align-items-center justify-content-center">
 						<button class="lesson-button" mat-button (click)="isNotAccesPiste = true; isNotImmersion = true; isNotDecouverte = true; isLesson = true; isNotEvent = true; isEndChoice = true"
 							[class.selected]="isLesson"
 							[class.not-selected]="isNotLesson">
-							<img alt="" class="w-100" [src]="'assets/img/Cours_Particuliers_Reservation_Particuliers.png'" />
+							<img alt="DJI Phantom 4 drone" class="w-100" [src]="'assets/img/Cours_Particuliers_Reservation_Particuliers.png'" />
 							<div class="wording-container position-absolute w-100">
 								<h4 class="text-center w-100 m-0">Cours<br/>particuliers</h4>
 								<p class="price mb-1"></p>
@@ -212,15 +212,25 @@
 						</button>
 					</div>
 				</div>
-				<div class="col-sm-2">
+				<div class="col-md-2">
 					<div class="row mx-1 h-100 align-items-center justify-content-center">
 						<button class="event-button" mat-button (click)="isNotAccesPiste = true; isNotImmersion = true; isNotDecouverte = true; isEvent = true; isNotLesson = true; isEndChoice = true"
 							[class.selected]="isEvent"
 							[class.not-selected]="isNotEvent">
-							<img alt="" class="w-100" [src]="'assets/img/Evenement_Reservation_Particuliers.png'" />
+							<img alt="Drone événement" class="w-100" [src]="'assets/img/Evenement_Reservation_Particuliers.png'" />
 							<div class="wording-container position-absolute w-100">
 								<h4 class="text-center w-100 m-0">Événement</h4>
-								
+								<p class="price mb-1"></p>
+								<div class="wording">
+		                            <p class="px-2">
+		                                Pour toutes les activités <br/>
+		                                et notamment les <br/>
+		                                anniversaires, Droneez <br/>
+		                                vous propose de mettre <br/> 
+		                                en place un événement <br/>
+		                                au top
+		                            </p>
+	                        	</div>
 		                    </div>
 						</button>
 					</div>

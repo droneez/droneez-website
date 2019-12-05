@@ -10,7 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { SeoService, SeoInterface } from "./../../services/seo.service";
 
 const CLIENTS: string[] = ["Aduneo","Allianz","Alten","ArmatureTechnologies","Astek","Axione","BForBank","BlaBlaCar","Bouygues","BryanGarnier&Co","Cast","CheckPoint","Devoteam","Essilor","EulerHermes","Everside","Finaxys","Gemalto","IvaDrones","Kaibee","Kalidea","LaPoste","LisiAerospace","MarksSpencer","Momentys","Orange","Parrot","Rapid7","Renault","Rubel&Menasche","Safran","SchneiderElectric","SocieteGenerale","Sodexo","TheMachinery","Uavia","Volkswagen"];
-const PARTNERS: string[] = ["DronesParisRegion","StudioSport","FFAM","FPDC","DJI"];
+const PARTNERS: string[] = [/*"DronesParisRegion",*/"StudioSport","FFAM","FPDC","DJI"];
 const SUPPORTS: string[] = ["BPIFrance","FrenchTech","ReseauEntreprendre","BNPParibas"];
 
 @Component({
