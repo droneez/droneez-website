@@ -77,19 +77,17 @@ export class SeoService {
         if(seo.type === "article") {
             /*metas.push({property: 'article:published_time', content: });
             metas.push({property: 'article:modified_time', content: });
-            //metas.push({property: 'article:expiration_time', content: });
             metas.push({property: 'article:author', content: });
             metas.push({property: 'article:section', content: });
             metas.push({property: 'article:tag', content: });
-
-            metas.push({property: 'og:updated_time', content: });*/
+            
+            metas.push({property: 'og:updated_time', content: });*/  //idem a modified_time
             metas.push({property: 'article:tag', content: seo.keywords.join(", ")});
             metas.push({property: 'article:publisher', content: 'https://www.facebook.com/droneez/'});
         }
         /*
         article:published_time - datetime - When the article was first published.
         article:modified_time - datetime - When the article was last changed.
-        article:expiration_time - datetime - When the article is out of date after.
         article:author - profile array - Writers of the article.
         article:section - string - A high-level section name. E.g. Technology
         article:tag - string array - Tag words associated with this article.
@@ -148,10 +146,41 @@ export class SeoService {
                     "https:\/\/www.instagram.com\/droneez_paris\/",
                     "https:\/\/twitter.com\/DRONEEZ_fr"
                 ],
-                "@id":"https:\/\/www.droneez.com\/a-propos",
+                "@id":"https:\/\/www.droneez.com\/#organization",
                 "name":"Droneez",
                 "logo":"https:\/\/www.droneez.com\/assets\/img\/logo\/Logo-droneez.jpg"
             }`
+            /*
+                "contactPoint": [
+                    {
+                        "@type": "ContactPoint",
+                        "telephone": "+1-800-692-7753",
+                        "contactType": "sales",
+                        "areaServed": [ "FR" ]
+                        "email": "mailto:jane-doe@xyz.edu"
+                    }
+                ],
+                "location": {
+                    "@type": "Place",
+                    "address": {
+                      "@type": "PostalAddress",
+                      "addressLocality": "Philadelphia",
+                      "addressRegion": "PA"
+                    },
+                    "url": "wells-fargo-center.html"
+                  },
+                "location": {
+                    ...
+                  },
+                  "email": "mailto:jane-doe@xyz.edu",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Seattle",
+                    "addressRegion": "WA",
+                    "postalCode": "98052",
+                    "streetAddress": "20341 Whitworth Institute 405 N. Whitworth"
+                  }
+            */
         ];
 
         if(seo.schemaOrgContent){

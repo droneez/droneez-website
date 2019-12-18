@@ -4,7 +4,7 @@ import { WINDOW } from "./../../services/window.service";
 import { ApiService } from './../../services/api.service';
 import { Globals } from "./../../globals";
 import { SeoService, SeoInterface } from "./../../services/seo.service";
-import { ArticlesService, ArticleInfos } from "./../../services/articles.service";
+import { ArticlesService, Article } from "./../../services/articles.service";
 
 @Component({
     selector: 'app-news-page',
@@ -14,7 +14,7 @@ import { ArticlesService, ArticleInfos } from "./../../services/articles.service
 export class NewsPageComponent implements AfterViewInit {
     
     seo: SeoInterface;
-    articles:ArticleInfos[];
+    articles: Article[];
     showCardId:number;
     screenHeight:number = 0;
     offset:number = 0;
@@ -31,9 +31,13 @@ export class NewsPageComponent implements AfterViewInit {
         private seoService: SeoService,
         private articlesService: ArticlesService
         ) {
-            /*MOCK*/
             articlesService.getArticlesInfos().subscribe((data)=>{
                 this.articles = data;
+                this.randomizeColor();
+                setTimeout(()=>{
+                    this.showCard();
+                },50);
+                
             });
             /*apiService.getConfig().subscribe((data: Config) => {
                 this.config = { ...data };
@@ -61,7 +65,6 @@ export class NewsPageComponent implements AfterViewInit {
 
     ngOnInit() {
         this.seoService.setMetaDatas(this.seo);
-        this.randomizeColor();
         this.globals.noChangeNavBg = true;
         this.showCardId = 0;
     }

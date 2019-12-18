@@ -5,7 +5,7 @@
 	>
 	</div>-->
 
-	<div class="global">
+	<div class="global" *ngIf="article">
 		<h2 class="title" [innerHTML]="article.title"></h2>
 		<app-template3 [innerHTML]="article.content"></app-template3>
 	</div>

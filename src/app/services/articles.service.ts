@@ -6,11 +6,17 @@ import { ApiService } from './api.service';
 
 export interface Article {
     id: number,
+    author: string,
+    creation_date: string,
+    last_modif_date: string,
     title: string,
     content: string,
+    description: string,
+    cover: string,
+    url: string,
+    status: string,
     meta: any[],
-    schemaOrgContent: string[],
-    url: string
+    schemaOrgContent: string[]
 }
 
 export interface ArticleInfos {
@@ -39,30 +45,30 @@ export class ArticlesService {
   		private apiService: ApiService) {
   	}
 
-  	getArticlesInfos(): Observable<ArticleInfos[]> {
-  		/*const url = `${this.apiService.getUrl('articlesInfosUrl')}`;
-  		return this.http.get<ArticleInfos[]>(url, httpOptions)
+  	getArticlesInfos(): Observable<Article[]> {
+  		const url = `${this.apiService.getUrl('articlesInfosUrl')}`;
+  		return this.http.get<Article[]>(url)
   			.pipe(
   				retry(3),
   				catchError(this.handleError)
-  			);*/
-  		return of (ARTICLES_INFOS);
+  			);
+  		//MOCK
+        /*return of (ARTICLES_INFOS);*/
   	}
 
   	getArticleById(id: number): Observable<Article> {
-  		/*const url = `${this.apiService.getUrl('articleUrl')}/${id}`;
-  		return this.http.get<Article>(url, httpOptions)
+  		const url = `${this.apiService.getUrl('articleUrls').read}${id}`;
+  		return this.http.get<Article>(url)
   			.pipe(
   				retry(3),
   				catchError(this.handleError)
-  			);*/
-
+  			);
   		/*MOCK*/
-  		let res: any;
+  		/*let res: any;
         ARTICLES.forEach((article)=>{
             if (article.id === id) res = article;
         })
-  		return of(res);
+  		return of(res);*/
   	}
 
   	private handleError(error: HttpErrorResponse) {
@@ -82,7 +88,7 @@ export class ArticlesService {
     };
 }
 
-const ARTICLES_INFOS: ArticleInfos[] = [  
+/*const ARTICLES_INFOS: ArticleInfos[] = [  
     {id: 20, date: new Date('2019-06-12'), title: "Un drone Racer pour les prises de vue Professionnelle ! Une révolution au vu des vidéos qui circulent sur internet", abstract: "", cover: "article_21.jpg", url: "un-drone-racer-pour-les-prises-de-vue-professionnelle"},
     {id: 19, date: new Date('2019-06-05'), title: "TEMOIGNAGE DE LUCA BOZZI - Un italien fou de drone", abstract: "", cover: "article_20.jpg", url: "un-italien-fou-de-drone"},      
     {id: 18, date: new Date('2019-02-12'), title: "Décollage en toute Clairance", abstract: "", cover: "article_19.jpg", url: "decollage-en-toute-clairance"},
@@ -104,9 +110,9 @@ const ARTICLES_INFOS: ArticleInfos[] = [
     {id: 2, date: new Date('2017-10-16'), title: "DRONEEZ et ses bébés drones à VIVATECH", abstract: "", cover: "article_3.jpg", url: "droneez-et-ses-bebes-drones-a-vivatech"},
     {id: 1, date: new Date('2017-10-13'), title: "DRONEEZ à l'Urban Soccer d'Ivry", abstract: "", cover: "article_2.jpg", url: "droneez-a-lurban-soccer-divry"},
     {id: 0, date: new Date('2017-04-09'), title: "Droneez décroche la bourse French tech ! Fier d'être Droneez.", abstract: "", cover: "article_1.jpg", url: "droneez-decroche-la-bourse-french-tech-fier-d-etre-droneez"},
-];
+];*/
 
-const ARTICLES: Article[] = [
+const ARTICLES: any[] = [
 	{
         id: 20,
         title: 'Un drone Racer pour les prises de vue Professionnelle ! Une révolution au vu des vidéos qui circulent sur internet',

@@ -19,9 +19,14 @@ export interface Config {
             readonly scheduleUrl: string,
             readonly contactUrl: string,
             readonly paymentUrl: string,
-            readonly couponUrl: string
-            /*articleUrl: string,
-            articlesInfosUrl: string*/
+            readonly couponUrl: string,
+            readonly articlesInfosUrl: string,
+            readonly articleUrls: {
+                readonly read:  string,
+                readonly delete: string,
+                readonly create: string,
+                readonly update: string
+            }
         }
     ]
 }
