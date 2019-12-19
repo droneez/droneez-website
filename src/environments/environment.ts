@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  configAPIUrl: 'http://api.droneez.com/config/read.php'
+  configAPIUrl: 'http://api.droneez.com/config/read.php',
+  articlesFilesUrl: "https://www.droneez.com/00_articles_files"
 };
 
 /*

@@ -35,13 +35,28 @@ export class LayoutArticleComponent {
             .getArticleById(+this.route.snapshot.paramMap.get('id'))
             .subscribe((article)=>{
                 this.article = article;
+                this.seo = {
+                    type: article.type,
+                    imageUrl: article.media_folder_name + '/' + article.seo_image_name,
+                    imageAlt: article.seo_image_alt,
+                    imageType: article.seo_image_type,
+                    title: article.title,
+                    description: article.description,
+                    keywords: article.keywords.split(','),
+                    author: article.author,
+                    published_time: article.published_time,
+                    modified_time: article.modified_time,
+                    section: article.section,
+                    publisher: "https://www.facebook.com/droneez/"
+                };
+                this.seoService.setMetaDatas(this.seo);
             });
-        //this.seoService.setMetaDatas(this.article.title,this.article.meta,this.article.schemaOrgContent);
+        
 	}
 
 	ngOnDestroy() {
         this.globals.noChangeNavBg = false;
-        this.seoService.removeMetaDatas(this.article.meta);
+        this.seoService.removeMetaDatas(this.seo);
   	}
 
 	@HostListener('window:resize', []) onResize() {

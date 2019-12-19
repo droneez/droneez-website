@@ -61,15 +61,7 @@ export class HomePageComponent {
             imageAlt: "drone DJI 4k phantom 4 en plongée",
             imageType: "image/jpeg",
             title: "Découvrez le monde du drone en intérieur pour les pros et les amateurs",
-            schemaOrgContent: [
-                `{
-                    "@context":"https:\/\/schema.org",
-                    "@type":"WebSite",
-                    "@id":"https:\/\/www.droneez.com\/",
-                    "url":"https:\/\/www.droneez.com\/",
-                    "name":"Droneez"
-                }`
-            ],
+            schemaOrgContent: [`{"@context":"https:\/\/schema.org","@type":"WebSite","@id":"https:\/\/www.droneez.com\/","url":"https:\/\/www.droneez.com\/","name":"Droneez"}`],
             description: "Un lieu d'apprentissage atypique et branché autour du monde du drone pour les particuliers - courses Freestyle, ou pour les professionnels - Certification Télépilote, Team Building, Coworking.",
             keywords: ["Technologie","FPV","Drone","Télépilotage","UAV","Piloter un drone","Future","Turfu","FFAM","FPDC","Science","Melting pot","Opensource","Team Building","Coworking"],
             videoUrl: "https://www.droneez.com/assets/img/video_homepage.mp4",

@@ -7,26 +7,54 @@ import { ApiService } from './api.service';
 export interface Article {
     id: number,
     author: string,
-    creation_date: string,
-    last_modif_date: string,
+    published_time: string,
+    modified_time: string,
     title: string,
     content: string,
     description: string,
     cover: string,
     url: string,
+    media_folder_name: string,
     status: string,
-    meta: any[],
-    schemaOrgContent: string[]
+    template: number,
+    type: string,
+    keywords: string,
+    section: string,
+    seo_image_name: string,
+    seo_image_alt: string,
+    seo_image_type: string
 }
 
-export interface ArticleInfos {
+/*
+    id: number,
+    author: string,
+    published_time: string,
+    modified_time: string,
+    title: string,
+    content: string,
+    url: string,
+    media_folder_name: string,
+    description: string,
+    cover: string,
+    status: string,
+    template: number,
+    type: string,
+    section: string,
+    keywords: string,
+    seo_image_name: string,
+    seo_image_alt: string,
+    seo_image_type: string
+
+*/
+
+/*export interface ArticleInfos {
     id: number;
     date: Date;
     title: string; 
     abstract: string;
     cover: string;
     url: string;
-};
+};*/
 
 const httpOptions = {
     headers: new HttpHeaders({
@@ -112,7 +140,7 @@ export class ArticlesService {
     {id: 0, date: new Date('2017-04-09'), title: "Droneez décroche la bourse French tech ! Fier d'être Droneez.", abstract: "", cover: "article_1.jpg", url: "droneez-decroche-la-bourse-french-tech-fier-d-etre-droneez"},
 ];*/
 
-const ARTICLES: any[] = [
+/*const ARTICLES: any[] = [
 	{
         id: 20,
         title: 'Un drone Racer pour les prises de vue Professionnelle ! Une révolution au vu des vidéos qui circulent sur internet',
@@ -1522,4 +1550,4 @@ const ARTICLES: any[] = [
         schemaOrgContent: ['{"@context":"https:\/\/schema.org","@type":"Organization","url":"https:\/\/www.droneez.com\/","sameAs":["https:\/\/www.facebook.com\/droneez\/","https:\/\/www.instagram.com\/droneez_paris\/","https:\/\/twitter.com\/DRONEEZ_fr"],"@id":"https:\/\/www.droneez.com\/#organization","name":"Droneez","logo":"https:\/\/www.droneez.com\/wp-content\/uploads\/2017\/12\/droneez-le-drone-accessible-a-tous.jpg"}'],
         url: 'droneez-decroche-la-bourse-french-tech-fier-d-etre-droneez'
     }
-];
+];*/

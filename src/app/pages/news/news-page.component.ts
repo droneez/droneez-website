@@ -5,6 +5,8 @@ import { ApiService } from './../../services/api.service';
 import { Globals } from "./../../globals";
 import { SeoService, SeoInterface } from "./../../services/seo.service";
 import { ArticlesService, Article } from "./../../services/articles.service";
+import { environment } from '../../../environments/environment';
+
 
 @Component({
     selector: 'app-news-page',
@@ -21,6 +23,7 @@ export class NewsPageComponent implements AfterViewInit {
     @ViewChildren("card", {read: ElementRef}) cardList : QueryList<ElementRef>;
     colorArray = ['rgba(99,239,99,.4)','rgba(31,110,255,.4)','rgba(255,7,172,.4)']; // primary, secondary, danger --> colors
     randomColor = [];
+    articlesFilesUrl: string;
 
     constructor(
         @Inject(DOCUMENT) private document: Document,
@@ -31,6 +34,7 @@ export class NewsPageComponent implements AfterViewInit {
         private seoService: SeoService,
         private articlesService: ArticlesService
         ) {
+            this.articlesFilesUrl = environment.articlesFilesUrl;
             articlesService.getArticlesInfos().subscribe((data)=>{
                 this.articles = data;
                 this.randomizeColor();

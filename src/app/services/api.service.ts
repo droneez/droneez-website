@@ -26,6 +26,7 @@ export interface Config {
                 readonly delete: string,
                 readonly create: string,
                 readonly update: string
+                //,readonly files: string
             }
         }
     ]
