@@ -276,3 +276,204 @@ section {
 	}
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+section {
+	z-index: 1;
+    position: relative;
+	.global {
+		.icon {
+			width: 100%;
+		    height: 8rem;
+		}
+		.decouverte {
+			.icon {
+				background: url('./../../../assets/icon/decouverte.png') no-repeat;
+		    	background-size: contain;
+		    	background-position: center;
+			}
+			.category {
+				transition: color 0.25s;
+				&:hover, &:focus {
+					color: map-get($colors, primary);
+				}
+			}
+		}
+		.immersion {
+			.icon {
+				background: url('./../../../assets/icon/immersion.png') no-repeat;
+		    	background-size: contain;
+		    	background-position: center;
+			}
+			.category {
+				transition: color 0.25s;
+				&:hover, &:focus {
+					color: map-get($colors, secondary);
+				}
+			}
+		}
+		.acces-piste {
+			.icon {
+				background: url('./../../../assets/icon/accespiste.png') no-repeat;
+		    	background-size: contain;
+		    	background-position: center;
+			}
+			.category {
+				transition: color 0.25s;
+				&:hover, &:focus {
+					color: map-get($colors, danger);
+				}
+			}
+		}
+		.lesson {
+			.icon {
+				background: url('./../../../assets/icon/coursparticuliers.png') no-repeat;
+		    	background-size: contain;
+		    	background-position: center;
+			}
+			.category {
+				transition: color 0.25s;
+				&:hover, &:focus {
+					color: map-get($colors, tertiary);
+				}
+			}
+		}
+		.event {
+			.icon {
+				background: url('./../../../assets/icon/event.png') no-repeat;
+		    	background-size: contain;
+		    	background-position: center;
+			}
+			.category {
+				&:hover, &:focus {
+					color: rgba(0,0,0,.5);
+				}
+			}
+		}
+		h1 {
+			font-family: BebasNeueBold;
+			font-size: 2.8rem;
+		}
+		h4 {
+			font-family: BebasNeueBold;
+			margin-bottom: 0;
+		}
+		.separate-line {
+			width: 100%;
+	        border-top: 1px solid rgba(0,0,0,.5);
+	        position: absolute;
+	        margin-left: -15px;
+		}
+		.presentation-container {
+			cursor: pointer;
+			.wording-container {
+				font-family: raleway-medium;
+				min-height: 20rem;
+				.title-container {
+					min-height: 8em;
+				}
+				.price {
+					font-family: BebasNeueBold;
+					font-size: 2.5rem;
+				}
+				.price-mini {
+					font-family: BebasNeueBold;
+					font-size: 1.5rem;
+				}
+				.wording {
+					min-height: 5rem;
+				}
+				p {
+					line-height: 1.3rem;
+				    font-family: BebasNeueRegular;
+				    font-size: 1rem;
+				    i {
+				    	font-size: .8rem;
+				    }
+				}
+				.strong-word {
+					text-transform: uppercase;
+					font-weight: bold;
+				}
+			}
+
+			&.selected {
+				transition: ease-in .2s transform, ease-out .2s opacity;
+				transform: scale3d(.7,.7,.7);
+				opacity: 0;
+			}
+			&.not-selected {
+				transform: rotate3d(0,1,0,180deg);
+			    transition: ease transform 1.5s, opacity .43s cubic-bezier(1,0,1,0);
+			    opacity: 0;
+			}
+			
+		}
+	}
+}
+
+.separate-img {
+	margin-top:-15rem;
+	//margin-bottom:-10rem;
+	background: url('./../../../assets/img/pricing-separate-img.png') no-repeat;
+	background-size: cover;
+    background-position-y: center;
+	overflow: hidden;
+	position: relative;
+	height: 30rem;
+	.shadow {
+		position:absolute;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
+		background: linear-gradient( to bottom, #fff 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 32%, #fff 100% );
+	}
+}
+

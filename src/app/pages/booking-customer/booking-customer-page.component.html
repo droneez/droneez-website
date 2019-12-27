@@ -128,13 +128,42 @@
 			</div>
 
 		</div>
+
+
+
 	</div>
-	<div class="global select position-absolute"
+	
+
+
+
+
+
+
+	<div class="global select position-absolute pt-5"
 		[style.height]="screenHeight + 'px'"
 		[style.width]="screenWidth + 'px'"
 		[class.end]="isEndChoice"
 	>	
-		<div class="container-fluid h-100">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!--<div class="container-fluid h-100">
 			<div class="row choice-1 h-100">
 				<div class="col-md-2 offset-md-1">
 					<div class="row mx-1 h-100 align-items-center justify-content-center">
@@ -236,9 +265,150 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>-->
+
+
+		<div class="row justify-content-center"> 
+            <h1 class="m-0">Réservation</h1>
+        </div>
+        <div class="row align-items-center justify-content-around" style="text-align: center;">
+			<p class="col" style="color:black;font-size:larger"><i>DRONEEZ sera fermée le 24, 25, 26 et 31 Décembre, ainsi que le 1er Janvier</i></p>
+		</div>	
+        <div class="row">
+            <div class="col-sm-6 col-lg-2 offset-lg-1 decouverte">
+                <div class="presentation-container text-center" (click)="isDecouverte = true; isNotImmersion = true; isNotAccesPiste = true; isNotLesson = true; isNotEvent = true; isEndChoice = true; type = 'decouverte'; getAvailablePlaces(date)"
+                	[class.selected]="isDecouverte"
+					[class.not-selected]="isNotDecouverte">
+					<div class="icon"></div>
+                    <div class="wording-container">
+                        <div class="title-container row justify-content-center align-items-center">
+                            <h4 class="category">Découverte</h4>
+                        </div>
+                        <div class="separate-line"></div>
+                        <p class="price pt-4 mb-1">25€/H</p>
+                        <div class="wording">
+                            <p class="px-4">Pilotage à vue<br/>
+                            débutant - 1h</p>
+                        </div>
+                    </div>
+                    <div class="booking-button-container row">
+                        <div class="col-sm-12">
+                            <button mat-button class="mat-btn-outline-dark mat-btn-sm" (click)="isDecouverte = true; isNotImmersion = true; isNotAccesPiste = true; isNotLesson = true; isNotEvent = true; isEndChoice = true; type = 'decouverte'; getAvailablePlaces(date)">Réserver</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-2 immersion">
+                <div class="presentation-container text-center" (click)="isImmersion = true; isNotDecouverte = true; isNotAccesPiste = true; isNotLesson = true; isNotEvent = true; isEndChoice = true; type = 'immersion'; getAvailablePlaces(date)"
+                	[class.selected]="isImmersion"
+					[class.not-selected]="isNotImmersion">
+					<div class="icon"></div>
+                    <div class="wording-container">
+                        <div class="title-container row justify-content-center align-items-center">
+                            <h4 class="category">immersion</h4>
+                        </div>
+                        <div class="separate-line"></div>
+                        <p class="price pt-4 mb-1">35€/H</p>
+                        <div class="wording">
+                            <p class="px-4">Pilotage retour caméra<br/>
+                            confirmé - 1h<br/>
+                            <i>après maîtrise du vol à vue</i></p>
+                        </div>
+                    </div>
+                    <div class="booking-button-container row">
+                        <div class="col-sm-12">
+                            <button mat-button class="mat-btn-outline-dark mat-btn-sm" (click)="isImmersion = true; isNotDecouverte = true; isNotAccesPiste = true; isNotLesson = true; isNotEvent = true; isEndChoice = true; type = 'immersion'; getAvailablePlaces(date)">Réserver</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-2 acces-piste">
+                <div class="presentation-container text-center" (click)="isAccesPiste = true; isNotImmersion = true; isNotDecouverte = true; isNotLesson = true; isNotEvent = true; isEndChoice = true; type = 'acces-piste'; getAvailablePlaces(date)"
+                	[class.selected]="isAccesPiste"
+					[class.not-selected]="isNotAccesPiste">
+					<div class="icon"></div>
+                    <div class="wording-container">
+                        <div class="title-container row justify-content-center align-items-center">
+                            <h4 class="category">Accès piste</h4>
+                        </div>
+                        <div class="separate-line"></div>
+                        <p class="price pt-4 mb-1">10€</p>
+                        <div class="wording">
+                            <p class="px-4">
+                                demi-journée<br/>
+                                10h-14h ou 14h-20h<br/>
+                                <i>avec votre matériel</i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="booking-button-container row">
+                        <div class="col-sm-12">
+                            <button mat-button class="mat-btn-outline-dark mat-btn-sm" (click)="isAccesPiste = true; isNotImmersion = true; isNotDecouverte = true; isNotLesson = true; isNotEvent = true; isEndChoice = true; type = 'acces-piste'; getAvailablePlaces(date)">Réserver</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-2 lesson">
+                <div class="presentation-container text-center" (click)="isNotAccesPiste = true; isNotImmersion = true; isNotDecouverte = true; isLesson = true; isNotEvent = true; isEndChoice = true"
+                	[class.selected]="isLesson"
+					[class.not-selected]="isNotLesson">
+					<div class="icon"></div>
+                    <div class="wording-container">
+                        <div class="title-container row justify-content-center align-items-center">
+                            <h4 class="category">Cours particuliers</h4>
+                        </div>
+                        <div class="separate-line"></div>
+                        <p class="price pt-4 mb-1">50€/H</p>
+                        <div class="wording">
+                            <p class="px-4">
+                                drone de captation<br/>
+                                cours personnalisés<br/>
+                                <i>avec nos drones & le vôtre selon votre choix</i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="booking-button-container row">
+                        <div class="col-sm-12">
+                            <button mat-button class="mat-btn-outline-dark mat-btn-sm" (click)="isNotAccesPiste = true; isNotImmersion = true; isNotDecouverte = true; isLesson = true; isNotEvent = true; isEndChoice = true">Réserver</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-2 event">
+                <div class="presentation-container text-center" (click)="isNotAccesPiste = true; isNotImmersion = true; isNotDecouverte = true; isEvent = true; isNotLesson = true; isEndChoice = true"
+                	[class.selected]="isEvent"
+					[class.not-selected]="isNotEvent">
+					<div class="icon"></div>
+                    <div class="wording-container">
+                        <div class="title-container row justify-content-center align-items-center">
+                            <h4 class="category">Événement</h4>
+                        </div>
+                        <div class="separate-line"></div>
+                        <div class="wording">
+                            <p class="px-4">
+                                Pour toutes les activités <br/>
+                                et notamment les <br/>
+                                anniversaires, Droneez <br/>
+                                vous propose de mettre <br/> 
+                                en place un événement <br/>
+                                au top
+                            </p>
+                        </div>
+                    </div>
+                    <div class="booking-button-container row">
+                        <div class="col-sm-12">
+                            <button mat-button class="mat-btn-outline-dark mat-btn-sm" (click)="isNotAccesPiste = true; isNotImmersion = true; isNotDecouverte = true; isEvent = true; isNotLesson = true; isEndChoice = true">Réserver</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 	</div>
 </section>
+
+<div class="separate-img w-100">
+    <div class="shadow"></div>
+</div>
 
 <ng-template #shoppingBag>
     <div class="modal-header">
@@ -251,5 +421,3 @@
         <app-shopping-bag (closeModalRequest)="closeModal($event)"></app-shopping-bag>
     </div>
 </ng-template>
-
-
