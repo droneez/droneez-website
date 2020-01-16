@@ -1,6 +1,6 @@
 <section class="section-subscription">
     <div class="global container pt-5"
-	    [style.height]="screenHeight + 'px'" 
+	    [style.min-height]="screenHeight < 800 ? '800px' : screenHeight + 'px'" 
 		[style.width]="screenWidth + 'px'">
 
         <div class="row justify-content-center align-items-center">

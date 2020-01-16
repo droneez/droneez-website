@@ -4,6 +4,7 @@
 
 /* Bootstrap */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~bootstrap/scss/bootstrap-grid.scss';
 /* Font-Awesome */
 @import "~font-awesome/css/font-awesome.min.css";
 /* Globals variables */
@@ -47,7 +48,7 @@
     src: url("assets/fonts/Raleway/Raleway-ExtraBold.ttf");
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow-x:hidden; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow-x:hidden;}
 button { outline:none !important; }
 
 .mat-btn-outline-dark, 

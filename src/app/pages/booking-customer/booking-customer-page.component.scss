@@ -309,91 +309,98 @@ section {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 section {
 	z-index: 1;
     position: relative;
 	.global {
 		.icon {
 			width: 100%;
-		    height: 8rem;
+		    height: 6rem;
+		    font-size: 8rem;
+		    transition: transform .4s ease-out, ease .5s color;//, ease .5s text-shadow;
+			transform: translate3d(0,0,0) scale3d(1,1,1);
+		}
+		.shadow-icon {
+			box-shadow: black 0px 0px 0px 0px;
+	    	border-radius: 100px;
+	   		height: .1rem;
+	    	width: .1rem;
+	    	margin-left: 50%;
+	    	transform: rotate3d(1,0,0,77deg) translateX(-50%);
+	    	transition: ease-out .4s box-shadow;
+		}
+		.category {
+			transition: color 0.25s;
 		}
 		.decouverte {
-			.icon {
-				background: url('./../../../assets/icon/decouverte.png') no-repeat;
-		    	background-size: contain;
-		    	background-position: center;
-			}
-			.category {
-				transition: color 0.25s;
-				&:hover, &:focus {
-					color: map-get($colors, primary);
+			&:hover, &:focus {
+				.mat-btn-outline-dark {
+				    box-shadow: inset 15rem 0 3rem 0 map-get($colors, primary);
 				}
+				.category {
+					color: map-get($colors, primary);	
+				}
+				.icon {
+					color:  map-get($colors, primary);
+		    		//text-shadow: 0 0 10px map-get($colors, primary);
+		    	}
 			}
 		}
 		.immersion {
-			.icon {
-				background: url('./../../../assets/icon/immersion.png') no-repeat;
-		    	background-size: contain;
-		    	background-position: center;
-			}
-			.category {
-				transition: color 0.25s;
-				&:hover, &:focus {
-					color: map-get($colors, secondary);
+			&:hover, &:focus {
+				.mat-btn-outline-dark {
+				    box-shadow: inset 15rem 0 3rem 0 map-get($colors, secondary);
 				}
+				.category {
+					color: map-get($colors, secondary);	
+				}
+				.icon {
+					color:  map-get($colors, secondary);
+		    		//text-shadow: 0 0 10px map-get($colors, secondary);
+		    	}
 			}
 		}
 		.acces-piste {
-			.icon {
-				background: url('./../../../assets/icon/accespiste.png') no-repeat;
-		    	background-size: contain;
-		    	background-position: center;
-			}
-			.category {
-				transition: color 0.25s;
-				&:hover, &:focus {
-					color: map-get($colors, danger);
+			&:hover, &:focus {
+				.mat-btn-outline-dark {
+				    box-shadow: inset 15rem 0 3rem 0 map-get($colors, danger);
 				}
+				.category {
+					color: map-get($colors, danger);	
+				}
+				.icon {
+					color:  map-get($colors, danger);
+		    		//text-shadow: 0 0 10px map-get($colors, danger);
+		    	}
 			}
 		}
 		.lesson {
-			.icon {
-				background: url('./../../../assets/icon/coursparticuliers.png') no-repeat;
-		    	background-size: contain;
-		    	background-position: center;
-			}
-			.category {
-				transition: color 0.25s;
-				&:hover, &:focus {
-					color: map-get($colors, tertiary);
+			&:hover, &:focus {
+				.mat-btn-outline-dark {
+				    box-shadow: inset 15rem 0 3rem 0 map-get($colors, tertiary);
 				}
+				.category {
+					color: map-get($colors, tertiary);	
+				}
+				.icon {
+		    		//text-shadow: 0 0 10px black;
+		    		color: map-get($colors, tertiary);
+		    	}
 			}
 		}
 		.event {
-			.icon {
-				background: url('./../../../assets/icon/event.png') no-repeat;
-		    	background-size: contain;
-		    	background-position: center;
-			}
-			.category {
-				&:hover, &:focus {
-					color: rgba(0,0,0,.5);
+			&:hover, &:focus {
+				.mat-btn-outline-dark {
+				    box-shadow: inset 15rem 0 3rem 0 rgba(0,0,0,.5);
 				}
+				.category {
+					color: rgba(0,0,0,.5);	
+				}
+				.icon {
+					color: rgba(0,0,0,.5);
+		    		//text-shadow: 0 0 3px rgba(0,0,0,.5);
+
+		    	}
 			}
 		}
 		h1 {
@@ -411,12 +418,20 @@ section {
 	        margin-left: -15px;
 		}
 		.presentation-container {
+			&:hover, &:focus {
+				.icon {
+					transform: translate3d(0,-1.5rem,0) scale3d(1.15,1.15,1);
+				}
+				.shadow-icon {
+					box-shadow: black 0px 0px 48px 6px;
+			    }
+			}
 			cursor: pointer;
 			.wording-container {
 				font-family: raleway-medium;
 				min-height: 20rem;
 				.title-container {
-					min-height: 8em;
+					//min-height: 8em;
 				}
 				.price {
 					font-family: BebasNeueBold;
@@ -458,22 +473,28 @@ section {
 	}
 }
 
-.separate-img {
+.separate-img-container {
 	margin-top:-15rem;
-	//margin-bottom:-10rem;
-	background: url('./../../../assets/img/pricing-separate-img.png') no-repeat;
-	background-size: cover;
-    background-position-y: center;
+	height: 15rem;
 	overflow: hidden;
-	position: relative;
-	height: 30rem;
-	.shadow {
-		position:absolute;
-		top:0;
-		left:0;
-		right:0;
-		bottom:0;
-		background: linear-gradient( to bottom, #fff 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 32%, #fff 100% );
+    z-index: -1;
+	.separate-img {
+		//margin-top:-15rem;
+		//margin-bottom:-10rem;
+		background: url('./../../../assets/img/pricing-separate-img.png') no-repeat;
+		background-size: cover;
+	    background-position-y: center;
+		overflow: hidden;
+		position: relative;
+		height: 30rem;
+		.shadow {
+			position:absolute;
+			top:0;
+			left:0;
+			right:0;
+			bottom:0;
+			background: linear-gradient( to bottom, #fff 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 32%, #fff 100% );
+		}
 	}
 }
 
