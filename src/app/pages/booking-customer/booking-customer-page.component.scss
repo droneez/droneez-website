@@ -22,7 +22,7 @@ section {
 			min-height : 70rem;
 		}
 
-		.recap-row h4, .choice-1 h4 {
+		/*.recap-row h4, .choice-1 h4 {
 			color: map-get($colors, light);
 			font-family: BebasNeueBold;
 		}
@@ -30,7 +30,7 @@ section {
 		.recap-row h4{
 			position:absolute;
 			top: 0;
-		}
+		}*/
 	
 		&.main {
 			filter: blur(4px);
@@ -45,10 +45,10 @@ section {
     				height: 16rem;
 				}
 
-				h4 {
+				/*h4 {
 					transform: skewX(-29deg);
    					margin-top: -1rem;
-				}
+				}*/
 				.img-wrapper {
 					transform: skewX(29deg);
 				    overflow: hidden;
@@ -58,7 +58,7 @@ section {
 				.recap-1 {
 					transform: translateX(1000%);
 					transition: ease-out .2s transform;
-					img {
+					/*img {
 						transform: skewX(-29deg);
 					    margin-top: -21rem;
 					    margin-left: 0rem;
@@ -69,12 +69,17 @@ section {
 						    max-width: 36rem;
 						    width: 36rem !important;
 						}
+					}*/
+					.icon {
+						//text-shadow: 0 0 1px black;
+						font-size: 13rem;
 					}
 				}
 				.recap-2 {
+					cursor: pointer;
 					transform: translateX(2000%);
 					transition: ease-out .3s transform;
-					img {
+					/*img {
 						transform: skewX(-29deg);
 					    margin-top: -30rem;
 					    margin-left: 2rem;
@@ -85,12 +90,12 @@ section {
 						    max-width: 36rem;
 						    width: 36rem !important;
 						}
-					}
+					}*/
 				}
 				.recap-3 {
 					transform: translateX(3000%);
 					transition: ease-out .4s transform;
-					img {
+					/*img {
 						transform: skewX(-29deg);
 					    margin-top: -11rem;
 					    margin-left: -7rem;
@@ -104,7 +109,7 @@ section {
 					    img {
 					    	transform:translateX(23%);
 					    }
-					}
+					}*/
 				}
 			}
 
@@ -314,11 +319,15 @@ section {
     position: relative;
 	.global {
 		.icon {
-			width: 100%;
+			//width: 100%;
 		    height: 6rem;
 		    font-size: 8rem;
 		    transition: transform .4s ease-out, ease .5s color;//, ease .5s text-shadow;
 			transform: translate3d(0,0,0) scale3d(1,1,1);
+
+			&.icon-accespiste, &.icon-event, &.icon-coursparticuliers {
+				text-shadow: 0 0 1px black;
+			}
 		}
 		.shadow-icon {
 			box-shadow: black 0px 0px 0px 0px;
@@ -410,6 +419,48 @@ section {
 		h4 {
 			font-family: BebasNeueBold;
 			margin-bottom: 0;
+		}
+		.step-line {
+			.icon {
+				height: 9rem;
+				display: inline;
+				vertical-align: middle;
+				&::before {
+					border-radius: 100%;
+				    width: 9rem;
+				    //border: 3px solid black;
+				    height: 9rem;
+				    padding-top: 1rem;
+				    margin-left: 0;
+				    margin-right: 0;
+				}
+			}
+			.label {
+				display: inline;
+			}
+			.line {
+				top: -.5rem;
+    			.round {
+    				border: 3px solid black;
+				    border-radius: 100%;
+				    width: .8rem;
+				    height: .8rem;
+				    position: absolute;
+				    top: -.3rem;
+    			}
+    			.round-left {
+				    left: -.7rem;
+    			}
+    			.round-right {
+    				right: -.7rem;
+    			}
+    			.middle-line {
+    				width: 6rem;
+				    border-top: 3px solid black;
+				    top: -0.5rem;
+				    transition: ease-out all .5s;
+    			}
+			}
 		}
 		.separate-line {
 			width: 100%;

@@ -134,6 +134,9 @@ button { outline:none !important; }
     left: 50%;
     transform: translateX(-50%);
 }
+.igx-calendar__date--current:not(.igx-calendar__date--selected) .igx-calendar__date-content {
+    background: none !important; 
+}
 $my-calendar-theme: igx-calendar-theme(
     $header-background: #494b40,
     $header-text-color: map-get($colors, light),

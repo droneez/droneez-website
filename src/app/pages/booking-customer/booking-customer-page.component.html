@@ -3,8 +3,8 @@
 		[style.min-height]="screenHeight < 900 ? '900px' : screenHeight + 'px'"
 		[style.width]="screenWidth + 'px'"
 	>
-		<div class="container h-100">
-			<div class="row w-100 recap-row pl-4">
+		<div class="container h-100 mt-5 pt-5">
+			<!--<div class="row w-100 recap-row pl-4">
 				<div class="col-md-4 col-sm-12 recap-1">
 					<div class="row h-100 align-items-end justify-content-center">
 						<div class="img-wrapper position-relative">
@@ -28,6 +28,28 @@
 							<h4 class="text-center w-100 pt-5">{{ isDecouverte ? 'Découverte' : isImmersion ? 'Immersion' : isAccesPiste ? 'Accès piste' : isLesson ? 'Cours particuliers' : isEvent ? 'Événement' : ''}}</h4>
 						</div>
 					</div>
+				</div>
+			</div>-->
+
+			<div class="row w-100 recap-row step-line justify-content-start align-items-center">
+				<div class="col-md-3 col-sm-12 recap-1">
+					<div class="icon icon-eiffel-tower"></div>
+					<h4 class="label mt-0">Paris</h4>
+				</div>
+				<div class="col-md-auto line p-0 recap-2">
+					<div class="round round-left"></div>
+					<div class="middle-line"></div>
+					<div class="round round-right"></div>
+				</div>
+				<div class="col-md-4 col-sm-12 recap-2" (click)="resetChoice1()">
+					<div class="icon" [ngClass]="{
+						'icon-decouverte': isDecouverte,
+						'icon-immersion': isImmersion,
+						'icon-accespiste': isAccesPiste,
+						'icon-coursparticuliers': isLesson,
+						'icon-event': isEvent
+					}"></div>
+					<h4 class="label mt-0">{{ isDecouverte ? 'Découverte' : isImmersion ? 'Immersion' : isAccesPiste ? 'Accès piste' : isLesson ? 'Cours particuliers' : isEvent ? 'Événement' : ''}}</h4>
 				</div>
 			</div>
 
@@ -411,11 +433,11 @@
 	</div>
 </section>
 
-<div class="separate-img-container">
+<!--<div class="separate-img-container">
 	<div class="separate-img w-100">
 	    <div class="shadow"></div>
 	</div>
-</div>
+</div>-->
 
 
 

@@ -154,6 +154,7 @@ export class BookingCustomerPageComponent {
                 break;
             case "default": break;
         }
+
     }
 
     getAvailablePlaces(date: Date): void {
