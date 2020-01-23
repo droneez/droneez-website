@@ -16,7 +16,6 @@ section {
 		  	img {
 		  		max-width: 10rem;
 		  	} 
-		  	
 		}
 		@media screen and (max-width: 575px) {
 			min-height : 70rem;
@@ -39,6 +38,10 @@ section {
 
 			.recap-row {
 				height: 11rem;
+
+				h4 {
+					height: 3rem;
+				}
 
 				@media screen and (max-width: 768px) {
 					padding-top: 5rem;
@@ -70,9 +73,15 @@ section {
 						    width: 36rem !important;
 						}
 					}*/
+					//top: -4rem;
 					.icon {
+						height: 12rem !important;
 						//text-shadow: 0 0 1px black;
 						font-size: 13rem;
+						&.icon-eiffel-tower::before {
+							transform: translate3d(-30%,0,0);
+							padding-top: 0 !important;
+						}
 					}
 				}
 				.recap-2 {
@@ -91,6 +100,21 @@ section {
 						    width: 36rem !important;
 						}
 					}*/
+					.shadow-icon {
+						transition: ease-out .3s box-shadow;
+						margin-top:-1rem;
+					}
+					.icon {
+						transition: transform .3s ease-in-out, ease .5s color
+					}
+					&.change-date {
+						.icon {
+							transform: translate3d(0,-1.5rem,0) scale3d(1.15,1.15,1);
+						}
+						.shadow-icon {
+							box-shadow: black 0px 0px 48px 6px;
+					    }
+					}
 				}
 				.recap-3 {
 					transform: translateX(3000%);
@@ -120,7 +144,7 @@ section {
 			.calendar-row {
 				transform: translateY(2000%);
     			transition: ease-out .6s transform;
-    			margin-left: 1.3rem;
+    			//margin-left: 1.3rem;
     			/*height: 87%;*/
     			&.hide {
     				height : 0 !important;
@@ -144,6 +168,11 @@ section {
 	    		.schedule-container {
 	    			height: 22rem;
     				overflow-y: scroll;
+    				opacity: 1;
+    				transition: ease .3s opacity;
+    				&.change-date {
+    					opacity: 0;
+    				}
     			}
     			@media screen and (max-width: 768px) {
 					margin: 0;
@@ -379,6 +408,7 @@ section {
 				}
 				.icon {
 					color:  map-get($colors, danger);
+					text-shadow: 0 0 1px map-get($colors, danger);
 		    		//text-shadow: 0 0 10px map-get($colors, danger);
 		    	}
 			}
@@ -393,6 +423,7 @@ section {
 				}
 				.icon {
 		    		//text-shadow: 0 0 10px black;
+		    		text-shadow: 0 0 1px map-get($colors, tertiary);
 		    		color: map-get($colors, tertiary);
 		    	}
 			}
@@ -407,6 +438,7 @@ section {
 				}
 				.icon {
 					color: rgba(0,0,0,.5);
+					text-shadow: 0 0 1px rgba(0,0,0,.5);
 		    		//text-shadow: 0 0 3px rgba(0,0,0,.5);
 
 		    	}
@@ -439,7 +471,7 @@ section {
 				display: inline;
 			}
 			.line {
-				top: -.5rem;
+				width: 100%;
     			.round {
     				border: 3px solid black;
 				    border-radius: 100%;
@@ -449,16 +481,43 @@ section {
 				    top: -.3rem;
     			}
     			.round-left {
-				    left: -.7rem;
+				    left: 3px;
     			}
     			.round-right {
-    				right: -.7rem;
+    				right: 3px;
+    				transition: ease right .3s;
     			}
     			.middle-line {
-    				width: 6rem;
+    				width: 100%;
 				    border-top: 3px solid black;
 				    top: -0.5rem;
 				    transition: ease-out all .5s;
+    			}
+    			@keyframes superanimation-1 {
+				    0% {
+				        right: calc(25% - 3px);
+				    }
+
+				    100% {
+				        right: 3px;
+				    }
+				}
+				@keyframes superanimation-2 {
+				    0% {
+				        width: 75%;
+				    }
+
+				    100% {
+				        width: 100%;
+				    }
+				}
+    			&.change-date {
+    				.round-right {
+    					animation: superanimation-1 .14s;
+    				}
+    				.middle-line {
+    					animation: superanimation-2 .14s;
+    				}
     			}
 			}
 		}

@@ -1,7 +1,8 @@
 
-.icon-accespiste:before { content: '\e800'; } /* '' */
-.icon-coursparticuliers:before { content: '\e801'; } /* '' */
-.icon-decouverte:before { content: '\e802'; } /* '' */
-.icon-event:before { content: '\e803'; } /* '' */
-.icon-immersion:before { content: '\e804'; } /* '' */
-.icon-eiffel-tower:before { content: '\e805'; } /* '' */
+.icon-eiffel-tower:before { content: '\e807'; } /* '' */
+.icon-decouverte:before { content: '\e809'; } /* '' */
+.icon-coursparticuliers:before { content: '\e80b'; } /* '' */
+.icon-immersion:before { content: '\e80d'; } /* '' */
+.icon-calendar:before { content: '\e80e'; } /* '' */
+.icon-accespiste:before { content: '\e810'; } /* '' */
+.icon-event:before { content: '\e811'; } /* '' */

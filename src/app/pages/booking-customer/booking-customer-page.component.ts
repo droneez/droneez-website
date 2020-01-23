@@ -21,6 +21,7 @@ export class BookingCustomerPageComponent {
     schedule: BookingData[];
     type: string;
     date: Date;
+    dateHasChanged: boolean = false;
 
 	screenHeight: number;
     screenWidth: number;
@@ -165,8 +166,16 @@ export class BookingCustomerPageComponent {
     }
 
     onCalendarClick(date: Date) {
+        // animation sur la date
+        this.dateHasChanged = true;
+        setTimeout(()=>{
+            this.dateHasChanged = false;
+        },280);
         this.date = date;
-        this.getAvailablePlaces(date);
+        setTimeout(()=>{
+            this.getAvailablePlaces(date);
+        },150);
+        
     } 
 
     toggleShopBag(scheduleItem) {

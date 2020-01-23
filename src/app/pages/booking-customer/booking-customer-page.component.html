@@ -3,6 +3,47 @@
 		[style.min-height]="screenHeight < 900 ? '900px' : screenHeight + 'px'"
 		[style.width]="screenWidth + 'px'"
 	>
+
+		<div class="container-fluid mt-5 pt-5">
+			<div class="row recap-row step-line justify-content-center align-items-center">
+				<div class="col-md-2 col-sm-12 recap-1">
+					<div class="row align-items-end text-center">
+						<div class="col-5 icon icon-eiffel-tower"></div>
+						<h4 class="col-7 text-center label mt-0">Paris</h4>
+					</div>
+				</div>
+				<div class="col-md-2 line recap-2">
+					<div class="round round-left"></div>
+					<div class="middle-line"></div>
+					<div class="round round-right"></div>
+				</div>
+				<div class="col-md-2 col-sm-12 recap-2" (click)="resetChoice1()">
+					<div class="row align-items-center text-center">
+						<div class="icon col-12" [ngClass]="{
+							'icon-decouverte': isDecouverte,
+							'icon-immersion': isImmersion,
+							'icon-accespiste': isAccesPiste,
+							'icon-coursparticuliers': isLesson,
+							'icon-event': isEvent
+						}"></div>
+						<h4 class="col-12 text-center label mt-0">{{ isDecouverte ? 'Découverte' : isImmersion ? 'Immersion' : isAccesPiste ? 'Accès piste' : isLesson ? 'Cours particuliers' : isEvent ? 'Événement' : ''}}</h4>
+					</div>
+				</div>
+				<div class="col-md-2 line recap-2" [class.change-date]="dateHasChanged">
+					<div class="round round-left"></div>
+					<div class="middle-line"></div>
+					<div class="round round-right"></div>
+				</div>
+				<div class="col-md-2 col-sm-12 recap-2" (click)="resetChoice1()" [class.change-date]="dateHasChanged">
+					<div class="row align-items-center">
+						<div class="col-12 icon icon-calendar text-center"></div>
+						<div class="shadow-icon"></div>
+						<h4 class="col-12 text-center label mt-0">{{date | date:'dd/MM/yyyy'}}</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<div class="container h-100 mt-5 pt-5">
 			<!--<div class="row w-100 recap-row pl-4">
 				<div class="col-md-4 col-sm-12 recap-1">
@@ -31,27 +72,7 @@
 				</div>
 			</div>-->
 
-			<div class="row w-100 recap-row step-line justify-content-start align-items-center">
-				<div class="col-md-3 col-sm-12 recap-1">
-					<div class="icon icon-eiffel-tower"></div>
-					<h4 class="label mt-0">Paris</h4>
-				</div>
-				<div class="col-md-auto line p-0 recap-2">
-					<div class="round round-left"></div>
-					<div class="middle-line"></div>
-					<div class="round round-right"></div>
-				</div>
-				<div class="col-md-4 col-sm-12 recap-2" (click)="resetChoice1()">
-					<div class="icon" [ngClass]="{
-						'icon-decouverte': isDecouverte,
-						'icon-immersion': isImmersion,
-						'icon-accespiste': isAccesPiste,
-						'icon-coursparticuliers': isLesson,
-						'icon-event': isEvent
-					}"></div>
-					<h4 class="label mt-0">{{ isDecouverte ? 'Découverte' : isImmersion ? 'Immersion' : isAccesPiste ? 'Accès piste' : isLesson ? 'Cours particuliers' : isEvent ? 'Événement' : ''}}</h4>
-				</div>
-			</div>
+			
 
 			<div class="row calendar-row mt-4" [class.hide]="isLesson || isEvent">
 
@@ -67,12 +88,12 @@
 					></igx-calendar>
 				</div>
 
-				<div class="col-md-5 col-sm-12 time-col pr-0">
+				<div class="col-md-5 col-sm-12 time-col">
 					<div [style.overflow-x]="'hidden'">
 						<div class="schedule-title">
 							<h4>Horaires</h4>
 						</div>
-						<div class="schedule-container">
+						<div class="schedule-container" [class.change-date]="dateHasChanged">
 							<table *ngIf="schedule" mat-table [dataSource]="schedule">
 								<ng-container matColumnDef="range">
 									<th mat-header-cell *matHeaderCellDef class="text-center">Créneau</th>
@@ -103,6 +124,12 @@
 								<tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
 								<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 							</table>
+							<div class="schedule-container" *ngIf="!schedule">
+								<div class="row h-100 align-content-center">
+									<div class="text-center col-12">Désolé, pas de créneaux</div>
+									<div class="text-center col-12">disponibles pour cette date.</div>
+								</div>
+							</div>
 						</div>
 					</div>
 
