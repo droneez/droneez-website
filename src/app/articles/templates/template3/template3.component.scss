@@ -3,6 +3,30 @@
 		font-family: raleway-regular;
 		text-align: justify;
 
+		&.new-article {
+			img, iframe {
+				margin-left: 50%;
+    			transform: translate3d(-50%, 0, 0);
+			}
+			img {
+				//width: 100% !important;
+			}
+			p:first-of-type {	
+				padding-top: 0 !important;
+				margin-top: 0 !important;
+				img {
+					//width:3000px !important;
+					transform: translate3d(-50%, 0, 0) scale3d(1.2,1.2,1);
+				}
+			}
+			p:nth-of-type(2) {
+				&::first-letter {
+					font-size:3rem;
+				}
+				padding-top:3rem;
+			}
+		}
+
 		.post-thumbnail {
 			text-align: center !important;
 		}
