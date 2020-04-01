@@ -1,53 +1,73 @@
-<section class="section-subscription">
-    <div class="global container pt-5"
-	    [style.min-height]="screenHeight < 800 ? '800px' : screenHeight + 'px'" 
-		[style.width]="screenWidth + 'px'">
-
-        <div class="row justify-content-center align-items-center">
-            <div class="col">
-                <h1 class="text-center mb-0">Club Droneez</h1>
-            </div>
-        </div>
-        <div class="row justify-content-center align-items-center">
-            <div class="col">
-                <div class="row justify-content-center align-items-center presentation-container">
-                    <div class="logo-wrapper pr-5">
-                        <img [src]="'assets/img/logo/ffam.png'" [style.width]="'auto'" [style.height]="'16rem'"/>
+<section class="section-subscription" [style.min-height]="screenHeight + 'px'" 
+        [style.width]="screenWidth + 'px'">
+    <div class="global container-fluid pt-5">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col">
+                    <div class="row pt-5 justify-content-center align-items-center">
+                        <div class="logo-wrapper text-center">
+                            <img [src]="'assets/img/logo/LogoTransparentBlack.png'" [style.width]="'auto'"/>
+                        </div>
                     </div>
-                    <div class="text-center pl-5 wording-container">
-                        <h4 class="pt-4">Licence officielle</h4>
-                        <p>
-                            accès piste<br/>
-                            horaires spécifiques club<br/>
-                            invitation workshop<br/>
-                            invitation VIP
-                        </p>
-                    </div>
+                    <h1 class="text-center mb-0">Club</h1>
                 </div>
             </div>
-        </div>
-        <div class="row justify-content-center align-items-center">
-            <div class="col">
-                <h4 class="text-center mb-0">Tarifs mensuels</h4>
-            </div>
-        </div>
-        <div class="row justify-content-center align-items-center text-center presentation-container">
-            <div class="col-6 wording-container">
-                <h4>enfant (<14 ans)</h4>
-                <div class="separate-line"></div>
-                <p>
-                    forfait loisir: <span class="price-mini">30€</span><br/>
-                    forfait compétition avec abonnement FAI: <span class="price-mini">40€</span>
-                </p>
-            </div>
-            <div class="col-6 wording-container">
-                <h4>adulte</h4>
-                <div class="separate-line"></div>
-                <p>
-                    forfait loisir: <span class="price-mini">50€</span><br/>
-                    forfait compétition avec abonnement FAI: <span class="price-mini">60€</span>
-                </p>
+            <div class="row justify-content-center align-items-start" [style.margin-top]="'0rem'">
+                
+                <div class="col-5">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col">
+                            <h4 class="text-center mb-0">Tarifs mensuels</h4>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center align-items-center text-center presentation-container">
+                        <div class="col-6 wording-container">
+                            <h4>enfant (<14 ans)</h4>
+                            <p class="mt-1">
+                                forfait loisir: <span class="price-mini">30€</span><!--<br/>
+                                forfait compétition avec abonnement FAI: <span class="price-mini">40€</span>-->
+                            </p>
+                        </div>
+                        <div class="col-6 wording-container">
+                            <h4>adulte</h4>
+                            <p class="mt-1">
+                                forfait loisir: <span class="price-mini">50€</span><!--<br/>
+                                forfait compétition avec abonnement FAI: <span class="price-mini">60€</span>-->
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-5">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col">
+                            <h4 class="text-center pr-4 mr-4 mb-0">Licence officielle
+                                <img class="pl-4 position-absolute" [src]="'assets/img/logo/ffam.png'" [style.width]="'auto'" [style.height]="'4rem'" [style.top]="'.4rem'"/>
+                            </h4>
+
+                        </div>
+                    </div>
+                    <div class="row justify-content-center align-items-center presentation-container">
+                        <div class="col text-center wording-container">
+                            <!--<h4 class="pt-4">Licence officielle</h4>-->
+                            <p>
+                                accès piste 7j/7<br/>
+                                horaires spécifiques club<br/>
+                                invitation workshop<br/>
+                                invitation VIP
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </div>
+    <div class="container-fluid p-0 mt-1">
+        <div class="img-club-container">
+            <img [src]="'assets/img/club_droneez.jpg'"/>
+        </div>
+    </div>
 </section>
+

@@ -1,122 +1,345 @@
 @import "~src/variables.scss";
 
+@keyframes comete-1 {
+	0% {width: 100%;}
+	30% {width: 100%;}
+	75% {width: 0%;}
+	100% {width:0%;}
+}
+@keyframes comete-1-decouverte {
+	0% {width: 0%;background: linear-gradient(to right, transparent, 80%, map-get($colors, primary));}
+	30% {width: 0%;background: linear-gradient(to right, transparent, 80%, map-get($colors, primary));}
+	65% {background: linear-gradient(to right, transparent, 80%, map-get($colors, primary));}
+	75% {width: 100%;}
+	100% {width: 100%;background: black;}
+}
+@keyframes comete-1-immersion {
+	0% {width: 0%;background: linear-gradient(to left, transparent, 80%, map-get($colors, secondary));}
+	30% {width: 0%;background: linear-gradient(to left, transparent, 80%, map-get($colors, secondary));}
+	65% {background: linear-gradient(to left, transparent, 80%, map-get($colors, secondary));}
+	75% {width: 100%;}
+	100% {width: 100%;background: black;}
+}
+@keyframes comete-1-accespiste {
+	0% {width: 0%;background: linear-gradient(to left, transparent, 80%, map-get($colors, danger));}
+	30% {width: 0%;background: linear-gradient(to left, transparent, 80%, map-get($colors, danger));}
+	65% {background: linear-gradient(to left, transparent, 80%, map-get($colors, danger));}
+	75% {width: 100%;}
+	100% {width: 100%;background: black;}
+}
+@keyframes comete-1-coursparticuliers {
+	0% {width: 0%;background: linear-gradient(to left, transparent, 80%, map-get($colors, tertiary));}
+	30% {width: 0%;background: linear-gradient(to left, transparent, 80%, map-get($colors, tertiary));}
+	65% {background: linear-gradient(to left, transparent, 80%, map-get($colors, tertiary));}
+	75% {width: 100%;}
+	100% {width: 100%;background: black;}
+}
+@keyframes comete-1-event {
+	0% {width: 0%;background: linear-gradient(to left, transparent, 80%, rgba(0,0,0,.5));}
+	30% {width: 0%;background: linear-gradient(to left, transparent, 80%, rgba(0,0,0,.5));}
+	65% {background: linear-gradient(to left, transparent, 80%, rgba(0,0,0,.5));}
+	75% {width: 100%;}
+	100% {width: 100%;background: black;}
+}
+
+@keyframes comete-2-decouverte {
+	0% {box-shadow: 0 0 13px 4px map-get($colors, primary);}
+	30% {box-shadow: 0 0 13px 4px map-get($colors, primary);}
+	58% {box-shadow: 0 0 25px 9px map-get($colors, primary);}
+	75% {box-shadow: 0 0 13px 7px map-get($colors, primary);}
+	80% {opacity: 1;}
+	100% {opacity: 0;}
+}
+@keyframes comete-2-immersion {
+	0% {box-shadow: 0 0 13px 4px map-get($colors, secondary);}
+	30% {box-shadow: 0 0 13px 4px map-get($colors, secondary);}
+	58% {box-shadow: 0 0 25px 9px map-get($colors, secondary);}
+	75% {box-shadow: 0 0 13px 7px map-get($colors, secondary);}
+	80% {opacity: 1;}
+	100% {opacity: 0;}
+}
+@keyframes comete-2-accespiste {
+	0% {box-shadow: 0 0 13px 4px map-get($colors, danger);}
+	30% {box-shadow: 0 0 13px 4px map-get($colors, danger);}
+	58% {box-shadow: 0 0 25px 9px map-get($colors, danger);}
+	75% {box-shadow: 0 0 13px 7px map-get($colors, danger);}
+	80% {opacity: 1;}
+	100% {opacity: 0;}
+}
+@keyframes comete-2-coursparticuliers {
+	0% {box-shadow: 0 0 13px 4px map-get($colors, tertiary);}
+	30% {box-shadow: 0 0 13px 4px map-get($colors, tertiary);}
+	58% {box-shadow: 0 0 25px 9px map-get($colors, tertiary);}
+	75% {box-shadow: 0 0 13px 7px map-get($colors, tertiary);}
+	80% {opacity: 1;}
+	100% {opacity: 0;}
+}
+@keyframes comete-2-event {
+	0% {box-shadow: 0 0 13px 4px rgba(0,0,0,.5);}
+	30% {box-shadow: 0 0 13px 4px rgba(0,0,0,.5);}
+	58% {box-shadow: 0 0 25px 9px rgba(0,0,0,.5);}
+	75% {box-shadow: 0 0 13px 7px rgba(0,0,0,.5);}
+	80% {opacity: 1;}
+	100% {opacity: 0;}
+}
+
+@keyframes comete-3 {
+	0% {opacity: 0;}
+	30% {opacity: 0;}
+	80% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
 section {
+	z-index: 1;
+    position: relative;
+
 	.global {
 
 		perspective: 3000px;
 		perspective-origin: center;
-
 		overflow: hidden;
 
-		img {
-			max-width: 15rem;
+		h1 {
+			font-family: BebasNeueBold;
+			font-size: 2.8rem;
 		}
-
+		h4, h5 {
+			font-family: BebasNeueBold;
+			margin-bottom: 0;
+		}
 		@media screen and (max-width: 768px) {
 		  	img {
 		  		max-width: 10rem;
 		  	} 
-		  	
 		}
 		@media screen and (max-width: 575px) {
 			min-height : 70rem;
 		}
-
-		.recap-row h4, .choice-1 h4 {
-			color: map-get($colors, light);
-			font-family: BebasNeueBold;
+		.icon {
+		    height: 3rem;
+		    font-size: 4rem;
+		    transition: transform .4s ease-out, ease .5s color;
+			transform: translate3d(0,0,0) scale3d(1,1,1);
+			&.icon-accespiste, &.icon-event, &.icon-coursparticuliers {
+				text-shadow: 0 0 1px black;
+			}
 		}
-
-		.recap-row h4{
-			position:absolute;
-			top: 0;
-		}
-	
+		.shadow-icon {
+			box-shadow: black 0px 0px 0px 0px;
+	    	border-radius: 100px;
+	   		height: .1rem;
+	    	width: .1rem;
+	    	margin-left: 50%;
+	    	transform: rotate3d(1,0,0,77deg) translateX(-50%);
+	    	transition: ease-out .4s box-shadow;
+		}	
 		&.main {
 			filter: blur(4px);
 			opacity: .5;
 			transition: ease-in-out filter 1s, ease-in-out opacity 1s;
 
-			.recap-row {
-				height: 11rem;
+			@media screen and (max-width: 768px) {
+				overflow: scroll;
+			}
 
+			.step-line {
+				height: 9rem;
+				h4 {height: 3rem;}
 				@media screen and (max-width: 768px) {
 					padding-top: 5rem;
     				height: 16rem;
 				}
-
-				h4 {
-					transform: skewX(-29deg);
-   					margin-top: -1rem;
+				.subtitle {
+					line-height: 1.3rem;
+				    font-family: BebasNeueRegular;
+				    font-size: 1rem;
+				    i {
+				    	font-size: .8rem;
+				    }
 				}
-				.img-wrapper {
-					transform: skewX(29deg);
-				    overflow: hidden;
-				    height: 6rem !important;
-				    cursor: pointer;
+				.icon {
+					height: 5rem;
+					display: inline;
+					vertical-align: middle;
+					&::before {
+						border-radius: 100%;
+					    width: 9rem;
+					    height: 9rem;
+					    padding-top: 1rem;
+					    margin-left: 0;
+					    margin-right: 0;
+					}
+				}
+				.label {display: inline;}
+				.line {
+					width: 100%;
+					height:3px;
+					padding:0;
+	    			.round {
+	    				border: 3px solid black;
+					    border-radius: 100%;
+					    width: .8rem;
+					    height: .8rem;
+					    position: absolute;
+					    top: -.3rem;
+	    			}
+	    			.round-left {left: -.8rem;}
+	    			.round-right {right: -.8rem;}
+	    			.middle-line {
+	    				height:3px;
+	    				top: -0.5rem;
+						transition: ease-out all .5s;
+						&::after {
+					    	content: "";
+						    width: .1rem;
+						    display: block;
+						    border-radius: 100%;
+					    }
+					    &.decouverte::after {box-shadow: 0 0 13px 9px map-get($colors, primary);}
+					    &.immersion::after {box-shadow: 0 0 13px 9px map-get($colors, secondary);}
+					    &.accespiste::after {box-shadow: 0 0 13px 9px map-get($colors, danger);}
+					    &.coursparticuliers::after {box-shadow: 0 0 13px 9px map-get($colors, tertiary);}
+					    &.event::after {box-shadow: 0 0 13px 9px rgba(0,0,0,.5);}
+	    			}
+	    			.middle-line-2 {height:3px;}
+	    			&.anim {
+	    				.middle-line::after {margin-left: 102%;}
+		    			&.decouverte .middle-line::after {animation: comete-2-decouverte 1.5s;}
+						&.immersion .middle-line::after {animation: comete-2-immersion 1.5s;}
+						&.accespiste .middle-line::after {animation: comete-2-accespiste 1.5s;}
+						&.coursparticuliers .middle-line::after {animation: comete-2-coursparticuliers 1.5s;}
+						&.event .middle-line::after {animation: comete-2-event 1.5s;}
+						&.decouverte {.middle-line,.middle-line-2 {animation: comete-1-decouverte 1.5s;animation-fill-mode: forwards;}}
+						&.immersion {.middle-line,.middle-line-2 {animation: comete-1-immersion 1.5s;animation-fill-mode: forwards;}}
+						&.accespiste {.middle-line,.middle-line-2 {animation: comete-1-accespiste 1.5s;animation-fill-mode: forwards;}}
+						&.coursparticuliers {.middle-line,.middle-line-2 {animation: comete-1-coursparticuliers 1.5s;animation-fill-mode: forwards;}}
+						&.event {.middle-line,.middle-line-2 {animation: comete-1-event 1.5s;animation-fill-mode: forwards;}}
+					}
+	    			&.recap-2 {
+		    			.round-right {
+							right: 100%;
+							transition: ease right 1s;
+						}
+		    			.middle-line {
+						    &::after {transform: translate3d(0, .15rem, 0);}
+						    &.decouverte{background: linear-gradient(to right, transparent, 80%, map-get($colors, primary));}
+						    &.immersion {background: linear-gradient(to right, transparent, 80%, map-get($colors, secondary));}
+						    &.accespiste {background: linear-gradient(to right, transparent, 80%, map-get($colors, danger));}
+						    &.coursparticuliers {background: linear-gradient(to right, transparent, 80%, map-get($colors, tertiary));}
+						    &.event {background: linear-gradient(to right, transparent, 80%, rgba(0,0,0,.5));}
+		    			}
+		    			&.anim {
+							.round-right {
+								animation: comete-3 1.5s;animation-fill-mode: forwards;
+								right: -.8rem;
+							}
+						}
+		    		}
+	    			&.recap-3 {
+	    				.round-right {
+		    				right: -.8rem;
+		    				transition: ease right .3s;
+		    			}
+		    			.round-left {
+							left: 100%;
+							transition: ease left 1s;
+						}
+		    			.middle-line {
+						    display:inline-block;
+						    &::after {transform: translate3d(0, -.8rem, 0);}
+						    &.decouverte{background: linear-gradient(to left, transparent, 80%, map-get($colors, primary));}
+						    &.immersion {background: linear-gradient(to left, transparent, 80%, map-get($colors, secondary));}
+						    &.accespiste {background: linear-gradient(to left, transparent, 80%, map-get($colors, danger));}
+						    &.coursparticuliers {background: linear-gradient(to left, transparent, 80%, map-get($colors, tertiary));}
+						    &.event {background: linear-gradient(to left, transparent, 80%, rgba(0,0,0,.5));}
+		    			}
+		    			.middle-line-2 {
+		    				display:inline-block;
+		    				position:absolute;
+		    			}
+		    			&.anim {
+		    				.middle-line {animation: comete-1 1.5s;animation-fill-mode: forwards;}
+							.round-left {
+								animation: comete-3 1.5s;animation-fill-mode: forwards;
+								left: -.8rem;
+							}
+						}
+
+	    			}
 				}
 				.recap-1 {
 					transform: translateX(1000%);
 					transition: ease-out .2s transform;
-					img {
-						transform: skewX(-29deg);
-					    margin-top: -21rem;
-					    margin-left: 0rem;
-					    max-width: 28rem;
-					    width: 28rem !important;
-					    @media screen and (max-width: 768px) {
-						    margin-left: -3rem;
-						    max-width: 36rem;
-						    width: 36rem !important;
+					.icon {
+						height: 7rem !important;
+						font-size: 8rem;
+						&.icon-eiffel-tower::before {
+							transform: translate3d(-30%,0,0);
+							padding-top: 0 !important;
 						}
 					}
 				}
 				.recap-2 {
+					cursor: pointer;
 					transform: translateX(2000%);
 					transition: ease-out .3s transform;
-					img {
-						transform: skewX(-29deg);
-					    margin-top: -30rem;
-					    margin-left: 2rem;
-					    max-width: 31rem;
-					    width: 31rem !important;
-					    @media screen and (max-width: 768px) {
-						    margin-left: 2rem;
-						    max-width: 36rem;
-						    width: 36rem !important;
-						}
+					.shadow-icon {
+						transition: ease-out .3s box-shadow;
+						margin-top: -1rem;
+					}
+					.icon {transition: transform .3s ease-in-out, ease .5s color}
+					&.decouverte {
+						.label {color: map-get($colors, primary);}
+						.icon {color:  map-get($colors, primary);}
+					}
+					&.immersion {
+						.label {color: map-get($colors, secondary);}
+						.icon {color:  map-get($colors, secondary);}
+					}
+					&.accespiste {
+						.label {color: map-get($colors, danger);}
+						.icon {color:  map-get($colors, danger);text-shadow: 0 0 1px map-get($colors, danger);}
+					}
+					&.coursparticuliers {
+						.label {color: map-get($colors, tertiary);}
+						.icon {color: map-get($colors, tertiary);text-shadow: 0 0 1px map-get($colors, tertiary);}
+					}
+					&.event {
+						.label {color: rgba(0,0,0,.5);}
+						.icon {color: rgba(0,0,0,.5);text-shadow: 0 0 1px rgba(0,0,0,.5);}
 					}
 				}
 				.recap-3 {
 					transform: translateX(3000%);
 					transition: ease-out .4s transform;
-					img {
-						transform: skewX(-29deg);
-					    margin-top: -11rem;
-					    margin-left: -7rem;
-					    max-width: 31rem;
-					    width: 31rem !important;
+					.icon {transition: transform .3s ease-in-out, ease .5s color}
+					.shadow-icon {
+						transition: ease-out .3s box-shadow;
+						margin-top: -1rem;
 					}
-					@media screen and (max-width: 768px) {
-					    .img-wrapper {
-					        width: 40rem;
-					    }
-					    img {
-					    	transform:translateX(23%);
-					    }
+					&.change-date {
+						.icon {transform: translate3d(0,-1.5rem,0) scale3d(1.15,1.15,1);}
+						.shadow-icon {box-shadow: black 0px 0px 48px 6px;}
 					}
 				}
-			}
-
-			@media screen and (max-width: 768px) {
-				overflow: scroll;
 			}
 
 			.calendar-row {
 				transform: translateY(2000%);
     			transition: ease-out .6s transform;
-    			margin-left: 1.3rem;
-    			/*height: 87%;*/
+    			@media screen and (max-width: 768px) {
+					margin: 0;
+					padding-top:6rem;
+				}
+				table {
+					width: 100%;
+					margin: auto;
+				}
+    			::ng-deep {
+    				.igx-calendar__body-row {height: 1.6rem;}
+    				.igx-calendar-picker {height: 2.3rem;}
+    			}
     			&.hide {
     				height : 0 !important;
     				width : 0 !important;
@@ -128,7 +351,7 @@ section {
 				    margin-top: 1rem;
 				    border-top-left-radius: 0.4rem;
 				    border-top-right-radius: 0.4rem;
-				    h4 {
+				    h6 {
 					    color: white;
 					    font-family: BebasNeueRegular;
 					    text-align: center;
@@ -137,30 +360,26 @@ section {
 	    			}
 	    		}
 	    		.schedule-container {
-	    			height: 22rem;
+	    			height: 16rem;
     				overflow-y: scroll;
+    				opacity: 1;
+    				transition: ease .3s opacity;
+    				&.change-date {opacity: 0;}
+    				::ng-deep .mat-form-field-wrapper {margin-bottom: -8px;}
     			}
-    			@media screen and (max-width: 768px) {
-					margin: 0;
-					padding-top:6rem;
+    			&.lesson {
+					p {line-height: 1.2rem;}
+					.contact-form-wrapper {
+						height: 60% !important;
+						padding: 1rem 0 3rem 0;
+					}
 				}
-    			
 			}
 
 			.buttons-wrapper button {
 				opacity: 0;
 				transform: scale3d(0,0,1);
 				transition: ease opacity .8s, cubic-bezier(.22,-0.57,.53,.99) transform .8s, box-shadow .7s;
-			}
-
-			.calendar-row.lesson {
-				p {
-					line-height: 1.2rem;
-				}
-				.contact-form-wrapper {
-					height: 60% !important;
-					padding: 1rem 0 3rem 0;
-				}
 			}
 
 			.time-col {
@@ -171,7 +390,7 @@ section {
 			&.ready {
 				filter: blur(0px);
 				opacity: 1;
-				.recap-row {
+				.step-line {
 					.recap-1, .recap-2, .recap-3 {
 						transform: translateX(0%);
 					}
@@ -187,7 +406,6 @@ section {
 					transform: scale3d(1,1,1);
 				}
 			}
-			
 		}
 
 		&.select {
@@ -196,279 +414,97 @@ section {
 			&.end {
 				top: -100%;
 			}
-			.container-fluid {
-				position: relative;
-				button {
-					padding: 0;
-					transform: scale3d(1,1,1) rotate3d(0,0,0,0deg);
-					opacity: 1;
-					
-					&.selected {
-						transition: ease-in .2s transform, ease-out .2s opacity;
-						transform: scale3d(.7,.7,.7);
-						opacity: 0;
-					}
-					&.not-selected {
-						transform: rotate3d(0,1,0,180deg);
-					    transition: ease transform 1.5s, opacity .43s cubic-bezier(1,0,1,0);
-					    opacity: 0;
-					}
-					.wording-container {
-						top: 50%;
-    					transform: translate3d(0,-50%,0);
-						color: white;
-						height: 80%;
-						p {
-							font-size: x-small;
-							line-height: 18px;
-						}
-					}
-				}
-				.choice-2 {
-					position: absolute;
-				    top: 0;
-				    opacity: 0;
-				    z-index: -1;
-
-				    button {
-				    	&.decouverte-button {
-				    		transform: translateX(-1000%);
-				    	}
-				    	&.immersion-button {
-				    		transform: translateY(-1000%);
-				    	}
-				    	&.acces-piste-button {
-				    		transform: translateY(1000%);
-				    	}
-				    }
-				}
-				.choice-2.ready {
-					z-index: 0;
-					opacity: 1;
-					button {
-						transition: ease-out 1s transform;
-						&.decouverte-button {
-							transform: translateX(0%) scale3d(1,1,1) rotate3d(0,0,0,0deg);
-						}
-						&.immersion-button,
-				    	&.acces-piste-button {
-				    		transform: translateY(0%) scale3d(1,1,1) rotate3d(0,0,0,0deg);
-				    	}
-				    	&.selected {
-							transition: ease-in .2s transform, ease-out .2s opacity;
-							transform: scale3d(.7,.7,.7);
-						}
-						&.not-selected {
-							transform: rotate3d(0,1,0,180deg);
-						    transition: ease transform 1.5s, opacity .43s cubic-bezier(1,0,1,0);
-						}
-					}
-
+			.decouverte {
+				&:hover, &:focus {
+					.mat-btn-outline-dark {box-shadow: inset 15rem 0 3rem 0 map-get($colors, primary);}
+					.category {color: map-get($colors, primary);}
+					.icon {color:  map-get($colors, primary);}
 				}
 			}
-		}
-
-		table {
-			width: 100%;
-			margin: auto;
-		}
-
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-section {
-	z-index: 1;
-    position: relative;
-	.global {
-		.icon {
-			width: 100%;
-		    height: 6rem;
-		    font-size: 8rem;
-		    transition: transform .4s ease-out, ease .5s color;//, ease .5s text-shadow;
-			transform: translate3d(0,0,0) scale3d(1,1,1);
-		}
-		.shadow-icon {
-			box-shadow: black 0px 0px 0px 0px;
-	    	border-radius: 100px;
-	   		height: .1rem;
-	    	width: .1rem;
-	    	margin-left: 50%;
-	    	transform: rotate3d(1,0,0,77deg) translateX(-50%);
-	    	transition: ease-out .4s box-shadow;
-		}
-		.category {
-			transition: color 0.25s;
-		}
-		.decouverte {
-			&:hover, &:focus {
-				.mat-btn-outline-dark {
-				    box-shadow: inset 15rem 0 3rem 0 map-get($colors, primary);
+			.immersion {
+				&:hover, &:focus {
+					.mat-btn-outline-dark {box-shadow: inset 15rem 0 3rem 0 map-get($colors, secondary);}
+					.category {color: map-get($colors, secondary);}
+					.icon {color:  map-get($colors, secondary);}
 				}
+			}
+			.acces-piste {
+				&:hover, &:focus {
+					.mat-btn-outline-dark {box-shadow: inset 15rem 0 3rem 0 map-get($colors, danger);}
+					.category {color: map-get($colors, danger);}
+					.icon {color:  map-get($colors, danger);text-shadow: 0 0 1px map-get($colors, danger);}
+				}
+			}
+			.lesson {
+				&:hover, &:focus {
+					.mat-btn-outline-dark {box-shadow: inset 15rem 0 3rem 0 map-get($colors, tertiary);}
+					.category {color: map-get($colors, tertiary);}
+					.icon {color: map-get($colors, tertiary);text-shadow: 0 0 1px map-get($colors, tertiary);}
+				}
+			}
+			.event {
+				&:hover, &:focus {
+					.mat-btn-outline-dark {box-shadow: inset 15rem 0 3rem 0 rgba(0,0,0,.5);}
+					.category {color: rgba(0,0,0,.5);}
+					.icon {color: rgba(0,0,0,.5);text-shadow: 0 0 1px rgba(0,0,0,.5);}
+				}
+			}
+			.presentation-container {
+				&:hover, &:focus {
+					.icon {transform: translate3d(0,-1.5rem,0) scale3d(1.15,1.15,1);}
+					.shadow-icon {box-shadow: black 0px 0px 48px 6px;}
+				}
+				cursor: pointer;
 				.category {
-					color: map-get($colors, primary);	
-				}
-				.icon {
-					color:  map-get($colors, primary);
-		    		//text-shadow: 0 0 10px map-get($colors, primary);
-		    	}
-			}
-		}
-		.immersion {
-			&:hover, &:focus {
-				.mat-btn-outline-dark {
-				    box-shadow: inset 15rem 0 3rem 0 map-get($colors, secondary);
-				}
-				.category {
-					color: map-get($colors, secondary);	
-				}
-				.icon {
-					color:  map-get($colors, secondary);
-		    		//text-shadow: 0 0 10px map-get($colors, secondary);
-		    	}
-			}
-		}
-		.acces-piste {
-			&:hover, &:focus {
-				.mat-btn-outline-dark {
-				    box-shadow: inset 15rem 0 3rem 0 map-get($colors, danger);
-				}
-				.category {
-					color: map-get($colors, danger);	
-				}
-				.icon {
-					color:  map-get($colors, danger);
-		    		//text-shadow: 0 0 10px map-get($colors, danger);
-		    	}
-			}
-		}
-		.lesson {
-			&:hover, &:focus {
-				.mat-btn-outline-dark {
-				    box-shadow: inset 15rem 0 3rem 0 map-get($colors, tertiary);
-				}
-				.category {
-					color: map-get($colors, tertiary);	
-				}
-				.icon {
-		    		//text-shadow: 0 0 10px black;
-		    		color: map-get($colors, tertiary);
-		    	}
-			}
-		}
-		.event {
-			&:hover, &:focus {
-				.mat-btn-outline-dark {
-				    box-shadow: inset 15rem 0 3rem 0 rgba(0,0,0,.5);
-				}
-				.category {
-					color: rgba(0,0,0,.5);	
-				}
-				.icon {
-					color: rgba(0,0,0,.5);
-		    		//text-shadow: 0 0 3px rgba(0,0,0,.5);
-
-		    	}
-			}
-		}
-		h1 {
-			font-family: BebasNeueBold;
-			font-size: 2.8rem;
-		}
-		h4 {
-			font-family: BebasNeueBold;
-			margin-bottom: 0;
-		}
-		.separate-line {
-			width: 100%;
-	        border-top: 1px solid rgba(0,0,0,.5);
-	        position: absolute;
-	        margin-left: -15px;
-		}
-		.presentation-container {
-			&:hover, &:focus {
-				.icon {
-					transform: translate3d(0,-1.5rem,0) scale3d(1.15,1.15,1);
-				}
-				.shadow-icon {
-					box-shadow: black 0px 0px 48px 6px;
-			    }
-			}
-			cursor: pointer;
-			.wording-container {
-				font-family: raleway-medium;
-				min-height: 20rem;
-				.title-container {
-					//min-height: 8em;
-				}
-				.price {
-					font-family: BebasNeueBold;
-					font-size: 2.5rem;
-				}
-				.price-mini {
-					font-family: BebasNeueBold;
+					transition: color 0.25s;
 					font-size: 1.5rem;
 				}
-				.wording {
-					min-height: 5rem;
+				.separate-line {
+					width: 100%;
+			        border-top: 1px solid rgba(0,0,0,.5);
+			        position: absolute;
+			        margin-left: -15px;
 				}
-				p {
-					line-height: 1.3rem;
-				    font-family: BebasNeueRegular;
-				    font-size: 1rem;
-				    i {
-				    	font-size: .8rem;
-				    }
+				.wording-container {
+					font-family: raleway-medium;
+					min-height: 15rem;
+					.price {
+						font-family: BebasNeueBold;
+						font-size: 2rem;
+					}
+					.price-mini {
+						font-family: BebasNeueBold;
+						font-size: 1.5rem;
+					}
+					.wording {
+						min-height: 5rem;
+						margin: 0 -1rem;
+					}
+					p {
+						line-height: 1.3rem;
+					    font-family: BebasNeueRegular;
+					    font-size: 1rem;
+					    i {
+					    	font-size: .8rem;
+					    }
+					}
+					.strong-word {
+						text-transform: uppercase;
+						font-weight: bold;
+					}
 				}
-				.strong-word {
-					text-transform: uppercase;
-					font-weight: bold;
-				}
-			}
 
-			&.selected {
-				transition: ease-in .2s transform, ease-out .2s opacity;
-				transform: scale3d(.7,.7,.7);
-				opacity: 0;
+				&.selected {
+					transition: ease-in .2s transform, ease-out .2s opacity;
+					transform: scale3d(.7,.7,.7);
+					opacity: 0;
+				}
+				&.not-selected {
+					transform: rotate3d(0,1,0,180deg);
+				    transition: ease transform 1.5s, opacity .43s cubic-bezier(1,0,1,0);
+				    opacity: 0;
+				}
 			}
-			&.not-selected {
-				transform: rotate3d(0,1,0,180deg);
-			    transition: ease transform 1.5s, opacity .43s cubic-bezier(1,0,1,0);
-			    opacity: 0;
-			}
-			
 		}
 	}
 }
@@ -479,8 +515,6 @@ section {
 	overflow: hidden;
     z-index: -1;
 	.separate-img {
-		//margin-top:-15rem;
-		//margin-bottom:-10rem;
 		background: url('./../../../assets/img/pricing-separate-img.png') no-repeat;
 		background-size: cover;
 	    background-position-y: center;
@@ -497,4 +531,3 @@ section {
 		}
 	}
 }
-
