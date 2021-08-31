@@ -123,7 +123,7 @@ export class SeoService {
 
     setSchemaOrgDatas(seo: SeoInterface) {
         let schemaOrgContent = [
-            `{"@context":"https:\/\/schema.org","@type":"Organization","url":"https:\/\/www.droneez.com\/","sameAs":["https:\/\/www.facebook.com\/droneez\/","https:\/\/www.instagram.com\/droneez_paris\/","https:\/\/twitter.com\/DRONEEZ_fr"],"@id":"https:\/\/www.droneez.com\/#organization","name":"Droneez","logo":"https:\/\/www.droneez.com\/assets\/img\/logo\/Logo-droneez.jpg"}`
+            `{"@context":"https:\/\/schema.org","@type":"Organization","url":"https:\/\/www.droneez-legacy.com\/","sameAs":["https:\/\/www.facebook.com\/droneez\/","https:\/\/www.instagram.com\/droneez_paris\/","https:\/\/twitter.com\/DRONEEZ_fr"],"@id":"https:\/\/www.droneez-legacy.com\/#organization","name":"Droneez","logo":"https:\/\/www.droneez-legacy.com\/assets\/img\/logo\/Logo-droneez.jpg"}`
             /*
                 "contactPoint": [
                     {
@@ -155,7 +155,7 @@ export class SeoService {
                     "streetAddress": "20341 Whitworth Institute 405 N. Whitworth"
                   }
             */
-            /* schemaOrgContent: ['{"@context":"https:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/www.droneez.com\/","name":"Droneez","potentialAction":{"@type":"SearchAction","target":"https:\/\/www.droneez.com\/?s={search_term_string}","query-input":"required name=search_term_string"}}'],
+            /* schemaOrgContent: ['{"@context":"https:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/www.droneez-legacy.com\/","name":"Droneez","potentialAction":{"@type":"SearchAction","target":"https:\/\/www.droneez-legacy.com\/?s={search_term_string}","query-input":"required name=search_term_string"}}'],
 */
         ];
 
@@ -240,9 +240,9 @@ export class SeoService {
         if(seo.metas) this.meta.addTags(seo.metas);
         
         /*
-        { rel: 'alternate', hreflang: 'fr', href: 'https://www.droneez.com/decollage-en-toute-clairance/' }*/
-        /*<link rel="alternate" type="application/rss+xml" title="Droneez » Flux" href="https://www.droneez.com/feed/">
-        <link rel="alternate" type="application/rss+xml" title="Droneez » Flux des commentaires" href="https://www.droneez.com/comments/feed/">*/
+        { rel: 'alternate', hreflang: 'fr', href: 'https://www.droneez-legacy.com/decollage-en-toute-clairance/' }*/
+        /*<link rel="alternate" type="application/rss+xml" title="Droneez » Flux" href="https://www.droneez-legacy.com/feed/">
+        <link rel="alternate" type="application/rss+xml" title="Droneez » Flux des commentaires" href="https://www.droneez-legacy.com/comments/feed/">*/
     }
 
     removeMetaDatas(seo: SeoInterface) {

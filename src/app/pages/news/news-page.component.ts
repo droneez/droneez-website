@@ -52,7 +52,7 @@ export class NewsPageComponent implements AfterViewInit {
 
             this.seo = {
                 type: 'article',
-                imageUrl: "https://www.droneez.com/assets/img/articles/covers/article_8.jpg",
+                imageUrl: "https://www.droneez-legacy.com/assets/img/articles/covers/article_8.jpg",
                 imageAlt: "Les pilotes Droneez",
                 imageType: "image/jpeg",
                 title: "Les actualités du drone selon les pilotes de notre centre Droneez",

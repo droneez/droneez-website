@@ -14,7 +14,7 @@ export class ContactPageComponent {
   	constructor(private globals: Globals, private seoService: SeoService) { 
         this.seo = {
             type: 'article',
-            imageUrl: "https://www.droneez.com/assets/img/business-event.jpg",
+            imageUrl: "https://www.droneez-legacy.com/assets/img/business-event.jpg",
             imageAlt: "TeamBuilding et Evenement FPV pilotage de drone à distance en immersion",
             imageType: "image/jpeg",
             title: "Contact - Une demande particulière, l'équipe Droneez est prête à vous répondre",

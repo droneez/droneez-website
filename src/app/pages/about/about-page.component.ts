@@ -23,7 +23,7 @@ export class AboutPageComponent {
     ) { 
         this.seo = {
             type: 'article',
-            imageUrl: "https://www.droneez.com/assets/img/about-steps-bg.jpg",
+            imageUrl: "https://www.droneez-legacy.com/assets/img/about-steps-bg.jpg",
             imageAlt: "Piste Drone Paris",
             imageType: "image/jpeg",
             title: "A propos de la genèse de Droneez et de ses fondateurs",

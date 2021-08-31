@@ -14,7 +14,7 @@ export class PricingPageComponent implements OnInit {
   	constructor(private globals: Globals,private seoService: SeoService) {
         this.seo = {
             type: 'article',
-            imageUrl: "https://www.droneez.com/assets/img/logo/logo-droneez.jpg",
+            imageUrl: "https://www.droneez-legacy.com/assets/img/logo/logo-droneez.jpg",
             imageAlt: "Logo Droneez",
             imageType: "image/jpeg",
             title: "Tarifs et club FFAM",

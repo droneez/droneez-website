@@ -43,7 +43,24 @@ export class ApiService {
     private config: Config;
 
     constructor(private http: HttpClient) { 
-
+        this.config = {
+            urls: [
+                {
+                    scheduleUrl: "",
+                    contactUrl: "",
+                    paymentUrl: "",
+                    couponUrl: "",
+                    articlesInfosUrl: "",
+                    articleUrls: {
+                        read:  "",
+                        delete: "",
+                        create: "",
+                        update: ""
+                        //,readonly files: string
+                    }
+                }
+            ]
+        }
     }
 /*
     // POST

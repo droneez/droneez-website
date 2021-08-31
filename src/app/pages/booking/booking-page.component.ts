@@ -23,7 +23,7 @@ export class BookingPageComponent {
     ) { 
         this.seo = {
             type: 'article',
-            imageUrl: "https://www.droneez.com/assets/img/booking-pro-teambuilding.jpg",
+            imageUrl: "https://www.droneez-legacy.com/assets/img/booking-pro-teambuilding.jpg",
             imageAlt: "Apprentissage pilote drone Droneez Malakoff",
             imageType: "image/jpeg",
             title: "Les Offres Droneez",

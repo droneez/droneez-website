@@ -20,7 +20,7 @@ export class CoworkPageComponent {
         private seoService: SeoService) { 
 		this.seo = {
             type: 'article',
-            imageUrl: "https://www.droneez.com/assets/img/cowork-bg.jpg",
+            imageUrl: "https://www.droneez-legacy.com/assets/img/cowork-bg.jpg",
             imageAlt: "Les bureaux du WoopLoop chez Droneez, espace de coworking autour du drone",
             imageType: "image/jpeg",
             title: "Wooploop - Droneez mets à disposition un fablab/coworking pour les pros du drone",

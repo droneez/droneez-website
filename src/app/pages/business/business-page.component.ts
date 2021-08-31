@@ -22,7 +22,7 @@ export class BusinessPageComponent {
         private seoService: SeoService) { 
         this.seo = {
             type: 'article',
-            imageUrl: "https://www.droneez.com/assets/img/business-event.jpg",
+            imageUrl: "https://www.droneez-legacy.com/assets/img/business-event.jpg",
             imageAlt: "TeamBuilding et Evenement FPV pilotage de drone à distance en immersion",
             imageType: "image/jpeg",
             title: "La totale des offres Droneez pour les Entreprises",
